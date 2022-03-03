@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,6 +25,10 @@ SECRET_KEY = 'django-insecure-bv54dwaop0^ly17p($t=ob3phwag3ap425t8@(tbz!^jb0!97)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+# id: KBBPl3xHfFZhqBxa5lKJ70nbLOQjvwQa8qOwxqk8
+# secret: C3DlOgpWnShQpLrumrJ4oOm1koqWIVwosZWRdQJMIcbbOR8LiBUuGBRY6FVEUUnhIWNnEXAlCFcrsHdZusYBPpGyGjhjobIKws2EMWrkCkOhES5IUB0JFrJGPDjOyuzn
+# code: hln0NZYCHcBDJtxaR4Hlx4hPaXxneF
 
 ALLOWED_HOSTS = []
 
@@ -75,6 +80,7 @@ WSGI_APPLICATION = 'shopimize.wsgi.application'
 #
 
 AUTH_USER_MODEL='api.User'
+LOGIN_URL='/admin/login/'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
