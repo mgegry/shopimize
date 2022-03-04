@@ -9,51 +9,83 @@ import UIKit
 
 class LoginView: UIView {
     
+    // CONSTANTS
+    let horizontalMarginInset = 30
+    let textFieldHeight = 40
+    
     // Declare views as computed properties so they are lazy initilised
     
-    var testLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Testing"
-        return label
+    var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.spacing = 20
+        stackView.distribution = .fill
+        return stackView
     }()
     
-    var testButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Tap me", for: .normal)
-        button.backgroundColor = .white
-        button.setTitleColor(.black, for: .normal)
-        return button
+    var emailTextField: UITextField = {
+        let emailTextField = UITextField()
+        emailTextField.translatesAutoresizingMaskIntoConstraints = false
+        emailTextField.placeholder = "Enter your email..."
+        emailTextField.borderStyle = .roundedRect
+        emailTextField.keyboardType = .emailAddress
+        emailTextField.autocorrectionType = .no
+        emailTextField.autocapitalizationType = .none
+        return emailTextField
+    }()
+    
+    var passwordTextField: UITextField = {
+        let passwordTextField = UITextField()
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.placeholder = "Password..."
+        passwordTextField.borderStyle = .roundedRect
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.autocorrectionType = .no
+        passwordTextField.autocapitalizationType = .none
+        return passwordTextField
+    }()
+    
+    let loginButton: UIButton = {
+        let loginButton = UIButton()
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.setTitle("Log In", for: .normal)
+        loginButton.setTitleColor(.black, for: .normal)
+        return loginButton
     }()
     
     // Constructors
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        loadViews()
+        addViews()
         setupConstraints()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        loadViews()
+        addViews()
         setupConstraints()
     }
     
     // Methods
-    
-    private func loadViews() {
-        self.addSubview(testLabel)
-        self.addSubview(testButton)
+    private func addViews() {
+
+        stackView.addArrangedSubview(emailTextField)
+        stackView.addArrangedSubview(passwordTextField)
+        stackView.addArrangedSubview(loginButton)
+        self.addSubview(stackView)
+
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            testLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            testLabel.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor),
-            testButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            testButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            stackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            stackView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: CGFloat(horizontalMarginInset)),
+            stackView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: CGFloat(-horizontalMarginInset)),
+            emailTextField.heightAnchor.constraint(equalToConstant: CGFloat(textFieldHeight)),
+            passwordTextField.heightAnchor.constraint(equalToConstant: CGFloat(textFieldHeight))
         ])
     }
     

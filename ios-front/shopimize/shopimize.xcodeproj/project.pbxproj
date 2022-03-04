@@ -11,6 +11,9 @@
 		2448C464E7283F532453426B /* Pods_shopimize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D376BFFD88285165CAB480 /* Pods_shopimize.framework */; };
 		2B22A80127D29A2800D94B6B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A80027D29A2800D94B6B /* LoginViewController.swift */; };
 		2B22A80927D2A15200D94B6B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A80827D2A15200D94B6B /* LoginView.swift */; };
+		2B22A80B27D2B59D00D94B6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B22A80A27D2B59D00D94B6B /* GoogleService-Info.plist */; };
+		2B22A80D27D2C8ED00D94B6B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A80C27D2C8ED00D94B6B /* RegisterViewController.swift */; };
+		2B22A80F27D2C93D00D94B6B /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A80E27D2C93D00D94B6B /* RegisterView.swift */; };
 		2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08127D22D4600D12877 /* AppDelegate.swift */; };
 		2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08327D22D4600D12877 /* SceneDelegate.swift */; };
 		2BC9D08627D22D4600D12877 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08527D22D4600D12877 /* MapViewController.swift */; };
@@ -43,6 +46,9 @@
 		0C7B915C3661E2941A900491 /* Pods-shopimize-shopimizeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopimize-shopimizeUITests.debug.xcconfig"; path = "Target Support Files/Pods-shopimize-shopimizeUITests/Pods-shopimize-shopimizeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2B22A80027D29A2800D94B6B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2B22A80827D2A15200D94B6B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2B22A80A27D2B59D00D94B6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2B22A80C27D2C8ED00D94B6B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		2B22A80E27D2C93D00D94B6B /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		2BC9D07E27D22D4600D12877 /* shopimize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shopimize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC9D08127D22D4600D12877 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BC9D08327D22D4600D12877 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +104,7 @@
 			children = (
 				2B22A80027D29A2800D94B6B /* LoginViewController.swift */,
 				2BC9D08527D22D4600D12877 /* MapViewController.swift */,
+				2B22A80C27D2C8ED00D94B6B /* RegisterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -133,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				2B22A80827D2A15200D94B6B /* LoginView.swift */,
+				2B22A80E27D2C93D00D94B6B /* RegisterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +173,7 @@
 				2B22A80527D29AA700D94B6B /* Assets */,
 				2B22A80427D29A6500D94B6B /* Utils */,
 				2B22A80627D29FE800D94B6B /* Views */,
+				2B22A80A27D2B59D00D94B6B /* GoogleService-Info.plist */,
 				2BC9D08F27D22D4800D12877 /* Info.plist */,
 			);
 			path = shopimize;
@@ -222,6 +231,7 @@
 				2BC9D07B27D22D4600D12877 /* Frameworks */,
 				2BC9D07C27D22D4600D12877 /* Resources */,
 				3F50AA25E9CCCE0925614B06 /* [CP] Copy Pods Resources */,
+				8A1D27994CF874DD59922382 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,6 +270,7 @@
 				2BC9D09B27D22D4800D12877 /* Frameworks */,
 				2BC9D09C27D22D4800D12877 /* Resources */,
 				AADEA7251FB5B014AEAFBE0F /* [CP] Copy Pods Resources */,
+				EBB2923000BEF2A5EA901D12 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -321,6 +332,7 @@
 			files = (
 				2BC9D08E27D22D4800D12877 /* LaunchScreen.storyboard in Resources */,
 				2BC9D08B27D22D4800D12877 /* Assets.xcassets in Resources */,
+				2B22A80B27D2B59D00D94B6B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +414,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8A1D27994CF874DD59922382 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shopimize/Pods-shopimize-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shopimize/Pods-shopimize-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shopimize/Pods-shopimize-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		95505A4FD83BCDFEE09143C0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -441,6 +470,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shopimize-shopimizeUITests/Pods-shopimize-shopimizeUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EBB2923000BEF2A5EA901D12 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shopimize-shopimizeUITests/Pods-shopimize-shopimizeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shopimize-shopimizeUITests/Pods-shopimize-shopimizeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shopimize-shopimizeUITests/Pods-shopimize-shopimizeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -451,6 +497,8 @@
 				2B22A80127D29A2800D94B6B /* LoginViewController.swift in Sources */,
 				2BC9D08627D22D4600D12877 /* MapViewController.swift in Sources */,
 				2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */,
+				2B22A80F27D2C93D00D94B6B /* RegisterView.swift in Sources */,
+				2B22A80D27D2C8ED00D94B6B /* RegisterViewController.swift in Sources */,
 				2B22A80927D2A15200D94B6B /* LoginView.swift in Sources */,
 				2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */,
 			);
@@ -629,6 +677,7 @@
 				INFOPLIST_FILE = shopimize/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -657,6 +706,7 @@
 				INFOPLIST_FILE = shopimize/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

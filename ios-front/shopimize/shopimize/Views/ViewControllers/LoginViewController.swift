@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -13,19 +14,17 @@ class LoginViewController: UIViewController {
     
     override func loadView() {
         view = loginView
+        view.backgroundColor = .white
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-        view.backgroundColor = .red
-        loginView.testButton.addTarget(self, action: #selector(testButtonTap), for: .touchUpInside)
+        loginView.loginButton.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
     }
     
-    @objc func testButtonTap() {
-        loginView.testButton.setTitle("haha", for: .normal)
-        print("fuata")
+    @objc func didTapLogin() {
+        print("I want to login: \(loginView.emailTextField.text ?? "fuata") ")
     }
 
 }

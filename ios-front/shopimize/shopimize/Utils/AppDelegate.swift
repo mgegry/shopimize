@@ -5,6 +5,7 @@
 //  Created by Mircea Egry on 04/03/2022.
 //
 
+import FirebaseCore
 import GoogleMaps
 import UIKit
 
@@ -17,9 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         GMSServices.provideAPIKey("AIzaSyDZtCb83OMuZbz3Npqrlfm378VajVG2Z20")
+        FirebaseApp.configure()
         
         window = UIWindow()
-        window?.rootViewController = MapViewController()
+        window?.rootViewController = LoginViewController()
         window?.makeKeyAndVisible()
         return true
     }
