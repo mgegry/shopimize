@@ -1,0 +1,6 @@
+framework module Pods_shopimize {
+  umbrella header "Pods-shopimize-umbrella.h"
+
+  export *
+  module * { export * }
+}

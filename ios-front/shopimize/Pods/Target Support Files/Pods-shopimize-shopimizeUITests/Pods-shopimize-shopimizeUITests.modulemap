@@ -1,0 +1,6 @@
+framework module Pods_shopimize_shopimizeUITests {
+  umbrella header "Pods-shopimize-shopimizeUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

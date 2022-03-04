@@ -1,0 +1,922 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 46921981F609C5BA3CB72EC4EA41299D /* Build configuration list for PBXAggregateTarget "GoogleMaps" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = GoogleMaps;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		05025E043D6039C1AD59027102D72321 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		17DAE6294297B92FB3000D7208B84432 /* Pods-shopimize-shopimizeUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6609F5B88B132F06481E923D67F2C1 /* Pods-shopimize-shopimizeUITests-dummy.m */; };
+		30AD9DEB5BDA4D28C8B70E16F85244B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		532DB48779F8B1412331081C412C1A02 /* Pods-shopimizeTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 075254401725567586D9E14027A796D8 /* Pods-shopimizeTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56066725AE4F302A721BDAE28D7FBB06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		98C54F21EA6455A8CDB88CF341B79C7E /* Pods-shopimize-shopimizeUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 10273C3B986FD397C7919B0D8DF00679 /* Pods-shopimize-shopimizeUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C7AD366FE08D7F0344FA91BE8D0EFC47 /* Pods-shopimize-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D1246FF77A6A98497112B5B93965D /* Pods-shopimize-dummy.m */; };
+		C9210B2DA094B8998E80D41607335777 /* Pods-shopimizeTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE85BD9B694547FCBE5E67EDDA0A044 /* Pods-shopimizeTests-dummy.m */; };
+		E04C2C073F0C296A92770C3485E03B53 /* Pods-shopimize-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 548FD393DC7DE79A35E3E9485B3FDFFC /* Pods-shopimize-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		019FC0B5C90D10946937B65485DD374A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30658AEFA875744A9D2D7C77BC51318C;
+			remoteInfo = "Pods-shopimize";
+		};
+		2C772D1575A02085E637EB71B6F37EB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5B4BBC6DD552AC8943C7E22772FC1D3;
+			remoteInfo = GoogleMaps;
+		};
+		BE42DD402A8C67E19277F711C639BE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5B4BBC6DD552AC8943C7E22772FC1D3;
+			remoteInfo = GoogleMaps;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01AF48CF5646ADAB5D7324A8169AFF03 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		063ADD7923EA88E6B19333D293F284B6 /* Pods-shopimize.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-shopimize.release.xcconfig"; sourceTree = "<group>"; };
+		075254401725567586D9E14027A796D8 /* Pods-shopimizeTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-shopimizeTests-umbrella.h"; sourceTree = "<group>"; };
+		10273C3B986FD397C7919B0D8DF00679 /* Pods-shopimize-shopimizeUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-shopimize-shopimizeUITests-umbrella.h"; sourceTree = "<group>"; };
+		166B4DEAED285E590B11802956FCD8B6 /* Pods-shopimize-shopimizeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-shopimize-shopimizeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2883BFC10848C27B520FA385ADFDB46F /* Pods-shopimizeTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-shopimizeTests"; path = Pods_shopimizeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28A250E4E268E80921C791D96C223E8C /* Pods-shopimize.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-shopimize.modulemap"; sourceTree = "<group>"; };
+		2A6609F5B88B132F06481E923D67F2C1 /* Pods-shopimize-shopimizeUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-shopimize-shopimizeUITests-dummy.m"; sourceTree = "<group>"; };
+		2D2D1246FF77A6A98497112B5B93965D /* Pods-shopimize-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-shopimize-dummy.m"; sourceTree = "<group>"; };
+		2F70F057A1346903E7066C338BEF14CE /* Pods-shopimize-shopimizeUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-shopimize-shopimizeUITests-resources.sh"; sourceTree = "<group>"; };
+		33CC805EE46AB716E0BAF7833289B2D4 /* Pods-shopimizeTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-shopimizeTests.modulemap"; sourceTree = "<group>"; };
+		5357C06B933FC4E8802C67A8BFAB27A6 /* Pods-shopimizeTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-shopimizeTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		548FD393DC7DE79A35E3E9485B3FDFFC /* Pods-shopimize-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-shopimize-umbrella.h"; sourceTree = "<group>"; };
+		5B459D8465C54AE63BE3253FEA0759F1 /* Pods-shopimize-shopimizeUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-shopimize-shopimizeUITests"; path = Pods_shopimize_shopimizeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DF512EFBA719DF5FC810EC2B06030AB /* Pods-shopimize-shopimizeUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-shopimize-shopimizeUITests-Info.plist"; sourceTree = "<group>"; };
+		71F4A875497197468F32D9A6CB58F5B6 /* Pods-shopimize.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-shopimize.debug.xcconfig"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		78AE763A70D7ABB67BE9AADCFD818122 /* Pods-shopimize-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-shopimize-acknowledgements.plist"; sourceTree = "<group>"; };
+		8CCDB4D4BC88BF15317602F3013D1F88 /* Pods-shopimizeTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-shopimizeTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8E08EAC3EC5417A5C40CAA39B8FE5640 /* Pods-shopimizeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-shopimizeTests.release.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9FE85BD9B694547FCBE5E67EDDA0A044 /* Pods-shopimizeTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-shopimizeTests-dummy.m"; sourceTree = "<group>"; };
+		A4F476102800B7E70018625B1954F6CB /* Pods-shopimizeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-shopimizeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A8961E701AD3408CC892B9DCB2812D54 /* Pods-shopimize-shopimizeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-shopimize-shopimizeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AABE3D21F0BE384435A5D7C08A8FD5BB /* GoogleMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleMaps.debug.xcconfig; sourceTree = "<group>"; };
+		ACF510CF0675EC88881C09B7E1293D16 /* Pods-shopimize-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-shopimize-Info.plist"; sourceTree = "<group>"; };
+		AF9E2523A7BC7370A7E22E1EAF92FD0D /* Pods-shopimize-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-shopimize-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BC4358E9015891E63F9A4D850E9B8EC7 /* Pods-shopimize-shopimizeUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-shopimize-shopimizeUITests.modulemap"; sourceTree = "<group>"; };
+		C3D0978B919EA2ECF2A2F8466075BB51 /* GoogleMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleMaps.release.xcconfig; sourceTree = "<group>"; };
+		C9AC4BB25C8E0BD93836027320721AC3 /* Pods-shopimize-shopimizeUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-shopimize-shopimizeUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CCAF84BDED2FB6E96E950E18E0742136 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		D67E4653D12B616649E9E2678C9C7EDE /* Pods-shopimize-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-shopimize-resources.sh"; sourceTree = "<group>"; };
+		DD1F519A446613A1EA8D0CF80B7CDFA3 /* Pods-shopimize */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-shopimize"; path = Pods_shopimize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE7AD9BFF14BF1A6D3C7AB10AA200526 /* Pods-shopimize-shopimizeUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-shopimize-shopimizeUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		E2309F84CDF17FF87E66D6CDB6B517AB /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		E2F4E7C722407F81715B67A5F9EC4FAD /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		E68FEC32F962978E7237E2FB32FD98F8 /* Pods-shopimizeTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-shopimizeTests-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3E436B0A77E05B227EDBC079BE712111 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05025E043D6039C1AD59027102D72321 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F551086590408842835E59C11C547F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56066725AE4F302A721BDAE28D7FBB06 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADA8D40972CDCFD9F2877D33C811DAD6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30AD9DEB5BDA4D28C8B70E16F85244B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		038657F5530CA8BC73E12AF7E375FC72 /* Pods-shopimize-shopimizeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BC4358E9015891E63F9A4D850E9B8EC7 /* Pods-shopimize-shopimizeUITests.modulemap */,
+				C9AC4BB25C8E0BD93836027320721AC3 /* Pods-shopimize-shopimizeUITests-acknowledgements.markdown */,
+				DE7AD9BFF14BF1A6D3C7AB10AA200526 /* Pods-shopimize-shopimizeUITests-acknowledgements.plist */,
+				2A6609F5B88B132F06481E923D67F2C1 /* Pods-shopimize-shopimizeUITests-dummy.m */,
+				6DF512EFBA719DF5FC810EC2B06030AB /* Pods-shopimize-shopimizeUITests-Info.plist */,
+				2F70F057A1346903E7066C338BEF14CE /* Pods-shopimize-shopimizeUITests-resources.sh */,
+				10273C3B986FD397C7919B0D8DF00679 /* Pods-shopimize-shopimizeUITests-umbrella.h */,
+				166B4DEAED285E590B11802956FCD8B6 /* Pods-shopimize-shopimizeUITests.debug.xcconfig */,
+				A8961E701AD3408CC892B9DCB2812D54 /* Pods-shopimize-shopimizeUITests.release.xcconfig */,
+			);
+			name = "Pods-shopimize-shopimizeUITests";
+			path = "Target Support Files/Pods-shopimize-shopimizeUITests";
+			sourceTree = "<group>";
+		};
+		05046A7068DE28961E98408657F783ED /* Pods-shopimizeTests */ = {
+			isa = PBXGroup;
+			children = (
+				33CC805EE46AB716E0BAF7833289B2D4 /* Pods-shopimizeTests.modulemap */,
+				8CCDB4D4BC88BF15317602F3013D1F88 /* Pods-shopimizeTests-acknowledgements.markdown */,
+				5357C06B933FC4E8802C67A8BFAB27A6 /* Pods-shopimizeTests-acknowledgements.plist */,
+				9FE85BD9B694547FCBE5E67EDDA0A044 /* Pods-shopimizeTests-dummy.m */,
+				E68FEC32F962978E7237E2FB32FD98F8 /* Pods-shopimizeTests-Info.plist */,
+				075254401725567586D9E14027A796D8 /* Pods-shopimizeTests-umbrella.h */,
+				A4F476102800B7E70018625B1954F6CB /* Pods-shopimizeTests.debug.xcconfig */,
+				8E08EAC3EC5417A5C40CAA39B8FE5640 /* Pods-shopimizeTests.release.xcconfig */,
+			);
+			name = "Pods-shopimizeTests";
+			path = "Target Support Files/Pods-shopimizeTests";
+			sourceTree = "<group>";
+		};
+		1AEA1CF3E36FF8113F6FFD7526BE5F98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CCAF84BDED2FB6E96E950E18E0742136 /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		23258B9441300E23C80256BEEFD1F964 /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				5FCC553E82707BA26B1F6EDC00161B0D /* Base */,
+				387015716759109261086A8C0CA736F5 /* Maps */,
+				9601491F11C5653D98D1EB5DF2155DFE /* Support Files */,
+			);
+			name = GoogleMaps;
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		387015716759109261086A8C0CA736F5 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				F9621E38CA93CD5E47C3F28B4F0AF3DD /* Frameworks */,
+				E48211C21EA696EBC32B31525F5FFA67 /* Resources */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		3ABED158DDDE8F6A0A97023FB5BD9620 /* Pods-shopimize */ = {
+			isa = PBXGroup;
+			children = (
+				28A250E4E268E80921C791D96C223E8C /* Pods-shopimize.modulemap */,
+				AF9E2523A7BC7370A7E22E1EAF92FD0D /* Pods-shopimize-acknowledgements.markdown */,
+				78AE763A70D7ABB67BE9AADCFD818122 /* Pods-shopimize-acknowledgements.plist */,
+				2D2D1246FF77A6A98497112B5B93965D /* Pods-shopimize-dummy.m */,
+				ACF510CF0675EC88881C09B7E1293D16 /* Pods-shopimize-Info.plist */,
+				D67E4653D12B616649E9E2678C9C7EDE /* Pods-shopimize-resources.sh */,
+				548FD393DC7DE79A35E3E9485B3FDFFC /* Pods-shopimize-umbrella.h */,
+				71F4A875497197468F32D9A6CB58F5B6 /* Pods-shopimize.debug.xcconfig */,
+				063ADD7923EA88E6B19333D293F284B6 /* Pods-shopimize.release.xcconfig */,
+			);
+			name = "Pods-shopimize";
+			path = "Target Support Files/Pods-shopimize";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		5FCC553E82707BA26B1F6EDC00161B0D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1AEA1CF3E36FF8113F6FFD7526BE5F98 /* Frameworks */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		8B419624F7A5E31FDBA2ED43C44C5CD6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD1F519A446613A1EA8D0CF80B7CDFA3 /* Pods-shopimize */,
+				5B459D8465C54AE63BE3253FEA0759F1 /* Pods-shopimize-shopimizeUITests */,
+				2883BFC10848C27B520FA385ADFDB46F /* Pods-shopimizeTests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9601491F11C5653D98D1EB5DF2155DFE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AABE3D21F0BE384435A5D7C08A8FD5BB /* GoogleMaps.debug.xcconfig */,
+				C3D0978B919EA2ECF2A2F8466075BB51 /* GoogleMaps.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GoogleMaps";
+			sourceTree = "<group>";
+		};
+		A0F67A06EE8DF870BF6EA47D74284E91 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3ABED158DDDE8F6A0A97023FB5BD9620 /* Pods-shopimize */,
+				038657F5530CA8BC73E12AF7E375FC72 /* Pods-shopimize-shopimizeUITests */,
+				05046A7068DE28961E98408657F783ED /* Pods-shopimizeTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				DF3634087891871FA7B65CC4A8E6DB71 /* Pods */,
+				8B419624F7A5E31FDBA2ED43C44C5CD6 /* Products */,
+				A0F67A06EE8DF870BF6EA47D74284E91 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DF3634087891871FA7B65CC4A8E6DB71 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				23258B9441300E23C80256BEEFD1F964 /* GoogleMaps */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E48211C21EA696EBC32B31525F5FFA67 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E2309F84CDF17FF87E66D6CDB6B517AB /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F9621E38CA93CD5E47C3F28B4F0AF3DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01AF48CF5646ADAB5D7324A8169AFF03 /* GoogleMaps.framework */,
+				E2F4E7C722407F81715B67A5F9EC4FAD /* GoogleMapsCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9563CF7BE68090635242981D66389FAA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				532DB48779F8B1412331081C412C1A02 /* Pods-shopimizeTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D48C6B9437D46841386286876E6F1DDD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E04C2C073F0C296A92770C3485E03B53 /* Pods-shopimize-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6E9CE3C7C45FEFF49CAC5ABC5F30D2E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98C54F21EA6455A8CDB88CF341B79C7E /* Pods-shopimize-shopimizeUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		30658AEFA875744A9D2D7C77BC51318C /* Pods-shopimize */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFD8D4F1CE863A1D6A7F8E4311D4F133 /* Build configuration list for PBXNativeTarget "Pods-shopimize" */;
+			buildPhases = (
+				D48C6B9437D46841386286876E6F1DDD /* Headers */,
+				1CE63431E1BEA5CF17B01DD1BB0B93D4 /* Sources */,
+				9F551086590408842835E59C11C547F3 /* Frameworks */,
+				8AC3B66A96AD02911D244198DFC04AD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FBF70FE696441E02959D3CA6D2A4DAB6 /* PBXTargetDependency */,
+			);
+			name = "Pods-shopimize";
+			productName = Pods_shopimize;
+			productReference = DD1F519A446613A1EA8D0CF80B7CDFA3 /* Pods-shopimize */;
+			productType = "com.apple.product-type.framework";
+		};
+		8305636FD51262E65F962168C658BDCF /* Pods-shopimizeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31C18E820E96BECB132160E8A5830B90 /* Build configuration list for PBXNativeTarget "Pods-shopimizeTests" */;
+			buildPhases = (
+				9563CF7BE68090635242981D66389FAA /* Headers */,
+				F17B87F7BFBBBDA61BB373B70051CC40 /* Sources */,
+				3E436B0A77E05B227EDBC079BE712111 /* Frameworks */,
+				B1430A15839E366596AD79013ADC936F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C9900C53F8589B7AC17AAD9B3067E1F /* PBXTargetDependency */,
+			);
+			name = "Pods-shopimizeTests";
+			productName = Pods_shopimizeTests;
+			productReference = 2883BFC10848C27B520FA385ADFDB46F /* Pods-shopimizeTests */;
+			productType = "com.apple.product-type.framework";
+		};
+		AA9A4275B14562A63399ECD488AB6E26 /* Pods-shopimize-shopimizeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A4B6724521DDE172EB51F9E91AF8747 /* Build configuration list for PBXNativeTarget "Pods-shopimize-shopimizeUITests" */;
+			buildPhases = (
+				E6E9CE3C7C45FEFF49CAC5ABC5F30D2E /* Headers */,
+				D5D4E461CCD69651955220C5070BFF40 /* Sources */,
+				ADA8D40972CDCFD9F2877D33C811DAD6 /* Frameworks */,
+				EF1ABE9BBD583B48FCEBC139635731A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBCEA7140D3E9B10DC5ABFE781D3775E /* PBXTargetDependency */,
+			);
+			name = "Pods-shopimize-shopimizeUITests";
+			productName = Pods_shopimize_shopimizeUITests;
+			productReference = 5B459D8465C54AE63BE3253FEA0759F1 /* Pods-shopimize-shopimizeUITests */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 8B419624F7A5E31FDBA2ED43C44C5CD6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */,
+				30658AEFA875744A9D2D7C77BC51318C /* Pods-shopimize */,
+				AA9A4275B14562A63399ECD488AB6E26 /* Pods-shopimize-shopimizeUITests */,
+				8305636FD51262E65F962168C658BDCF /* Pods-shopimizeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8AC3B66A96AD02911D244198DFC04AD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1430A15839E366596AD79013ADC936F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF1ABE9BBD583B48FCEBC139635731A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CE63431E1BEA5CF17B01DD1BB0B93D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7AD366FE08D7F0344FA91BE8D0EFC47 /* Pods-shopimize-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D4E461CCD69651955220C5070BFF40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17DAE6294297B92FB3000D7208B84432 /* Pods-shopimize-shopimizeUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F17B87F7BFBBBDA61BB373B70051CC40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9210B2DA094B8998E80D41607335777 /* Pods-shopimizeTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2C9900C53F8589B7AC17AAD9B3067E1F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-shopimize";
+			target = 30658AEFA875744A9D2D7C77BC51318C /* Pods-shopimize */;
+			targetProxy = 019FC0B5C90D10946937B65485DD374A /* PBXContainerItemProxy */;
+		};
+		CBCEA7140D3E9B10DC5ABFE781D3775E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleMaps;
+			target = E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */;
+			targetProxy = 2C772D1575A02085E637EB71B6F37EB8 /* PBXContainerItemProxy */;
+		};
+		FBF70FE696441E02959D3CA6D2A4DAB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleMaps;
+			target = E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */;
+			targetProxy = BE42DD402A8C67E19277F711C639BE0F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1089AAB1AD488EA113B7581CCBFF0E96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E08EAC3EC5417A5C40CAA39B8FE5640 /* Pods-shopimizeTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-shopimizeTests/Pods-shopimizeTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-shopimizeTests/Pods-shopimizeTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		168A264774F4852A7164AEA5A0CEBA3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71F4A875497197468F32D9A6CB58F5B6 /* Pods-shopimize.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-shopimize/Pods-shopimize-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-shopimize/Pods-shopimize.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		202EA15644BBF0CC28C49045489553D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8961E701AD3408CC892B9DCB2812D54 /* Pods-shopimize-shopimizeUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-shopimize-shopimizeUITests/Pods-shopimize-shopimizeUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-shopimize-shopimizeUITests/Pods-shopimize-shopimizeUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4214E6946993DF02ED98D89047C64016 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		681FD9AFB20465D61CA0016A386D5932 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 166B4DEAED285E590B11802956FCD8B6 /* Pods-shopimize-shopimizeUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-shopimize-shopimizeUITests/Pods-shopimize-shopimizeUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-shopimize-shopimizeUITests/Pods-shopimize-shopimizeUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BB9F138D6BE5B0B420804AA4F837BD74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AABE3D21F0BE384435A5D7C08A8FD5BB /* GoogleMaps.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD85FD90473CFBE797E4264E7BBC70AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		D6756023AAB858B236F987CF1AA7EF4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4F476102800B7E70018625B1954F6CB /* Pods-shopimizeTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-shopimizeTests/Pods-shopimizeTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-shopimizeTests/Pods-shopimizeTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F19D4C395D7660B12FDDC67FFFDD52C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 063ADD7923EA88E6B19333D293F284B6 /* Pods-shopimize.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-shopimize/Pods-shopimize-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-shopimize/Pods-shopimize.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FAD95AA7CDFAD96FA4035B88B54EA6F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3D0978B919EA2ECF2A2F8466075BB51 /* GoogleMaps.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		31C18E820E96BECB132160E8A5830B90 /* Build configuration list for PBXNativeTarget "Pods-shopimizeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6756023AAB858B236F987CF1AA7EF4E /* Debug */,
+				1089AAB1AD488EA113B7581CCBFF0E96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46921981F609C5BA3CB72EC4EA41299D /* Build configuration list for PBXAggregateTarget "GoogleMaps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB9F138D6BE5B0B420804AA4F837BD74 /* Debug */,
+				FAD95AA7CDFAD96FA4035B88B54EA6F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4214E6946993DF02ED98D89047C64016 /* Debug */,
+				CD85FD90473CFBE797E4264E7BBC70AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A4B6724521DDE172EB51F9E91AF8747 /* Build configuration list for PBXNativeTarget "Pods-shopimize-shopimizeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				681FD9AFB20465D61CA0016A386D5932 /* Debug */,
+				202EA15644BBF0CC28C49045489553D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFD8D4F1CE863A1D6A7F8E4311D4F133 /* Build configuration list for PBXNativeTarget "Pods-shopimize" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				168A264774F4852A7164AEA5A0CEBA3C /* Debug */,
+				F19D4C395D7660B12FDDC67FFFDD52C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
