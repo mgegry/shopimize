@@ -1,7 +1,7 @@
 //
 //  LoginView.swift
 //  shopimize
-//
+//  
 //  Created by Mircea Egry on 04/03/2022.
 //
 
@@ -9,18 +9,14 @@ import UIKit
 
 class LoginView: UIView {
     
-    // CONSTANTS
-    let horizontalMarginInset = 30
-    let textFieldHeight = 40
-    
-    // Declare views as computed properties so they are lazy initilised
+    // Declare views as computed properties so they are lazy initilised (initialised only when needed)
     
     var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.spacing = 20
+        stackView.spacing = CGFloat(FormConstants.stackSpacing)
         stackView.distribution = .fill
         return stackView
     }()
@@ -50,9 +46,17 @@ class LoginView: UIView {
     let loginButton: UIButton = {
         let loginButton = UIButton()
         loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.setTitle("Log In", for: .normal)
+        loginButton.setTitle("Sign In", for: .normal)
         loginButton.setTitleColor(.black, for: .normal)
         return loginButton
+    }()
+    
+    let signUpButton: UIButton = {
+        let signUpButton = UIButton()
+        signUpButton.translatesAutoresizingMaskIntoConstraints = false
+        signUpButton.setTitle("New to Shopimize?", for: .normal)
+        signUpButton.setTitleColor(.gray, for: .normal)
+        return signUpButton
     }()
     
     // Constructors
@@ -71,10 +75,10 @@ class LoginView: UIView {
     
     // Methods
     private func addViews() {
-
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
         stackView.addArrangedSubview(loginButton)
+        stackView.addArrangedSubview(signUpButton)
         self.addSubview(stackView)
 
     }
@@ -82,10 +86,15 @@ class LoginView: UIView {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            stackView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: CGFloat(horizontalMarginInset)),
-            stackView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: CGFloat(-horizontalMarginInset)),
-            emailTextField.heightAnchor.constraint(equalToConstant: CGFloat(textFieldHeight)),
-            passwordTextField.heightAnchor.constraint(equalToConstant: CGFloat(textFieldHeight))
+            
+            stackView.leftAnchor.constraint(equalTo:self.safeAreaLayoutGuide.leftAnchor,
+                                            constant: CGFloat(FormConstants.horizontalMarginInset)),
+            
+            stackView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor,
+                                             constant: CGFloat(-FormConstants.horizontalMarginInset)),
+            
+            emailTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
+            passwordTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight))
         ])
     }
     

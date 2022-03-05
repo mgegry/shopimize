@@ -9,8 +9,11 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
+    var registerView = RegisterView()
+    
     override func loadView() {
-        
+        view = registerView
+        view.backgroundColor = .white
     }
     
     override func viewDidLoad() {

@@ -14,6 +14,9 @@
 		2B22A80B27D2B59D00D94B6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B22A80A27D2B59D00D94B6B /* GoogleService-Info.plist */; };
 		2B22A80D27D2C8ED00D94B6B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A80C27D2C8ED00D94B6B /* RegisterViewController.swift */; };
 		2B22A80F27D2C93D00D94B6B /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A80E27D2C93D00D94B6B /* RegisterView.swift */; };
+		2B22A81127D2D58700D94B6B /* FormConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A81027D2D58700D94B6B /* FormConstants.swift */; };
+		2B22A81327D2DF8B00D94B6B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A81227D2DF8B00D94B6B /* StartViewController.swift */; };
+		2B22A81B27D2E04E00D94B6B /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A81A27D2E04E00D94B6B /* StartView.swift */; };
 		2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08127D22D4600D12877 /* AppDelegate.swift */; };
 		2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08327D22D4600D12877 /* SceneDelegate.swift */; };
 		2BC9D08627D22D4600D12877 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08527D22D4600D12877 /* MapViewController.swift */; };
@@ -49,6 +52,9 @@
 		2B22A80A27D2B59D00D94B6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2B22A80C27D2C8ED00D94B6B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2B22A80E27D2C93D00D94B6B /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		2B22A81027D2D58700D94B6B /* FormConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormConstants.swift; sourceTree = "<group>"; };
+		2B22A81227D2DF8B00D94B6B /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		2B22A81A27D2E04E00D94B6B /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		2BC9D07E27D22D4600D12877 /* shopimize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shopimize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC9D08127D22D4600D12877 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BC9D08327D22D4600D12877 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +111,7 @@
 				2B22A80027D29A2800D94B6B /* LoginViewController.swift */,
 				2BC9D08527D22D4600D12877 /* MapViewController.swift */,
 				2B22A80C27D2C8ED00D94B6B /* RegisterViewController.swift */,
+				2B22A81227D2DF8B00D94B6B /* StartViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -139,8 +146,10 @@
 		2B22A80727D2A0FA00D94B6B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2B22A81027D2D58700D94B6B /* FormConstants.swift */,
 				2B22A80827D2A15200D94B6B /* LoginView.swift */,
 				2B22A80E27D2C93D00D94B6B /* RegisterView.swift */,
+				2B22A81A27D2E04E00D94B6B /* StartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -495,9 +504,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B22A80127D29A2800D94B6B /* LoginViewController.swift in Sources */,
+				2B22A81B27D2E04E00D94B6B /* StartView.swift in Sources */,
 				2BC9D08627D22D4600D12877 /* MapViewController.swift in Sources */,
+				2B22A81127D2D58700D94B6B /* FormConstants.swift in Sources */,
 				2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */,
 				2B22A80F27D2C93D00D94B6B /* RegisterView.swift in Sources */,
+				2B22A81327D2DF8B00D94B6B /* StartViewController.swift in Sources */,
 				2B22A80D27D2C8ED00D94B6B /* RegisterViewController.swift in Sources */,
 				2B22A80927D2A15200D94B6B /* LoginView.swift in Sources */,
 				2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */,
