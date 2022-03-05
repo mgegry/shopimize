@@ -110,10 +110,10 @@
 		2B22A80327D29A4A00D94B6B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2B22A80027D29A2800D94B6B /* LoginViewController.swift */,
-				2BC9D08527D22D4600D12877 /* MapViewController.swift */,
-				2B22A80C27D2C8ED00D94B6B /* RegisterViewController.swift */,
 				2B22A81227D2DF8B00D94B6B /* StartViewController.swift */,
+				2B22A80027D29A2800D94B6B /* LoginViewController.swift */,
+				2B22A80C27D2C8ED00D94B6B /* RegisterViewController.swift */,
+				2BC9D08527D22D4600D12877 /* MapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

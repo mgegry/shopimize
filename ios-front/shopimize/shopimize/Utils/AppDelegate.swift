@@ -20,8 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey("AIzaSyDZtCb83OMuZbz3Npqrlfm378VajVG2Z20")
         FirebaseApp.configure()
         
+        let tabBarController = UITabBarController()
+        let mapViewController = MapViewController()
+        
+        let navigationMapController = UINavigationController(rootViewController: mapViewController)
+        
+        tabBarController.setViewControllers([navigationMapController], animated: true)
+        
         window = UIWindow()
-        window?.rootViewController = UINavigationController(rootViewController: MapViewController())
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         return true
     }

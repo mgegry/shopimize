@@ -12,10 +12,13 @@ class FirebaseAuthManager {
     
     static let shared = FirebaseAuthManager()
     
+    let fbAuth = Auth.auth()
+    
     private init() { }
     
     func createUserFirebase(withEmail email: String, password: String, completion: @escaping (Bool) -> ()) {
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+        
+        fbAuth.createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 completion(false)
                 print("[error]:: firebase create account -- \(error.localizedDescription)")
@@ -26,7 +29,7 @@ class FirebaseAuthManager {
     }
     
     func loginUserFirebase(withEmail email: String, password: String, completion: @escaping (Bool) -> ()) {
-        Auth.auth().signIn(withEmail: email, password: password) { authData, error in
+        fbAuth.signIn(withEmail: email, password: password) { authData, error in
             if let error = error {
                 completion(false)
                 print("[error]:: firebase failed to login -- \(error.localizedDescription)")
