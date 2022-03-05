@@ -24,10 +24,15 @@ class LoginViewController: UIViewController {
     }
     
     @objc func didTapLogin() {
-        FirebaseAuthManager.shared.loginUserFirebase(withEmail: loginView.emailTextField.text ?? " ", password: loginView.passwordTextField.text ?? " ") { result in
+        FirebaseAuthManager.shared.loginUserFirebase(withEmail: loginView.emailTextField.text ?? " ", password: loginView.passwordTextField.text ?? " ") { [weak self] result in
+            
             if result == false {
                 print("Login failed")
                 return
+            }
+            
+            DispatchQueue.main.async {
+                self?.dismiss(animated: true, completion: nil)
             }
             print("Login sucess")
         }

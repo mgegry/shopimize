@@ -40,8 +40,6 @@ class RegisterViewController: UIViewController {
         }
         
         FirebaseAuthManager.shared.createUserFirebase(withEmail: email, password: password) { [weak self] result in
-            guard let strongSelf = self else { return }
-            
             if result == false {
                 print("Account not created")
                 return
@@ -49,7 +47,9 @@ class RegisterViewController: UIViewController {
             
             print("Account was created")
             
-            strongSelf.navigationController?.popViewController(animated: true)
+            DispatchQueue.main.async {
+                self?.dismiss(animated: true, completion: nil)
+            }
         }
         
     }
