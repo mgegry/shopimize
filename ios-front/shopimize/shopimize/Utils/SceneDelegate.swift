@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBarController = UITabBarController()
         
         let mapViewController = MapViewController()
-        let profileViewController = ProfileTableViewController()
+        let profileViewController = ProfileTableViewController(style: .plain)
         
         let navigationMapController = UINavigationController(rootViewController: mapViewController)
         let navigationProfileController = UINavigationController(rootViewController: profileViewController)

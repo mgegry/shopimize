@@ -8,12 +8,13 @@
 import UIKit
 
 class ProfileTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "profileCell")
+        self.tableView.separatorStyle = .none
         
     }
 
@@ -21,12 +22,12 @@ class ProfileTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,6 +38,10 @@ class ProfileTableViewController: UITableViewController {
         cell.testLabel.text = String(indexPath.row)
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 
 }

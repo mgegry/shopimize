@@ -114,7 +114,7 @@
 		2B22A80327D29A4A00D94B6B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2B22A82127D3F1C600D94B6B /* ProfileTableViewCell.swift */,
+				2B22A82527D410EC00D94B6B /* TableViewCells */,
 				2B22A81227D2DF8B00D94B6B /* StartViewController.swift */,
 				2B22A80027D29A2800D94B6B /* LoginViewController.swift */,
 				2B22A80C27D2C8ED00D94B6B /* RegisterViewController.swift */,
@@ -168,6 +168,14 @@
 				2B22A81D27D2FD5E00D94B6B /* FirebaseAuthManager.swift */,
 			);
 			path = DatabaseManager;
+			sourceTree = "<group>";
+		};
+		2B22A82527D410EC00D94B6B /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				2B22A82127D3F1C600D94B6B /* ProfileTableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		2BC9D07527D22D4600D12877 = {
