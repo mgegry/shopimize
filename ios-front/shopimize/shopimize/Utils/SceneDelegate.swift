@@ -19,11 +19,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScence  = (scene as? UIWindowScene) else { return }
         
         let tabBarController = UITabBarController()
+        
         let mapViewController = MapViewController()
+        let profileViewController = ProfileTableViewController()
         
         let navigationMapController = UINavigationController(rootViewController: mapViewController)
+        let navigationProfileController = UINavigationController(rootViewController: profileViewController)
         
-        tabBarController.setViewControllers([navigationMapController], animated: true)
+        tabBarController.setViewControllers([navigationMapController, navigationProfileController], animated: true)
         
         window = UIWindow(windowScene: windowScence)
         window?.rootViewController = tabBarController

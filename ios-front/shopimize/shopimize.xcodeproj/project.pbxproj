@@ -18,6 +18,8 @@
 		2B22A81327D2DF8B00D94B6B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A81227D2DF8B00D94B6B /* StartViewController.swift */; };
 		2B22A81B27D2E04E00D94B6B /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A81A27D2E04E00D94B6B /* StartView.swift */; };
 		2B22A81E27D2FD5E00D94B6B /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A81D27D2FD5E00D94B6B /* FirebaseAuthManager.swift */; };
+		2B22A82027D3F0A900D94B6B /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A81F27D3F0A900D94B6B /* ProfileTableViewController.swift */; };
+		2B22A82227D3F1C600D94B6B /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A82127D3F1C600D94B6B /* ProfileTableViewCell.swift */; };
 		2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08127D22D4600D12877 /* AppDelegate.swift */; };
 		2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08327D22D4600D12877 /* SceneDelegate.swift */; };
 		2BC9D08627D22D4600D12877 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08527D22D4600D12877 /* MapViewController.swift */; };
@@ -57,6 +59,8 @@
 		2B22A81227D2DF8B00D94B6B /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		2B22A81A27D2E04E00D94B6B /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		2B22A81D27D2FD5E00D94B6B /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		2B22A81F27D3F0A900D94B6B /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		2B22A82127D3F1C600D94B6B /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		2BC9D07E27D22D4600D12877 /* shopimize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shopimize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC9D08127D22D4600D12877 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BC9D08327D22D4600D12877 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,10 +114,12 @@
 		2B22A80327D29A4A00D94B6B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2B22A82127D3F1C600D94B6B /* ProfileTableViewCell.swift */,
 				2B22A81227D2DF8B00D94B6B /* StartViewController.swift */,
 				2B22A80027D29A2800D94B6B /* LoginViewController.swift */,
 				2B22A80C27D2C8ED00D94B6B /* RegisterViewController.swift */,
 				2BC9D08527D22D4600D12877 /* MapViewController.swift */,
+				2B22A81F27D3F0A900D94B6B /* ProfileTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -520,8 +526,10 @@
 				2B22A81127D2D58700D94B6B /* FormConstants.swift in Sources */,
 				2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */,
 				2B22A80F27D2C93D00D94B6B /* RegisterView.swift in Sources */,
+				2B22A82027D3F0A900D94B6B /* ProfileTableViewController.swift in Sources */,
 				2B22A81327D2DF8B00D94B6B /* StartViewController.swift in Sources */,
 				2B22A81E27D2FD5E00D94B6B /* FirebaseAuthManager.swift in Sources */,
+				2B22A82227D3F1C600D94B6B /* ProfileTableViewCell.swift in Sources */,
 				2B22A80D27D2C8ED00D94B6B /* RegisterViewController.swift in Sources */,
 				2B22A80927D2A15200D94B6B /* LoginView.swift in Sources */,
 				2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */,
