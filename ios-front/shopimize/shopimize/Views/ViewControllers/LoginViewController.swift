@@ -26,5 +26,4 @@ class LoginViewController: UIViewController {
     @objc func didTapLogin() {
         print("I want to login: \(loginView.emailTextField.text ?? "fuata") ")
     }
-
 }

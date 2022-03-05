@@ -51,14 +51,6 @@ class LoginView: UIView {
         return loginButton
     }()
     
-    let signUpButton: UIButton = {
-        let signUpButton = UIButton()
-        signUpButton.translatesAutoresizingMaskIntoConstraints = false
-        signUpButton.setTitle("New to Shopimize?", for: .normal)
-        signUpButton.setTitleColor(.gray, for: .normal)
-        return signUpButton
-    }()
-    
     // Constructors
     
     override init(frame: CGRect) {
@@ -78,14 +70,13 @@ class LoginView: UIView {
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
         stackView.addArrangedSubview(loginButton)
-        stackView.addArrangedSubview(signUpButton)
         self.addSubview(stackView)
 
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
             
             stackView.leftAnchor.constraint(equalTo:self.safeAreaLayoutGuide.leftAnchor,
                                             constant: CGFloat(FormConstants.horizontalMarginInset)),

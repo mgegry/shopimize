@@ -121,7 +121,7 @@ class RegisterView: UIView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
             stackView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor,
                                             constant: CGFloat(FormConstants.horizontalMarginInset)),
             stackView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor,

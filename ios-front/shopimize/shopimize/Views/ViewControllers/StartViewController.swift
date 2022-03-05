@@ -14,12 +14,23 @@ class StartViewController: UIViewController {
     override func loadView() {
         view = startView
         view.backgroundColor = .white
+        
+        startView.loginButton.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
+        startView.registerButton.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    @objc func didTapLogin() {
+        
+    }
+    
+    @objc func didTapRegister() {
+        
     }
     
 }
