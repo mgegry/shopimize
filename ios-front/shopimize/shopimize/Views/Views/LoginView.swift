@@ -48,6 +48,8 @@ class LoginView: UIView {
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.setTitle("Sign In", for: .normal)
         loginButton.setTitleColor(.black, for: .normal)
+        loginButton.layer.cornerRadius = 20
+        loginButton.backgroundColor = .gray
         return loginButton
     }()
     
@@ -76,7 +78,8 @@ class LoginView: UIView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,
+                                              constant: CGFloat(FormConstants.bottomMarginInset)),
             
             stackView.leftAnchor.constraint(equalTo:self.safeAreaLayoutGuide.leftAnchor,
                                             constant: CGFloat(FormConstants.horizontalMarginInset)),
@@ -85,7 +88,8 @@ class LoginView: UIView {
                                              constant: CGFloat(-FormConstants.horizontalMarginInset)),
             
             emailTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
-            passwordTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight))
+            passwordTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
+            loginButton.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
         ])
     }
     

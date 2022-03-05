@@ -92,6 +92,8 @@ class RegisterView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 20
+        button.backgroundColor = .gray
         return button
     }()
     
@@ -115,18 +117,26 @@ class RegisterView: UIView {
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
         stackView.addArrangedSubview(passwordConfTextField)
+        stackView.addArrangedSubview(registerButton)
         
         self.addSubview(stackView)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,
+                                              constant: CGFloat(FormConstants.bottomMarginInset)),
             stackView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor,
                                             constant: CGFloat(FormConstants.horizontalMarginInset)),
             stackView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor,
                                              constant: CGFloat(-FormConstants.horizontalMarginInset)),
-            
+            firstNameTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
+            lastNameTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
+            passwordTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
+            passwordConfTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
+            usernameTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
+            emailTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
+            registerButton.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
         ])
     }
     

@@ -64,7 +64,9 @@ class StartView: UIView {
                                             constant: CGFloat(FormConstants.horizontalMarginInset)),
             
             stackView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor,
-                                             constant: CGFloat(-FormConstants.horizontalMarginInset))
+                                             constant: CGFloat(-FormConstants.horizontalMarginInset)),
+            loginButton.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
+            registerButton.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
         ])
     }
 

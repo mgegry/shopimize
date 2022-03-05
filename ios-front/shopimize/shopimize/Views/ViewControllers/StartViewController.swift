@@ -21,16 +21,16 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.title = "Shopimize"
         
     }
     
     @objc func didTapLogin() {
-        
+        self.navigationController?.pushViewController(LoginViewController(), animated: true)
     }
     
     @objc func didTapRegister() {
-        
+        self.navigationController?.pushViewController(RegisterViewController(), animated: true)
     }
     
 }
