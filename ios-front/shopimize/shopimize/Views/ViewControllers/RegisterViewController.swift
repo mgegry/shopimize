@@ -51,10 +51,5 @@ class RegisterViewController: UIViewController {
                 self?.dismiss(animated: true, completion: nil)
             }
         }
-        
     }
-    
-    
-    
-    
 }
