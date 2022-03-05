@@ -17,6 +17,7 @@
 		2B22A81127D2D58700D94B6B /* FormConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A81027D2D58700D94B6B /* FormConstants.swift */; };
 		2B22A81327D2DF8B00D94B6B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A81227D2DF8B00D94B6B /* StartViewController.swift */; };
 		2B22A81B27D2E04E00D94B6B /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A81A27D2E04E00D94B6B /* StartView.swift */; };
+		2B22A81E27D2FD5E00D94B6B /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A81D27D2FD5E00D94B6B /* FirebaseAuthManager.swift */; };
 		2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08127D22D4600D12877 /* AppDelegate.swift */; };
 		2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08327D22D4600D12877 /* SceneDelegate.swift */; };
 		2BC9D08627D22D4600D12877 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08527D22D4600D12877 /* MapViewController.swift */; };
@@ -55,6 +56,7 @@
 		2B22A81027D2D58700D94B6B /* FormConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormConstants.swift; sourceTree = "<group>"; };
 		2B22A81227D2DF8B00D94B6B /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		2B22A81A27D2E04E00D94B6B /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		2B22A81D27D2FD5E00D94B6B /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		2BC9D07E27D22D4600D12877 /* shopimize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shopimize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC9D08127D22D4600D12877 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BC9D08327D22D4600D12877 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +156,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		2B22A81C27D2FD2400D94B6B /* DatabaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				2B22A81D27D2FD5E00D94B6B /* FirebaseAuthManager.swift */,
+			);
+			path = DatabaseManager;
+			sourceTree = "<group>";
+		};
 		2BC9D07527D22D4600D12877 = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				2B22A80527D29AA700D94B6B /* Assets */,
+				2B22A81C27D2FD2400D94B6B /* DatabaseManager */,
 				2B22A80427D29A6500D94B6B /* Utils */,
 				2B22A80627D29FE800D94B6B /* Views */,
 				2B22A80A27D2B59D00D94B6B /* GoogleService-Info.plist */,
@@ -510,6 +521,7 @@
 				2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */,
 				2B22A80F27D2C93D00D94B6B /* RegisterView.swift in Sources */,
 				2B22A81327D2DF8B00D94B6B /* StartViewController.swift in Sources */,
+				2B22A81E27D2FD5E00D94B6B /* FirebaseAuthManager.swift in Sources */,
 				2B22A80D27D2C8ED00D94B6B /* RegisterViewController.swift in Sources */,
 				2B22A80927D2A15200D94B6B /* LoginView.swift in Sources */,
 				2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */,

@@ -21,8 +21,6 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
     
     @objc func didTapRegister() {
@@ -41,14 +39,19 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error {
-                print("An error occured \(error.localizedDescription)")
-            } else {
-                
-                print(authResult?.user.email ?? "")
+        FirebaseAuthManager.shared.createUserFirebase(withEmail: email, password: password) { [weak self] result in
+            guard let strongSelf = self else { return }
+            
+            if result == false {
+                print("Account not created")
+                return
             }
+            
+            print("Account was created")
+            
+            strongSelf.navigationController?.popViewController(animated: true)
         }
+        
     }
     
     

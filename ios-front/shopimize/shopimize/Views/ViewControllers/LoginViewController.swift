@@ -24,6 +24,12 @@ class LoginViewController: UIViewController {
     }
     
     @objc func didTapLogin() {
-        print("I want to login: \(loginView.emailTextField.text ?? "fuata") ")
+        FirebaseAuthManager.shared.loginUserFirebase(withEmail: loginView.emailTextField.text ?? " ", password: loginView.passwordTextField.text ?? " ") { result in
+            if result == false {
+                print("Login failed")
+                return
+            }
+            print("Login sucess")
+        }
     }
 }
