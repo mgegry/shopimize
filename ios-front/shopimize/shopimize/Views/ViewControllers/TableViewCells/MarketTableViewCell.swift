@@ -1,47 +1,42 @@
 //
-//  ProfileTableViewCell.swift
+//  MarketTableViewCell.swift
 //  shopimize
 //
-//  Created by Mircea Egry on 05/03/2022.
+//  Created by Mircea Egry on 06/03/2022.
 //
 
 import UIKit
 
-class ProfileTableViewCell: UITableViewCell {
+class MarketTableViewCell: UITableViewCell {
     
-    var containerView = UIView()
-    
-    var testLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
-        return label
-    }()
+    private var containerView = UIView()
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupContainer()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupContainer()
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+        
     }
     
-    private func setupContainer() {
+    private func setupContainer () {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(containerView)
-        addSubview(testLabel)
-        
-        // self.contentView.backgroundColor = .clear
-        
-        // TODO: Create shadow with beziere path to be more eficient
-        /// https://stackoverflow.com/questions/37645408/uitableviewcell-rounded-corners-and-shadow
         
         containerView.backgroundColor = .white
         containerView.layer.cornerRadius = 8
@@ -56,7 +51,6 @@ class ProfileTableViewCell: UITableViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            
             containerView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             
             containerView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor,
@@ -67,10 +61,7 @@ class ProfileTableViewCell: UITableViewCell {
             
             containerView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor,
                                                 constant: CGFloat(TableConstants.cellHorizontalInset)),
-            
-            testLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
-            testLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
-            testLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ])
     }
+
 }
