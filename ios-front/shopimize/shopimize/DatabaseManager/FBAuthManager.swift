@@ -8,9 +8,9 @@
 import Foundation
 import FirebaseAuth
 
-class FirebaseAuthManager {
+class FBAuthManager {
     
-    static let shared = FirebaseAuthManager()
+    static let shared = FBAuthManager()
     
     let fbAuth = Auth.auth()
     

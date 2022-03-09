@@ -25,7 +25,7 @@ class ProfileTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath) as? ProfileTableViewCell else {
-            fatalError()
+            fatalError("Can not dequeue cell with identifier profileCell")
         }
 
         cell.testLabel.text = String(indexPath.row)

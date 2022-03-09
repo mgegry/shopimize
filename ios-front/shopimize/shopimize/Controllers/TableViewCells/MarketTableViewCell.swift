@@ -10,11 +10,13 @@ import UIKit
 class MarketTableViewCell: UITableViewCell {
     
     private var containerView = UIView()
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    
+    var shopName: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        return label
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,7 +25,6 @@ class MarketTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupContainer()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,6 +38,7 @@ class MarketTableViewCell: UITableViewCell {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(containerView)
+        addSubview(shopName)
         
         containerView.backgroundColor = .white
         containerView.layer.cornerRadius = 8
@@ -51,6 +53,9 @@ class MarketTableViewCell: UITableViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
+            
+            // Container constraints
+            
             containerView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
                                                constant: CGFloat(TableConstants.cellVerticalInset)),
             
@@ -62,7 +67,11 @@ class MarketTableViewCell: UITableViewCell {
             
             containerView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor,
                                                 constant: CGFloat(TableConstants.cellHorizontalInset)),
+            
+            // Shop name label constraints
+            
+            shopName.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
+            shopName.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 20),
         ])
     }
-
 }

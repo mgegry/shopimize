@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc func didTapLogin() {
-        FirebaseAuthManager.shared.loginUserFirebase(withEmail: loginView.emailTextField.text ?? " ", password: loginView.passwordTextField.text ?? " ") { [weak self] result in
+        FBAuthManager.shared.loginUserFirebase(withEmail: loginView.emailTextField.text ?? " ", password: loginView.passwordTextField.text ?? " ") { [weak self] result in
             
             if result == false {
                 print("Login failed")

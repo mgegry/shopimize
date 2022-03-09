@@ -41,7 +41,7 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        FirebaseAuthManager.shared.createUserFirebase(withEmail: email, password: password) { [weak self] result in
+        FBAuthManager.shared.createUserFirebase(withEmail: email, password: password) { [weak self] result in
             if result == false {
                 // TODO: Display information to user not just to console
                 print("Account not created")

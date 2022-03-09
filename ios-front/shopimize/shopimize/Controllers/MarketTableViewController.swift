@@ -8,7 +8,28 @@
 import UIKit
 
 class MarketTableViewController: UITableViewController {
-
+    
+    var markets: [Market] = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DBManager.shared.getAllMarketsFirestore { [weak self] result in
+            guard let strongSelf = self else { return }
+            
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    strongSelf.markets = data
+                    strongSelf.tableView.reloadData()
+                }
+                
+            case .failure(_):
+                print("fauta fuata")
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +45,7 @@ class MarketTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 10
+        return markets.count
     }
 
     
@@ -33,7 +54,7 @@ class MarketTableViewController: UITableViewController {
             fatalError("Can not dequeue market table view cell with identifier")
         }
 
-         
+        cell.shopName.text = markets[indexPath.row].shopName
 
         return cell
     }
