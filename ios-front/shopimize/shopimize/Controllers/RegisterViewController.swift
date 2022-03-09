@@ -45,6 +45,8 @@ class RegisterViewController: UIViewController {
                 return
             }
             
+            
+            
             print("Account was created")
             
             DispatchQueue.main.async {

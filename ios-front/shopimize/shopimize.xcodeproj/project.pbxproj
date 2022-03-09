@@ -23,6 +23,7 @@
 		2B22A82927D4320600D94B6B /* MarketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A82827D4320600D94B6B /* MarketTableViewController.swift */; };
 		2B22A82B27D433A400D94B6B /* MarketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A82A27D433A400D94B6B /* MarketTableViewCell.swift */; };
 		2B22A82D27D43BCE00D94B6B /* TableConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A82C27D43BCE00D94B6B /* TableConstants.swift */; };
+		2BA1112427D8AE1B00830237 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1112327D8AE1B00830237 /* User.swift */; };
 		2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08127D22D4600D12877 /* AppDelegate.swift */; };
 		2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08327D22D4600D12877 /* SceneDelegate.swift */; };
 		2BC9D08627D22D4600D12877 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08527D22D4600D12877 /* MapViewController.swift */; };
@@ -67,6 +68,7 @@
 		2B22A82827D4320600D94B6B /* MarketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewController.swift; sourceTree = "<group>"; };
 		2B22A82A27D433A400D94B6B /* MarketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewCell.swift; sourceTree = "<group>"; };
 		2B22A82C27D43BCE00D94B6B /* TableConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableConstants.swift; sourceTree = "<group>"; };
+		2BA1112327D8AE1B00830237 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2BC9D07E27D22D4600D12877 /* shopimize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shopimize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC9D08127D22D4600D12877 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BC9D08327D22D4600D12877 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,7 +119,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B22A80327D29A4A00D94B6B /* ViewControllers */ = {
+		2B22A80327D29A4A00D94B6B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				2B22A82527D410EC00D94B6B /* TableViewCells */,
@@ -128,7 +130,7 @@
 				2BC9D08527D22D4600D12877 /* MapViewController.swift */,
 				2B22A81F27D3F0A900D94B6B /* ProfileTableViewController.swift */,
 			);
-			path = ViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		2B22A80427D29A6500D94B6B /* Utils */ = {
@@ -144,21 +146,13 @@
 		2B22A80527D29AA700D94B6B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2B22A80427D29A6500D94B6B /* Utils */,
 				2BC9D08A27D22D4800D12877 /* Assets.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
 		};
 		2B22A80627D29FE800D94B6B /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				2B22A80727D2A0FA00D94B6B /* Views */,
-				2B22A80327D29A4A00D94B6B /* ViewControllers */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		2B22A80727D2A0FA00D94B6B /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				2B22A81027D2D58700D94B6B /* FormConstants.swift */,
@@ -187,6 +181,14 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		2BA1112227D8ADFC00830237 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2BA1112327D8AE1B00830237 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		2BC9D07527D22D4600D12877 = {
 			isa = PBXGroup;
 			children = (
@@ -212,10 +214,11 @@
 		2BC9D08027D22D4600D12877 /* shopimize */ = {
 			isa = PBXGroup;
 			children = (
-				2B22A80527D29AA700D94B6B /* Assets */,
 				2B22A81C27D2FD2400D94B6B /* DatabaseManager */,
-				2B22A80427D29A6500D94B6B /* Utils */,
+				2BA1112227D8ADFC00830237 /* Models */,
+				2B22A80327D29A4A00D94B6B /* Controllers */,
 				2B22A80627D29FE800D94B6B /* Views */,
+				2B22A80527D29AA700D94B6B /* Assets */,
 				2B22A80A27D2B59D00D94B6B /* GoogleService-Info.plist */,
 				2BC9D08F27D22D4800D12877 /* Info.plist */,
 			);
@@ -544,6 +547,7 @@
 				2B22A82D27D43BCE00D94B6B /* TableConstants.swift in Sources */,
 				2B22A81127D2D58700D94B6B /* FormConstants.swift in Sources */,
 				2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */,
+				2BA1112427D8AE1B00830237 /* User.swift in Sources */,
 				2B22A80F27D2C93D00D94B6B /* RegisterView.swift in Sources */,
 				2B22A82027D3F0A900D94B6B /* ProfileTableViewController.swift in Sources */,
 				2B22A82B27D433A400D94B6B /* MarketTableViewCell.swift in Sources */,
