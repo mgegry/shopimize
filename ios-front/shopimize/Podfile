@@ -10,7 +10,8 @@ target 'shopimize' do
 
 	pod 'GoogleMaps', '6.0.1'
 	pod 'Firebase/Auth'
-	pod 'Firebase/Firestore'
+	pod 'FirebaseFirestoreSwift', '> 7.0-beta'
+#pod 'Firebase/Firestore'
 
   target 'shopimizeTests' do
     inherit! :search_paths

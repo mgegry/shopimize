@@ -10,6 +10,7 @@
 		0325550B94E84E8685CCA9ED /* Pods_shopimize_shopimizeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD3568ACC98C3CB0D3C750B /* Pods_shopimize_shopimizeUITests.framework */; };
 		2448C464E7283F532453426B /* Pods_shopimize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D376BFFD88285165CAB480 /* Pods_shopimize.framework */; };
 		2B1A940E27D9077900CCA943 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1A940D27D9077900CCA943 /* DBManager.swift */; };
+		2B1A941027D9248500CCA943 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1A940F27D9248500CCA943 /* Market.swift */; };
 		2B22A80127D29A2800D94B6B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A80027D29A2800D94B6B /* LoginViewController.swift */; };
 		2B22A80927D2A15200D94B6B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A80827D2A15200D94B6B /* LoginView.swift */; };
 		2B22A80B27D2B59D00D94B6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B22A80A27D2B59D00D94B6B /* GoogleService-Info.plist */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		0C7B915C3661E2941A900491 /* Pods-shopimize-shopimizeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopimize-shopimizeUITests.debug.xcconfig"; path = "Target Support Files/Pods-shopimize-shopimizeUITests/Pods-shopimize-shopimizeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2B1A940D27D9077900CCA943 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		2B1A940F27D9248500CCA943 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
 		2B22A80027D29A2800D94B6B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2B22A80827D2A15200D94B6B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2B22A80A27D2B59D00D94B6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				2BA1112327D8AE1B00830237 /* User.swift */,
+				2B1A940F27D9248500CCA943 /* Market.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				2B22A80127D29A2800D94B6B /* LoginViewController.swift in Sources */,
 				2B22A81B27D2E04E00D94B6B /* StartView.swift in Sources */,
 				2BC9D08627D22D4600D12877 /* MapViewController.swift in Sources */,
+				2B1A941027D9248500CCA943 /* Market.swift in Sources */,
 				2B22A82927D4320600D94B6B /* MarketTableViewController.swift in Sources */,
 				2B22A82D27D43BCE00D94B6B /* TableConstants.swift in Sources */,
 				2B22A81127D2D58700D94B6B /* FormConstants.swift in Sources */,
@@ -786,7 +790,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E00D9029B23FB708780EEB1D /* Pods-shopimizeTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -807,7 +810,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BF29DCD23A2EB21D056DB9D2 /* Pods-shopimizeTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -828,7 +830,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0C7B915C3661E2941A900491 /* Pods-shopimize-shopimizeUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YBTUGUXDPT;
@@ -847,7 +848,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BA9BD45DAA001EC50EC1FA73 /* Pods-shopimize-shopimizeUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YBTUGUXDPT;
