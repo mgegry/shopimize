@@ -57,13 +57,14 @@ class ProfileTableViewCell: UITableViewCell {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             
-            containerView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            containerView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
+                                               constant: CGFloat(TableConstants.cellVerticalInset)),
             
             containerView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor,
                                                  constant: -CGFloat(TableConstants.cellHorizontalInset)),
             
             containerView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,
-                                                  constant: -CGFloat(TableConstants.cellBottomInset)),
+                                                  constant: -CGFloat(TableConstants.cellVerticalInset)),
             
             containerView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor,
                                                 constant: CGFloat(TableConstants.cellHorizontalInset)),

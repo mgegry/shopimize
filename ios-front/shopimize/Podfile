@@ -4,11 +4,13 @@ platform :ios, '15.2'
 target 'shopimize' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+  inhibit_all_warnings!
 
   # Pods for shopimize
 
 	pod 'GoogleMaps', '6.0.1'
 	pod 'Firebase/Auth'
+	pod 'Firebase/Firestore'
 
   target 'shopimizeTests' do
     inherit! :search_paths

@@ -13,7 +13,7 @@ class MarketTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(MarketTableViewCell.self, forCellReuseIdentifier: "marketCell")
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
     }
     
 

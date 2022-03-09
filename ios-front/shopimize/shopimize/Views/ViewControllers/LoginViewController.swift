@@ -30,15 +30,7 @@ class LoginViewController: UIViewController {
                 print("Login failed")
                 return
             }
-            
-//  Get user tokern that refreshes
-//            Auth.auth().currentUser?.getIDTokenForcingRefresh(true, completion: { idToken, error in
-//                if let error = error {
-//                    return
-//                }
-//                print(idToken)
-//            })
-            
+                    
             DispatchQueue.main.async {
                 self?.dismiss(animated: true, completion: nil)
             }
