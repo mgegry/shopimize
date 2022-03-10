@@ -55,6 +55,14 @@ class MarketTableViewController: UITableViewController {
         }
 
         cell.shopName.text = markets[indexPath.row].shopName
+        
+        let date = markets[indexPath.row].createdAt.dateValue()
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "yyyy--MM--dd HH:mm:ss ZZZ"
+        let formattedTime = formatter.string(from: date)
+        
+        cell.createdAt.text = formattedTime
 
         return cell
     }

@@ -29,6 +29,13 @@ class MarketTableViewCell: UITableViewCell {
         return label
     }()
     
+    var createdAt: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        return label
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupContainer()
@@ -49,6 +56,7 @@ class MarketTableViewCell: UITableViewCell {
     private func setupContainer () {
         addSubview(containerView)
         addSubview(shopName)
+        addSubview(createdAt)
     }
     
     private func setupConstraints() {
@@ -72,6 +80,11 @@ class MarketTableViewCell: UITableViewCell {
             
             shopName.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
             shopName.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 20),
+            
+            // Date added constraints
+            
+            createdAt.topAnchor.constraint(equalTo: shopName.bottomAnchor, constant: 10),
+            createdAt.leftAnchor.constraint(equalTo: shopName.leftAnchor)
         ])
     }
 }
