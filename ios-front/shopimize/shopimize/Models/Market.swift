@@ -7,9 +7,12 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 
-struct Market {
-    var shopName: String
+struct Market: Codable, Identifiable {
+    
+    @DocumentID var id: String? = UUID().uuidString
+    var shopName: String?
     var createdAt: Timestamp
     
     enum CodingKeys: String, CodingKey {
@@ -18,18 +21,20 @@ struct Market {
     }
 }
 
-extension Market: Encodable {
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(shopName, forKey: .shopName)
-        try container.encode(createdAt, forKey: .createdAt)
-    }
-}
-
-extension Market: Decodable {
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        shopName = try values.decode(String.self, forKey: .shopName)
-        createdAt = try values.decode(Timestamp.self, forKey: .createdAt)
-    }
-}
+//extension Market: Encodable {
+//    func encode(to encoder: Encoder) throws {
+//        var container = encoder.container(keyedBy: CodingKeys.self)
+//        try container.encode(shopName, forKey: .shopName)
+//        try container.encode(createdAt, forKey: .createdAt)
+//        try container.encode(marketID, forKey: .marketID)
+//    }
+//}
+//
+//extension Market: Decodable {
+//    init(from decoder: Decoder) throws {
+//        let values = try decoder.container(keyedBy: CodingKeys.self)
+//        shopName = try values.decode(String.self, forKey: .shopName)
+//        createdAt = try values.decode(Timestamp.self, forKey: .createdAt)
+//        marketID = try values.decode(String.self, forKey: .marketID)
+//    }
+//}

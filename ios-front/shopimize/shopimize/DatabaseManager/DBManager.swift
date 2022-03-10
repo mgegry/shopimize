@@ -38,7 +38,7 @@ class DBManager {
             let _ = try db.collection("Market").addDocument(from: market)
             completion(true)
         } catch let error {
-            print("[error]:: adding user to firestore DB -- \(error.localizedDescription)")
+            print("[error]:: adding market to firestore DB -- \(error.localizedDescription)")
             completion(false)
         }
     }

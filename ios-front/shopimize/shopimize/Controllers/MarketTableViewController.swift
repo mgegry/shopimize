@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseFirestoreSwift
+import FirebaseFirestore
 
 class MarketTableViewController: UITableViewController {
     
@@ -28,6 +30,8 @@ class MarketTableViewController: UITableViewController {
                 print("fauta fuata")
             }
         }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddMarket))
     }
     
     override func viewDidLoad() {
@@ -54,6 +58,8 @@ class MarketTableViewController: UITableViewController {
             fatalError("Can not dequeue market table view cell with identifier")
         }
 
+        // print(markets[indexPath.row].id)
+        
         cell.shopName.text = markets[indexPath.row].shopName
         
         let date = markets[indexPath.row].createdAt.dateValue()
@@ -69,5 +75,19 @@ class MarketTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(TableConstants.cellHeight)
+    }
+    
+    // TODO: Refine
+    
+    @objc func didTapAddMarket() {
+        let market = Market(shopName: "shit best", createdAt: Timestamp(date: Date.now))
+        DBManager.shared.addMarketFirestore(market: market) { result in
+            if result == false {
+                print ("error")
+                return
+            }
+            
+            print("success add market TEST!")
+        }
     }
 }
