@@ -150,7 +150,6 @@
 		2B22A80527D29AA700D94B6B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				2B22A80427D29A6500D94B6B /* Utils */,
 				2BC9D08A27D22D4800D12877 /* Assets.xcassets */,
 			);
 			path = Assets;
@@ -220,6 +219,7 @@
 		2BC9D08027D22D4600D12877 /* shopimize */ = {
 			isa = PBXGroup;
 			children = (
+				2B22A80427D29A6500D94B6B /* Utils */,
 				2B22A81C27D2FD2400D94B6B /* DatabaseManager */,
 				2BA1112227D8ADFC00830237 /* Models */,
 				2B22A80327D29A4A00D94B6B /* Controllers */,

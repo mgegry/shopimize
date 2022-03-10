@@ -53,6 +53,8 @@ class DBManager {
                 completion(.failure(error))
             } else {
                 
+                // TODO: Make sure querySnapshot exists
+                
                 for document in querySnapshot!.documents {
                     let result = Result {
                         try document.data(as: Market.self)
