@@ -9,7 +9,18 @@ import UIKit
 
 class MarketTableViewCell: UITableViewCell {
     
-    private var containerView = UIView()
+    private var containerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 8
+        view.layer.masksToBounds = false
+        view.layer.shadowRadius = 4.0
+        view.layer.shadowOpacity = 0.4
+        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.shadowOffset = CGSize(width: 2, height: 5)
+        return view
+    }()
     
     var shopName: UILabel = {
         let label = UILabel()
@@ -21,6 +32,7 @@ class MarketTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupContainer()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -35,20 +47,8 @@ class MarketTableViewCell: UITableViewCell {
     }
     
     private func setupContainer () {
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        
         addSubview(containerView)
         addSubview(shopName)
-        
-        containerView.backgroundColor = .white
-        containerView.layer.cornerRadius = 8
-        containerView.layer.masksToBounds = false
-        containerView.layer.shadowRadius = 4.0
-        containerView.layer.shadowOpacity = 0.4
-        containerView.layer.shadowColor = UIColor.gray.cgColor
-        containerView.layer.shadowOffset = CGSize(width: 2, height: 5)
-        
-        setupConstraints()
     }
     
     private func setupConstraints() {

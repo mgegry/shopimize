@@ -54,7 +54,11 @@ class MapViewController: UIViewController {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        Auth.auth().removeStateDidChangeListener(handle!)
+        if let handle = handle {
+            Auth.auth().removeStateDidChangeListener(handle)
+        } else {
+            print("[info]:: user state did change listener was not set")
+        }
     }
     
     @objc func didTapLogout() {

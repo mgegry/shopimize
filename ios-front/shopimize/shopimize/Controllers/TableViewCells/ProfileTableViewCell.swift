@@ -9,7 +9,20 @@ import UIKit
 
 class ProfileTableViewCell: UITableViewCell {
     
-    var containerView = UIView()
+    var containerView: UIView = {
+        let view = UIView()
+        // TODO: Create shadow with beziere path to be more eficient
+        /// https://stackoverflow.com/questions/37645408/uitableviewcell-rounded-corners-and-shadow
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 8
+        view.layer.masksToBounds = false
+        view.layer.shadowRadius = 4.0
+        view.layer.shadowOpacity = 0.4
+        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.shadowOffset = CGSize(width: 2, height: 5)
+        return view
+    }()
     
     var testLabel: UILabel = {
         let label = UILabel()
@@ -21,41 +34,23 @@ class ProfileTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupContainer()
+        setupConstraints()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupContainer()
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
     }
     
     private func setupContainer() {
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        
+        // self.contentView.backgroundColor = .clear
         addSubview(containerView)
         addSubview(testLabel)
-        
-        // self.contentView.backgroundColor = .clear
-        
-        // TODO: Create shadow with beziere path to be more eficient
-        /// https://stackoverflow.com/questions/37645408/uitableviewcell-rounded-corners-and-shadow
-        
-        containerView.backgroundColor = .white
-        containerView.layer.cornerRadius = 8
-        containerView.layer.masksToBounds = false
-        containerView.layer.shadowRadius = 4.0
-        containerView.layer.shadowOpacity = 0.4
-        containerView.layer.shadowColor = UIColor.gray.cgColor
-        containerView.layer.shadowOffset = CGSize(width: 2, height: 5)
-        
-        setupConstraints()
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
+            
+            // Container constraints
             
             containerView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
                                                constant: CGFloat(TableConstants.cellVerticalInset)),
@@ -68,6 +63,8 @@ class ProfileTableViewCell: UITableViewCell {
             
             containerView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor,
                                                 constant: CGFloat(TableConstants.cellHorizontalInset)),
+            
+            // Test Label constraints
             
             testLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
             testLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
