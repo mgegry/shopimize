@@ -9,10 +9,16 @@ import FirebaseAuth
 import GoogleMaps
 import UIKit
 
+/// Controller for the map view of the app
+
 class MapViewController: UIViewController {
     
+    /// Handles the state of the user; changes if the user logs out or in
     private var handle: AuthStateDidChangeListenerHandle?
     
+    /// Do any aditional setup before the view is about to appear
+    ///
+    /// - parameter animated: States if the view will apear animated or not
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener { [weak self] auth, user in
             
@@ -34,6 +40,8 @@ class MapViewController: UIViewController {
         
     }
     
+    /// Do any aditional setup after the view loaded
+    ///
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -53,6 +61,9 @@ class MapViewController: UIViewController {
         
     }
 
+    /// Do any aditional setup after the view is about to disapear
+    ///
+    /// - parameter animated: States if the view will disapear animated or not
     override func viewWillDisappear(_ animated: Bool) {
         if let handle = handle {
             Auth.auth().removeStateDidChangeListener(handle)
@@ -61,6 +72,7 @@ class MapViewController: UIViewController {
         }
     }
     
+    /// Called when the user taps the log out button
     @objc func didTapLogout() {
         do {
             try Auth.auth().signOut()

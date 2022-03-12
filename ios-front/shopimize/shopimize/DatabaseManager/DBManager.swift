@@ -10,17 +10,23 @@ import FirebaseFirestoreSwift
 import FirebaseCore
 import Foundation
 
+/// Singleton class that handles Firebase Firestore communication
+
 class DBManager {
     static let shared = DBManager()
     
+    /// Firebase Firestore database object
     private let db = Firestore.firestore()
     
     private init() { }
     
+    // MARK: Handle users Firestore
     
-    
-    // HANDLE USERS SECTION
-    
+    /// Add user to Firebase Firestore after sign up
+    ///
+    /// - parameter email: The user email
+    /// - parameter user: An user object containing user information
+    /// - parameter completion: Escaping closure receiving operation result as boolean
     func addUserFirestore(with email: String, user: User, completion: @escaping (Bool) -> ()) {
         do {
             try db.collection("User").document(email).setData(from: user)
@@ -31,8 +37,12 @@ class DBManager {
         }
     }
     
-    // HANDLE MARKETS SECTION
+    // MARK: Handle markets Firestore
     
+    /// Add a market to Firebase Firestore
+    ///
+    /// - parameter market: An object containing market information
+    /// - parameter completion: Escaping closure receiving operationt result as boolean
     func addMarketFirestore(market: Market, completion: @escaping (Bool) -> ()) {
         do {
             let _ = try db.collection("Market").addDocument(from: market)
@@ -43,6 +53,9 @@ class DBManager {
         }
     }
     
+    /// Get all markets in Market collection Firebase Firestore
+    ///
+    /// - parameter completion: Escaping closure receiving as parameter a result object
     func getAllMarketsFirestore(completion: @escaping (Result<[Market], Error>) -> ()) {
         
         var markets: [Market] = []
@@ -63,6 +76,7 @@ class DBManager {
                     switch result {
                     case .success(let market):
                         markets.append(market)
+                        print(market)
                     case .failure(let error):
                         print("[error]:: can not get document in markets collection -- \(error.localizedDescription)")
                         
@@ -70,8 +84,6 @@ class DBManager {
                 }
                 completion(.success(markets))
             }
-            
         }
     }
-    
 }

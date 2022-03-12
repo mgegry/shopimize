@@ -7,8 +7,13 @@
 
 import UIKit
 
+/// Class containing the start view of the app design the setup
+
 class StartView: UIView {
     
+    // Declare views as computed properties so they are lazy initilised (initialised only when needed)
+    
+    /// Stack view for the start layout
     var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -19,6 +24,7 @@ class StartView: UIView {
         return stackView
     }()
     
+    /// Declaration of ogin button
     var loginButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -29,6 +35,7 @@ class StartView: UIView {
         return button
     }()
     
+    /// Declaration of register button
     var registerButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -51,12 +58,14 @@ class StartView: UIView {
         setupConstraints()
     }
     
+    /// Add the subiews to the main view
     private func addSubviews() {
         stackView.addArrangedSubview(loginButton)
         stackView.addArrangedSubview(registerButton)
         self.addSubview(stackView)
     }
     
+    /// Setup the views constraints
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),

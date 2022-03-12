@@ -1,24 +1,19 @@
 //
-//  ProfileTableViewCell.swift
+//  ItemTableViewCell.swift
 //  shopimize
 //
-//  Created by Mircea Egry on 05/03/2022.
+//  Created by Mircea Egry on 11/03/2022.
 //
 
 import UIKit
 
-/// Class containing the profile table cell design and definition
+/// Class containing item table view cell design and definition
 
-class ProfileTableViewCell: UITableViewCell {
+class ItemTableViewCell: UITableViewCell {
     
-    // Views declaration and their properties are declared as computed properties
-    // so that they are lazy instanciated
-    
-    /// Container holding the card for the cell
-    var containerView: UIView = {
+    /// Container holding the card for the table
+    private var containerView: UIView = {
         let view = UIView()
-        // TODO: Create shadow with beziere path to be more eficient
-        /// https://stackoverflow.com/questions/37645408/uitableviewcell-rounded-corners-and-shadow
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.layer.cornerRadius = 8
@@ -30,7 +25,8 @@ class ProfileTableViewCell: UITableViewCell {
         return view
     }()
     
-    var testLabel: UILabel = {
+    /// Label for the item name
+    var itemName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -43,20 +39,26 @@ class ProfileTableViewCell: UITableViewCell {
         setupConstraints()
     }
     
-    /// No support for storyboards so the initializer is set to unavailable
+    /// No use of storyboards so the init is set to unavailable
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    /// Setup the container with all its views
-    private func setupContainer() {
-        // self.contentView.backgroundColor = .clear
-        addSubview(containerView)
-        addSubview(testLabel)
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+        
     }
     
-    /// Setup the views constraints
+    /// Setup the container with its views
+    private func setupContainer () {
+        addSubview(containerView)
+        addSubview(itemName)
+    }
+    
+    /// Setup the constraints for the views
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             
@@ -74,11 +76,11 @@ class ProfileTableViewCell: UITableViewCell {
             containerView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor,
                                                 constant: CGFloat(TableConstants.cellHorizontalInset)),
             
-            // Test Label constraints
+            // Shop name label constraints
             
-            testLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
-            testLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
-            testLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+            itemName.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
+            itemName.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 20),
+            
         ])
     }
 }

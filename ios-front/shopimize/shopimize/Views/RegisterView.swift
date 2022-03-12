@@ -7,8 +7,13 @@
 
 import UIKit
 
+/// Class containing the register view screen design and setup
+
 class RegisterView: UIView {
     
+    // Declare views as computed properties so they are lazy initilised (initialised only when needed)
+    
+    /// Stack view holding the register form fields
     var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -19,6 +24,7 @@ class RegisterView: UIView {
         return stackView
     }()
     
+    /// Declaration of email text field
     var emailTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -30,6 +36,7 @@ class RegisterView: UIView {
         return textField
     }()
     
+    /// Declaration of password text field
     var passwordTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -42,6 +49,7 @@ class RegisterView: UIView {
         return textField
     }()
     
+    /// Declaration of password confirm text field
     var passwordConfTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -54,6 +62,7 @@ class RegisterView: UIView {
         return textField
     }()
     
+    /// Declaration of username text field
     var usernameTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -65,6 +74,7 @@ class RegisterView: UIView {
         return textField
     }()
     
+    /// Declaration of first name text field
     var firstNameTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -76,6 +86,7 @@ class RegisterView: UIView {
         return textField
     }()
     
+    /// Declaration of last name text field
     var lastNameTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -87,6 +98,7 @@ class RegisterView: UIView {
         return textField
     }()
     
+    /// Declaration of login button
     var registerButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -110,6 +122,7 @@ class RegisterView: UIView {
         setupConstraints()
     }
     
+    /// Add subviews to their main views
     private func addViews() {
         stackView.addArrangedSubview(firstNameTextField)
         stackView.addArrangedSubview(lastNameTextField)
@@ -122,6 +135,7 @@ class RegisterView: UIView {
         self.addSubview(stackView)
     }
     
+    /// Setup views constraints
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,

@@ -8,10 +8,13 @@
 import UIKit
 import FirebaseAuth
 
+/// Controller for the register screen of the app
+
 class RegisterViewController: UIViewController {
 
     var registerView = RegisterView()
     
+    /// Load the view
     override func loadView() {
         view = registerView
         view.backgroundColor = .white
@@ -19,10 +22,12 @@ class RegisterViewController: UIViewController {
         registerView.registerButton.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
     }
     
+    /// Do any aditional setup after the view was loaded
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    /// Called when the user taps register
     @objc func didTapRegister() {
         
         // TODO: Handle form validation better

@@ -7,8 +7,11 @@
 
 import UIKit
 
+/// Class containing market table view cell design and definition
+
 class MarketTableViewCell: UITableViewCell {
     
+    /// Container holding the card for the market table view cell
     private var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -22,6 +25,7 @@ class MarketTableViewCell: UITableViewCell {
         return view
     }()
     
+    /// Label holding the shop name
     var shopName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -42,6 +46,8 @@ class MarketTableViewCell: UITableViewCell {
         setupConstraints()
     }
     
+    /// No use of storyboards so the init for storyboards is set to unavailable
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -53,12 +59,14 @@ class MarketTableViewCell: UITableViewCell {
         
     }
     
+    /// Setup the container and its views
     private func setupContainer () {
         addSubview(containerView)
         addSubview(shopName)
         addSubview(createdAt)
     }
     
+    /// Setup the constraints of the views
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             

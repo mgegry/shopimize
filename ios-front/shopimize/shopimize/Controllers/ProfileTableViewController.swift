@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// Controller for the profile screen of the app
+
 class ProfileTableViewController: UITableViewController {
     
     override func viewDidLoad() {

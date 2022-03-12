@@ -25,6 +25,9 @@
 		2B22A82927D4320600D94B6B /* MarketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A82827D4320600D94B6B /* MarketTableViewController.swift */; };
 		2B22A82B27D433A400D94B6B /* MarketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A82A27D433A400D94B6B /* MarketTableViewCell.swift */; };
 		2B22A82D27D43BCE00D94B6B /* TableConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A82C27D43BCE00D94B6B /* TableConstants.swift */; };
+		2B71A00927DCCE5B008EE339 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B71A00827DCCE5B008EE339 /* Item.swift */; };
+		2B81813B27DBA7A800863BFF /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81813A27DBA7A800863BFF /* ItemTableViewController.swift */; };
+		2B81813D27DBA84800863BFF /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81813C27DBA84800863BFF /* ItemTableViewCell.swift */; };
 		2BA1112427D8AE1B00830237 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1112327D8AE1B00830237 /* User.swift */; };
 		2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08127D22D4600D12877 /* AppDelegate.swift */; };
 		2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08327D22D4600D12877 /* SceneDelegate.swift */; };
@@ -72,6 +75,9 @@
 		2B22A82827D4320600D94B6B /* MarketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewController.swift; sourceTree = "<group>"; };
 		2B22A82A27D433A400D94B6B /* MarketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewCell.swift; sourceTree = "<group>"; };
 		2B22A82C27D43BCE00D94B6B /* TableConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableConstants.swift; sourceTree = "<group>"; };
+		2B71A00827DCCE5B008EE339 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		2B81813A27DBA7A800863BFF /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		2B81813C27DBA84800863BFF /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		2BA1112327D8AE1B00830237 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2BC9D07E27D22D4600D12877 /* shopimize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shopimize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC9D08127D22D4600D12877 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +139,7 @@
 				2B22A82827D4320600D94B6B /* MarketTableViewController.swift */,
 				2BC9D08527D22D4600D12877 /* MapViewController.swift */,
 				2B22A81F27D3F0A900D94B6B /* ProfileTableViewController.swift */,
+				2B81813A27DBA7A800863BFF /* ItemTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -181,6 +188,7 @@
 				2B22A82C27D43BCE00D94B6B /* TableConstants.swift */,
 				2B22A82127D3F1C600D94B6B /* ProfileTableViewCell.swift */,
 				2B22A82A27D433A400D94B6B /* MarketTableViewCell.swift */,
+				2B81813C27DBA84800863BFF /* ItemTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -190,6 +198,7 @@
 			children = (
 				2BA1112327D8AE1B00830237 /* User.swift */,
 				2B1A940F27D9248500CCA943 /* Market.swift */,
+				2B71A00827DCCE5B008EE339 /* Item.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -552,10 +561,12 @@
 				2B1A941027D9248500CCA943 /* Market.swift in Sources */,
 				2B22A82927D4320600D94B6B /* MarketTableViewController.swift in Sources */,
 				2B22A82D27D43BCE00D94B6B /* TableConstants.swift in Sources */,
+				2B71A00927DCCE5B008EE339 /* Item.swift in Sources */,
 				2B22A81127D2D58700D94B6B /* FormConstants.swift in Sources */,
 				2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */,
 				2BA1112427D8AE1B00830237 /* User.swift in Sources */,
 				2B22A80F27D2C93D00D94B6B /* RegisterView.swift in Sources */,
+				2B81813B27DBA7A800863BFF /* ItemTableViewController.swift in Sources */,
 				2B22A82027D3F0A900D94B6B /* ProfileTableViewController.swift in Sources */,
 				2B22A82B27D433A400D94B6B /* MarketTableViewCell.swift in Sources */,
 				2B22A81327D2DF8B00D94B6B /* StartViewController.swift in Sources */,
@@ -564,6 +575,7 @@
 				2B22A82227D3F1C600D94B6B /* ProfileTableViewCell.swift in Sources */,
 				2B22A80D27D2C8ED00D94B6B /* RegisterViewController.swift in Sources */,
 				2B22A80927D2A15200D94B6B /* LoginView.swift in Sources */,
+				2B81813D27DBA84800863BFF /* ItemTableViewCell.swift in Sources */,
 				2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

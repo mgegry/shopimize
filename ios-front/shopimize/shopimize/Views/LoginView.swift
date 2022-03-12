@@ -7,10 +7,13 @@
 
 import UIKit
 
+/// Class containing login view design declaration and setup
+
 class LoginView: UIView {
     
     // Declare views as computed properties so they are lazy initilised (initialised only when needed)
     
+    /// Stack view to hold the login form
     var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -21,6 +24,7 @@ class LoginView: UIView {
         return stackView
     }()
     
+    /// The email text field
     var emailTextField: UITextField = {
         let emailTextField = UITextField()
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -32,6 +36,7 @@ class LoginView: UIView {
         return emailTextField
     }()
     
+    /// The password textfield
     var passwordTextField: UITextField = {
         let passwordTextField = UITextField()
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -43,6 +48,7 @@ class LoginView: UIView {
         return passwordTextField
     }()
     
+    /// The login button
     let loginButton: UIButton = {
         let loginButton = UIButton()
         loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -67,7 +73,7 @@ class LoginView: UIView {
         setupConstraints()
     }
     
-    // Methods
+    /// Add the subviews to the view
     private func addViews() {
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
@@ -76,6 +82,7 @@ class LoginView: UIView {
 
     }
     
+    /// Setup the constraints for the views
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,

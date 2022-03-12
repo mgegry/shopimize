@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// Struct containing table design constants
+
 struct TableConstants {
     static let cellHeight = 140
     static let cellBottomInset = 20
