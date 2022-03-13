@@ -25,6 +25,8 @@
 		2B22A82927D4320600D94B6B /* MarketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A82827D4320600D94B6B /* MarketTableViewController.swift */; };
 		2B22A82B27D433A400D94B6B /* MarketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A82A27D433A400D94B6B /* MarketTableViewCell.swift */; };
 		2B22A82D27D43BCE00D94B6B /* TableConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A82C27D43BCE00D94B6B /* TableConstants.swift */; };
+		2B5F6E3227DD616600F003DE /* DBItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F6E3127DD616600F003DE /* DBItemManager.swift */; };
+		2B5F6E3427DD67D600F003DE /* FirebaseReferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F6E3327DD67D600F003DE /* FirebaseReferences.swift */; };
 		2B71A00927DCCE5B008EE339 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B71A00827DCCE5B008EE339 /* Item.swift */; };
 		2B81813B27DBA7A800863BFF /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81813A27DBA7A800863BFF /* ItemTableViewController.swift */; };
 		2B81813D27DBA84800863BFF /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81813C27DBA84800863BFF /* ItemTableViewCell.swift */; };
@@ -75,6 +77,8 @@
 		2B22A82827D4320600D94B6B /* MarketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewController.swift; sourceTree = "<group>"; };
 		2B22A82A27D433A400D94B6B /* MarketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewCell.swift; sourceTree = "<group>"; };
 		2B22A82C27D43BCE00D94B6B /* TableConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableConstants.swift; sourceTree = "<group>"; };
+		2B5F6E3127DD616600F003DE /* DBItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBItemManager.swift; sourceTree = "<group>"; };
+		2B5F6E3327DD67D600F003DE /* FirebaseReferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReferences.swift; sourceTree = "<group>"; };
 		2B71A00827DCCE5B008EE339 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		2B81813A27DBA7A800863BFF /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		2B81813C27DBA84800863BFF /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -176,8 +180,10 @@
 		2B22A81C27D2FD2400D94B6B /* DatabaseManager */ = {
 			isa = PBXGroup;
 			children = (
+				2B5F6E3327DD67D600F003DE /* FirebaseReferences.swift */,
 				2B22A81D27D2FD5E00D94B6B /* FBAuthManager.swift */,
 				2B1A940D27D9077900CCA943 /* DBManager.swift */,
+				2B5F6E3127DD616600F003DE /* DBItemManager.swift */,
 			);
 			path = DatabaseManager;
 			sourceTree = "<group>";
@@ -559,7 +565,9 @@
 				2B22A81B27D2E04E00D94B6B /* StartView.swift in Sources */,
 				2BC9D08627D22D4600D12877 /* MapViewController.swift in Sources */,
 				2B1A941027D9248500CCA943 /* Market.swift in Sources */,
+				2B5F6E3227DD616600F003DE /* DBItemManager.swift in Sources */,
 				2B22A82927D4320600D94B6B /* MarketTableViewController.swift in Sources */,
+				2B5F6E3427DD67D600F003DE /* FirebaseReferences.swift in Sources */,
 				2B22A82D27D43BCE00D94B6B /* TableConstants.swift in Sources */,
 				2B71A00927DCCE5B008EE339 /* Item.swift in Sources */,
 				2B22A81127D2D58700D94B6B /* FormConstants.swift in Sources */,

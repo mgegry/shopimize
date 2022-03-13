@@ -16,7 +16,8 @@ class DBManager {
     static let shared = DBManager()
     
     /// Firebase Firestore database object
-    private let db = Firestore.firestore()
+    private let userCollection = FirebaseReferences.db.collection("User")
+    private let marketCollection = FirebaseReferences.db.collection("Market")
     
     private init() { }
     
@@ -29,7 +30,7 @@ class DBManager {
     /// - parameter completion: Escaping closure receiving operation result as boolean
     func addUserFirestore(with email: String, user: User, completion: @escaping (Bool) -> ()) {
         do {
-            try db.collection("User").document(email).setData(from: user)
+            try userCollection.document(email).setData(from: user)
             completion(true)
         } catch let error {
             print("Error wirting user to Firestore: \(error.localizedDescription)")
@@ -45,7 +46,7 @@ class DBManager {
     /// - parameter completion: Escaping closure receiving operationt result as boolean
     func addMarketFirestore(market: Market, completion: @escaping (Bool) -> ()) {
         do {
-            let _ = try db.collection("Market").addDocument(from: market)
+            let _ = try marketCollection.addDocument(from: market)
             completion(true)
         } catch let error {
             print("[error]:: adding market to firestore DB -- \(error.localizedDescription)")
@@ -60,7 +61,7 @@ class DBManager {
         
         var markets: [Market] = []
         
-        db.collection("Market").getDocuments { querySnapshot, error in
+        marketCollection.getDocuments { querySnapshot, error in
             if let error = error {
                 print("[error]:: getting all markets firestore DB -- \(error.localizedDescription)")
                 completion(.failure(error))
