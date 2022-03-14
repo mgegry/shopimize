@@ -15,7 +15,7 @@ import FirebaseFirestoreSwift
 struct Item: Codable, Identifiable {
     @DocumentID var id: String? = UUID().uuidString
     var itemName: String?
-    var price: String?
+    var price: Int?
     var shopID: String?
     var description: String?
     var createdAt: Timestamp
@@ -26,8 +26,9 @@ struct Item: Codable, Identifiable {
     enum CodingKeys: String, CodingKey {
         case id = "documentID"
         case itemName = "item_name"
-        case price
+        case price = "price"
         case shopID
+        case description
         case createdAt = "created_at"
         case isActive = "is_active"
         case imageURL

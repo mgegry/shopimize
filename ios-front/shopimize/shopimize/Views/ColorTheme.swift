@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-/// Extension on the UIColor so I can add my own colors for the theme and call them anywhere in the app
+/// Extension on the UIColor with custom colors so that they can be used anywhere in the app
 
 extension UIColor {
     class var primaryViolet: UIColor {

@@ -77,7 +77,6 @@ class DBManager {
                     switch result {
                     case .success(let market):
                         markets.append(market)
-                        print(market)
                     case .failure(let error):
                         print("[error]:: can not get document in markets collection -- \(error.localizedDescription)")
                         

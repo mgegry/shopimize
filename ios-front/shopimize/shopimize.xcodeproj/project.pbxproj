@@ -164,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				2BC9D08A27D22D4800D12877 /* Assets.xcassets */,
-				2BF6C27127DE55F500CDC01D /* ColorTheme.swift */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -172,6 +171,7 @@
 		2B22A80627D29FE800D94B6B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2BF6C27127DE55F500CDC01D /* ColorTheme.swift */,
 				2B22A81027D2D58700D94B6B /* FormConstants.swift */,
 				2B22A80827D2A15200D94B6B /* LoginView.swift */,
 				2B22A80E27D2C93D00D94B6B /* RegisterView.swift */,

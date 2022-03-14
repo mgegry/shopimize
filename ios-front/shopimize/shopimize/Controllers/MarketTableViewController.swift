@@ -22,6 +22,11 @@ class MarketTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        view.backgroundColor = .backgroundGrey
+        
+        tableView.register(MarketTableViewCell.self, forCellReuseIdentifier: "marketCell")
+        tableView.separatorStyle = .singleLine
+        
         DBManager.shared.getAllMarketsFirestore { [weak self] result in
             guard let strongSelf = self else { return }
             
@@ -45,9 +50,6 @@ class MarketTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(MarketTableViewCell.self, forCellReuseIdentifier: "marketCell")
-        tableView.separatorStyle = .singleLine
-        view.backgroundColor = .backgroundGrey
     }
     
     /// Return the number of section in the table
@@ -101,15 +103,18 @@ class MarketTableViewController: UITableViewController {
         return CGFloat(TableConstants.cellHeight)
     }
     
-    // TODO: Refine
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Firestore.firestore().collection("Market").document(markets[indexPath.row].id ?? "").delete { err in
-            if let err = err {
-                print(err)
-            }
+        guard let marketID = markets[indexPath.row].id else {
+            return
         }
+        
+        let itemController = ItemTableViewController()
+        
+        itemController.marketID = marketID
+        navigationController?.pushViewController(itemController, animated: true)
     }
+    
+    // TODO: Refine
     
     @objc func didTapAddMarket() {
         let market = Market(shopName: "shit best", createdAt: Timestamp(date: Date.now), isActive: false)
