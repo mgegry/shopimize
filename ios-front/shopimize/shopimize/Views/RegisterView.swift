@@ -116,10 +116,10 @@ class RegisterView: UIView {
         setupConstraints()
     }
     
+    /// No use of storyboards so the initializer for storyboards is set to unavailable
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        addViews()
-        setupConstraints()
     }
     
     /// Add subviews to their main views

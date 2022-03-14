@@ -31,7 +31,7 @@ class StartView: UIView {
         button.setTitle("Sign In", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 20
-        button.backgroundColor = .systemIndigo
+        button.backgroundColor = .primaryViolet
         return button
     }()
     
@@ -52,10 +52,10 @@ class StartView: UIView {
         setupConstraints()
     }
     
+    /// No use of storyboards so the initalizer for them is set to unavailable
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        addSubviews()
-        setupConstraints()
     }
     
     /// Add the subiews to the main view

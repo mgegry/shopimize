@@ -47,6 +47,7 @@ class MarketTableViewController: UITableViewController {
         
         tableView.register(MarketTableViewCell.self, forCellReuseIdentifier: "marketCell")
         tableView.separatorStyle = .singleLine
+        view.backgroundColor = .backgroundGrey
     }
     
     /// Return the number of section in the table
@@ -77,8 +78,6 @@ class MarketTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "marketCell",for: indexPath) as? MarketTableViewCell else {
             fatalError("Can not dequeue market table view cell with identifier")
         }
-
-        // print(markets[indexPath.row].id)
         
         cell.shopName.text = markets[indexPath.row].shopName
         

@@ -67,10 +67,10 @@ class LoginView: UIView {
         setupConstraints()
     }
     
+    /// No use of storyboards so the initalizer for them is set to unavailable
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        addViews()
-        setupConstraints()
     }
     
     /// Add the subviews to the view

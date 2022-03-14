@@ -27,7 +27,7 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    /// Called when the user taps register
+    /// Called when the user taps register button on the register screen
     @objc func didTapRegister() {
         
         // TODO: Handle form validation better

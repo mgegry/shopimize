@@ -15,7 +15,7 @@ class StartViewController: UIViewController {
     /// Setup the view
     override func loadView() {
         view = startView
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundGrey
         
         startView.loginButton.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
         startView.registerButton.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
