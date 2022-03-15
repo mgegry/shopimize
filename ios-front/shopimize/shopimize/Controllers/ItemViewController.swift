@@ -22,17 +22,6 @@ class ItemViewController: UIViewController {
         return collection
     }()
     
-//    override func loadView() {
-//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//
-//        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-//        layout.itemSize = CGSize(width: 60, height: 60)
-//        layout.scrollDirection = .horizontal
-//        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//
-//        self.view = collectionView
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
