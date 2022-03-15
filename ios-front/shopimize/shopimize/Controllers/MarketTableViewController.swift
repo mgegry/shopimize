@@ -22,11 +22,6 @@ class MarketTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        view.backgroundColor = .backgroundGrey
-        
-        tableView.register(MarketTableViewCell.self, forCellReuseIdentifier: "marketCell")
-        tableView.separatorStyle = .singleLine
-        
         DBManager.shared.getAllMarketsFirestore { [weak self] result in
             guard let strongSelf = self else { return }
             
@@ -41,8 +36,6 @@ class MarketTableViewController: UITableViewController {
                 print("fauta fuata")
             }
         }
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAddMarket))
     }
     
     /// Do any aditional setup after the view loaded
@@ -50,6 +43,12 @@ class MarketTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .backgroundGrey
+        
+        tableView.register(MarketTableViewCell.self, forCellReuseIdentifier: "marketCell")
+        tableView.separatorStyle = .none
+        
+        setupNavbar()
     }
     
     /// Return the number of section in the table
@@ -108,23 +107,22 @@ class MarketTableViewController: UITableViewController {
             return
         }
         
-        let itemController = ItemTableViewController()
+        let itemController = ItemViewController()
         
         itemController.marketID = marketID
         navigationController?.pushViewController(itemController, animated: true)
     }
     
-    // TODO: Refine
-    
-    @objc func didTapAddMarket() {
-        let market = Market(shopName: "shit best", createdAt: Timestamp(date: Date.now), isActive: false)
-        DBManager.shared.addMarketFirestore(market: market) { result in
-            if result == false {
-                print ("error")
-                return
-            }
-            
-            print("success add market TEST!")
-        }
+    /// Setup the layout and design of the navigation bar
+    ///
+    private func setupNavbar() {
+        guard let nav = navigationController else { return }
+        
+        let boundsWidth = nav.navigationBar.bounds.width - 15
+        let boundsHeight = nav.navigationBar.bounds.height
+        
+        
+        let titleView = HomeNavigation(frame: CGRect(x: 0, y: 0, width: boundsWidth, height: boundsHeight))
+        self.navigationItem.titleView = titleView
     }
 }
