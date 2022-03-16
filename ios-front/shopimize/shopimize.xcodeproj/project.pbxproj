@@ -34,6 +34,8 @@
 		2B94463A27E0F72800ED2F1A /* HomeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94463927E0F72800ED2F1A /* HomeNavigation.swift */; };
 		2B94463C27E0F94400ED2F1A /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94463B27E0F94400ED2F1A /* ItemViewController.swift */; };
 		2BA1112427D8AE1B00830237 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1112327D8AE1B00830237 /* User.swift */; };
+		2BA4DA2C27E247D2004A0F02 /* MHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA4DA2B27E247D2004A0F02 /* MHomeViewController.swift */; };
+		2BA4DA2E27E25215004A0F02 /* DBUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA4DA2D27E25215004A0F02 /* DBUserManager.swift */; };
 		2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08127D22D4600D12877 /* AppDelegate.swift */; };
 		2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08327D22D4600D12877 /* SceneDelegate.swift */; };
 		2BC9D08627D22D4600D12877 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08527D22D4600D12877 /* MapViewController.swift */; };
@@ -90,6 +92,8 @@
 		2B94463927E0F72800ED2F1A /* HomeNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigation.swift; sourceTree = "<group>"; };
 		2B94463B27E0F94400ED2F1A /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		2BA1112327D8AE1B00830237 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2BA4DA2B27E247D2004A0F02 /* MHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHomeViewController.swift; sourceTree = "<group>"; };
+		2BA4DA2D27E25215004A0F02 /* DBUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUserManager.swift; sourceTree = "<group>"; };
 		2BC9D07E27D22D4600D12877 /* shopimize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shopimize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC9D08127D22D4600D12877 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BC9D08327D22D4600D12877 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				2B22A81D27D2FD5E00D94B6B /* FBAuthManager.swift */,
 				2B1A940D27D9077900CCA943 /* DBManager.swift */,
 				2B5F6E3127DD616600F003DE /* DBItemManager.swift */,
+				2BA4DA2D27E25215004A0F02 /* DBUserManager.swift */,
 			);
 			path = DatabaseManager;
 			sourceTree = "<group>";
@@ -229,6 +234,31 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		2BA4DA2827E2464F004A0F02 /* ShopperApp */ = {
+			isa = PBXGroup;
+			children = (
+				2B22A80327D29A4A00D94B6B /* Controllers */,
+				2B22A80627D29FE800D94B6B /* Views */,
+			);
+			path = ShopperApp;
+			sourceTree = "<group>";
+		};
+		2BA4DA2927E24658004A0F02 /* MarketApp */ = {
+			isa = PBXGroup;
+			children = (
+				2BA4DA2A27E246F8004A0F02 /* Controllers */,
+			);
+			path = MarketApp;
+			sourceTree = "<group>";
+		};
+		2BA4DA2A27E246F8004A0F02 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2BA4DA2B27E247D2004A0F02 /* MHomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		2BC9D07527D22D4600D12877 = {
 			isa = PBXGroup;
 			children = (
@@ -258,8 +288,8 @@
 				2B22A80427D29A6500D94B6B /* Utils */,
 				2B22A81C27D2FD2400D94B6B /* DatabaseManager */,
 				2BA1112227D8ADFC00830237 /* Models */,
-				2B22A80327D29A4A00D94B6B /* Controllers */,
-				2B22A80627D29FE800D94B6B /* Views */,
+				2BA4DA2827E2464F004A0F02 /* ShopperApp */,
+				2BA4DA2927E24658004A0F02 /* MarketApp */,
 				2B22A80A27D2B59D00D94B6B /* GoogleService-Info.plist */,
 				2BC9D08F27D22D4800D12877 /* Info.plist */,
 			);
@@ -600,6 +630,8 @@
 				2B94463A27E0F72800ED2F1A /* HomeNavigation.swift in Sources */,
 				2B22A81327D2DF8B00D94B6B /* StartViewController.swift in Sources */,
 				2B22A81E27D2FD5E00D94B6B /* FBAuthManager.swift in Sources */,
+				2BA4DA2C27E247D2004A0F02 /* MHomeViewController.swift in Sources */,
+				2BA4DA2E27E25215004A0F02 /* DBUserManager.swift in Sources */,
 				2B1A940E27D9077900CCA943 /* DBManager.swift in Sources */,
 				2B22A82227D3F1C600D94B6B /* ProfileTableViewCell.swift in Sources */,
 				2B22A80D27D2C8ED00D94B6B /* RegisterViewController.swift in Sources */,

@@ -21,12 +21,14 @@ class ItemViewController: UIViewController {
         viewLayout.scrollDirection = .vertical
         viewLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2 - 10, height: UIScreen.main.bounds.width / 2)
         viewLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        viewLayout.sectionHeadersPinToVisibleBounds = true
-        viewLayout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 100)
+        // viewLayout.sectionHeadersPinToVisibleBounds = true
+        // viewLayout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 20)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
     }()
+    
+    // MARK: View Lifecyle Functions
     
     /// Do any aditional setup after loading the view
     ///
@@ -59,6 +61,8 @@ class ItemViewController: UIViewController {
         }
     }
     
+    // MARK: Class functions
+    
     /// Setup the colletion view properties
     ///
     private func setupCollectionView() {
@@ -85,6 +89,8 @@ class ItemViewController: UIViewController {
     }
 }
 
+// MARK: Extensions
+
 /// Extension to ItemViewController conforming to UICollectionViewDataSrouce Protocol
 ///
 extension ItemViewController: UICollectionViewDataSource {
@@ -103,22 +109,24 @@ extension ItemViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
-            headerView.backgroundColor = .yellow
-            return headerView
-            
-        case UICollectionView.elementKindSectionFooter:
-            print("nothing")
-            
-        default:
-            print("default")
-        }
-        return UICollectionReusableView()
-    }
+    // Header functionality
+    
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//
+//        switch kind {
+//        case UICollectionView.elementKindSectionHeader:
+//            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
+//            headerView.backgroundColor = .white
+//            return headerView
+//
+//        case UICollectionView.elementKindSectionFooter:
+//            print("nothing")
+//
+//        default:
+//            print("default")
+//        }
+//        return UICollectionReusableView()
+//    }
     
 }
 

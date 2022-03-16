@@ -17,7 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        /// Add API KEY for Goole Maps
         GMSServices.provideAPIKey("AIzaSyDZtCb83OMuZbz3Npqrlfm378VajVG2Z20")
+        
+        /// Configure Firebase
         FirebaseApp.configure()
         
         let tabBarController = UITabBarController()
@@ -30,11 +33,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationProfileController = UINavigationController(rootViewController: profileViewController)
         let navigationMarketController = UINavigationController(rootViewController: marketViewController)
         
-        tabBarController.setViewControllers([navigationMarketController, navigationMapController, navigationProfileController], animated: true)
+        
+        let marketAdminViewController = MHomeViewController()
+        
+        let navigationAdminMarketController = UINavigationController(rootViewController: marketAdminViewController)
+        
+        
+        tabBarController.setViewControllers([navigationMarketController, navigationMapController, navigationProfileController, navigationAdminMarketController], animated: true)
         
         window = UIWindow()
+        
+        
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
+        
         return true
     }
 

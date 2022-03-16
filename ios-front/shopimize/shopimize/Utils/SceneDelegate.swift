@@ -28,7 +28,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationProfileController = UINavigationController(rootViewController: profileViewController)
         let navigationMarketController = UINavigationController(rootViewController: marketViewController)
         
-        tabBarController.setViewControllers([navigationMarketController, navigationMapController, navigationProfileController], animated: true)
+        let marketAdminViewController = MHomeViewController()
+        
+        let navigationAdminMarketController = UINavigationController(rootViewController: marketAdminViewController)
+        
+        tabBarController.setViewControllers([navigationMarketController, navigationMapController, navigationProfileController, navigationAdminMarketController], animated: true)
         
         window = UIWindow(windowScene: windowScence)
         window?.rootViewController = tabBarController

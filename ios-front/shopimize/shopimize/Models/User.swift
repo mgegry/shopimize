@@ -14,11 +14,12 @@ struct User: Codable  {
     var email: String?
     var firstName: String?
     var lastName: String?
-    var points: Int?
+    var role: String?
     
     /// Enum containing the coding key for each field
     enum CodingKeys: String, CodingKey {
         case firstName = "firstname"
         case lastName = "lastname"
+        case role
     }
 }
