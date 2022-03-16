@@ -21,6 +21,8 @@ class ItemViewController: UIViewController {
         viewLayout.scrollDirection = .vertical
         viewLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2 - 10, height: UIScreen.main.bounds.width / 2)
         viewLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        viewLayout.sectionHeadersPinToVisibleBounds = true
+        viewLayout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 100)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
@@ -66,6 +68,9 @@ class ItemViewController: UIViewController {
         
         self.collectionView.backgroundColor = .backgroundGrey
         self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "itemCellC")
+        self.collectionView.register(UICollectionViewCell.self,
+                                     forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                     withReuseIdentifier: "header")
     }
     
     /// Setup the constraints for the views
@@ -85,17 +90,34 @@ class ItemViewController: UIViewController {
 extension ItemViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return items.count + 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCellC", for: indexPath)
         cell.backgroundColor = .white
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
+            headerView.backgroundColor = .yellow
+            return headerView
+            
+        case UICollectionView.elementKindSectionFooter:
+            print("nothing")
+            
+        default:
+            print("default")
+        }
+        return UICollectionReusableView()
     }
     
 }
