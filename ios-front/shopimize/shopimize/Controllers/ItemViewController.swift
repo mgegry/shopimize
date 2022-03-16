@@ -9,31 +9,68 @@ import UIKit
 
 class ItemViewController: UIViewController {
     
-    // var collectionView = UICollectionView()
+    /// The array of items to display
+    var items: [Item] = []
     
+    /// The market id for which to display items
     var marketID: String = ""
     
+    /// Collection View declaration
     private let collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         viewLayout.scrollDirection = .vertical
-        viewLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2 - 20, height: UIScreen.main.bounds.width / 2 - 20)
+        viewLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2 - 10, height: UIScreen.main.bounds.width / 2)
+        viewLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
     }()
     
+    /// Do any aditional setup after loading the view
+    ///
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        view.addSubview(collectionView)
+        
         view.backgroundColor = .backgroundGrey
+        view.addSubview(collectionView)
+        
+        setupCollectionView()
+        setupConstraints()
+    }
+    
+    /// Do any aditional setup before the view is about to appear
+    ///
+    /// - parameter animated: States if the view will appear animated or not
+    override func viewWillAppear(_ animated: Bool) {
+        DBItemManager.shared.getItemsForMarketFirestore(marketID: marketID) { [weak self] result in
+            guard let strongSelf = self else { return }
+            
+            switch result {
+            case .success(let items):
+                strongSelf.items = items
+                DispatchQueue.main.async {
+                    strongSelf.collectionView.reloadData()
+                }
+            case .failure(_):
+                print("Unable to get items for market \(strongSelf.marketID)")
+            }
+        }
+    }
+    
+    /// Setup the colletion view properties
+    ///
+    private func setupCollectionView() {
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         //self.collectionView.alwaysBounceVertical = true
         
         self.collectionView.backgroundColor = .backgroundGrey
         self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "itemCellC")
-        
+    }
+    
+    /// Setup the constraints for the views
+    ///
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
@@ -43,10 +80,16 @@ class ItemViewController: UIViewController {
     }
 }
 
+/// Extension to ItemViewController conforming to UICollectionViewDataSrouce Protocol
+///
 extension ItemViewController: UICollectionViewDataSource {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -57,6 +100,8 @@ extension ItemViewController: UICollectionViewDataSource {
     
 }
 
+/// Extension to ItemViewController conforming to UICollectionViewDelegate Protocol
+///
 extension ItemViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         

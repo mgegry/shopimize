@@ -28,7 +28,6 @@
 		2B5F6E3227DD616600F003DE /* DBItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F6E3127DD616600F003DE /* DBItemManager.swift */; };
 		2B5F6E3427DD67D600F003DE /* FirebaseReferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F6E3327DD67D600F003DE /* FirebaseReferences.swift */; };
 		2B71A00927DCCE5B008EE339 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B71A00827DCCE5B008EE339 /* Item.swift */; };
-		2B81813B27DBA7A800863BFF /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81813A27DBA7A800863BFF /* ItemTableViewController.swift */; };
 		2B81813D27DBA84800863BFF /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81813C27DBA84800863BFF /* ItemTableViewCell.swift */; };
 		2B94463A27E0F72800ED2F1A /* HomeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94463927E0F72800ED2F1A /* HomeNavigation.swift */; };
 		2B94463C27E0F94400ED2F1A /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94463B27E0F94400ED2F1A /* ItemViewController.swift */; };
@@ -83,7 +82,6 @@
 		2B5F6E3127DD616600F003DE /* DBItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBItemManager.swift; sourceTree = "<group>"; };
 		2B5F6E3327DD67D600F003DE /* FirebaseReferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReferences.swift; sourceTree = "<group>"; };
 		2B71A00827DCCE5B008EE339 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		2B81813A27DBA7A800863BFF /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		2B81813C27DBA84800863BFF /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		2B94463927E0F72800ED2F1A /* HomeNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigation.swift; sourceTree = "<group>"; };
 		2B94463B27E0F94400ED2F1A /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 				2B22A82827D4320600D94B6B /* MarketTableViewController.swift */,
 				2BC9D08527D22D4600D12877 /* MapViewController.swift */,
 				2B22A81F27D3F0A900D94B6B /* ProfileTableViewController.swift */,
-				2B81813A27DBA7A800863BFF /* ItemTableViewController.swift */,
 				2B94463B27E0F94400ED2F1A /* ItemViewController.swift */,
 			);
 			path = Controllers;
@@ -583,7 +580,6 @@
 				2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */,
 				2BA1112427D8AE1B00830237 /* User.swift in Sources */,
 				2B22A80F27D2C93D00D94B6B /* RegisterView.swift in Sources */,
-				2B81813B27DBA7A800863BFF /* ItemTableViewController.swift in Sources */,
 				2B22A82027D3F0A900D94B6B /* ProfileTableViewController.swift in Sources */,
 				2B22A82B27D433A400D94B6B /* MarketTableViewCell.swift in Sources */,
 				2B94463A27E0F72800ED2F1A /* HomeNavigation.swift in Sources */,
