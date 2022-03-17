@@ -38,14 +38,16 @@ class FBAuthManager {
     /// - parameter email: The email of the user
     /// - parameter password: The password of the user
     /// - parameter closure: Escaping closure to be called when operation finishes
-    func loginUserFirebase(withEmail email: String, password: String, completion: @escaping (Bool) -> ()) {
+    func loginUserFirebase(withEmail email: String, password: String, completion: @escaping (Result<String, Error>) -> ()) {
         FirebaseReferences.auth.signIn(withEmail: email, password: password) { authData, error in
-            if let error = error {
-                completion(false)
-                print("[error]:: firebase failed to login -- \(error.localizedDescription)")
+            
+            guard let email = authData?.user.email, error == nil else {
+                completion(.failure(error!))
+                print("[error]:: firebase failed to login -- \(error!.localizedDescription)")
                 return
             }
-            completion(true)
+            
+            completion(.success(email))
         }
     }
     

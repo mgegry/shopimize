@@ -58,11 +58,11 @@ class RegisterViewController: UIViewController {
             print("Account was created")
             
             DispatchQueue.main.async {
-                self?.dismiss(animated: true, completion: nil)
+                self?.navigationController?.popToRootViewController(animated: false)
             }
         }
         
-        let user = User(firstName: registerView.firstNameTextField.text ?? "123", lastName: registerView.lastNameTextField.text ?? "234")
+        let user = User(firstName: registerView.firstNameTextField.text ?? "123", lastName: registerView.lastNameTextField.text ?? "234", role: "shopper")
         
         DBManager.shared.addUserFirestore(with: email, user: user) { result in
             guard result == true else {

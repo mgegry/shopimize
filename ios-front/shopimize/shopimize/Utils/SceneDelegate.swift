@@ -18,24 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScence  = (scene as? UIWindowScene) else { return }
         
-        let tabBarController = UITabBarController()
-        
-        let mapViewController = MapViewController()
-        let marketViewController = MarketTableViewController(style: .plain)
-        let profileViewController = ProfileTableViewController(style: .plain)
-        
-        let navigationMapController = UINavigationController(rootViewController: mapViewController)
-        let navigationProfileController = UINavigationController(rootViewController: profileViewController)
-        let navigationMarketController = UINavigationController(rootViewController: marketViewController)
-        
-        let marketAdminViewController = MHomeViewController()
-        
-        let navigationAdminMarketController = UINavigationController(rootViewController: marketAdminViewController)
-        
-        tabBarController.setViewControllers([navigationMarketController, navigationMapController, navigationProfileController, navigationAdminMarketController], animated: true)
-        
         window = UIWindow(windowScene: windowScence)
-        window?.rootViewController = tabBarController
+        window?.rootViewController = UINavigationController(rootViewController: StartViewController())
         window?.makeKeyAndVisible()
         
     }

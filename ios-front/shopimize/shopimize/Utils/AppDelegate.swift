@@ -23,28 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /// Configure Firebase
         FirebaseApp.configure()
         
-        let tabBarController = UITabBarController()
-        
-        let mapViewController = MapViewController()
-        let marketViewController = MarketTableViewController(style: .plain)
-        let profileViewController = ProfileTableViewController(style: .plain)
-        
-        let navigationMapController = UINavigationController(rootViewController: mapViewController)
-        let navigationProfileController = UINavigationController(rootViewController: profileViewController)
-        let navigationMarketController = UINavigationController(rootViewController: marketViewController)
-        
-        
-        let marketAdminViewController = MHomeViewController()
-        
-        let navigationAdminMarketController = UINavigationController(rootViewController: marketAdminViewController)
-        
-        
-        tabBarController.setViewControllers([navigationMarketController, navigationMapController, navigationProfileController, navigationAdminMarketController], animated: true)
-        
         window = UIWindow()
-        
-        
-        window?.rootViewController = tabBarController
+        window?.rootViewController = UINavigationController(rootViewController: StartViewController())
         window?.makeKeyAndVisible()
         
         return true
