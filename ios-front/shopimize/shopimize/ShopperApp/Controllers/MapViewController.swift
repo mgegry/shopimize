@@ -20,23 +20,23 @@ class MapViewController: UIViewController {
     ///
     /// - parameter animated: States if the view will apear animated or not
     override func viewWillAppear(_ animated: Bool) {
-        handle = Auth.auth().addStateDidChangeListener { [weak self] auth, user in
-            
-            guard let user = user else {
-                print("no user found")
-                
-                let startViewController = StartViewController()
-                let navController = UINavigationController(rootViewController: startViewController)
-                
-                navController.modalPresentationStyle = .fullScreen
-                
-                DispatchQueue.main.async {
-                    self?.present(navController, animated: false, completion: nil)
-                }
-                return
-            }
-            print(user.email ?? "jaja")
-        }
+//        handle = Auth.auth().addStateDidChangeListener { [weak self] auth, user in
+//
+//            guard let user = user else {
+//                print("no user found")
+//
+//                let startViewController = StartViewController()
+//                let navController = UINavigationController(rootViewController: startViewController)
+//
+//                navController.modalPresentationStyle = .fullScreen
+//
+//                DispatchQueue.main.async {
+//                    self?.present(navController, animated: false, completion: nil)
+//                }
+//                return
+//            }
+//            print(user.email ?? "jaja")
+//        }
         
     }
     
@@ -65,11 +65,11 @@ class MapViewController: UIViewController {
     ///
     /// - parameter animated: States if the view will disapear animated or not
     override func viewWillDisappear(_ animated: Bool) {
-        if let handle = handle {
-            Auth.auth().removeStateDidChangeListener(handle)
-        } else {
-            print("[info]:: user state did change listener was not set")
-        }
+//        if let handle = handle {
+//            Auth.auth().removeStateDidChangeListener(handle)
+//        } else {
+//            print("[info]:: user state did change listener was not set")
+//        }
     }
     
     /// Called when the user taps the log out button
