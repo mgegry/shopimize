@@ -7,12 +7,20 @@
 
 import UIKit
 
+/// Item view controller for the market admin app
+
 class MItemViewController: UIViewController {
     
+    /// The table view that displays the items
     var tableView = UITableView(frame: .zero, style: .plain)
+    
+    /// The items to be displayed
     var items: [Item] = []
     
+    /// The id of the market for which to display the items
     var marketID: String?
+    
+    // MARK: View Lifecycle
     
     /// Do any aditional setup before the view is about to appear
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +53,7 @@ class MItemViewController: UIViewController {
     
     // MARK: Class methods
     
+    /// Setup the table view
     private func setupTable() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -65,7 +74,16 @@ class MItemViewController: UIViewController {
     }
 }
 
+// MARK: Extensions
+
+/// Make HomeViewController conform to UITableViewDataSources and UITableViewDelegate so that it can implement its methods
 extension MItemViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    /// Set the content of the cell at the given indexPath
+    ///
+    /// - parameter tableView: The current table view
+    /// - parameter indexPath: The index path for which to set the cotent
+    /// - returns: a UITableViewCell containing the cell content
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "marketAppItemCell", for: indexPath)
         
@@ -77,10 +95,19 @@ extension MItemViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    /// Set the number of sections for the table
+    ///
+    /// - parameter tableView: The current table
+    /// - returns: The number of sections
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    /// Set the number of rows for the current section
+    ///
+    /// - parameter tableView: The current table view
+    /// - parameter section: The current section
+    /// - returns: The number of rowns in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
