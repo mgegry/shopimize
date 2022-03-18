@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 /// Home view controller for the Admin Market App
 class MHomeViewController: UIViewController {
@@ -13,13 +14,21 @@ class MHomeViewController: UIViewController {
     /// Struct containing the declaration of a section
     struct Section {
         var headerTitle: String?
-        var cells: [String]
+        var cells: [UITableViewCell]
     }
     /// Array containng all sections of the table
     var sections: [Section] = []
     
     /// Table view declaration
     var tableView = UITableView(frame: .zero, style: .insetGrouped)
+    
+    /// Table view cells declaration
+    let myAccountCell = UITableViewCell(style: .value1, reuseIdentifier: "")
+    let addItemCell = UITableViewCell(style: .value1, reuseIdentifier: "")
+    let allItemsCell = UITableViewCell(style: .value1, reuseIdentifier: "")
+    let inStoreSalesCell = UITableViewCell(style: .value1, reuseIdentifier: "")
+    let pointsSalesCell = UITableViewCell(style: .value1, reuseIdentifier: "")
+    let signOutCell = UITableViewCell(style: .value1, reuseIdentifier: "")
     
     /// Do any aditional setup after the view was loaded
     override func viewDidLoad() {
@@ -28,7 +37,8 @@ class MHomeViewController: UIViewController {
         view.addSubview(tableView)
         
         setupNavigation()
-        buildSections()
+        buildTableCells()
+        buildTableSections()
         setupTable()
         setupConstraints()
     }
@@ -50,20 +60,49 @@ class MHomeViewController: UIViewController {
                            forHeaderFooterViewReuseIdentifier: "markedAdminHeaderCell")
     }
     
+    /// Set the content of the cells
+    private func buildTableCells() {
+        var content = myAccountCell.defaultContentConfiguration()
+        content.text = "My account"
+        myAccountCell.contentConfiguration = content
+        
+        content = addItemCell.defaultContentConfiguration()
+        content.text = "Add item"
+        addItemCell.contentConfiguration = content
+        
+        content = allItemsCell.defaultContentConfiguration()
+        content.text = "All items"
+        allItemsCell.contentConfiguration = content
+        
+        content = inStoreSalesCell.defaultContentConfiguration()
+        content.text = "In store sales"
+        inStoreSalesCell.contentConfiguration = content
+        
+        content = pointsSalesCell.defaultContentConfiguration()
+        content.text = "Points sales"
+        pointsSalesCell.contentConfiguration = content
+        
+        content = signOutCell.defaultContentConfiguration()
+        content.text = "Sign out"
+        content.textProperties.color = UIColor(.red)
+        signOutCell.contentConfiguration = content
+    }
+    
     /// Build the sections for the table
-    private func buildSections() {
+    private func buildTableSections() {
+        
         sections = [
-            Section(headerTitle: nil, cells: ["My Account"]),
-            Section(headerTitle: nil, cells: ["All items", "Active items"]),
-            Section(headerTitle: nil, cells: ["In store sales", "Points sales"]),
-            Section(headerTitle: nil, cells: ["Sign out"])
+            Section(headerTitle: "Account management", cells: [myAccountCell]),
+            //Section(headerTitle: "Manage Markets", cells: [])
+            Section(headerTitle: "Manage Items", cells: [addItemCell, allItemsCell]),
+            Section(headerTitle: "Sales", cells: [inStoreSalesCell, pointsSalesCell]),
+            Section(headerTitle: nil, cells: [signOutCell])
         ]
     }
     
     /// Setup the navigation for the view
     private func setupNavigation() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Haha"
+        navigationItem.title = "Shopimize Market Panel"
     }
     
     /// Setup the view constraints
@@ -88,13 +127,7 @@ extension MHomeViewController: UITableViewDataSource, UITableViewDelegate {
     /// - parameter indexPath: The index path for which to set the cotent
     /// - returns: a UITableViewCell containing the cell content
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "marketAdminCell", for: indexPath)
-        var content = cell.defaultContentConfiguration()
-        
-        
-        content.text = sections[indexPath.section].cells[indexPath.row]
-        cell.contentConfiguration = content
-        return cell
+        return sections[indexPath.section].cells[indexPath.row]
     }
     
     /// Set the number of sections for the table
@@ -114,14 +147,27 @@ extension MHomeViewController: UITableViewDataSource, UITableViewDelegate {
         return sections[section].cells.count
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 {
-            return UIView()
-        }
-        return UIView()
+    /// Set the header title for the given section
+    ///
+    /// - parameter tableView: The current table
+    /// - parameter section: The section for which to set the title
+    /// - returns: The title for the section
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].headerTitle
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
+    /// Execute action based on selected cell
+    ///
+    /// - parameter tableView: The current table
+    /// - parameter indexPath: The index of the selected cell
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 3 && indexPath.row == 0 {
+            do {
+                try Auth.auth().signOut()
+            } catch let signOutError as NSError {
+                print("Error signing out: \(signOutError)")
+            }
+            navigationController?.dismiss(animated: true, completion: nil)
+        }
     }
 }

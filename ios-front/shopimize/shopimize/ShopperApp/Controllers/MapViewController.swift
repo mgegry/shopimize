@@ -79,6 +79,7 @@ class MapViewController: UIViewController {
         } catch let signOutError as NSError {
             print("Error signing out: \(signOutError)")
         }
+        tabBarController?.dismiss(animated: true, completion: nil)
     }
     
 
