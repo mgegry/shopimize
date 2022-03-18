@@ -45,6 +45,8 @@
 		2BC9D09927D22D4800D12877 /* shopimizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D09827D22D4800D12877 /* shopimizeTests.swift */; };
 		2BC9D0A327D22D4800D12877 /* shopimizeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D0A227D22D4800D12877 /* shopimizeUITests.swift */; };
 		2BC9D0A527D22D4800D12877 /* shopimizeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D0A427D22D4800D12877 /* shopimizeUITestsLaunchTests.swift */; };
+		2BD4675A27E5013E00782E52 /* MAddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD4675927E5013E00782E52 /* MAddItemViewController.swift */; };
+		2BD4675C27E503A000782E52 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD4675B27E503A000782E52 /* AddItemView.swift */; };
 		2BF6C27227DE55F500CDC01D /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6C27127DE55F500CDC01D /* ColorTheme.swift */; };
 		B0B13B60D9ABAE188B61280D /* Pods_shopimizeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */; };
 /* End PBXBuildFile section */
@@ -108,6 +110,8 @@
 		2BC9D09E27D22D4800D12877 /* shopimizeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = shopimizeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC9D0A227D22D4800D12877 /* shopimizeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shopimizeUITests.swift; sourceTree = "<group>"; };
 		2BC9D0A427D22D4800D12877 /* shopimizeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shopimizeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2BD4675927E5013E00782E52 /* MAddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAddItemViewController.swift; sourceTree = "<group>"; };
+		2BD4675B27E503A000782E52 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		2BF6C27127DE55F500CDC01D /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		44D376BFFD88285165CAB480 /* Pods_shopimize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B3466F07B6902E7614D5A7 /* Pods-shopimize.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopimize.release.xcconfig"; path = "Target Support Files/Pods-shopimize/Pods-shopimize.release.xcconfig"; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				2BA4DA2A27E246F8004A0F02 /* Controllers */,
+				2BD4675D27E503A700782E52 /* Views */,
 			);
 			path = MarketApp;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 			children = (
 				2BA4DA2B27E247D2004A0F02 /* MHomeViewController.swift */,
 				2B7E355927E4A0E70092ADB0 /* MItemViewController.swift */,
+				2BD4675927E5013E00782E52 /* MAddItemViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -314,6 +320,14 @@
 				2BC9D0A427D22D4800D12877 /* shopimizeUITestsLaunchTests.swift */,
 			);
 			path = shopimizeUITests;
+			sourceTree = "<group>";
+		};
+		2BD4675D27E503A700782E52 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2BD4675B27E503A000782E52 /* AddItemView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		98CEBB5EC7E8E7B3B399511F /* Frameworks */ = {
@@ -633,6 +647,7 @@
 				2B22A82B27D433A400D94B6B /* MarketTableViewCell.swift in Sources */,
 				2B94463A27E0F72800ED2F1A /* HomeNavigation.swift in Sources */,
 				2B22A81327D2DF8B00D94B6B /* StartViewController.swift in Sources */,
+				2BD4675C27E503A000782E52 /* AddItemView.swift in Sources */,
 				2B22A81E27D2FD5E00D94B6B /* FBAuthManager.swift in Sources */,
 				2BA4DA2C27E247D2004A0F02 /* MHomeViewController.swift in Sources */,
 				2BA4DA2E27E25215004A0F02 /* DBUserManager.swift in Sources */,
@@ -641,6 +656,7 @@
 				2B22A80D27D2C8ED00D94B6B /* RegisterViewController.swift in Sources */,
 				2BF6C27227DE55F500CDC01D /* ColorTheme.swift in Sources */,
 				2B22A80927D2A15200D94B6B /* LoginView.swift in Sources */,
+				2BD4675A27E5013E00782E52 /* MAddItemViewController.swift in Sources */,
 				2B81813D27DBA84800863BFF /* ItemTableViewCell.swift in Sources */,
 				2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */,
 				2B672D7027E2036100015C4E /* CartViewController.swift in Sources */,

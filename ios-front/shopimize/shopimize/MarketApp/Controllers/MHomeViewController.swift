@@ -87,6 +87,11 @@ class MHomeViewController: UIViewController {
         content = addItemCell.defaultContentConfiguration()
         content.text = "Add item"
         addItemCell.contentConfiguration = content
+        addItemCell.shouldHighlight = true
+        addItemCell.didSelect = { [unowned self] in
+            let vc = MAddItemViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
         content = allItemsCell.defaultContentConfiguration()
         content.text = "All items"
