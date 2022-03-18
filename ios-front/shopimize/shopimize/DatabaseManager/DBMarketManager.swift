@@ -66,4 +66,30 @@ class DBMarketManager {
             }
         }
     }
+    
+    func getAllActiveMarketsFirestore(completion: @escaping (Result<[Market], Error>) -> ()) {
+        var markets: [Market] = []
+        
+        marketCollection.whereField("is_active", isEqualTo: true).getDocuments { querySnapshot, error in
+            guard let snapshot = querySnapshot, error == nil else {
+                print("[error]:: getting all active items firestore -- \(error!.localizedDescription)")
+                completion(.failure(error!))
+                return
+            }
+            
+            for document in snapshot.documents {
+                let result = Result {
+                    try document.data(as: Market.self)
+                }
+                
+                switch result {
+                    case .success(let success):
+                        markets.append(success)
+                    case .failure(let failure):
+                        print("[error]:: document in item collection can not be decoded -- \(failure.localizedDescription)")
+                }
+            }
+            completion(.success(markets))
+        }
+    }
 }

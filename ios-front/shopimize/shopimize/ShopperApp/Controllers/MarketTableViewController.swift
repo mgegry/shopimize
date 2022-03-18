@@ -22,7 +22,7 @@ class MarketTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        DBMarketManager.shared.getAllMarketsFirestore { [weak self] result in
+        DBMarketManager.shared.getAllActiveMarketsFirestore { [weak self] result in
             guard let strongSelf = self else { return }
             
             switch result {

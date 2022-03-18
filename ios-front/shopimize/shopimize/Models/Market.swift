@@ -17,7 +17,7 @@ struct Market: Codable, Identifiable {
     @DocumentID var id: String? = UUID().uuidString
     var shopName: String?
     var createdAt: Timestamp
-    var isActive: Bool?
+    var isActive: Bool
     
     /// Enum containing the coding key of each field
     enum CodingKeys: String, CodingKey {
