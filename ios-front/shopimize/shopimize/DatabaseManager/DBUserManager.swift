@@ -21,6 +21,21 @@ class DBUserManager {
     /// Singleton class so private initializer
     private init() { }
     
+    /// Add user to Firebase Firestore after sign up
+    ///
+    /// - parameter email: The user email
+    /// - parameter user: An user object containing user information
+    /// - parameter completion: Escaping closure receiving operation result as boolean
+    func addUserFirestore(with email: String, user: User, completion: @escaping (Bool) -> ()) {
+        do {
+            try userCollection.document(email).setData(from: user)
+            completion(true)
+        } catch let error {
+            print("Error wirting user to Firestore: \(error.localizedDescription)")
+            completion(false)
+        }
+    }
+    
     /// Get user from user collection firestore with provided email
     ///
     /// - parameter email: The email of the user

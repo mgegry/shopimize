@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0325550B94E84E8685CCA9ED /* Pods_shopimize_shopimizeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD3568ACC98C3CB0D3C750B /* Pods_shopimize_shopimizeUITests.framework */; };
 		2448C464E7283F532453426B /* Pods_shopimize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D376BFFD88285165CAB480 /* Pods_shopimize.framework */; };
-		2B1A940E27D9077900CCA943 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1A940D27D9077900CCA943 /* DBManager.swift */; };
+		2B1A940E27D9077900CCA943 /* DBMarketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1A940D27D9077900CCA943 /* DBMarketManager.swift */; };
 		2B1A941027D9248500CCA943 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1A940F27D9248500CCA943 /* Market.swift */; };
 		2B22A80127D29A2800D94B6B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A80027D29A2800D94B6B /* LoginViewController.swift */; };
 		2B22A80927D2A15200D94B6B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A80827D2A15200D94B6B /* LoginView.swift */; };
@@ -67,7 +67,7 @@
 
 /* Begin PBXFileReference section */
 		0C7B915C3661E2941A900491 /* Pods-shopimize-shopimizeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopimize-shopimizeUITests.debug.xcconfig"; path = "Target Support Files/Pods-shopimize-shopimizeUITests/Pods-shopimize-shopimizeUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		2B1A940D27D9077900CCA943 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		2B1A940D27D9077900CCA943 /* DBMarketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMarketManager.swift; sourceTree = "<group>"; };
 		2B1A940F27D9248500CCA943 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
 		2B22A80027D29A2800D94B6B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2B22A80827D2A15200D94B6B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 			children = (
 				2B5F6E3327DD67D600F003DE /* FirebaseReferences.swift */,
 				2B22A81D27D2FD5E00D94B6B /* FBAuthManager.swift */,
-				2B1A940D27D9077900CCA943 /* DBManager.swift */,
+				2B1A940D27D9077900CCA943 /* DBMarketManager.swift */,
 				2B5F6E3127DD616600F003DE /* DBItemManager.swift */,
 				2BA4DA2D27E25215004A0F02 /* DBUserManager.swift */,
 			);
@@ -632,7 +632,7 @@
 				2B22A81E27D2FD5E00D94B6B /* FBAuthManager.swift in Sources */,
 				2BA4DA2C27E247D2004A0F02 /* MHomeViewController.swift in Sources */,
 				2BA4DA2E27E25215004A0F02 /* DBUserManager.swift in Sources */,
-				2B1A940E27D9077900CCA943 /* DBManager.swift in Sources */,
+				2B1A940E27D9077900CCA943 /* DBMarketManager.swift in Sources */,
 				2B22A82227D3F1C600D94B6B /* ProfileTableViewCell.swift in Sources */,
 				2B22A80D27D2C8ED00D94B6B /* RegisterViewController.swift in Sources */,
 				2BF6C27227DE55F500CDC01D /* ColorTheme.swift in Sources */,

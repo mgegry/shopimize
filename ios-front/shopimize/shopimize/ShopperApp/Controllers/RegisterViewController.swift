@@ -64,7 +64,7 @@ class RegisterViewController: UIViewController {
         
         let user = User(firstName: registerView.firstNameTextField.text ?? "123", lastName: registerView.lastNameTextField.text ?? "234", role: "shopper")
         
-        DBManager.shared.addUserFirestore(with: email, user: user) { result in
+        DBUserManager.shared.addUserFirestore(with: email, user: user) { result in
             guard result == true else {
                 // TODO: Display infromation to the user
                 print("User was not saved to firestore DB")

@@ -12,33 +12,13 @@ import Foundation
 
 /// Singleton class that handles Firebase Firestore communication
 
-class DBManager {
-    static let shared = DBManager()
+class DBMarketManager {
+    static let shared = DBMarketManager()
     
     /// Firebase Firestore database object
-    private let userCollection = FirebaseReferences.db.collection("User")
     private let marketCollection = FirebaseReferences.db.collection("Market")
     
     private init() { }
-    
-    // MARK: Handle users Firestore
-    
-    /// Add user to Firebase Firestore after sign up
-    ///
-    /// - parameter email: The user email
-    /// - parameter user: An user object containing user information
-    /// - parameter completion: Escaping closure receiving operation result as boolean
-    func addUserFirestore(with email: String, user: User, completion: @escaping (Bool) -> ()) {
-        do {
-            try userCollection.document(email).setData(from: user)
-            completion(true)
-        } catch let error {
-            print("Error wirting user to Firestore: \(error.localizedDescription)")
-            completion(false)
-        }
-    }
-    
-    // MARK: Handle markets Firestore
     
     /// Add a market to Firebase Firestore
     ///
