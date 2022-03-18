@@ -91,6 +91,13 @@ class MHomeViewController: UIViewController {
         content = allItemsCell.defaultContentConfiguration()
         content.text = "All items"
         allItemsCell.contentConfiguration = content
+        allItemsCell.shouldHighlight = true
+        allItemsCell.didSelect = { [unowned self] in
+            let vc = MItemViewController()
+            vc.marketID = "bcTBWviMqGrJpTsN1FQS"
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
         content = inStoreSalesCell.defaultContentConfiguration()
         content.text = "In store sales"
@@ -99,7 +106,6 @@ class MHomeViewController: UIViewController {
         content = pointsSalesCell.defaultContentConfiguration()
         content.text = "Points sales"
         pointsSalesCell.contentConfiguration = content
-        pointsSalesCell.shouldHighlight = true
         
         content = signOutCell.defaultContentConfiguration()
         content.text = "Sign out"

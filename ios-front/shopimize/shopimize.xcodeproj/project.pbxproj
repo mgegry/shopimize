@@ -30,6 +30,7 @@
 		2B672D7027E2036100015C4E /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B672D6F27E2036100015C4E /* CartViewController.swift */; };
 		2B672D7227E2037B00015C4E /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B672D7127E2037B00015C4E /* CartView.swift */; };
 		2B71A00927DCCE5B008EE339 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B71A00827DCCE5B008EE339 /* Item.swift */; };
+		2B7E355A27E4A0E70092ADB0 /* MItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E355927E4A0E70092ADB0 /* MItemViewController.swift */; };
 		2B81813D27DBA84800863BFF /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81813C27DBA84800863BFF /* ItemTableViewCell.swift */; };
 		2B94463A27E0F72800ED2F1A /* HomeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94463927E0F72800ED2F1A /* HomeNavigation.swift */; };
 		2B94463C27E0F94400ED2F1A /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94463B27E0F94400ED2F1A /* ItemViewController.swift */; };
@@ -88,6 +89,7 @@
 		2B672D6F27E2036100015C4E /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		2B672D7127E2037B00015C4E /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		2B71A00827DCCE5B008EE339 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		2B7E355927E4A0E70092ADB0 /* MItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MItemViewController.swift; sourceTree = "<group>"; };
 		2B81813C27DBA84800863BFF /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		2B94463927E0F72800ED2F1A /* HomeNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigation.swift; sourceTree = "<group>"; };
 		2B94463B27E0F94400ED2F1A /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				2BA4DA2B27E247D2004A0F02 /* MHomeViewController.swift */,
+				2B7E355927E4A0E70092ADB0 /* MItemViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				2B22A81B27D2E04E00D94B6B /* StartView.swift in Sources */,
 				2BC9D08627D22D4600D12877 /* MapViewController.swift in Sources */,
 				2B672D7227E2037B00015C4E /* CartView.swift in Sources */,
+				2B7E355A27E4A0E70092ADB0 /* MItemViewController.swift in Sources */,
 				2B1A941027D9248500CCA943 /* Market.swift in Sources */,
 				2B5F6E3227DD616600F003DE /* DBItemManager.swift in Sources */,
 				2B22A82927D4320600D94B6B /* MarketTableViewController.swift in Sources */,
