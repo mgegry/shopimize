@@ -14,8 +14,15 @@ class MHomeViewController: UIViewController {
     /// Struct containing the declaration of a section
     struct Section {
         var headerTitle: String?
-        var cells: [UITableViewCell]
+        var cells: [FormCell]
     }
+    
+    /// Class containing definition of a cell
+    class FormCell: UITableViewCell {
+        var shouldHighlight = false
+        var didSelect: (() -> ())?
+    }
+    
     /// Array containng all sections of the table
     var sections: [Section] = []
     
@@ -23,12 +30,12 @@ class MHomeViewController: UIViewController {
     var tableView = UITableView(frame: .zero, style: .insetGrouped)
     
     /// Table view cells declaration
-    let myAccountCell = UITableViewCell(style: .value1, reuseIdentifier: "")
-    let addItemCell = UITableViewCell(style: .value1, reuseIdentifier: "")
-    let allItemsCell = UITableViewCell(style: .value1, reuseIdentifier: "")
-    let inStoreSalesCell = UITableViewCell(style: .value1, reuseIdentifier: "")
-    let pointsSalesCell = UITableViewCell(style: .value1, reuseIdentifier: "")
-    let signOutCell = UITableViewCell(style: .value1, reuseIdentifier: "")
+    let myAccountCell = FormCell(style: .value1, reuseIdentifier: "")
+    let addItemCell = FormCell(style: .value1, reuseIdentifier: "")
+    let allItemsCell = FormCell(style: .value1, reuseIdentifier: "")
+    let inStoreSalesCell = FormCell(style: .value1, reuseIdentifier: "")
+    let pointsSalesCell = FormCell(style: .value1, reuseIdentifier: "")
+    let signOutCell = FormCell(style: .value1, reuseIdentifier: "")
     
     /// Do any aditional setup after the view was loaded
     override func viewDidLoad() {
@@ -41,6 +48,17 @@ class MHomeViewController: UIViewController {
         buildTableSections()
         setupTable()
         setupConstraints()
+    }
+    
+    /// Do any aditional setup before the view is about to appear
+    ///
+    /// - parameter animated: States if the view should appear animated or not
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let index = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: index, animated: true)
+        }
     }
     
     // MARK: Class methods
@@ -81,11 +99,21 @@ class MHomeViewController: UIViewController {
         content = pointsSalesCell.defaultContentConfiguration()
         content.text = "Points sales"
         pointsSalesCell.contentConfiguration = content
+        pointsSalesCell.shouldHighlight = true
         
         content = signOutCell.defaultContentConfiguration()
         content.text = "Sign out"
         content.textProperties.color = UIColor(.red)
         signOutCell.contentConfiguration = content
+        signOutCell.shouldHighlight = true
+        signOutCell.didSelect = { [unowned self] in
+            do {
+                try Auth.auth().signOut()
+            } catch let signOutError as NSError {
+                print("Error signing out: \(signOutError)")
+            }
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     /// Build the sections for the table
@@ -161,13 +189,23 @@ extension MHomeViewController: UITableViewDataSource, UITableViewDelegate {
     /// - parameter tableView: The current table
     /// - parameter indexPath: The index of the selected cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 3 && indexPath.row == 0 {
-            do {
-                try Auth.auth().signOut()
-            } catch let signOutError as NSError {
-                print("Error signing out: \(signOutError)")
-            }
-            navigationController?.dismiss(animated: true, completion: nil)
-        }
+        cell(for: indexPath).didSelect?()
+    }
+    
+    /// Return new created type FormCell for the given index path
+    ///
+    /// - parameter indexPath: The indexPath for which to return the cell
+    /// - returns: The form cell coresponding to the indexPath
+    func cell(for indexPath: IndexPath) -> FormCell {
+        return sections[indexPath.section].cells[indexPath.row]
+    }
+    
+    /// Return if the cell should highlight or not
+    ///
+    /// - parameter tableVie: The current table view
+    /// - parameter indexPath: The indexPath of the cell
+    /// - returns: True or false if the cell should highlight or not
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return sections[indexPath.section].cells[indexPath.row].shouldHighlight
     }
 }
