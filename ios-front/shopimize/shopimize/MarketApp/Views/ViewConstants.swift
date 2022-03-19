@@ -8,7 +8,7 @@
 import UIKit
 
 struct ViewConstants {
-    static let mainStackSpacing: CGFloat = 16
+    static let mainStackSpacing: CGFloat = 20
     static let formFieldStackSpacing: CGFloat = 10
     
     static let formFieldHeight: CGFloat = 80
@@ -24,5 +24,7 @@ struct ViewConstants {
     
     static let fontName: String = "Arial"
     static let smallFontSize: CGFloat = 16
+    
+    static let buttonCornerRadius: CGFloat = 8
     
 }

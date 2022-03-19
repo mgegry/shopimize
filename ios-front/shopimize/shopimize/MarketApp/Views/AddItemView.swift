@@ -54,8 +54,8 @@ class AddItemView: UIView {
     let pageLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Add item"
-        
+        label.text = "Add your item"
+        label.textColor = .systemIndigo
         label.font = UIFont(name: ViewConstants.fontName, size: 30)
         return label
     }()
@@ -82,7 +82,7 @@ class AddItemView: UIView {
         textField.keyboardType = .default
         textField.layer.borderWidth = 1
         textField.layer.borderColor = .init(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.8)
-        textField.layer.cornerRadius = 8
+        textField.layer.cornerRadius = ViewConstants.formFieldCornerRadius
         textField.setContentHuggingPriority(.defaultLow, for: .vertical)
         return textField
     }()
@@ -116,10 +116,10 @@ class AddItemView: UIView {
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
         textField.keyboardType = .default
-        textField.font = UIFont(name: ViewConstants.fontName, size: 16)
+        textField.font = UIFont(name: ViewConstants.fontName, size: ViewConstants.smallFontSize)
         textField.layer.borderWidth = 1
         textField.layer.borderColor = .init(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.8)
-        textField.layer.cornerRadius = 8
+        textField.layer.cornerRadius = ViewConstants.formFieldCornerRadius
         textField.setContentHuggingPriority(.defaultLow, for: .vertical)
         textField.textContainerInset = UIEdgeInsets(top: ViewConstants.formFieldVerticalPadding,
                                                     left: ViewConstants.formFieldHoriztonalPadding,
@@ -222,12 +222,23 @@ class AddItemView: UIView {
         return stack
     }()
     
+    let addImageButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Add Image", for: .normal)
+        button.setTitleColor(.systemIndigo, for: .normal)
+        button.layer.cornerRadius = ViewConstants.buttonCornerRadius
+        button.layer.borderColor = .init(red: 0, green: 0.8, blue: 0.3, alpha: 0.8)
+        button.layer.borderWidth = 1
+        return button
+    }()
+    
     let addItemButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Add Item", for: .normal)
         button.setTitleColor(.systemIndigo, for: .normal)
-        button.layer.cornerRadius = 8
+        button.layer.cornerRadius = ViewConstants.buttonCornerRadius
         button.layer.borderColor = .init(red: 0, green: 0.8, blue: 0.3, alpha: 0.8)
         button.layer.borderWidth = 1
         return button
@@ -256,12 +267,13 @@ class AddItemView: UIView {
         
         container.addSubview(stackView)
         
-        //stackView.addArrangedSubview(pageLabel)
+        stackView.addArrangedSubview(pageLabel)
         stackView.addArrangedSubview(nameStack)
         stackView.addArrangedSubview(descriptionStack)
         stackView.addArrangedSubview(marketPickerStack)
         stackView.addArrangedSubview(priceStack)
         stackView.addArrangedSubview(isActiveStack)
+        stackView.addArrangedSubview(addImageButton)
         stackView.addArrangedSubview(addItemButton)
         
         nameStack.addArrangedSubview(nameLabel)
@@ -303,6 +315,8 @@ class AddItemView: UIView {
             descriptionStack.heightAnchor.constraint(equalToConstant: ViewConstants.formFieldHeight * 2),
             
             marketPicker.heightAnchor.constraint(equalToConstant: 100),
+            
+            addImageButton.heightAnchor.constraint(equalToConstant: 30),
             
             addItemButton.heightAnchor.constraint(equalToConstant: 50)
             
