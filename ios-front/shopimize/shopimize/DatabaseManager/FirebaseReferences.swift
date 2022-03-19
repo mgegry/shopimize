@@ -8,6 +8,7 @@
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 
 /// Struct containing connection objects to firebase services
 
@@ -18,4 +19,6 @@ struct FirebaseReferences {
     
     /// Firebase Firestore database oject
     static let db = Firestore.firestore()
+    
+    static let storage = Storage.storage()
 }

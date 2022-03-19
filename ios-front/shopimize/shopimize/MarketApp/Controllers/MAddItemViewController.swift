@@ -51,35 +51,14 @@ class MAddItemViewController: UIViewController {
                                        object: nil)
         
         addItemView.addImageButton.addTarget(self, action: #selector(didTapAddImage), for: .touchUpInside)
+        addItemView.addItemButton.addTarget(self, action: #selector(didTapAddItem), for: .touchUpInside)
         
     }
     
     // MARK: Class methods
     
-    private func addImageToFireabaseStorage() {
-        let storage = Storage.storage()
+    @objc func didTapAddItem() {
         
-        let storageRef = storage.reference().child("images/test2.png")
-        
-        guard let data = itemImage?.pngData() else { return }
-        
-        storageRef.putData(data, metadata: nil) { (metadata, error) in
-            guard let metadata = metadata else {
-                // Uh-oh, an error occurred!
-                return
-            }
-            
-            let size = metadata.size
-            print(size)
-            // You can also access to download URL after upload.
-            storageRef.downloadURL { (url, error) in
-                guard let downloadURL = url else {
-                    // Uh-oh, an error occurred!
-                    return
-                }
-                print(downloadURL)
-            }
-        }
     }
     
     @objc func didTapAddImage() {
@@ -114,7 +93,6 @@ extension MAddItemViewController: UIImagePickerControllerDelegate, UINavigationC
         guard let image = info[.editedImage] as? UIImage else { return }
         dismiss(animated: true, completion: nil)
         itemImage = image
-        addImageToFireabaseStorage()
     }
 }
 
