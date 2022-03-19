@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class MAddItemViewController: UIViewController {
 
@@ -55,6 +56,32 @@ class MAddItemViewController: UIViewController {
     
     // MARK: Class methods
     
+    private func addImageToFireabaseStorage() {
+        let storage = Storage.storage()
+        
+        let storageRef = storage.reference().child("images/test2.png")
+        
+        guard let data = itemImage?.pngData() else { return }
+        
+        storageRef.putData(data, metadata: nil) { (metadata, error) in
+            guard let metadata = metadata else {
+                // Uh-oh, an error occurred!
+                return
+            }
+            
+            let size = metadata.size
+            print(size)
+            // You can also access to download URL after upload.
+            storageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+                print(downloadURL)
+            }
+        }
+    }
+    
     @objc func didTapAddImage() {
         let picker = UIImagePickerController()
         picker.allowsEditing = true
@@ -87,6 +114,7 @@ extension MAddItemViewController: UIImagePickerControllerDelegate, UINavigationC
         guard let image = info[.editedImage] as? UIImage else { return }
         dismiss(animated: true, completion: nil)
         itemImage = image
+        addImageToFireabaseStorage()
     }
 }
 
