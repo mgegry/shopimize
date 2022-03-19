@@ -14,12 +14,12 @@ import FirebaseFirestoreSwift
 
 struct Item: Codable, Identifiable {
     @DocumentID var id: String? = UUID().uuidString
-    var itemName: String?
-    var price: Int?
-    var shopID: String?
+    var itemName: String
+    var price: Int
+    var shopID: String
     var description: String?
     var createdAt: Timestamp
-    var isActive: Bool?
+    var isActive: Bool
     var imageURL: String?
     
     /// Enum containing the coding key for each field
