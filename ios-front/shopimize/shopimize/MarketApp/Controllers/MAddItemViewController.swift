@@ -11,7 +11,18 @@ class MAddItemViewController: UIViewController {
 
     /// price date-added is-active photo name description markets shop
     
+    var itemImage: UIImage? {
+        didSet {
+            let buttonImage = UIImage(systemName: "photo")?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
+            
+            addItemView.addImageButton.setTitle("Change image", for: .normal)
+            addItemView.addImageButton.setImage(buttonImage, for: .normal)
+        }
+    }
+    
     let addItemView = AddItemView()
+    
+    // MARK: View Lifecycle
     
     override func loadView() {
         view = addItemView
@@ -38,6 +49,17 @@ class MAddItemViewController: UIViewController {
                                        name: UIResponder.keyboardDidChangeFrameNotification,
                                        object: nil)
         
+        addItemView.addImageButton.addTarget(self, action: #selector(didTapAddImage), for: .touchUpInside)
+        
+    }
+    
+    // MARK: Class methods
+    
+    @objc func didTapAddImage() {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
     }
     
     @objc func adjustForKeyboard(notification: Notification) {
@@ -49,7 +71,7 @@ class MAddItemViewController: UIViewController {
         if notification.name == UIResponder.keyboardWillHideNotification {
             addItemView.scrollView.contentInset = .zero
         } else {
-            addItemView.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0,bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+            addItemView.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
         }
 
         addItemView.scrollView.scrollIndicatorInsets = addItemView.scrollView.contentInset
@@ -59,6 +81,14 @@ class MAddItemViewController: UIViewController {
 }
 
 // MARK: Extension
+
+extension MAddItemViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else { return }
+        dismiss(animated: true, completion: nil)
+        itemImage = image
+    }
+}
 
 extension MAddItemViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
