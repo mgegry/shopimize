@@ -34,6 +34,7 @@
 		2B81813D27DBA84800863BFF /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81813C27DBA84800863BFF /* ItemTableViewCell.swift */; };
 		2B94463A27E0F72800ED2F1A /* HomeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94463927E0F72800ED2F1A /* HomeNavigation.swift */; };
 		2B94463C27E0F94400ED2F1A /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94463B27E0F94400ED2F1A /* ItemViewController.swift */; };
+		2B960ABB27E6105800F52F0D /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B960ABA27E6105800F52F0D /* ViewConstants.swift */; };
 		2BA1112427D8AE1B00830237 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1112327D8AE1B00830237 /* User.swift */; };
 		2BA4DA2C27E247D2004A0F02 /* MHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA4DA2B27E247D2004A0F02 /* MHomeViewController.swift */; };
 		2BA4DA2E27E25215004A0F02 /* DBUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA4DA2D27E25215004A0F02 /* DBUserManager.swift */; };
@@ -95,6 +96,7 @@
 		2B81813C27DBA84800863BFF /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		2B94463927E0F72800ED2F1A /* HomeNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigation.swift; sourceTree = "<group>"; };
 		2B94463B27E0F94400ED2F1A /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		2B960ABA27E6105800F52F0D /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
 		2BA1112327D8AE1B00830237 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2BA4DA2B27E247D2004A0F02 /* MHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHomeViewController.swift; sourceTree = "<group>"; };
 		2BA4DA2D27E25215004A0F02 /* DBUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUserManager.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				2BD4675B27E503A000782E52 /* AddItemView.swift */,
+				2B960ABA27E6105800F52F0D /* ViewConstants.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -656,6 +659,7 @@
 				2B22A80D27D2C8ED00D94B6B /* RegisterViewController.swift in Sources */,
 				2BF6C27227DE55F500CDC01D /* ColorTheme.swift in Sources */,
 				2B22A80927D2A15200D94B6B /* LoginView.swift in Sources */,
+				2B960ABB27E6105800F52F0D /* ViewConstants.swift in Sources */,
 				2BD4675A27E5013E00782E52 /* MAddItemViewController.swift in Sources */,
 				2B81813D27DBA84800863BFF /* ItemTableViewCell.swift in Sources */,
 				2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */,

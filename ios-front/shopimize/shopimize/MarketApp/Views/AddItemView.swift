@@ -9,6 +9,23 @@ import UIKit
 
 class AddItemView: UIView {
     
+    class CustomTextField: UITextField {
+        let padding = UIEdgeInsets(top: 0,
+                                   left: ViewConstants.formFieldHoriztonalPadding,
+                                   bottom: 0,
+                                   right: ViewConstants.formFieldHoriztonalPadding)
+        
+        override func textRect(forBounds bounds: CGRect) -> CGRect {
+            let rect = super.textRect(forBounds: bounds)
+            return rect.inset(by: padding)
+        }
+        
+        override func editingRect(forBounds bounds: CGRect) -> CGRect {
+            let rect = super.editingRect(forBounds: bounds)
+            return rect.inset(by: padding)
+        }
+    }
+    
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -29,8 +46,8 @@ class AddItemView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.distribution = .equalCentering
-        stackView.spacing = 16
+        stackView.distribution = .equalSpacing
+        stackView.spacing = ViewConstants.mainStackSpacing
         return stackView
     }()
     
@@ -39,7 +56,7 @@ class AddItemView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Add item"
         
-        label.font = UIFont(name: "Arial", size: 30)
+        label.font = UIFont(name: ViewConstants.fontName, size: 30)
         return label
     }()
     
@@ -49,14 +66,15 @@ class AddItemView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Name:"
-        label.font = UIFont(name: "Arial", size: 16)
+        label.font = UIFont(name: ViewConstants.fontName,
+                            size: ViewConstants.smallFontSize)
         label.baselineAdjustment = .alignCenters
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return label
     }()
     
-    let name: UITextField = {
-        let textField = UITextField()
+    let name: CustomTextField = {
+        let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Blue Hat"
         textField.autocorrectionType = .no
@@ -75,7 +93,7 @@ class AddItemView: UIView {
         stack.axis = .vertical
         stack.distribution = .fill
         stack.alignment = .fill
-        stack.spacing = 7
+        stack.spacing = ViewConstants.formFieldStackSpacing
         return stack
     }()
     
@@ -86,6 +104,9 @@ class AddItemView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Description:"
         label.baselineAdjustment = .alignCenters
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        label.font = UIFont(name: ViewConstants.fontName,
+                            size: ViewConstants.smallFontSize)
         return label
     }()
     
@@ -95,10 +116,15 @@ class AddItemView: UIView {
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
         textField.keyboardType = .default
-        textField.font = UIFont(name: "Arial", size: 16)
+        textField.font = UIFont(name: ViewConstants.fontName, size: 16)
         textField.layer.borderWidth = 1
         textField.layer.borderColor = .init(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.8)
         textField.layer.cornerRadius = 8
+        textField.setContentHuggingPriority(.defaultLow, for: .vertical)
+        textField.textContainerInset = UIEdgeInsets(top: ViewConstants.formFieldVerticalPadding,
+                                                    left: ViewConstants.formFieldHoriztonalPadding,
+                                                    bottom: ViewConstants.formFieldVerticalPadding,
+                                                    right: ViewConstants.formFieldHoriztonalPadding)
         return textField
     }()
     
@@ -108,7 +134,7 @@ class AddItemView: UIView {
         stack.axis = .vertical
         stack.distribution = .fill
         stack.alignment = .fill
-        stack.spacing = 10
+        stack.spacing = ViewConstants.formFieldStackSpacing
         return stack
     }()
     
@@ -119,6 +145,8 @@ class AddItemView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Price:"
         label.baselineAdjustment = .alignCenters
+        label.font = UIFont(name: ViewConstants.fontName,
+                            size: ViewConstants.smallFontSize)
         return label
     }()
     
@@ -147,6 +175,8 @@ class AddItemView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Active for purchase?"
+        label.font = UIFont(name: ViewConstants.fontName,
+                            size: ViewConstants.smallFontSize)
         return label
     }()
     
@@ -165,9 +195,45 @@ class AddItemView: UIView {
         return stack
     }()
     
-    // MARK: Initializers
+    let marketPickerLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Select which store sells this item:"
+        label.font = UIFont(name: ViewConstants.fontName,
+                            size: ViewConstants.smallFontSize)
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        return label
+    }()
     
-    var safeArea = UIEdgeInsets()
+    let marketPicker: UIPickerView = {
+        let picker = UIPickerView()
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        picker.setContentHuggingPriority(.defaultLow, for: .vertical)
+        return picker
+    }()
+    
+    let marketPickerStack: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.distribution = .fill
+        stack.alignment = .fill
+        stack.spacing = ViewConstants.formFieldStackSpacing
+        return stack
+    }()
+    
+    let addItemButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Add Item", for: .normal)
+        button.setTitleColor(.systemIndigo, for: .normal)
+        button.layer.cornerRadius = 8
+        button.layer.borderColor = .init(red: 0, green: 0.8, blue: 0.3, alpha: 0.8)
+        button.layer.borderWidth = 1
+        return button
+    }()
+    
+    // MARK: Initializers
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -193,8 +259,10 @@ class AddItemView: UIView {
         //stackView.addArrangedSubview(pageLabel)
         stackView.addArrangedSubview(nameStack)
         stackView.addArrangedSubview(descriptionStack)
+        stackView.addArrangedSubview(marketPickerStack)
         stackView.addArrangedSubview(priceStack)
         stackView.addArrangedSubview(isActiveStack)
+        stackView.addArrangedSubview(addItemButton)
         
         nameStack.addArrangedSubview(nameLabel)
         nameStack.addArrangedSubview(name)
@@ -207,6 +275,9 @@ class AddItemView: UIView {
         
         isActiveStack.addArrangedSubview(isActiveLabel)
         isActiveStack.addArrangedSubview(isActiveSwitch)
+        
+        marketPickerStack.addArrangedSubview(marketPickerLabel)
+        marketPickerStack.addArrangedSubview(marketPicker)
     }
     
     private func setupConstraints() {
@@ -223,15 +294,17 @@ class AddItemView: UIView {
             container.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
             stackView.topAnchor.constraint(equalTo: container.topAnchor),
-            stackView.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -20),
-            stackView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
-            stackView.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 20),
+            stackView.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -ViewConstants.formPadding),
+            stackView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -ViewConstants.formBottomPadding),
+            stackView.leftAnchor.constraint(equalTo: container.leftAnchor, constant: ViewConstants.formPadding),
             
-            nameStack.heightAnchor.constraint(equalToConstant: 100),
+            nameStack.heightAnchor.constraint(equalToConstant: ViewConstants.formFieldHeight),
             
-            itemDescription.heightAnchor.constraint(equalToConstant: 100),
-//            price.heightAnchor.constraint(equalToConstant: 30)
-            //pageLabel.heightAnchor.constraint(equalToConstant: 1)
+            descriptionStack.heightAnchor.constraint(equalToConstant: ViewConstants.formFieldHeight * 2),
+            
+            marketPicker.heightAnchor.constraint(equalToConstant: 100),
+            
+            addItemButton.heightAnchor.constraint(equalToConstant: 50)
             
         ])
     }
