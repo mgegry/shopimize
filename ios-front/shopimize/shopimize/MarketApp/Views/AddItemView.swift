@@ -49,7 +49,9 @@ class AddItemView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Name:"
+        label.font = UIFont(name: "Arial", size: 16)
         label.baselineAdjustment = .alignCenters
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return label
     }()
     
@@ -60,15 +62,20 @@ class AddItemView: UIView {
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
         textField.keyboardType = .default
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = .init(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.8)
+        textField.layer.cornerRadius = 8
+        textField.setContentHuggingPriority(.defaultLow, for: .vertical)
         return textField
     }()
     
     let nameStack: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .horizontal
-        stack.distribution = .equalSpacing
+        stack.axis = .vertical
+        stack.distribution = .fill
         stack.alignment = .fill
+        stack.spacing = 7
         return stack
     }()
     
@@ -220,7 +227,10 @@ class AddItemView: UIView {
             stackView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
             stackView.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 20),
             
+            nameStack.heightAnchor.constraint(equalToConstant: 100),
+            
             itemDescription.heightAnchor.constraint(equalToConstant: 100),
+//            price.heightAnchor.constraint(equalToConstant: 30)
             //pageLabel.heightAnchor.constraint(equalToConstant: 1)
             
         ])
