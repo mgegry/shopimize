@@ -18,6 +18,7 @@ struct Market: Codable, Identifiable {
     var shopName: String?
     var createdAt: Timestamp
     var isActive: Bool
+    var storeID: String?
     
     /// Enum containing the coding key of each field
     enum CodingKeys: String, CodingKey {
@@ -25,5 +26,6 @@ struct Market: Codable, Identifiable {
         case shopName = "shopname"
         case createdAt = "created_at"
         case isActive = "is_active"
+        case storeID
     }
 }

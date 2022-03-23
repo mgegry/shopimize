@@ -31,10 +31,11 @@ class AHomeViewController: UIViewController {
     
     /// Table view cells declaration
     let myAccountCell = FormCell(style: .value1, reuseIdentifier: "")
-    let addItemCell = FormCell(style: .value1, reuseIdentifier: "")
-    let allItemsCell = FormCell(style: .value1, reuseIdentifier: "")
-    let inStoreSalesCell = FormCell(style: .value1, reuseIdentifier: "")
-    let pointsSalesCell = FormCell(style: .value1, reuseIdentifier: "")
+    let addAdminMarketUserCell = FormCell(style: .value1, reuseIdentifier: "")
+    let addStoreCell = FormCell(style: .value1, reuseIdentifier: "")
+    let addMarketCell = FormCell(style: .value1, reuseIdentifier: "")
+    let viewStoresCell = FormCell(style: .value1, reuseIdentifier: "")
+    let viewMarketsCell = FormCell(style: .value1, reuseIdentifier: "")
     let signOutCell = FormCell(style: .value1, reuseIdentifier: "")
     
     /// Do any aditional setup after the view was loaded
@@ -67,9 +68,6 @@ class AHomeViewController: UIViewController {
     private func setupTable() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
-//        tableView.insetsContentViewsToSafeArea = true
-//        tableView.sectionHeaderTopPadding = 25
-        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -84,33 +82,31 @@ class AHomeViewController: UIViewController {
         content.text = "My account"
         myAccountCell.contentConfiguration = content
         
-        content = addItemCell.defaultContentConfiguration()
-        content.text = "Add item"
-        addItemCell.contentConfiguration = content
-        addItemCell.shouldHighlight = true
-        addItemCell.didSelect = { [unowned self] in
-            let vc = MAddItemViewController()
+        content = addAdminMarketUserCell.defaultContentConfiguration()
+        content.text = "Add account"
+        addAdminMarketUserCell.contentConfiguration = content
+        
+        content = addStoreCell.defaultContentConfiguration()
+        content.text = "Add Store"
+        addStoreCell.contentConfiguration = content
+        addStoreCell.shouldHighlight = true
+        addStoreCell.didSelect = { [unowned self] in
+            let vc = AddStoreViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
-        content = allItemsCell.defaultContentConfiguration()
-        content.text = "All items"
-        allItemsCell.contentConfiguration = content
-        allItemsCell.shouldHighlight = true
-        allItemsCell.didSelect = { [unowned self] in
-            let vc = MItemViewController()
-            vc.marketID = "bcTBWviMqGrJpTsN1FQS"
-            
-            //self.navigationController?.pushViewController(vc, animated: true)
-        }
+        content = addMarketCell.defaultContentConfiguration()
+        content.text = "Add Market"
+        addMarketCell.contentConfiguration = content
+        addMarketCell.shouldHighlight = false
         
-        content = inStoreSalesCell.defaultContentConfiguration()
-        content.text = "In store sales"
-        inStoreSalesCell.contentConfiguration = content
+        content = viewStoresCell.defaultContentConfiguration()
+        content.text = "View all stores"
+        viewStoresCell.contentConfiguration = content
         
-        content = pointsSalesCell.defaultContentConfiguration()
-        content.text = "Points sales"
-        pointsSalesCell.contentConfiguration = content
+        content = viewMarketsCell.defaultContentConfiguration()
+        content.text = "View all markets"
+        viewMarketsCell.contentConfiguration = content
         
         content = signOutCell.defaultContentConfiguration()
         content.text = "Sign out"
@@ -132,16 +128,16 @@ class AHomeViewController: UIViewController {
         
         sections = [
             Section(headerTitle: "Account management", cells: [myAccountCell]),
-            //Section(headerTitle: "Manage Markets", cells: [])
-            Section(headerTitle: "Manage Items", cells: [addItemCell, allItemsCell]),
-            Section(headerTitle: "Sales", cells: [inStoreSalesCell, pointsSalesCell]),
+            Section(headerTitle: "Manage Users", cells: [addAdminMarketUserCell]),
+            Section(headerTitle: "Manage Stores", cells: [addStoreCell, viewStoresCell]),
+            Section(headerTitle: "Manage Markets", cells: [addMarketCell, viewMarketsCell]),
             Section(headerTitle: nil, cells: [signOutCell])
         ]
     }
     
     /// Setup the navigation for the view
     private func setupNavigation() {
-        navigationItem.title = "Shopimize Market Panel"
+        navigationItem.title = "Shopimize Admin Panel"
     }
     
     /// Setup the view constraints

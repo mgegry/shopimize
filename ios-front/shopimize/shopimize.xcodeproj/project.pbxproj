@@ -25,6 +25,10 @@
 		2B22A82927D4320600D94B6B /* MarketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A82827D4320600D94B6B /* MarketTableViewController.swift */; };
 		2B22A82B27D433A400D94B6B /* MarketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A82A27D433A400D94B6B /* MarketTableViewCell.swift */; };
 		2B22A82D27D43BCE00D94B6B /* TableConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A82C27D43BCE00D94B6B /* TableConstants.swift */; };
+		2B2A644F27EBD2FD00BED7E0 /* AddStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A644E27EBD2FD00BED7E0 /* AddStoreViewController.swift */; };
+		2B2A645227EBD36700BED7E0 /* AddStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A645127EBD36700BED7E0 /* AddStoreView.swift */; };
+		2B2A645427EBD50F00BED7E0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A645327EBD50F00BED7E0 /* CustomTextField.swift */; };
+		2B2A645627EBD7F300BED7E0 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A645527EBD7F300BED7E0 /* Store.swift */; };
 		2B3F115527EB78B300733827 /* AHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3F115427EB78B300733827 /* AHomeViewController.swift */; };
 		2B5F6E3227DD616600F003DE /* DBItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F6E3127DD616600F003DE /* DBItemManager.swift */; };
 		2B5F6E3427DD67D600F003DE /* FirebaseReferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F6E3327DD67D600F003DE /* FirebaseReferences.swift */; };
@@ -89,6 +93,10 @@
 		2B22A82827D4320600D94B6B /* MarketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewController.swift; sourceTree = "<group>"; };
 		2B22A82A27D433A400D94B6B /* MarketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewCell.swift; sourceTree = "<group>"; };
 		2B22A82C27D43BCE00D94B6B /* TableConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableConstants.swift; sourceTree = "<group>"; };
+		2B2A644E27EBD2FD00BED7E0 /* AddStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreViewController.swift; sourceTree = "<group>"; };
+		2B2A645127EBD36700BED7E0 /* AddStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreView.swift; sourceTree = "<group>"; };
+		2B2A645327EBD50F00BED7E0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		2B2A645527EBD7F300BED7E0 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		2B3F115427EB78B300733827 /* AHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHomeViewController.swift; sourceTree = "<group>"; };
 		2B5F6E3127DD616600F003DE /* DBItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBItemManager.swift; sourceTree = "<group>"; };
 		2B5F6E3327DD67D600F003DE /* FirebaseReferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReferences.swift; sourceTree = "<group>"; };
@@ -229,10 +237,20 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		2B2A645027EBD31E00BED7E0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2B2A645127EBD36700BED7E0 /* AddStoreView.swift */,
+				2B2A645327EBD50F00BED7E0 /* CustomTextField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		2B3F115327EB786F00733827 /* AdminApp */ = {
 			isa = PBXGroup;
 			children = (
 				2B3F115627EB78C400733827 /* Controllers */,
+				2B2A645027EBD31E00BED7E0 /* Views */,
 			);
 			path = AdminApp;
 			sourceTree = "<group>";
@@ -241,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				2B3F115427EB78B300733827 /* AHomeViewController.swift */,
+				2B2A644E27EBD2FD00BED7E0 /* AddStoreViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -259,6 +278,7 @@
 				2BA1112327D8AE1B00830237 /* User.swift */,
 				2B1A940F27D9248500CCA943 /* Market.swift */,
 				2B71A00827DCCE5B008EE339 /* Item.swift */,
+				2B2A645527EBD7F300BED7E0 /* Store.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -665,7 +685,9 @@
 				2B22A82D27D43BCE00D94B6B /* TableConstants.swift in Sources */,
 				2B71A00927DCCE5B008EE339 /* Item.swift in Sources */,
 				2B22A81127D2D58700D94B6B /* FormConstants.swift in Sources */,
+				2B2A644F27EBD2FD00BED7E0 /* AddStoreViewController.swift in Sources */,
 				2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */,
+				2B2A645227EBD36700BED7E0 /* AddStoreView.swift in Sources */,
 				2BA1112427D8AE1B00830237 /* User.swift in Sources */,
 				2B22A80F27D2C93D00D94B6B /* RegisterView.swift in Sources */,
 				2B22A82027D3F0A900D94B6B /* ProfileTableViewController.swift in Sources */,
@@ -677,6 +699,7 @@
 				2B22A81E27D2FD5E00D94B6B /* FBAuthManager.swift in Sources */,
 				2BA4DA2C27E247D2004A0F02 /* MHomeViewController.swift in Sources */,
 				2BA4DA2E27E25215004A0F02 /* DBUserManager.swift in Sources */,
+				2B2A645427EBD50F00BED7E0 /* CustomTextField.swift in Sources */,
 				2B1A940E27D9077900CCA943 /* DBMarketManager.swift in Sources */,
 				2B22A82227D3F1C600D94B6B /* ProfileTableViewCell.swift in Sources */,
 				2B22A80D27D2C8ED00D94B6B /* RegisterViewController.swift in Sources */,
@@ -685,6 +708,7 @@
 				2B960ABB27E6105800F52F0D /* ViewConstants.swift in Sources */,
 				2BD4675A27E5013E00782E52 /* MAddItemViewController.swift in Sources */,
 				2B81813D27DBA84800863BFF /* ItemTableViewCell.swift in Sources */,
+				2B2A645627EBD7F300BED7E0 /* Store.swift in Sources */,
 				2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */,
 				2B3F115527EB78B300733827 /* AHomeViewController.swift in Sources */,
 				2B672D7027E2036100015C4E /* CartViewController.swift in Sources */,
