@@ -15,7 +15,7 @@ import FirebaseFirestoreSwift
 struct Item: Codable, Identifiable {
     @DocumentID var id: String? = UUID().uuidString
     var itemName: String
-    var price: Int
+    var price: Double
     var shopID: String
     var description: String?
     var createdAt: Timestamp

@@ -80,5 +80,14 @@ final class DBItemManager {
         }
     }
     
+    func addItemToFirestore(item: Item, completion: @escaping (Bool) -> ()) {
+        do {
+            let _ = try itemCollection.addDocument(from: item)
+            completion(true)
+        } catch let error {
+            print("[error]:: adding item to firebase -- \(error.localizedDescription)")
+            completion(false)
+        }
+    }
     
 }

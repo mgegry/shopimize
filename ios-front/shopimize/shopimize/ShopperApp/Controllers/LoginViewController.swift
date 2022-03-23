@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     let navigationProfileController = UINavigationController(rootViewController: ProfileTableViewController(style: .plain))
     let navigationMarketController = UINavigationController(rootViewController: MarketTableViewController(style: .plain))
     let navigationAdminMarketController = UINavigationController(rootViewController: MHomeViewController())
+    let navigationAdminController = UINavigationController(rootViewController: AHomeViewController())
 
     
     /// Load the view
@@ -89,6 +90,7 @@ class LoginViewController: UIViewController {
     /// Setup the navigation view controllers and bar controller for the user app to be displayed
     private func setupNavigationControllers() {
         navigationAdminMarketController.modalPresentationStyle = .fullScreen
+        navigationAdminController.modalPresentationStyle = .fullScreen
         
         
         mtabBarController.setViewControllers([navigationMarketController, navigationMapController, navigationProfileController],
@@ -105,7 +107,7 @@ class LoginViewController: UIViewController {
         } else if role == "market" {
             self.present(navigationAdminMarketController, animated: false, completion: nil)
         } else if role == "superuser" {
-            // TODO: IMPLEMENT
+            self.present(navigationAdminController, animated: false, completion: nil)
         }
     }
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseStorage
+import FirebaseFirestore
 
 class MAddItemViewController: UIViewController {
 
@@ -59,6 +60,21 @@ class MAddItemViewController: UIViewController {
     
     @objc func didTapAddItem() {
         
+        let item = Item(itemName: addItemView.name.text ?? "",
+                        price: Double(addItemView.price.text ?? "10.0") ?? 10.0,
+                        shopID: "fuata",
+                        createdAt: Timestamp(date: Date.now),
+                        isActive: addItemView.isActiveSwitch.isOn)
+        
+        DBItemManager.shared.addItemToFirestore(item: item) { [weak self] result in
+            guard let strongSelf = self else { return }
+            
+            if result {
+                strongSelf.navigationController?.popViewController(animated: true)
+            } else {
+                // TODO: DISPLAY ALERT
+            }
+        }
     }
     
     @objc func didTapAddImage() {
@@ -77,7 +93,8 @@ class MAddItemViewController: UIViewController {
         if notification.name == UIResponder.keyboardWillHideNotification {
             addItemView.scrollView.contentInset = .zero
         } else {
-            addItemView.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+            addItemView.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0,
+                                                               bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
         }
 
         addItemView.scrollView.scrollIndicatorInsets = addItemView.scrollView.contentInset
