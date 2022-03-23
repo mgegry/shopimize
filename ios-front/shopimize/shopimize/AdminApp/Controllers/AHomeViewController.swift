@@ -85,6 +85,11 @@ class AHomeViewController: UIViewController {
         content = addAdminMarketUserCell.defaultContentConfiguration()
         content.text = "Add account"
         addAdminMarketUserCell.contentConfiguration = content
+        addAdminMarketUserCell.shouldHighlight = true
+        addAdminMarketUserCell.didSelect = { [unowned self] in
+            let vc = AddAccountViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
         content = addStoreCell.defaultContentConfiguration()
         content.text = "Add Store"

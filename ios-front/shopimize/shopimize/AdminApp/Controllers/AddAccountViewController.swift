@@ -1,15 +1,15 @@
 //
-//  MAddItemViewController.swift
+//  AddAccountViewController.swift
 //  shopimize
 //
-//  Created by Mircea Egry on 18/03/2022.
+//  Created by Mircea Egry on 23/03/2022.
 //
 
 import UIKit
 import FirebaseFirestore
 import FirebaseStorage
 
-class AddStoreViewController: UIViewController {
+class AddAccountViewController: UIViewController {
     
     var itemImage: UIImage? {
         didSet {
@@ -20,7 +20,7 @@ class AddStoreViewController: UIViewController {
         }
     }
     
-    let mainView = AddStoreView()
+    let mainView = AddAccountView()
     
     // MARK: View Lifecycle
     
@@ -45,13 +45,13 @@ class AddStoreViewController: UIViewController {
                                        object: nil)
         
         mainView.addImageButton.addTarget(self, action: #selector(didTapAddImage), for: .touchUpInside)
-        mainView.addItemButton.addTarget(self, action: #selector(didTapAddStore), for: .touchUpInside)
+        mainView.addItemButton.addTarget(self, action: #selector(didTapAddAccount), for: .touchUpInside)
         
     }
     
     // MARK: Class methods
     
-    @objc func didTapAddStore() {
+    @objc func didTapAddAccount() {
         
     }
     
@@ -83,7 +83,7 @@ class AddStoreViewController: UIViewController {
 
 // MARK: Extension
 
-extension AddStoreViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension AddAccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
         dismiss(animated: true, completion: nil)
@@ -91,25 +91,7 @@ extension AddStoreViewController: UIImagePickerControllerDelegate, UINavigationC
     }
 }
 
-extension AddStoreViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        let currentText = textField.text ?? ""
-        
-        let dot: Character = "."
-        
-        guard let stringRange = Range(range, in: currentText) else { return false }
-        
-        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-        
-        if updatedText.filter({ $0 == dot }).count > 1 { return false }
-        
-        return updatedText.count <= 6
-        
-    }
-}
-
-extension AddStoreViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension AddAccountViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "fuata"

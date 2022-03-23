@@ -29,6 +29,8 @@
 		2B2A645227EBD36700BED7E0 /* AddStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A645127EBD36700BED7E0 /* AddStoreView.swift */; };
 		2B2A645427EBD50F00BED7E0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A645327EBD50F00BED7E0 /* CustomTextField.swift */; };
 		2B2A645627EBD7F300BED7E0 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A645527EBD7F300BED7E0 /* Store.swift */; };
+		2B2A645827EBDD7300BED7E0 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A645727EBDD7300BED7E0 /* AddAccountViewController.swift */; };
+		2B2A645A27EBDF6700BED7E0 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A645927EBDF6700BED7E0 /* AddAccountView.swift */; };
 		2B3F115527EB78B300733827 /* AHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3F115427EB78B300733827 /* AHomeViewController.swift */; };
 		2B5F6E3227DD616600F003DE /* DBItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F6E3127DD616600F003DE /* DBItemManager.swift */; };
 		2B5F6E3427DD67D600F003DE /* FirebaseReferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F6E3327DD67D600F003DE /* FirebaseReferences.swift */; };
@@ -97,6 +99,8 @@
 		2B2A645127EBD36700BED7E0 /* AddStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreView.swift; sourceTree = "<group>"; };
 		2B2A645327EBD50F00BED7E0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2B2A645527EBD7F300BED7E0 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		2B2A645727EBDD7300BED7E0 /* AddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
+		2B2A645927EBDF6700BED7E0 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
 		2B3F115427EB78B300733827 /* AHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHomeViewController.swift; sourceTree = "<group>"; };
 		2B5F6E3127DD616600F003DE /* DBItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBItemManager.swift; sourceTree = "<group>"; };
 		2B5F6E3327DD67D600F003DE /* FirebaseReferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReferences.swift; sourceTree = "<group>"; };
@@ -240,8 +244,9 @@
 		2B2A645027EBD31E00BED7E0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2B2A645127EBD36700BED7E0 /* AddStoreView.swift */,
 				2B2A645327EBD50F00BED7E0 /* CustomTextField.swift */,
+				2B2A645127EBD36700BED7E0 /* AddStoreView.swift */,
+				2B2A645927EBDF6700BED7E0 /* AddAccountView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 			children = (
 				2B3F115427EB78B300733827 /* AHomeViewController.swift */,
 				2B2A644E27EBD2FD00BED7E0 /* AddStoreViewController.swift */,
+				2B2A645727EBDD7300BED7E0 /* AddAccountViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -693,6 +699,7 @@
 				2B22A82027D3F0A900D94B6B /* ProfileTableViewController.swift in Sources */,
 				2B22A82B27D433A400D94B6B /* MarketTableViewCell.swift in Sources */,
 				2B960ABD27E6673A00F52F0D /* StorageManager.swift in Sources */,
+				2B2A645A27EBDF6700BED7E0 /* AddAccountView.swift in Sources */,
 				2B94463A27E0F72800ED2F1A /* HomeNavigation.swift in Sources */,
 				2B22A81327D2DF8B00D94B6B /* StartViewController.swift in Sources */,
 				2BD4675C27E503A000782E52 /* AddItemView.swift in Sources */,
@@ -708,6 +715,7 @@
 				2B960ABB27E6105800F52F0D /* ViewConstants.swift in Sources */,
 				2BD4675A27E5013E00782E52 /* MAddItemViewController.swift in Sources */,
 				2B81813D27DBA84800863BFF /* ItemTableViewCell.swift in Sources */,
+				2B2A645827EBDD7300BED7E0 /* AddAccountViewController.swift in Sources */,
 				2B2A645627EBD7F300BED7E0 /* Store.swift in Sources */,
 				2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */,
 				2B3F115527EB78B300733827 /* AHomeViewController.swift in Sources */,
