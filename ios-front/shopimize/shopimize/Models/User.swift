@@ -15,6 +15,7 @@ struct User: Codable  {
     @DocumentID var id: String? = UUID().uuidString
     var firstName: String?
     var lastName: String?
+    var points: Int?
     var role: String
     var roleStoreID: String?
     
@@ -23,6 +24,7 @@ struct User: Codable  {
         case id = "documentID"
         case firstName = "firstname"
         case lastName = "lastname"
+        case points
         case role
         case roleStoreID = "role_store_id"
     }

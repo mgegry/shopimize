@@ -13,7 +13,7 @@ class AddStoreView: UIView {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.isScrollEnabled = true
-        scrollView.bounces = true
+        scrollView.bounces = false
         scrollView.alwaysBounceVertical = true
         return scrollView
     }()
@@ -37,7 +37,7 @@ class AddStoreView: UIView {
     let pageLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Add your item"
+        label.text = "Add store"
         label.textColor = .systemIndigo
         label.font = UIFont(name: ViewConstants.fontName, size: 30)
         return label
@@ -48,7 +48,7 @@ class AddStoreView: UIView {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Name:"
+        label.text = "Store Name:"
         label.font = UIFont(name: ViewConstants.fontName,
                             size: ViewConstants.smallFontSize)
         label.baselineAdjustment = .alignCenters
@@ -59,7 +59,6 @@ class AddStoreView: UIView {
     let name: CustomTextField = {
         let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Blue Hat"
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
         textField.keyboardType = .default
@@ -85,7 +84,7 @@ class AddStoreView: UIView {
     let isActiveLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Active for purchase?"
+        label.text = "Is store active?"
         label.font = UIFont(name: ViewConstants.fontName,
                             size: ViewConstants.smallFontSize)
         return label
@@ -106,21 +105,10 @@ class AddStoreView: UIView {
         return stack
     }()
     
-    let addImageButton: UIButton = {
+    let addStoreButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Add Image", for: .normal)
-        button.setTitleColor(.systemIndigo, for: .normal)
-        button.layer.cornerRadius = ViewConstants.buttonCornerRadius
-        button.layer.borderColor = .init(red: 0, green: 0.8, blue: 0.3, alpha: 0.8)
-        button.layer.borderWidth = 1
-        return button
-    }()
-    
-    let addItemButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Add Item", for: .normal)
+        button.setTitle("Add Store", for: .normal)
         button.setTitleColor(.systemIndigo, for: .normal)
         button.layer.cornerRadius = ViewConstants.buttonCornerRadius
         button.layer.borderColor = .init(red: 0, green: 0.8, blue: 0.3, alpha: 0.8)
@@ -154,8 +142,7 @@ class AddStoreView: UIView {
         stackView.addArrangedSubview(pageLabel)
         stackView.addArrangedSubview(nameStack)
         stackView.addArrangedSubview(isActiveStack)
-        stackView.addArrangedSubview(addImageButton)
-        stackView.addArrangedSubview(addItemButton)
+        stackView.addArrangedSubview(addStoreButton)
         
         nameStack.addArrangedSubview(nameLabel)
         nameStack.addArrangedSubview(name)
@@ -185,9 +172,7 @@ class AddStoreView: UIView {
             
             nameStack.heightAnchor.constraint(equalToConstant: ViewConstants.formFieldHeight),
             
-            addImageButton.heightAnchor.constraint(equalToConstant: 30),
-            
-            addItemButton.heightAnchor.constraint(equalToConstant: 50)
+            addStoreButton.heightAnchor.constraint(equalToConstant: 50)
             
         ])
     }

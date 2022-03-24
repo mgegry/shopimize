@@ -12,7 +12,7 @@ class AddAccountView: UIView {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.isScrollEnabled = true
-        scrollView.bounces = true
+        scrollView.bounces = false
         scrollView.alwaysBounceVertical = true
         return scrollView
     }()

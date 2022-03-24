@@ -11,15 +11,6 @@ import FirebaseStorage
 
 class AddStoreViewController: UIViewController {
     
-    var itemImage: UIImage? {
-        didSet {
-            let buttonImage = UIImage(systemName: "photo")?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
-            
-            mainView.addImageButton.setTitle("Change image", for: .normal)
-            mainView.addImageButton.setImage(buttonImage, for: .normal)
-        }
-    }
-    
     let mainView = AddStoreView()
     
     // MARK: View Lifecycle
@@ -44,8 +35,7 @@ class AddStoreViewController: UIViewController {
                                        name: UIResponder.keyboardDidChangeFrameNotification,
                                        object: nil)
         
-        mainView.addImageButton.addTarget(self, action: #selector(didTapAddImage), for: .touchUpInside)
-        mainView.addItemButton.addTarget(self, action: #selector(didTapAddStore), for: .touchUpInside)
+        mainView.addStoreButton.addTarget(self, action: #selector(didTapAddStore), for: .touchUpInside)
         
     }
     
@@ -53,13 +43,6 @@ class AddStoreViewController: UIViewController {
     
     @objc func didTapAddStore() {
         
-    }
-    
-    @objc func didTapAddImage() {
-        let picker = UIImagePickerController()
-        picker.allowsEditing = true
-        picker.delegate = self
-        present(picker, animated: true)
     }
     
     @objc func adjustForKeyboard(notification: Notification) {
@@ -79,47 +62,4 @@ class AddStoreViewController: UIViewController {
 
     }
     
-}
-
-// MARK: Extension
-
-extension AddStoreViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[.editedImage] as? UIImage else { return }
-        dismiss(animated: true, completion: nil)
-        itemImage = image
-    }
-}
-
-extension AddStoreViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        let currentText = textField.text ?? ""
-        
-        let dot: Character = "."
-        
-        guard let stringRange = Range(range, in: currentText) else { return false }
-        
-        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-        
-        if updatedText.filter({ $0 == dot }).count > 1 { return false }
-        
-        return updatedText.count <= 6
-        
-    }
-}
-
-extension AddStoreViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "fuata"
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 5
-    }
 }
