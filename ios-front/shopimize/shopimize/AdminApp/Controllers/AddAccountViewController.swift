@@ -15,6 +15,9 @@ class AddAccountViewController: UIViewController {
     
     private var stores: [Store] = []
     
+    private var storeSelection: String?
+    private var accountSelection: String = "market"
+    
     // MARK: View Lifecycle
     
     override func loadView() {
@@ -66,7 +69,30 @@ class AddAccountViewController: UIViewController {
     // MARK: Class methods
     
     @objc func didTapAddAccount() {
+        guard let email = mainView.email.text, let password = mainView.password.text, let store = storeSelection else {
+            // TODO: ADD ALERT
+            print("something")
+            return
+        }
         
+        let user = User(role: accountSelection, roleStoreID: store)
+        
+        FBAuthManager.shared.createUserFirebase(withEmail: email, password: password) { [weak self] result in
+            guard let strongSelf = self else { return }
+            
+            guard result == true else {
+                print("error") // TODO: ADD ALERT
+                return
+            }
+            
+            DBUserManager.shared.addUserFirestore(with: email, user: user) { result in
+                guard result == true else {
+                    print("error") // TODO: ADD ALERT
+                    return
+                }
+                strongSelf.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
     
@@ -119,5 +145,17 @@ extension AddAccountViewController: UIPickerViewDataSource, UIPickerViewDelegate
         }
         
         return stores.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView.tag == 0 {
+            if row == 0 {
+                self.accountSelection = "market"
+            } else {
+                self.accountSelection = "superuser"
+            }
+        } else {
+            self.storeSelection = stores[row].id
+        }
     }
 }
