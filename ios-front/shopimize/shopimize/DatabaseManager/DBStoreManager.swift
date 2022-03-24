@@ -43,4 +43,14 @@ class DBStoreManager {
         }
     }
     
+    func addStoreToFirebase(store: Store, completion: @escaping (Bool) -> ()) {
+        do {
+            let _ = try storeCollection.addDocument(from: store)
+            completion(true)
+        } catch let error {
+            print("[error]:: adding store to firebase -- \(error.localizedDescription)")
+            completion(false)
+        }
+    }
+    
 }

@@ -42,7 +42,19 @@ class AddStoreViewController: UIViewController {
     // MARK: Class methods
     
     @objc func didTapAddStore() {
+        guard let name = mainView.name.text else { return }
+        let store = Store(name: name, isActive: mainView.isActiveSwitch.isOn, createdAt: Timestamp(date: Date.now))
         
+        DBStoreManager.shared.addStoreToFirebase(store: store) { [weak self] result in
+            guard let strongSelf = self else { return }
+            
+            if result {
+                strongSelf.navigationController?.popViewController(animated: true)
+            } else {
+                // TODO: REFINE
+                print("Could not add store")
+            }
+        }
     }
     
     @objc func adjustForKeyboard(notification: Notification) {
