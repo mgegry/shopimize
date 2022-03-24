@@ -1,0 +1,46 @@
+//
+//  DBStoreManager.swift
+//  shopimize
+//
+//  Created by Mircea Egry on 24/03/2022.
+//
+
+import Foundation
+import FirebaseFirestore
+import FirebaseFirestoreSwift
+
+class DBStoreManager {
+    
+    static let shared = DBStoreManager()
+    
+    private var storeCollection = FirebaseReferences.db.collection("Store")
+    
+    private init() { }
+    
+    func getAllStores(completion: @escaping (Result<[Store], Error>) -> ()) {
+        var stores: [Store] = []
+        
+        storeCollection.getDocuments { querySnapshot, error in
+            guard let snapshot = querySnapshot, error == nil else {
+                print("[error]:: getting all stores firebase -- \(error!.localizedDescription)")
+                completion(.failure(error!))
+                return
+            }
+            
+            for document in snapshot.documents {
+                let result = Result {
+                    try document.data(as: Store.self)
+                }
+                
+                switch result {
+                    case .success(let success):
+                        stores.append(success)
+                    case .failure(let failure):
+                        print("[error]:: getting specific store firebase -- \(failure.localizedDescription)")
+                }
+            }
+            completion(.success(stores))
+        }
+    }
+    
+}

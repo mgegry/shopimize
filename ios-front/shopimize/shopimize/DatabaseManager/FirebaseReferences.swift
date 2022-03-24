@@ -20,5 +20,6 @@ struct FirebaseReferences {
     /// Firebase Firestore database oject
     static let db = Firestore.firestore()
     
+    /// Firebase Storage object
     static let storage = Storage.storage()
 }

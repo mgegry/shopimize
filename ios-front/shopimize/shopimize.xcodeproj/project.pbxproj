@@ -31,6 +31,7 @@
 		2B2A645627EBD7F300BED7E0 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A645527EBD7F300BED7E0 /* Store.swift */; };
 		2B2A645827EBDD7300BED7E0 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A645727EBDD7300BED7E0 /* AddAccountViewController.swift */; };
 		2B2A645A27EBDF6700BED7E0 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A645927EBDF6700BED7E0 /* AddAccountView.swift */; };
+		2B2A645C27EC7F4900BED7E0 /* DBStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2A645B27EC7F4900BED7E0 /* DBStoreManager.swift */; };
 		2B3F115527EB78B300733827 /* AHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3F115427EB78B300733827 /* AHomeViewController.swift */; };
 		2B5F6E3227DD616600F003DE /* DBItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F6E3127DD616600F003DE /* DBItemManager.swift */; };
 		2B5F6E3427DD67D600F003DE /* FirebaseReferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F6E3327DD67D600F003DE /* FirebaseReferences.swift */; };
@@ -101,6 +102,7 @@
 		2B2A645527EBD7F300BED7E0 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		2B2A645727EBDD7300BED7E0 /* AddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
 		2B2A645927EBDF6700BED7E0 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
+		2B2A645B27EC7F4900BED7E0 /* DBStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBStoreManager.swift; sourceTree = "<group>"; };
 		2B3F115427EB78B300733827 /* AHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHomeViewController.swift; sourceTree = "<group>"; };
 		2B5F6E3127DD616600F003DE /* DBItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBItemManager.swift; sourceTree = "<group>"; };
 		2B5F6E3327DD67D600F003DE /* FirebaseReferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReferences.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				2B1A940D27D9077900CCA943 /* DBMarketManager.swift */,
 				2B5F6E3127DD616600F003DE /* DBItemManager.swift */,
 				2BA4DA2D27E25215004A0F02 /* DBUserManager.swift */,
+				2B2A645B27EC7F4900BED7E0 /* DBStoreManager.swift */,
 				2B960ABC27E6673A00F52F0D /* StorageManager.swift */,
 			);
 			path = DatabaseManager;
@@ -718,6 +721,7 @@
 				2B2A645827EBDD7300BED7E0 /* AddAccountViewController.swift in Sources */,
 				2B2A645627EBD7F300BED7E0 /* Store.swift in Sources */,
 				2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */,
+				2B2A645C27EC7F4900BED7E0 /* DBStoreManager.swift in Sources */,
 				2B3F115527EB78B300733827 /* AHomeViewController.swift in Sources */,
 				2B672D7027E2036100015C4E /* CartViewController.swift in Sources */,
 				2B94463C27E0F94400ED2F1A /* ItemViewController.swift in Sources */,

@@ -11,22 +11,37 @@ import FirebaseStorage
 
 class AddAccountViewController: UIViewController {
     
-    var itemImage: UIImage? {
-        didSet {
-            let buttonImage = UIImage(systemName: "photo")?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
-            
-            mainView.addImageButton.setTitle("Change image", for: .normal)
-            mainView.addImageButton.setImage(buttonImage, for: .normal)
-        }
-    }
-    
     let mainView = AddAccountView()
+    
+    private var stores: [Store] = []
     
     // MARK: View Lifecycle
     
     override func loadView() {
         view = mainView
         view.backgroundColor = .white
+        
+        mainView.accountPicker.delegate = self
+        mainView.accountPicker.dataSource = self
+        mainView.storePicker.delegate = self
+        mainView.storePicker.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DBStoreManager.shared.getAllStores { [weak self] result in
+            guard let strongSelf = self else { return }
+            
+            switch result {
+                case .success(let stores):
+                    strongSelf.stores = stores
+                    strongSelf.mainView.storePicker.reloadAllComponents()
+                case .failure(_):
+                    // TODO: REFINE
+                    print("failure")
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -44,8 +59,7 @@ class AddAccountViewController: UIViewController {
                                        name: UIResponder.keyboardDidChangeFrameNotification,
                                        object: nil)
         
-        mainView.addImageButton.addTarget(self, action: #selector(didTapAddImage), for: .touchUpInside)
-        mainView.addItemButton.addTarget(self, action: #selector(didTapAddAccount), for: .touchUpInside)
+        mainView.addAccountButton.addTarget(self, action: #selector(didTapAddAccount), for: .touchUpInside)
         
     }
     
@@ -55,12 +69,6 @@ class AddAccountViewController: UIViewController {
         
     }
     
-    @objc func didTapAddImage() {
-        let picker = UIImagePickerController()
-        picker.allowsEditing = true
-        picker.delegate = self
-        present(picker, animated: true)
-    }
     
     @objc func adjustForKeyboard(notification: Notification) {
         guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
@@ -71,8 +79,10 @@ class AddAccountViewController: UIViewController {
         if notification.name == UIResponder.keyboardWillHideNotification {
             mainView.scrollView.contentInset = .zero
         } else {
-            mainView.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0,
-                                                               bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+            mainView.scrollView.contentInset = UIEdgeInsets(top: 0,
+                                                            left: 0,
+                                                            bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom,
+                                                            right: 0)
         }
 
         mainView.scrollView.scrollIndicatorInsets = mainView.scrollView.contentInset
@@ -83,18 +93,19 @@ class AddAccountViewController: UIViewController {
 
 // MARK: Extension
 
-extension AddAccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[.editedImage] as? UIImage else { return }
-        dismiss(animated: true, completion: nil)
-        itemImage = image
-    }
-}
-
 extension AddAccountViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "fuata"
+        
+        if pickerView.tag == 0 {
+            if row == 0 {
+                return "Market Admin"
+            } else {
+                return "Super User"
+            }
+        } else {
+            return stores[row].name
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -102,6 +113,11 @@ extension AddAccountViewController: UIPickerViewDataSource, UIPickerViewDelegate
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 5
+        
+        if pickerView.tag == 0 {
+            return 2
+        }
+        
+        return stores.count
     }
 }
