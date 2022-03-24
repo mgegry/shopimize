@@ -47,6 +47,8 @@
 		2BA1112427D8AE1B00830237 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1112327D8AE1B00830237 /* User.swift */; };
 		2BA4DA2C27E247D2004A0F02 /* MHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA4DA2B27E247D2004A0F02 /* MHomeViewController.swift */; };
 		2BA4DA2E27E25215004A0F02 /* DBUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA4DA2D27E25215004A0F02 /* DBUserManager.swift */; };
+		2BBF402E27ECE3A9007359EE /* AddMarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF402D27ECE3A9007359EE /* AddMarketViewController.swift */; };
+		2BBF403027ECE3CF007359EE /* AddMarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF402F27ECE3CF007359EE /* AddMarketView.swift */; };
 		2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08127D22D4600D12877 /* AppDelegate.swift */; };
 		2BC9D08427D22D4600D12877 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08327D22D4600D12877 /* SceneDelegate.swift */; };
 		2BC9D08627D22D4600D12877 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08527D22D4600D12877 /* MapViewController.swift */; };
@@ -118,6 +120,8 @@
 		2BA1112327D8AE1B00830237 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2BA4DA2B27E247D2004A0F02 /* MHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHomeViewController.swift; sourceTree = "<group>"; };
 		2BA4DA2D27E25215004A0F02 /* DBUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUserManager.swift; sourceTree = "<group>"; };
+		2BBF402D27ECE3A9007359EE /* AddMarketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarketViewController.swift; sourceTree = "<group>"; };
+		2BBF402F27ECE3CF007359EE /* AddMarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarketView.swift; sourceTree = "<group>"; };
 		2BC9D07E27D22D4600D12877 /* shopimize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shopimize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC9D08127D22D4600D12877 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BC9D08327D22D4600D12877 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -250,6 +254,7 @@
 				2B2A645327EBD50F00BED7E0 /* CustomTextField.swift */,
 				2B2A645127EBD36700BED7E0 /* AddStoreView.swift */,
 				2B2A645927EBDF6700BED7E0 /* AddAccountView.swift */,
+				2BBF402F27ECE3CF007359EE /* AddMarketView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 				2B3F115427EB78B300733827 /* AHomeViewController.swift */,
 				2B2A644E27EBD2FD00BED7E0 /* AddStoreViewController.swift */,
 				2B2A645727EBDD7300BED7E0 /* AddAccountViewController.swift */,
+				2BBF402D27ECE3A9007359EE /* AddMarketViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -696,12 +702,14 @@
 				2B22A81127D2D58700D94B6B /* FormConstants.swift in Sources */,
 				2B2A644F27EBD2FD00BED7E0 /* AddStoreViewController.swift in Sources */,
 				2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */,
+				2BBF403027ECE3CF007359EE /* AddMarketView.swift in Sources */,
 				2B2A645227EBD36700BED7E0 /* AddStoreView.swift in Sources */,
 				2BA1112427D8AE1B00830237 /* User.swift in Sources */,
 				2B22A80F27D2C93D00D94B6B /* RegisterView.swift in Sources */,
 				2B22A82027D3F0A900D94B6B /* ProfileTableViewController.swift in Sources */,
 				2B22A82B27D433A400D94B6B /* MarketTableViewCell.swift in Sources */,
 				2B960ABD27E6673A00F52F0D /* StorageManager.swift in Sources */,
+				2BBF402E27ECE3A9007359EE /* AddMarketViewController.swift in Sources */,
 				2B2A645A27EBDF6700BED7E0 /* AddAccountView.swift in Sources */,
 				2B94463A27E0F72800ED2F1A /* HomeNavigation.swift in Sources */,
 				2B22A81327D2DF8B00D94B6B /* StartViewController.swift in Sources */,

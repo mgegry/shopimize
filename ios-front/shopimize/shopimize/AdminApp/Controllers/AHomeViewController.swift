@@ -103,7 +103,11 @@ class AHomeViewController: UIViewController {
         content = addMarketCell.defaultContentConfiguration()
         content.text = "Add Market"
         addMarketCell.contentConfiguration = content
-        addMarketCell.shouldHighlight = false
+        addMarketCell.shouldHighlight = true
+        addMarketCell.didSelect = { [unowned self] in
+            let vc = AddMarketViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
         content = viewStoresCell.defaultContentConfiguration()
         content.text = "View all stores"
