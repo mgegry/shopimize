@@ -73,11 +73,15 @@ class AddMarketViewController: UIViewController {
             return
         }
         
-        var market = Market(street: address, postalCode: postcode, city: city,
+        let updatedAddress = address.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        let updatedCity = city.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        let updatedPostcode = postcode.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        
+        var market = Market(street: updatedAddress, postalCode: updatedPostcode, city: updatedCity,
                             geoLocation: GeoPoint(latitude: 0, longitude: 0), createdAt: Timestamp(date: Date.now),
                             isActive: mainView.isActiveSwitch.isOn, storeID: store)
         
-        GoogleMapsManager.shared.decodeAddressToLocation(address: address, city: city, postalcode: postcode) { [weak self] result in
+        GoogleMapsManager.shared.decodeAddressToLocation(address: updatedAddress, city: updatedCity, postalcode: updatedPostcode) { [weak self] result in
             guard let strongSelf = self else { return }
             
             switch result {

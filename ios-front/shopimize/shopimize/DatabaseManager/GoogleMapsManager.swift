@@ -22,16 +22,11 @@ class GoogleMapsManager {
         
         var location = CLLocationCoordinate2D()
         
-        var updatedAddress = address.trimmingCharacters(in: .whitespacesAndNewlines)
-        updatedAddress = updatedAddress.replacingOccurrences(of: " ", with: "%20")
+        let updatedAddress = address.replacingOccurrences(of: " ", with: "%20")
+        let updatedCity = city.replacingOccurrences(of: " ", with: "%20")
+        let updatedPostcode = postalcode.replacingOccurrences(of: " ", with: "%20")
         
-        var updatedPostalcode = postalcode.trimmingCharacters(in: .whitespacesAndNewlines)
-        updatedPostalcode = updatedPostalcode.replacingOccurrences(of: " ", with: "%20")
-        
-        var updatedCity = city.trimmingCharacters(in: .whitespacesAndNewlines)
-        updatedCity = updatedCity.replacingOccurrences(of: " ", with: "%20")
-        
-        let searchAddress = updatedAddress + "%20" + city + "%20" + updatedPostalcode
+        let searchAddress = updatedAddress + "%20" + updatedCity + "%20" + updatedPostcode
         
         let requestUrl = decodeURL + "?address=" + searchAddress + "&key=" + apiKey
         

@@ -30,7 +30,7 @@ class AddItemView: UIView {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.isScrollEnabled = true
-        scrollView.bounces = true
+        scrollView.bounces = false
         scrollView.alwaysBounceVertical = true
         return scrollView
     }()
@@ -198,7 +198,7 @@ class AddItemView: UIView {
     let marketPickerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Select which store sells this item:"
+        label.text = "Select which market sells this item:"
         label.font = UIFont(name: ViewConstants.fontName,
                             size: ViewConstants.smallFontSize)
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
