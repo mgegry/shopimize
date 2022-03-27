@@ -37,18 +37,18 @@ class AddMarketView: UIView {
     let pageLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Add store"
+        label.text = "Add market"
         label.textColor = .systemIndigo
         label.font = UIFont(name: ViewConstants.fontName, size: 30)
         return label
     }()
-    
+
     // Name
     
-    let nameLabel: UILabel = {
+    let streetLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Store Name:"
+        label.text = "Adress: "
         label.font = UIFont(name: ViewConstants.fontName,
                             size: ViewConstants.smallFontSize)
         label.baselineAdjustment = .alignCenters
@@ -56,12 +56,13 @@ class AddMarketView: UIView {
         return label
     }()
     
-    let name: CustomTextField = {
+    let street: CustomTextField = {
         let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
         textField.keyboardType = .default
+        textField.placeholder = "80 Hoyle Street"
         textField.layer.borderWidth = 1
         textField.layer.borderColor = .init(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.8)
         textField.layer.cornerRadius = ViewConstants.formFieldCornerRadius
@@ -69,7 +70,104 @@ class AddMarketView: UIView {
         return textField
     }()
     
-    let nameStack: UIStackView = {
+    let streetStack: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.distribution = .fill
+        stack.alignment = .fill
+        stack.spacing = ViewConstants.formFieldStackSpacing
+        return stack
+    }()
+    
+    let postcodeLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Postcode: "
+        label.font = UIFont(name: ViewConstants.fontName,
+                            size: ViewConstants.smallFontSize)
+        label.baselineAdjustment = .alignCenters
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        return label
+    }()
+    
+    let postcode: CustomTextField = {
+        let textField = CustomTextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.keyboardType = .default
+        textField.placeholder = "S3 7LG"
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = .init(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.8)
+        textField.layer.cornerRadius = ViewConstants.formFieldCornerRadius
+        textField.setContentHuggingPriority(.defaultLow, for: .vertical)
+        return textField
+    }()
+    
+    let postcodeStack: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.distribution = .fill
+        stack.alignment = .fill
+        stack.spacing = ViewConstants.formFieldStackSpacing
+        return stack
+    }()
+    
+    let cityLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "City: "
+        label.font = UIFont(name: ViewConstants.fontName,
+                            size: ViewConstants.smallFontSize)
+        label.baselineAdjustment = .alignCenters
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        return label
+    }()
+    
+    let city: CustomTextField = {
+        let textField = CustomTextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.keyboardType = .default
+        textField.placeholder = "Sheffield"
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = .init(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.8)
+        textField.layer.cornerRadius = ViewConstants.formFieldCornerRadius
+        textField.setContentHuggingPriority(.defaultLow, for: .vertical)
+        return textField
+    }()
+    
+    let cityStack: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.distribution = .fill
+        stack.alignment = .fill
+        stack.spacing = ViewConstants.formFieldStackSpacing
+        return stack
+    }()
+    
+    let storePickerLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Related store:"
+        label.font = UIFont(name: ViewConstants.fontName,
+                            size: ViewConstants.smallFontSize)
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        return label
+    }()
+    
+    let storePicker: UIPickerView = {
+        let picker = UIPickerView()
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        picker.setContentHuggingPriority(.defaultLow, for: .vertical)
+        return picker
+    }()
+    
+    let storePickerStack: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
@@ -84,7 +182,7 @@ class AddMarketView: UIView {
     let isActiveLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Is store active?"
+        label.text = "Is market active?"
         label.font = UIFont(name: ViewConstants.fontName,
                             size: ViewConstants.smallFontSize)
         return label
@@ -105,7 +203,7 @@ class AddMarketView: UIView {
         return stack
     }()
     
-    let addStoreButton: UIButton = {
+    let addMarketButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Add Store", for: .normal)
@@ -140,13 +238,24 @@ class AddMarketView: UIView {
         container.addSubview(stackView)
         
         stackView.addArrangedSubview(pageLabel)
-        stackView.addArrangedSubview(nameStack)
+        stackView.addArrangedSubview(streetStack)
+        stackView.addArrangedSubview(postcodeStack)
+        stackView.addArrangedSubview(cityStack)
+        stackView.addArrangedSubview(storePickerStack)
         stackView.addArrangedSubview(isActiveStack)
-        stackView.addArrangedSubview(addStoreButton)
+        stackView.addArrangedSubview(addMarketButton)
         
-        nameStack.addArrangedSubview(nameLabel)
-        nameStack.addArrangedSubview(name)
+        streetStack.addArrangedSubview(streetLabel)
+        streetStack.addArrangedSubview(street)
         
+        postcodeStack.addArrangedSubview(postcodeLabel)
+        postcodeStack.addArrangedSubview(postcode)
+        
+        cityStack.addArrangedSubview(cityLabel)
+        cityStack.addArrangedSubview(city)
+        
+        storePickerStack.addArrangedSubview(storePickerLabel)
+        storePickerStack.addArrangedSubview(storePicker)
         
         isActiveStack.addArrangedSubview(isActiveLabel)
         isActiveStack.addArrangedSubview(isActiveSwitch)
@@ -170,9 +279,13 @@ class AddMarketView: UIView {
             stackView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -ViewConstants.formBottomPadding),
             stackView.leftAnchor.constraint(equalTo: container.leftAnchor, constant: ViewConstants.formPadding),
             
-            nameStack.heightAnchor.constraint(equalToConstant: ViewConstants.formFieldHeight),
+            streetStack.heightAnchor.constraint(equalToConstant: ViewConstants.formFieldHeight),
+            postcodeStack.heightAnchor.constraint(equalToConstant: ViewConstants.formFieldHeight),
+            cityStack.heightAnchor.constraint(equalToConstant: ViewConstants.formFieldHeight),
             
-            addStoreButton.heightAnchor.constraint(equalToConstant: 50)
+            storePicker.heightAnchor.constraint(equalToConstant: 100),
+            
+            addMarketButton.heightAnchor.constraint(equalToConstant: 50)
             
         ])
     }

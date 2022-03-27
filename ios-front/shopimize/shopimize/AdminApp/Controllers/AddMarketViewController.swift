@@ -18,6 +18,9 @@ class AddMarketViewController: UIViewController {
     override func loadView() {
         view = mainView
         view.backgroundColor = .white
+        
+        mainView.storePicker.delegate = self
+        mainView.storePicker.dataSource = self
     }
     
     override func viewDidLoad() {
@@ -35,26 +38,24 @@ class AddMarketViewController: UIViewController {
                                        name: UIResponder.keyboardDidChangeFrameNotification,
                                        object: nil)
         
-        mainView.addStoreButton.addTarget(self, action: #selector(didTapAddMarket), for: .touchUpInside)
+        mainView.addMarketButton.addTarget(self, action: #selector(didTapAddMarket), for: .touchUpInside)
         
     }
     
     // MARK: Class methods
     
     @objc func didTapAddMarket() {
-        guard let name = mainView.name.text else { return }
-        let store = Store(name: name, isActive: mainView.isActiveSwitch.isOn, createdAt: Timestamp(date: Date.now))
-        
-        DBStoreManager.shared.addStoreToFirebase(store: store) { [weak self] result in
-            guard let strongSelf = self else { return }
-            
-            if result {
-                strongSelf.navigationController?.popViewController(animated: true)
-            } else {
-                // TODO: REFINE
-                print("Could not add store")
-            }
+        guard let address = mainView.street.text, let postcode = mainView.postcode.text, let city = mainView.city.text else {
+            // TODO: REFINE
+            print("Please fill in all the fields")
+            return
         }
+        
+        let market = Market(street: address, postalCode: postcode, city: city,
+                            geoLocation: GeoPoint(latitude: 0, longitude: 0), createdAt: Timestamp(date: Date.now),
+                            isActive: mainView.isActiveSwitch.isOn, storeID: "whatever")
+        
+        
     }
     
     @objc func adjustForKeyboard(notification: Notification) {
@@ -74,4 +75,23 @@ class AddMarketViewController: UIViewController {
 
     }
     
+}
+
+extension AddMarketViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "fuata"
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+    }
 }

@@ -15,15 +15,21 @@ import FirebaseFirestoreSwift
 struct Market: Codable, Identifiable {
     
     @DocumentID var id: String? = UUID().uuidString
-    var shopName: String?
+    var street: String
+    var postalCode: String
+    var city: String
+    var geoLocation: GeoPoint
     var createdAt: Timestamp
     var isActive: Bool
-    var storeID: String?
+    var storeID: String
     
     /// Enum containing the coding key of each field
     enum CodingKeys: String, CodingKey {
         case id = "documentID"
-        case shopName = "shopname"
+        case street = "street"
+        case postalCode = "postal_code"
+        case city = "city"
+        case geoLocation = "geo_location"
         case createdAt = "created_at"
         case isActive = "is_active"
         case storeID

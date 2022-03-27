@@ -6,8 +6,10 @@
 //
 
 import FirebaseAuth
+import FirebaseFirestore
 import GoogleMaps
 import UIKit
+import MapKit
 
 /// Controller for the map view of the app
 
@@ -49,13 +51,48 @@ class MapViewController: UIViewController {
         let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
         let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
         self.view.addSubview(mapView)
-
+        
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.map = mapView
+
+        let url = URL(string: "https://maps.googleapis.com/maps/api/geocode/json?address=sheffield%20s37lg&key=AIzaSyDZtCb83OMuZbz3Npqrlfm378VajVG2Z20")!
+
+        var location = CLLocationCoordinate2D()
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            
+            if let data = data {
+                do {
+                    let json = try JSONDecoder().decode(LocationRequest.self, from: data)
+                    location.latitude = json.results[0].geometry.location.lat
+                    location.longitude = json.results[0].geometry.location.lng
+                    DispatchQueue.main.async {
+                        marker.position = location
+                        //marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
+                        marker.title = "Sydney"
+                        marker.snippet = "Australia"
+                        marker.map = mapView
+                    }
+                    
+                } catch let e {
+                    print (e)
+                }
+                
+            } else if let error = error {
+                print("HTTP Request Failed \(error)")
+            }
+        }
+        task.resume()
+        
+//        let geoCoder = CLGeocoder()
+//        geoCoder.geocodeAddressString("Hoyle Street S3 7LG Sheffield") { places, error in
+//            if let p = places {
+//                print(p)
+//                location = p[0].location!.coordinate
+//
+//            }
+//        }
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(didTapLogout))
         

@@ -80,7 +80,7 @@ class MarketTableViewController: UITableViewController {
             fatalError("Can not dequeue market table view cell with identifier")
         }
         
-        cell.shopName.text = markets[indexPath.row].shopName
+        cell.shopName.text = markets[indexPath.row].street
         
         let date = markets[indexPath.row].createdAt.dateValue()
         let formatter = DateFormatter()
