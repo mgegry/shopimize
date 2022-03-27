@@ -35,7 +35,9 @@ class AddMarketViewController: UIViewController {
             switch result {
                 case .success(let stores):
                     strongSelf.stores = stores
-                    strongSelf.mainView.storePicker.reloadAllComponents()
+                    DispatchQueue.main.async {
+                        strongSelf.mainView.storePicker.reloadAllComponents()
+                    }
                 case.failure(_):
                     // TODO: REFINE
                     print("Error getting all stores")
@@ -89,7 +91,9 @@ class AddMarketViewController: UIViewController {
                             print("can not add market to firebastore collection")
                             return
                         }
-                        strongSelf.navigationController?.popViewController(animated: true)
+                        DispatchQueue.main.async {
+                            strongSelf.navigationController?.popViewController(animated: true)
+                        }
                     }
                     
                 case .failure(_):

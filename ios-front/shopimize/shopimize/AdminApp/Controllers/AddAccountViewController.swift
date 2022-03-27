@@ -39,7 +39,9 @@ class AddAccountViewController: UIViewController {
             switch result {
                 case .success(let stores):
                     strongSelf.stores = stores
-                    strongSelf.mainView.storePicker.reloadAllComponents()
+                    DispatchQueue.main.async {
+                        strongSelf.mainView.storePicker.reloadAllComponents()
+                    }
                 case .failure(_):
                     // TODO: REFINE
                     print("failure")
