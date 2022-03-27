@@ -92,4 +92,30 @@ class DBMarketManager {
             completion(.success(markets))
         }
     }
+    
+    func getAllMarketsForStoreFirestore(store: String, completion: @escaping (Result<[Market], Error>) -> ()) {
+        var markets: [Market] = []
+        
+        marketCollection.whereField("storeID", isEqualTo: store).getDocuments { querySnapshot, error in
+            guard let snapshot = querySnapshot, error == nil else {
+                print("[error]:: getting all markets for store -- \(error!.localizedDescription)")
+                completion(.failure(error!))
+                return
+            }
+            
+            for document in snapshot.documents {
+                let result = Result {
+                    try document.data(as: Market.self)
+                }
+                
+                switch result {
+                    case .success(let success):
+                        markets.append(success)
+                    case .failure(let failure):
+                        print("[error]:: getting document in markets collection -- \(failure.localizedDescription)")
+                }
+            }
+            completion(.success(markets))
+        }
+    }
 }
