@@ -16,7 +16,7 @@ struct Item: Codable, Identifiable {
     @DocumentID var id: String? = UUID().uuidString
     var itemName: String
     var price: Double
-    var shopID: String
+    var marketID: String
     var description: String?
     var createdAt: Timestamp
     var isActive: Bool
@@ -27,7 +27,7 @@ struct Item: Codable, Identifiable {
         case id = "documentID"
         case itemName = "item_name"
         case price = "price"
-        case shopID
+        case marketID
         case description
         case createdAt = "created_at"
         case isActive = "is_active"

@@ -62,7 +62,7 @@ class MAddItemViewController: UIViewController {
         
         let item = Item(itemName: addItemView.name.text ?? "",
                         price: Double(addItemView.price.text ?? "10.0") ?? 10.0,
-                        shopID: "fuata",
+                        marketID: "fuata",
                         createdAt: Timestamp(date: Date.now),
                         isActive: addItemView.isActiveSwitch.isOn)
         
