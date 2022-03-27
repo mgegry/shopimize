@@ -13,6 +13,9 @@ class AddMarketViewController: UIViewController {
     
     let mainView = AddMarketView()
     
+    var stores: [Store] = []
+    var selectedStore: String?
+    
     // MARK: View Lifecycle
     
     override func loadView() {
@@ -21,6 +24,23 @@ class AddMarketViewController: UIViewController {
         
         mainView.storePicker.delegate = self
         mainView.storePicker.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DBStoreManager.shared.getAllStores { [weak self] result in
+            guard let strongSelf = self else { return }
+            
+            switch result {
+                case .success(let stores):
+                    strongSelf.stores = stores
+                    strongSelf.mainView.storePicker.reloadAllComponents()
+                case.failure(_):
+                    // TODO: REFINE
+                    print("Error getting all stores")
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -77,10 +97,12 @@ class AddMarketViewController: UIViewController {
     
 }
 
+// MARK: Extensions
+
 extension AddMarketViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "fuata"
+        return stores[row].name
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -88,10 +110,10 @@ extension AddMarketViewController: UIPickerViewDataSource, UIPickerViewDelegate 
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 2
+        return stores.count
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        selectedStore = stores[row].id
     }
 }
