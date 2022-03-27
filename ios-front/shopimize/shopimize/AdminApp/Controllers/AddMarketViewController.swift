@@ -65,16 +65,39 @@ class AddMarketViewController: UIViewController {
     // MARK: Class methods
     
     @objc func didTapAddMarket() {
-        guard let address = mainView.street.text, let postcode = mainView.postcode.text, let city = mainView.city.text else {
+        guard let address = mainView.street.text, let postcode = mainView.postcode.text, let city = mainView.city.text, let store = selectedStore else {
             // TODO: REFINE
             print("Please fill in all the fields")
             return
         }
         
-        let market = Market(street: address, postalCode: postcode, city: city,
+        var market = Market(street: address, postalCode: postcode, city: city,
                             geoLocation: GeoPoint(latitude: 0, longitude: 0), createdAt: Timestamp(date: Date.now),
-                            isActive: mainView.isActiveSwitch.isOn, storeID: "whatever")
+                            isActive: mainView.isActiveSwitch.isOn, storeID: store)
         
+        GoogleMapsManager.shared.decodeAddressToLocation(address: address, city: city, postalcode: postcode) { [weak self] result in
+            guard let strongSelf = self else { return }
+            
+            switch result {
+                case .success(let loc):
+                    let geoLocation = GeoPoint(latitude: loc.latitude, longitude: loc.longitude)
+                    market.geoLocation = geoLocation
+                    
+                    DBMarketManager.shared.addMarketFirestore(market: market) { result in
+                        guard result == true else {
+                            // TODO: REFINE
+                            print("can not add market to firebastore collection")
+                            return
+                        }
+                        strongSelf.navigationController?.popViewController(animated: true)
+                    }
+                    
+                case .failure(_):
+                    // TODO: REFINE
+                    print("can not decode address to location")
+                    return
+            }
+        }
         
     }
     
@@ -88,7 +111,7 @@ class AddMarketViewController: UIViewController {
             mainView.scrollView.contentInset = .zero
         } else {
             mainView.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0,
-                                                               bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+                                                            bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
         }
 
         mainView.scrollView.scrollIndicatorInsets = mainView.scrollView.contentInset
