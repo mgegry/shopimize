@@ -49,6 +49,7 @@
 		2BA1112427D8AE1B00830237 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1112327D8AE1B00830237 /* User.swift */; };
 		2BA4DA2C27E247D2004A0F02 /* MHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA4DA2B27E247D2004A0F02 /* MHomeViewController.swift */; };
 		2BA4DA2E27E25215004A0F02 /* DBUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA4DA2D27E25215004A0F02 /* DBUserManager.swift */; };
+		2BB8C01827F9BBF100FC0E1D /* PlaceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8C01727F9BBF100FC0E1D /* PlaceResponse.swift */; };
 		2BBF402E27ECE3A9007359EE /* AddMarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF402D27ECE3A9007359EE /* AddMarketViewController.swift */; };
 		2BBF403027ECE3CF007359EE /* AddMarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF402F27ECE3CF007359EE /* AddMarketView.swift */; };
 		2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9D08127D22D4600D12877 /* AppDelegate.swift */; };
@@ -124,6 +125,7 @@
 		2BA1112327D8AE1B00830237 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2BA4DA2B27E247D2004A0F02 /* MHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHomeViewController.swift; sourceTree = "<group>"; };
 		2BA4DA2D27E25215004A0F02 /* DBUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUserManager.swift; sourceTree = "<group>"; };
+		2BB8C01727F9BBF100FC0E1D /* PlaceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceResponse.swift; sourceTree = "<group>"; };
 		2BBF402D27ECE3A9007359EE /* AddMarketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarketViewController.swift; sourceTree = "<group>"; };
 		2BBF402F27ECE3CF007359EE /* AddMarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarketView.swift; sourceTree = "<group>"; };
 		2BC9D07E27D22D4600D12877 /* shopimize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shopimize.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -300,6 +302,7 @@
 				2B71A00827DCCE5B008EE339 /* Item.swift */,
 				2B2A645527EBD7F300BED7E0 /* Store.swift */,
 				2BA07F7A27EF700100A82051 /* LocationRequest.swift */,
+				2BB8C01727F9BBF100FC0E1D /* PlaceResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				2B2A645427EBD50F00BED7E0 /* CustomTextField.swift in Sources */,
 				2B1A940E27D9077900CCA943 /* DBMarketManager.swift in Sources */,
 				2B22A82227D3F1C600D94B6B /* ProfileTableViewCell.swift in Sources */,
+				2BB8C01827F9BBF100FC0E1D /* PlaceResponse.swift in Sources */,
 				2B22A80D27D2C8ED00D94B6B /* RegisterViewController.swift in Sources */,
 				2BF6C27227DE55F500CDC01D /* ColorTheme.swift in Sources */,
 				2B22A80927D2A15200D94B6B /* LoginView.swift in Sources */,

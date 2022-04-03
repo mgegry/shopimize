@@ -13,15 +13,17 @@ import MapKit
 
 /// Controller for the map view of the app
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     /// Handles the state of the user; changes if the user logs out or in
     private var handle: AuthStateDidChangeListenerHandle?
+    private let locationManager: CLLocationManager = CLLocationManager()
     
     /// Do any aditional setup before the view is about to appear
     ///
     /// - parameter animated: States if the view will apear animated or not
     override func viewWillAppear(_ animated: Bool) {
+        locationManager.startUpdatingLocation()
 //        handle = Auth.auth().addStateDidChangeListener { [weak self] auth, user in
 //
 //            guard let user = user else {
@@ -48,6 +50,10 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+        
         let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
         let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
         self.view.addSubview(mapView)
@@ -69,7 +75,6 @@ class MapViewController: UIViewController {
                     location.longitude = json.results[0].geometry.location.lng
                     DispatchQueue.main.async {
                         marker.position = location
-                        //marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
                         marker.title = "Sydney"
                         marker.snippet = "Australia"
                         marker.map = mapView
@@ -85,15 +90,6 @@ class MapViewController: UIViewController {
         }
         task.resume()
         
-//        let geoCoder = CLGeocoder()
-//        geoCoder.geocodeAddressString("Hoyle Street S3 7LG Sheffield") { places, error in
-//            if let p = places {
-//                print(p)
-//                location = p[0].location!.coordinate
-//
-//            }
-//        }
-        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(didTapLogout))
         
     }
@@ -107,6 +103,18 @@ class MapViewController: UIViewController {
 //        } else {
 //            print("[info]:: user state did change listener was not set")
 //        }
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            print(location.coordinate.latitude)
+            print(location.coordinate.longitude)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+         print("Failed to find user's location: \(error.localizedDescription)")
     }
     
     /// Called when the user taps the log out button

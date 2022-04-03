@@ -14,6 +14,7 @@ class GoogleMapsManager {
     
     private let apiKey = "AIzaSyDZtCb83OMuZbz3Npqrlfm378VajVG2Z20"
     private var decodeURL: String = "https://maps.googleapis.com/maps/api/geocode/json"
+    private var getPlaceURL: String = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json"
     
     private init() {}
     
