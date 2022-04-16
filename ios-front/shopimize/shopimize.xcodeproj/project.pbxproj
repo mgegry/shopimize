@@ -67,6 +67,9 @@
 		2BFDD8CE280AE77C006932F5 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8CD280AE77C006932F5 /* FriendsTableViewCell.swift */; };
 		2BFDD8D0280AEA28006932F5 /* FriendsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8CF280AEA28006932F5 /* FriendsNavigation.swift */; };
 		2BFDD8D3280B0F86006932F5 /* NavigationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8D2280B0F86006932F5 /* NavigationConstants.swift */; };
+		2BFDD8D5280B217F006932F5 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8D4280B217F006932F5 /* AddFriendViewController.swift */; };
+		2BFDD8D7280B21A1006932F5 /* FriendRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8D6280B21A1006932F5 /* FriendRequestsViewController.swift */; };
+		2BFDD8D9280B2222006932F5 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8D8280B2222006932F5 /* FriendViewController.swift */; };
 		B0B13B60D9ABAE188B61280D /* Pods_shopimizeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -151,6 +154,9 @@
 		2BFDD8CD280AE77C006932F5 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		2BFDD8CF280AEA28006932F5 /* FriendsNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsNavigation.swift; sourceTree = "<group>"; };
 		2BFDD8D2280B0F86006932F5 /* NavigationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConstants.swift; sourceTree = "<group>"; };
+		2BFDD8D4280B217F006932F5 /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
+		2BFDD8D6280B21A1006932F5 /* FriendRequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsViewController.swift; sourceTree = "<group>"; };
+		2BFDD8D8280B2222006932F5 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 		44D376BFFD88285165CAB480 /* Pods_shopimize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B3466F07B6902E7614D5A7 /* Pods-shopimize.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopimize.release.xcconfig"; path = "Target Support Files/Pods-shopimize/Pods-shopimize.release.xcconfig"; sourceTree = "<group>"; };
 		938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimizeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,13 +198,15 @@
 		2B22A80327D29A4A00D94B6B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2B22A82527D410EC00D94B6B /* TableViewCells */,
 				2B22A82827D4320600D94B6B /* MarketTableViewController.swift */,
 				2BC9D08527D22D4600D12877 /* MapViewController.swift */,
 				2B22A81F27D3F0A900D94B6B /* ProfileTableViewController.swift */,
 				2B94463B27E0F94400ED2F1A /* ItemViewController.swift */,
 				2B672D6F27E2036100015C4E /* CartViewController.swift */,
 				2BFDD8C8280AE081006932F5 /* FriendsViewController.swift */,
+				2BFDD8D4280B217F006932F5 /* AddFriendViewController.swift */,
+				2BFDD8D6280B21A1006932F5 /* FriendRequestsViewController.swift */,
+				2BFDD8D8280B2222006932F5 /* FriendViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -225,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				2B672D7327E203C300015C4E /* Navigation */,
+				2B22A82527D410EC00D94B6B /* TableViewCells */,
 				2BF6C27127DE55F500CDC01D /* ColorTheme.swift */,
 				2B672D7127E2037B00015C4E /* CartView.swift */,
 			);
@@ -750,7 +759,9 @@
 				2B5F6E3227DD616600F003DE /* DBItemManager.swift in Sources */,
 				2B22A82927D4320600D94B6B /* MarketTableViewController.swift in Sources */,
 				2BFDD8D0280AEA28006932F5 /* FriendsNavigation.swift in Sources */,
+				2BFDD8D9280B2222006932F5 /* FriendViewController.swift in Sources */,
 				2BFDD8D3280B0F86006932F5 /* NavigationConstants.swift in Sources */,
+				2BFDD8D7280B21A1006932F5 /* FriendRequestsViewController.swift in Sources */,
 				2BA07F7B27EF700100A82051 /* LocationRequest.swift in Sources */,
 				2B5F6E3427DD67D600F003DE /* FirebaseReferences.swift in Sources */,
 				2B22A82D27D43BCE00D94B6B /* TableConstants.swift in Sources */,
@@ -764,6 +775,7 @@
 				2B22A80F27D2C93D00D94B6B /* RegisterView.swift in Sources */,
 				2B22A82027D3F0A900D94B6B /* ProfileTableViewController.swift in Sources */,
 				2B22A82B27D433A400D94B6B /* MarketTableViewCell.swift in Sources */,
+				2BFDD8D5280B217F006932F5 /* AddFriendViewController.swift in Sources */,
 				2B960ABD27E6673A00F52F0D /* StorageManager.swift in Sources */,
 				2BBF402E27ECE3A9007359EE /* AddMarketViewController.swift in Sources */,
 				2BFDD8CE280AE77C006932F5 /* FriendsTableViewCell.swift in Sources */,
