@@ -16,7 +16,7 @@ class HomeNavigation: UIView {
         stack.distribution = .fill
         stack.axis = .horizontal
         stack.alignment = .fill
-        stack.spacing = 10
+        stack.spacing = 15
         return stack
     }()
     
@@ -29,13 +29,15 @@ class HomeNavigation: UIView {
     
     let filterButton: UIButton = {
         var button = UIButton()
-        button.setImage(UIImage(systemName: "slider.horizontal.3"), for: .normal)
+        let config = UIImage.SymbolConfiguration(pointSize: 21, weight: .medium)
+        button.setImage(UIImage(systemName: "slider.horizontal.3", withConfiguration: config), for: .normal)
         return button
     }()
     
     let cartButton: UIButton = {
         var button = UIButton()
-        button.setImage(UIImage(systemName: "cart"), for: .normal)
+        let config = UIImage.SymbolConfiguration(pointSize: 21, weight: .medium)
+        button.setImage(UIImage(systemName: "cart", withConfiguration: config), for: .normal)
         return button
     }()
     
