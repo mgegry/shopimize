@@ -37,7 +37,7 @@ class FriendsTableViewCell: UITableViewCell {
     var userLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-//        label.textAlignment = .center
+        label.contentMode = .scaleAspectFit
         label.textColor = .black
         return label
     }()
@@ -45,7 +45,7 @@ class FriendsTableViewCell: UITableViewCell {
     var shoppingStatusLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-//        label.textAlignment = .center
+        label.contentMode = .scaleAspectFit
         label.textColor = .black
         return label
     }()
@@ -91,16 +91,16 @@ class FriendsTableViewCell: UITableViewCell {
                                                 constant: CGFloat(TableConstants.cellHorizontalInset)),
             
             image.widthAnchor.constraint(equalToConstant: 80),
-            image.topAnchor.constraint(equalTo: containerView.topAnchor),
+            image.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 5),
             image.leftAnchor.constraint(equalTo: containerView.leftAnchor),
             image.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             
-            userLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
-            userLabel.leftAnchor.constraint(equalTo: image.rightAnchor, constant: 20),
+            userLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 5),
+            userLabel.leftAnchor.constraint(equalTo: image.rightAnchor, constant: 35),
             userLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
             
             shoppingStatusLabel.topAnchor.constraint(equalTo: userLabel.bottomAnchor),
-            shoppingStatusLabel.leftAnchor.constraint(equalTo: image.rightAnchor, constant: 20),
+            shoppingStatusLabel.leftAnchor.constraint(equalTo: image.rightAnchor, constant: 35),
             shoppingStatusLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
             shoppingStatusLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ])

@@ -50,7 +50,21 @@ class FriendsViewController: UIViewController {
         
         
         let titleView = FriendsNavigation(frame: CGRect(x: 0, y: 0, width: boundsWidth, height: boundsHeight))
+        
+        titleView.addFriendButton.addTarget(self, action: #selector(didTapAddFriend), for: .touchUpInside)
+        titleView.friendRequestsButton.addTarget(self, action: #selector(didTapFriendRequests), for: .touchUpInside)
+        
         self.navigationItem.titleView = titleView
+    }
+    
+    @objc func didTapAddFriend() {
+        let vc = AddFriendViewController()
+        present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func didTapFriendRequests() {
+        let vc = FriendRequestsViewController()
+        present(vc, animated: true, completion: nil)
     }
 
 }
