@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     /// Initialize the View Controllers to be displayed for the shopper app
     let mtabBarController = UITabBarController()
     let navigationMapController = UINavigationController(rootViewController: MapViewController())
-    let navigationProfileController = UINavigationController(rootViewController: ProfileTableViewController(style: .plain))
+    let navigationProfileController = UINavigationController(rootViewController: ProfileViewController())
     let navigationMarketController = UINavigationController(rootViewController: MarketTableViewController(style: .plain))
     let navigationFriendsController = UINavigationController(rootViewController: FriendsViewController())
     

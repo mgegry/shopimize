@@ -20,7 +20,7 @@
 		2B22A81327D2DF8B00D94B6B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A81227D2DF8B00D94B6B /* StartViewController.swift */; };
 		2B22A81B27D2E04E00D94B6B /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A81A27D2E04E00D94B6B /* StartView.swift */; };
 		2B22A81E27D2FD5E00D94B6B /* FBAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A81D27D2FD5E00D94B6B /* FBAuthManager.swift */; };
-		2B22A82027D3F0A900D94B6B /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A81F27D3F0A900D94B6B /* ProfileTableViewController.swift */; };
+		2B22A82027D3F0A900D94B6B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A81F27D3F0A900D94B6B /* ProfileViewController.swift */; };
 		2B22A82227D3F1C600D94B6B /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A82127D3F1C600D94B6B /* ProfileTableViewCell.swift */; };
 		2B22A82927D4320600D94B6B /* MarketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A82827D4320600D94B6B /* MarketTableViewController.swift */; };
 		2B22A82B27D433A400D94B6B /* MarketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B22A82A27D433A400D94B6B /* MarketTableViewCell.swift */; };
@@ -70,6 +70,8 @@
 		2BFDD8D5280B217F006932F5 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8D4280B217F006932F5 /* AddFriendViewController.swift */; };
 		2BFDD8D7280B21A1006932F5 /* FriendRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8D6280B21A1006932F5 /* FriendRequestsViewController.swift */; };
 		2BFDD8D9280B2222006932F5 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8D8280B2222006932F5 /* FriendViewController.swift */; };
+		2BFDD8DB280B31DE006932F5 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8DA280B31DE006932F5 /* FriendView.swift */; };
+		2BFDD8DD280B3F24006932F5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8DC280B3F24006932F5 /* ProfileView.swift */; };
 		B0B13B60D9ABAE188B61280D /* Pods_shopimizeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,7 +105,7 @@
 		2B22A81227D2DF8B00D94B6B /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		2B22A81A27D2E04E00D94B6B /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		2B22A81D27D2FD5E00D94B6B /* FBAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBAuthManager.swift; sourceTree = "<group>"; };
-		2B22A81F27D3F0A900D94B6B /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		2B22A81F27D3F0A900D94B6B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2B22A82127D3F1C600D94B6B /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		2B22A82827D4320600D94B6B /* MarketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewController.swift; sourceTree = "<group>"; };
 		2B22A82A27D433A400D94B6B /* MarketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTableViewCell.swift; sourceTree = "<group>"; };
@@ -157,6 +159,8 @@
 		2BFDD8D4280B217F006932F5 /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		2BFDD8D6280B21A1006932F5 /* FriendRequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsViewController.swift; sourceTree = "<group>"; };
 		2BFDD8D8280B2222006932F5 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
+		2BFDD8DA280B31DE006932F5 /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
+		2BFDD8DC280B3F24006932F5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		44D376BFFD88285165CAB480 /* Pods_shopimize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B3466F07B6902E7614D5A7 /* Pods-shopimize.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopimize.release.xcconfig"; path = "Target Support Files/Pods-shopimize/Pods-shopimize.release.xcconfig"; sourceTree = "<group>"; };
 		938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimizeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,7 +204,7 @@
 			children = (
 				2B22A82827D4320600D94B6B /* MarketTableViewController.swift */,
 				2BC9D08527D22D4600D12877 /* MapViewController.swift */,
-				2B22A81F27D3F0A900D94B6B /* ProfileTableViewController.swift */,
+				2B22A81F27D3F0A900D94B6B /* ProfileViewController.swift */,
 				2B94463B27E0F94400ED2F1A /* ItemViewController.swift */,
 				2B672D6F27E2036100015C4E /* CartViewController.swift */,
 				2BFDD8C8280AE081006932F5 /* FriendsViewController.swift */,
@@ -236,6 +240,8 @@
 				2B22A82527D410EC00D94B6B /* TableViewCells */,
 				2BF6C27127DE55F500CDC01D /* ColorTheme.swift */,
 				2B672D7127E2037B00015C4E /* CartView.swift */,
+				2BFDD8DA280B31DE006932F5 /* FriendView.swift */,
+				2BFDD8DC280B3F24006932F5 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -764,7 +770,9 @@
 				2BFDD8D7280B21A1006932F5 /* FriendRequestsViewController.swift in Sources */,
 				2BA07F7B27EF700100A82051 /* LocationRequest.swift in Sources */,
 				2B5F6E3427DD67D600F003DE /* FirebaseReferences.swift in Sources */,
+				2BFDD8DB280B31DE006932F5 /* FriendView.swift in Sources */,
 				2B22A82D27D43BCE00D94B6B /* TableConstants.swift in Sources */,
+				2BFDD8DD280B3F24006932F5 /* ProfileView.swift in Sources */,
 				2B71A00927DCCE5B008EE339 /* Item.swift in Sources */,
 				2B22A81127D2D58700D94B6B /* FormConstants.swift in Sources */,
 				2B2A644F27EBD2FD00BED7E0 /* AddStoreViewController.swift in Sources */,
@@ -773,7 +781,7 @@
 				2B2A645227EBD36700BED7E0 /* AddStoreView.swift in Sources */,
 				2BA1112427D8AE1B00830237 /* User.swift in Sources */,
 				2B22A80F27D2C93D00D94B6B /* RegisterView.swift in Sources */,
-				2B22A82027D3F0A900D94B6B /* ProfileTableViewController.swift in Sources */,
+				2B22A82027D3F0A900D94B6B /* ProfileViewController.swift in Sources */,
 				2B22A82B27D433A400D94B6B /* MarketTableViewCell.swift in Sources */,
 				2BFDD8D5280B217F006932F5 /* AddFriendViewController.swift in Sources */,
 				2B960ABD27E6673A00F52F0D /* StorageManager.swift in Sources */,
