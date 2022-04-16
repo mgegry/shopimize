@@ -64,6 +64,8 @@
 		2BD4675C27E503A000782E52 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD4675B27E503A000782E52 /* AddItemView.swift */; };
 		2BF6C27227DE55F500CDC01D /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6C27127DE55F500CDC01D /* ColorTheme.swift */; };
 		2BFDD8C9280AE081006932F5 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8C8280AE081006932F5 /* FriendsViewController.swift */; };
+		2BFDD8CE280AE77C006932F5 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8CD280AE77C006932F5 /* FriendsTableViewCell.swift */; };
+		2BFDD8D0280AEA28006932F5 /* FriendsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8CF280AEA28006932F5 /* FriendsNavigation.swift */; };
 		B0B13B60D9ABAE188B61280D /* Pods_shopimizeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -145,6 +147,8 @@
 		2BD4675B27E503A000782E52 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		2BF6C27127DE55F500CDC01D /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		2BFDD8C8280AE081006932F5 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		2BFDD8CD280AE77C006932F5 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
+		2BFDD8CF280AEA28006932F5 /* FriendsNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsNavigation.swift; sourceTree = "<group>"; };
 		44D376BFFD88285165CAB480 /* Pods_shopimize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B3466F07B6902E7614D5A7 /* Pods-shopimize.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopimize.release.xcconfig"; path = "Target Support Files/Pods-shopimize/Pods-shopimize.release.xcconfig"; sourceTree = "<group>"; };
 		938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimizeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,6 +252,7 @@
 				2B22A82127D3F1C600D94B6B /* ProfileTableViewCell.swift */,
 				2B22A82A27D433A400D94B6B /* MarketTableViewCell.swift */,
 				2B81813C27DBA84800863BFF /* ItemTableViewCell.swift */,
+				2BFDD8CD280AE77C006932F5 /* FriendsTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				2B94463927E0F72800ED2F1A /* HomeNavigation.swift */,
+				2BFDD8CF280AEA28006932F5 /* FriendsNavigation.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -732,6 +738,7 @@
 				2B1A941027D9248500CCA943 /* Market.swift in Sources */,
 				2B5F6E3227DD616600F003DE /* DBItemManager.swift in Sources */,
 				2B22A82927D4320600D94B6B /* MarketTableViewController.swift in Sources */,
+				2BFDD8D0280AEA28006932F5 /* FriendsNavigation.swift in Sources */,
 				2BA07F7B27EF700100A82051 /* LocationRequest.swift in Sources */,
 				2B5F6E3427DD67D600F003DE /* FirebaseReferences.swift in Sources */,
 				2B22A82D27D43BCE00D94B6B /* TableConstants.swift in Sources */,
@@ -747,6 +754,7 @@
 				2B22A82B27D433A400D94B6B /* MarketTableViewCell.swift in Sources */,
 				2B960ABD27E6673A00F52F0D /* StorageManager.swift in Sources */,
 				2BBF402E27ECE3A9007359EE /* AddMarketViewController.swift in Sources */,
+				2BFDD8CE280AE77C006932F5 /* FriendsTableViewCell.swift in Sources */,
 				2B2A645A27EBDF6700BED7E0 /* AddAccountView.swift in Sources */,
 				2B94463A27E0F72800ED2F1A /* HomeNavigation.swift in Sources */,
 				2B22A81327D2DF8B00D94B6B /* StartViewController.swift in Sources */,
