@@ -187,9 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				2B22A82527D410EC00D94B6B /* TableViewCells */,
-				2B22A81227D2DF8B00D94B6B /* StartViewController.swift */,
-				2B22A80027D29A2800D94B6B /* LoginViewController.swift */,
-				2B22A80C27D2C8ED00D94B6B /* RegisterViewController.swift */,
 				2B22A82827D4320600D94B6B /* MarketTableViewController.swift */,
 				2BC9D08527D22D4600D12877 /* MapViewController.swift */,
 				2B22A81F27D3F0A900D94B6B /* ProfileTableViewController.swift */,
@@ -224,9 +221,6 @@
 				2B672D7327E203C300015C4E /* Navigation */,
 				2BF6C27127DE55F500CDC01D /* ColorTheme.swift */,
 				2B22A81027D2D58700D94B6B /* FormConstants.swift */,
-				2B22A81A27D2E04E00D94B6B /* StartView.swift */,
-				2B22A80827D2A15200D94B6B /* LoginView.swift */,
-				2B22A80E27D2C93D00D94B6B /* RegisterView.swift */,
 				2B672D7127E2037B00015C4E /* CartView.swift */,
 			);
 			path = Views;
@@ -367,6 +361,7 @@
 				2B22A80427D29A6500D94B6B /* Utils */,
 				2B22A81C27D2FD2400D94B6B /* DatabaseManager */,
 				2BA1112227D8ADFC00830237 /* Models */,
+				2BFDD8CA280AE5BD006932F5 /* AuthApp */,
 				2BA4DA2827E2464F004A0F02 /* ShopperApp */,
 				2BA4DA2927E24658004A0F02 /* MarketApp */,
 				2B3F115327EB786F00733827 /* AdminApp */,
@@ -398,6 +393,35 @@
 			children = (
 				2B960ABA27E6105800F52F0D /* ViewConstants.swift */,
 				2BD4675B27E503A000782E52 /* AddItemView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2BFDD8CA280AE5BD006932F5 /* AuthApp */ = {
+			isa = PBXGroup;
+			children = (
+				2BFDD8CB280AE5C6006932F5 /* Controllers */,
+				2BFDD8CC280AE5D9006932F5 /* Views */,
+			);
+			path = AuthApp;
+			sourceTree = "<group>";
+		};
+		2BFDD8CB280AE5C6006932F5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2B22A81227D2DF8B00D94B6B /* StartViewController.swift */,
+				2B22A80027D29A2800D94B6B /* LoginViewController.swift */,
+				2B22A80C27D2C8ED00D94B6B /* RegisterViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2BFDD8CC280AE5D9006932F5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2B22A81A27D2E04E00D94B6B /* StartView.swift */,
+				2B22A80827D2A15200D94B6B /* LoginView.swift */,
+				2B22A80E27D2C93D00D94B6B /* RegisterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

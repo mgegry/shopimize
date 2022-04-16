@@ -15,16 +15,18 @@ class LoginViewController: UIViewController {
     /// Value holding layout and design of this view controller
     var loginView = LoginView()
     
-    /// Initialize the View Controllers to be displayed
+    /// Initialize the View Controllers to be displayed for the shopper app
     let mtabBarController = UITabBarController()
     let navigationMapController = UINavigationController(rootViewController: MapViewController())
     let navigationProfileController = UINavigationController(rootViewController: ProfileTableViewController(style: .plain))
     let navigationMarketController = UINavigationController(rootViewController: MarketTableViewController(style: .plain))
     let navigationFriendsController = UINavigationController(rootViewController: FriendsViewController())
     
+    /// Initialize View Controllers for the other two types of users
     let navigationAdminMarketController = UINavigationController(rootViewController: MHomeViewController())
     let navigationAdminController = UINavigationController(rootViewController: AHomeViewController())
 
+    // MARK: Lifecyle methods
     
     /// Load the view
     override func loadView() {
@@ -59,6 +61,8 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: Class methods
     
     /// Called when the login button is pressed
     @objc func didTapLogin() {
