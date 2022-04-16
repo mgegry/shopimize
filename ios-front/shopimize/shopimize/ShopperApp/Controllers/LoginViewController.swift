@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import SwiftUI
 
 /// Controller for the login view of the app
 class LoginViewController: UIViewController {
@@ -19,6 +20,8 @@ class LoginViewController: UIViewController {
     let navigationMapController = UINavigationController(rootViewController: MapViewController())
     let navigationProfileController = UINavigationController(rootViewController: ProfileTableViewController(style: .plain))
     let navigationMarketController = UINavigationController(rootViewController: MarketTableViewController(style: .plain))
+    let navigationFriendsController = UINavigationController(rootViewController: FriendsViewController())
+    
     let navigationAdminMarketController = UINavigationController(rootViewController: MHomeViewController())
     let navigationAdminController = UINavigationController(rootViewController: AHomeViewController())
 
@@ -92,10 +95,33 @@ class LoginViewController: UIViewController {
         navigationAdminMarketController.modalPresentationStyle = .fullScreen
         navigationAdminController.modalPresentationStyle = .fullScreen
         
+        let tabViewControllers = [
+            navigationMarketController,
+            navigationMapController,
+            navigationFriendsController,
+            navigationProfileController
+        ]
         
-        mtabBarController.setViewControllers([navigationMarketController, navigationMapController, navigationProfileController],
-                                             animated: true)
+        mtabBarController.setViewControllers(tabViewControllers, animated: true)
         mtabBarController.modalPresentationStyle = .fullScreen
+        mtabBarController.tabBar.backgroundColor = .backgroundGrey
+        
+        navigationMarketController.title = "Stores"
+        navigationMarketController.tabBarItem.image = UIImage(systemName: "bag")
+        navigationMarketController.tabBarItem.selectedImage = UIImage(systemName: "bag.fill")
+        
+        navigationMapController.title = "Map"
+        navigationMapController.tabBarItem.image = UIImage(systemName: "globe.europe.africa")
+        navigationMapController.tabBarItem.selectedImage = UIImage(systemName: "globe.europe.africa.fill")
+        
+        navigationFriendsController.title = "Friends"
+        navigationFriendsController.tabBarItem.image = UIImage(systemName: "person.2")
+        navigationFriendsController.tabBarItem.selectedImage = UIImage(systemName: "person.2.fill")
+        
+        navigationProfileController.title = "Profile"
+        navigationProfileController.tabBarItem.image = UIImage(systemName: "person")
+        navigationProfileController.tabBarItem.selectedImage = UIImage(systemName: "person.fill")
+        
     }
     
     /// Select which app to display based on the given role
