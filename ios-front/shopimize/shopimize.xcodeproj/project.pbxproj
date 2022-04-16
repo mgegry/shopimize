@@ -413,7 +413,6 @@
 		2BD4675D27E503A700782E52 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2B960ABA27E6105800F52F0D /* ViewConstants.swift */,
 				2BD4675B27E503A000782E52 /* AddItemView.swift */,
 			);
 			path = Views;
@@ -452,6 +451,7 @@
 			isa = PBXGroup;
 			children = (
 				2B22A82C27D43BCE00D94B6B /* TableConstants.swift */,
+				2B960ABA27E6105800F52F0D /* ViewConstants.swift */,
 				2B22A81027D2D58700D94B6B /* FormConstants.swift */,
 				2BFDD8D2280B0F86006932F5 /* NavigationConstants.swift */,
 			);
