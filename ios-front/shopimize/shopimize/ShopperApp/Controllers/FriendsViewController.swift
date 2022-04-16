@@ -71,14 +71,15 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as? FriendsTableViewCell else {
             fatalError("Can not dequeue cell with identifier friendsCell")
         }
-
-        cell.testLabel.text = String(indexPath.row)
+        
+        cell.userLabel.text = "eusunt@celmai.com"
+        cell.shoppingStatusLabel.text = "Currently shopping"
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(TableConstants.cellHeight)
+        return CGFloat(TableConstants.friendsCellHeight)
     }
     
 }

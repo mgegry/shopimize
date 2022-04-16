@@ -110,11 +110,11 @@ class LoginViewController: UIViewController {
         mtabBarController.modalPresentationStyle = .fullScreen
         mtabBarController.tabBar.backgroundColor = .backgroundGrey
         
-        navigationMarketController.title = "Stores"
+        navigationMarketController.title = "Shop"
         navigationMarketController.tabBarItem.image = UIImage(systemName: "bag")
         navigationMarketController.tabBarItem.selectedImage = UIImage(systemName: "bag.fill")
         
-        navigationMapController.title = "Map"
+        navigationMapController.title = "Journey"
         navigationMapController.tabBarItem.image = UIImage(systemName: "globe.europe.africa")
         navigationMapController.tabBarItem.selectedImage = UIImage(systemName: "globe.europe.africa.fill")
         

@@ -8,9 +8,6 @@
 import UIKit
 
 class FriendsTableViewCell: UITableViewCell {
-
-    // Views declaration and their properties are declared as computed properties
-    // so that they are lazy instanciated
     
     /// Container holding the card for the cell
     var containerView: UIView = {
@@ -28,9 +25,27 @@ class FriendsTableViewCell: UITableViewCell {
         return view
     }()
     
-    var testLabel: UILabel = {
+    var image: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(systemName: "person")
+        image.contentMode = .scaleAspectFit
+        image.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        return image
+    }()
+    
+    var userLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+//        label.textAlignment = .center
+        label.textColor = .black
+        return label
+    }()
+    
+    var shoppingStatusLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.textAlignment = .center
         label.textColor = .black
         return label
     }()
@@ -52,7 +67,9 @@ class FriendsTableViewCell: UITableViewCell {
     private func setupContainer() {
         // self.contentView.backgroundColor = .clear
         addSubview(containerView)
-        addSubview(testLabel)
+        addSubview(image)
+        addSubview(userLabel)
+        addSubview(shoppingStatusLabel)
     }
     
     /// Setup the views constraints
@@ -73,11 +90,19 @@ class FriendsTableViewCell: UITableViewCell {
             containerView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor,
                                                 constant: CGFloat(TableConstants.cellHorizontalInset)),
             
-            // Test Label constraints
+            image.widthAnchor.constraint(equalToConstant: 80),
+            image.topAnchor.constraint(equalTo: containerView.topAnchor),
+            image.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+            image.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             
-            testLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
-            testLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
-            testLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+            userLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
+            userLabel.leftAnchor.constraint(equalTo: image.rightAnchor, constant: 20),
+            userLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+            
+            shoppingStatusLabel.topAnchor.constraint(equalTo: userLabel.bottomAnchor),
+            shoppingStatusLabel.leftAnchor.constraint(equalTo: image.rightAnchor, constant: 20),
+            shoppingStatusLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+            shoppingStatusLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ])
     }
 
