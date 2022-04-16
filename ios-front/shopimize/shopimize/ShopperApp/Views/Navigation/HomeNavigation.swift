@@ -16,28 +16,33 @@ class HomeNavigation: UIView {
         stack.distribution = .fill
         stack.axis = .horizontal
         stack.alignment = .fill
-        stack.spacing = 15
+        stack.spacing = NavigationConstants.stackSpacing
         return stack
     }()
     
     let title: UILabel = {
         var label = UILabel()
         label.text = "Shopimize"
-        label.font = UIFont(name: "Arial", size: 25)
+        label.font = UIFont(name: NavigationConstants.fontName,
+                            size: NavigationConstants.fontSize)
         return label
     }()
     
     let filterButton: UIButton = {
         var button = UIButton()
-        let config = UIImage.SymbolConfiguration(pointSize: 21, weight: .medium)
-        button.setImage(UIImage(systemName: "slider.horizontal.3", withConfiguration: config), for: .normal)
+        
+        button.setImage(UIImage(systemName: "slider.horizontal.3",
+                                withConfiguration: NavigationConstants.buttonIconConfig),
+                                for: .normal)
         return button
     }()
     
     let cartButton: UIButton = {
         var button = UIButton()
-        let config = UIImage.SymbolConfiguration(pointSize: 21, weight: .medium)
-        button.setImage(UIImage(systemName: "cart", withConfiguration: config), for: .normal)
+        
+        button.setImage(UIImage(systemName: "cart",
+                                withConfiguration: NavigationConstants.buttonIconConfig),
+                                for: .normal)
         return button
     }()
     

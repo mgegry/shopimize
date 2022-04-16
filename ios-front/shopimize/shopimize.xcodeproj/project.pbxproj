@@ -66,6 +66,7 @@
 		2BFDD8C9280AE081006932F5 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8C8280AE081006932F5 /* FriendsViewController.swift */; };
 		2BFDD8CE280AE77C006932F5 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8CD280AE77C006932F5 /* FriendsTableViewCell.swift */; };
 		2BFDD8D0280AEA28006932F5 /* FriendsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8CF280AEA28006932F5 /* FriendsNavigation.swift */; };
+		2BFDD8D3280B0F86006932F5 /* NavigationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8D2280B0F86006932F5 /* NavigationConstants.swift */; };
 		B0B13B60D9ABAE188B61280D /* Pods_shopimizeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +150,7 @@
 		2BFDD8C8280AE081006932F5 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		2BFDD8CD280AE77C006932F5 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		2BFDD8CF280AEA28006932F5 /* FriendsNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsNavigation.swift; sourceTree = "<group>"; };
+		2BFDD8D2280B0F86006932F5 /* NavigationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConstants.swift; sourceTree = "<group>"; };
 		44D376BFFD88285165CAB480 /* Pods_shopimize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B3466F07B6902E7614D5A7 /* Pods-shopimize.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopimize.release.xcconfig"; path = "Target Support Files/Pods-shopimize/Pods-shopimize.release.xcconfig"; sourceTree = "<group>"; };
 		938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimizeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,7 +226,6 @@
 			children = (
 				2B672D7327E203C300015C4E /* Navigation */,
 				2BF6C27127DE55F500CDC01D /* ColorTheme.swift */,
-				2B22A81027D2D58700D94B6B /* FormConstants.swift */,
 				2B672D7127E2037B00015C4E /* CartView.swift */,
 			);
 			path = Views;
@@ -248,7 +249,6 @@
 		2B22A82527D410EC00D94B6B /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				2B22A82C27D43BCE00D94B6B /* TableConstants.swift */,
 				2B22A82127D3F1C600D94B6B /* ProfileTableViewCell.swift */,
 				2B22A82A27D433A400D94B6B /* MarketTableViewCell.swift */,
 				2B81813C27DBA84800863BFF /* ItemTableViewCell.swift */,
@@ -365,6 +365,7 @@
 			children = (
 				2B22A80527D29AA700D94B6B /* Assets */,
 				2B22A80427D29A6500D94B6B /* Utils */,
+				2BFDD8D1280B0F17006932F5 /* Constants */,
 				2B22A81C27D2FD2400D94B6B /* DatabaseManager */,
 				2BA1112227D8ADFC00830237 /* Models */,
 				2BFDD8CA280AE5BD006932F5 /* AuthApp */,
@@ -430,6 +431,16 @@
 				2B22A80E27D2C93D00D94B6B /* RegisterView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2BFDD8D1280B0F17006932F5 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				2B22A82C27D43BCE00D94B6B /* TableConstants.swift */,
+				2B22A81027D2D58700D94B6B /* FormConstants.swift */,
+				2BFDD8D2280B0F86006932F5 /* NavigationConstants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		98CEBB5EC7E8E7B3B399511F /* Frameworks */ = {
@@ -739,6 +750,7 @@
 				2B5F6E3227DD616600F003DE /* DBItemManager.swift in Sources */,
 				2B22A82927D4320600D94B6B /* MarketTableViewController.swift in Sources */,
 				2BFDD8D0280AEA28006932F5 /* FriendsNavigation.swift in Sources */,
+				2BFDD8D3280B0F86006932F5 /* NavigationConstants.swift in Sources */,
 				2BA07F7B27EF700100A82051 /* LocationRequest.swift in Sources */,
 				2B5F6E3427DD67D600F003DE /* FirebaseReferences.swift in Sources */,
 				2B22A82D27D43BCE00D94B6B /* TableConstants.swift in Sources */,

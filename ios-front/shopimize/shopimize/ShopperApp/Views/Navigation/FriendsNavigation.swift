@@ -14,32 +14,41 @@ class FriendsNavigation: UIView {
         stack.distribution = .fill
         stack.axis = .horizontal
         stack.alignment = .fill
-        stack.spacing = 15
+        stack.spacing = NavigationConstants.stackSpacing
         return stack
     }()
     
     let title: UILabel = {
         var label = UILabel()
         label.text = "Friends"
-        label.font = UIFont(name: "Arial", size: 25)
+        label.font = UIFont(name: NavigationConstants.fontName,
+                            size: NavigationConstants.fontSize)
         return label
     }()
     
     let addFriendButton: UIButton = {
         var button = UIButton()
         
-    
-        let config = UIImage.SymbolConfiguration(pointSize: 22, weight: .medium)
-        button.setImage(UIImage(systemName: "person.crop.circle.badge.plus", withConfiguration: config), for: .normal)
-        button.setImage(UIImage(systemName: "person.crop.circle.badge.plus.fill", withConfiguration: config), for: .selected)
+        button.setImage(UIImage(systemName: "person.crop.circle.badge.plus",
+                                withConfiguration: NavigationConstants.buttonIconConfig),
+                                for: .normal)
+        
+        button.setImage(UIImage(systemName: "person.crop.circle.badge.plus.fill",
+                                withConfiguration: NavigationConstants.buttonIconConfig),
+                                for: .selected)
         return button
     }()
 
     let friendRequestsButton: UIButton = {
         var button = UIButton()
-        let config = UIImage.SymbolConfiguration(pointSize: 22, weight: .medium)
-        button.setImage(UIImage(systemName: "person.crop.circle.badge.questionmark", withConfiguration: config), for: .normal)
-        button.setImage(UIImage(systemName: "person.crop.circle.badge.questionmark.fill", withConfiguration: config), for: .selected)
+        
+        button.setImage(UIImage(systemName: "person.crop.circle.badge.questionmark",
+                                withConfiguration: NavigationConstants.buttonIconConfig),
+                                for: .normal)
+        
+        button.setImage(UIImage(systemName: "person.crop.circle.badge.questionmark.fill",
+                                withConfiguration: NavigationConstants.buttonIconConfig),
+                                for: .selected)
         return button
     }()
     

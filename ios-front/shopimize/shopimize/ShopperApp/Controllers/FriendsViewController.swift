@@ -45,7 +45,7 @@ class FriendsViewController: UIViewController {
     private func setupNavbar() {
         guard let nav = navigationController else { return }
         
-        let boundsWidth = nav.navigationBar.bounds.width - 15
+        let boundsWidth = nav.navigationBar.bounds.width - NavigationConstants.navigationInset
         let boundsHeight = nav.navigationBar.bounds.height
         
         
