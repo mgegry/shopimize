@@ -161,6 +161,42 @@ class ProfileView: UIView {
         stack.spacing = ViewConstants.formFieldStackSpacing
         return stack
     }()
+    
+    let bodyStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.layer.cornerRadius = 10
+        stackView.spacing = 10
+        stackView.backgroundColor = .systemGray5
+        return stackView
+    }()
+    
+    let realPurchasesButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false;
+        button.setTitle("Purchase history", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        return button
+    }()
+
+    let coinsPurchasesButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false;
+        button.setTitle("Coins purchase history", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        return button
+    }()
+    
+    let signOutButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false;
+        button.setTitle("Sign out", for: .normal)
+        button.setTitleColor(.systemRed, for: .normal)
+        return button
+    }()
 
     
     // MARK: Initializers
@@ -188,12 +224,16 @@ class ProfileView: UIView {
         container.addSubview(stackView)
         
         stackView.addArrangedSubview(headerStackView)
+        stackView.addArrangedSubview(bodyStackView)
         
         headerStackView.addArrangedSubview(profileImageStackView)
         headerStackView.addArrangedSubview(coinsStackView)
         headerStackView.addArrangedSubview(usernameStackView)
         headerStackView.addArrangedSubview(emailStackView)
         
+        bodyStackView.addArrangedSubview(realPurchasesButton)
+        bodyStackView.addArrangedSubview(coinsPurchasesButton)
+        bodyStackView.addArrangedSubview(signOutButton)
         
         profileImageStackView.addArrangedSubview(profileImage)
         profileImageStackView.addArrangedSubview(changeImageButton)
@@ -227,7 +267,9 @@ class ProfileView: UIView {
             
             profileImage.heightAnchor.constraint(equalToConstant: 100),
             
-            usernameStackView.leftAnchor.constraint(equalTo: headerStackView.leftAnchor, constant: 10),
+//            usernameStackView.leftAnchor.constraint(equalTo: headerStackView.leftAnchor, constant: 10),
+//            coinsStackView.leftAnchor.constraint(equalTo: headerStackView.leftAnchor, constant: 10),
+//            emailStackView.leftAnchor.constraint(equalTo: headerStackView.leftAnchor, constant: 10),
             
             usernameStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
             coinsStackView.heightAnchor.constraint(equalTo: usernameStackView.heightAnchor),
@@ -235,7 +277,11 @@ class ProfileView: UIView {
             
             usernameIcon.widthAnchor.constraint(equalToConstant: 35),
             coinsIcon.widthAnchor.constraint(equalTo: usernameIcon.widthAnchor),
-            emailIcon.widthAnchor.constraint(equalTo: usernameIcon.widthAnchor)
+            emailIcon.widthAnchor.constraint(equalTo: usernameIcon.widthAnchor),
+            
+            realPurchasesButton.heightAnchor.constraint(equalToConstant: 50),
+            coinsPurchasesButton.heightAnchor.constraint(equalTo: realPurchasesButton.heightAnchor),
+            signOutButton.heightAnchor.constraint(equalTo: realPurchasesButton.heightAnchor)
             
         ])
     }

@@ -90,8 +90,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
         task.resume()
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(didTapLogout))
-        
     }
 
     /// Do any aditional setup after the view is about to disapear
@@ -116,17 +114,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
          print("Failed to find user's location: \(error.localizedDescription)")
     }
-    
-    /// Called when the user taps the log out button
-    @objc func didTapLogout() {
-        do {
-            try Auth.auth().signOut()
-        } catch let signOutError as NSError {
-            print("Error signing out: \(signOutError)")
-        }
-        tabBarController?.dismiss(animated: true, completion: nil)
-    }
-    
 
 }
 
