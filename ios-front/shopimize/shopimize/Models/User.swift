@@ -13,8 +13,7 @@ import FirebaseFirestoreSwift
 
 struct User: Codable  {
     @DocumentID var id: String? = UUID().uuidString
-    var firstName: String?
-    var lastName: String?
+    var username: String?
     var points: Int?
     var role: String
     var roleStoreID: String?
@@ -22,8 +21,7 @@ struct User: Codable  {
     /// Enum containing the coding key for each field
     enum CodingKeys: String, CodingKey {
         case id = "documentID"
-        case firstName = "firstname"
-        case lastName = "lastname"
+        case username
         case points
         case role
         case roleStoreID = "role_store_id"

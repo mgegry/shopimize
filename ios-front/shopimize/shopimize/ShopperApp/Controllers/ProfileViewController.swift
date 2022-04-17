@@ -20,12 +20,27 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let user = Auth.auth().currentUser {
+            DBUserManager.shared.getUserFirestore(withEmail: user.email!) { [weak self] result in
+                guard let strongSelf = self else { return }
+                
+                switch result {
+                    case .success(let user):
+                        DispatchQueue.main.async {
+                            strongSelf.profileView.username.text = user.username
+                            strongSelf.profileView.coins.text = "\(user.points ?? 0)"
+                            strongSelf.profileView.email.text = user.id
+                        }
+                    case .failure(_):
+                        print("Error getting user information")
+                }
+            }
+        }
        
         addButtonTargets()
         
-        profileView.username.text = "mirceaegry"
-        profileView.coins.text = "100"
-        profileView.email.text = "mircea.egry@yahoo.com"
+        
         profileView.profileImage.image = UIImage(systemName: "person")
     }
     

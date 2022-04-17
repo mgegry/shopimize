@@ -62,7 +62,7 @@ class RegisterViewController: UIViewController {
             }
         }
         
-        let user = User(firstName: registerView.firstNameTextField.text ?? "123", lastName: registerView.lastNameTextField.text ?? "234", role: "shopper")
+        let user = User(role: "shopper")
         
         DBUserManager.shared.addUserFirestore(with: email, user: user) { result in
             guard result == true else {
