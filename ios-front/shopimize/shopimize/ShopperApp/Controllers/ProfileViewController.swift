@@ -21,6 +21,8 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
        
         profileView.username.text = "mirceaegry"
+        profileView.coins.text = "100"
+        profileView.email.text = "mircea.egry@yahoo.com"
         profileView.profileImage.image = UIImage(systemName: "person")
     }
 

@@ -37,7 +37,7 @@ class ProfileView: UIView {
     let headerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemRed
+        view.backgroundColor = .systemGray3
         return view
     }()
     
@@ -81,6 +81,33 @@ class ProfileView: UIView {
         return stack
     }()
     
+    let coinsIcon: UIImageView = {
+        let icon = UIImageView()
+        icon.translatesAutoresizingMaskIntoConstraints = false
+        icon.contentMode = .scaleAspectFit
+        icon.image = UIImage(systemName: "dollarsign.circle")
+        icon.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        return icon
+    }()
+    
+    let coins: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .justified
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        return label
+    }()
+    
+    let coinsStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.alignment = .fill
+        stack.spacing = ViewConstants.formFieldStackSpacing
+        return stack
+    }()
+    
     let usernameIcon: UIImageView = {
         let icon = UIImageView()
         icon.translatesAutoresizingMaskIntoConstraints = false
@@ -107,6 +134,34 @@ class ProfileView: UIView {
         stack.spacing = ViewConstants.formFieldStackSpacing
         return stack
     }()
+    
+    let emailIcon: UIImageView = {
+        let icon = UIImageView()
+        icon.translatesAutoresizingMaskIntoConstraints = false
+        icon.contentMode = .scaleAspectFit
+        icon.image = UIImage(systemName: "paperplane")
+        icon.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        return icon
+    }()
+    
+    let email: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .justified
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        return label
+    }()
+    
+    let emailStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.alignment = .fill
+        stack.spacing = ViewConstants.formFieldStackSpacing
+        return stack
+    }()
+
     
     // MARK: Initializers
     
@@ -135,13 +190,19 @@ class ProfileView: UIView {
         stackView.addArrangedSubview(headerStackView)
         
         headerStackView.addArrangedSubview(profileImageStackView)
+        headerStackView.addArrangedSubview(coinsStackView)
         headerStackView.addArrangedSubview(usernameStackView)
+        headerStackView.addArrangedSubview(emailStackView)
         
         
         profileImageStackView.addArrangedSubview(profileImage)
         profileImageStackView.addArrangedSubview(changeImageButton)
+        coinsStackView.addArrangedSubview(coinsIcon)
+        coinsStackView.addArrangedSubview(coins)
         usernameStackView.addArrangedSubview(usernameIcon)
         usernameStackView.addArrangedSubview(username)
+        emailStackView.addArrangedSubview(emailIcon)
+        emailStackView.addArrangedSubview(email)
     }
     
     private func setupConstraints() {
@@ -162,11 +223,19 @@ class ProfileView: UIView {
             stackView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -ViewConstants.formBottomPadding),
             stackView.leftAnchor.constraint(equalTo: container.leftAnchor, constant: ViewConstants.formPadding),
             
-            headerStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 200),
-//            profileImageStackView.heightAnchor.constraint
-            usernameStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
-            usernameIcon.widthAnchor.constraint(equalToConstant: 50)
+//            headerStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 200),
             
+            profileImage.heightAnchor.constraint(equalToConstant: 100),
+            
+            usernameStackView.leftAnchor.constraint(equalTo: headerStackView.leftAnchor, constant: 10),
+            
+            usernameStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
+            coinsStackView.heightAnchor.constraint(equalTo: usernameStackView.heightAnchor),
+            emailStackView.heightAnchor.constraint(equalTo: usernameStackView.heightAnchor),
+            
+            usernameIcon.widthAnchor.constraint(equalToConstant: 35),
+            coinsIcon.widthAnchor.constraint(equalTo: usernameIcon.widthAnchor),
+            emailIcon.widthAnchor.constraint(equalTo: usernameIcon.widthAnchor)
             
         ])
     }
