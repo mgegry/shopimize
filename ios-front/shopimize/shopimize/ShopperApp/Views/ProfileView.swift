@@ -9,6 +9,20 @@ import UIKit
 
 class ProfileView: UIView {
     
+    class CustomLabel: UILabel {
+              
+        override func drawText(in rect: CGRect) {
+            let insets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 8)
+            super.drawText(in: rect.inset(by: insets))
+        }
+        
+        override var intrinsicContentSize: CGSize {
+            let size = super.intrinsicContentSize
+            return CGSize(width: size.width + 0 + 8,
+                          height: size.height + 0 + 0)
+        }
+    }
+    
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -30,15 +44,8 @@ class ProfileView: UIView {
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .equalSpacing
-        stackView.spacing = ViewConstants.mainStackSpacing
+        stackView.spacing = 30
         return stackView
-    }()
-    
-    let headerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemGray3
-        return view
     }()
     
     let headerStackView: UIStackView = {
@@ -49,7 +56,7 @@ class ProfileView: UIView {
         stackView.distribution = .fill
         stackView.layer.cornerRadius = 10
         stackView.spacing = 10
-        stackView.backgroundColor = .systemGray3
+        stackView.backgroundColor = .backgroundGrey
         return stackView
     }()
     
@@ -66,7 +73,9 @@ class ProfileView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false;
         button.setTitle("Edit", for: .normal)
         button.setImage(UIImage(systemName: "pencil"), for: .normal)
+        button.tintColor = .black
         button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.systemGray, for: .highlighted)
         button.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return button
     }()
@@ -90,10 +99,13 @@ class ProfileView: UIView {
         return icon
     }()
     
-    let coins: UILabel = {
-        let label = UILabel()
+    let coins: CustomLabel = {
+        let label = CustomLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .justified
+        label.textAlignment = .right
+        label.backgroundColor = .systemGray5
+        label.layer.cornerRadius = 10
+        label.clipsToBounds = true
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         return label
     }()
@@ -117,10 +129,13 @@ class ProfileView: UIView {
         return icon
     }()
     
-    let username: UILabel = {
-        let label = UILabel()
+    let username: CustomLabel = {
+        let label = CustomLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .justified
+        label.textAlignment = .right
+        label.backgroundColor = .systemGray5
+        label.layer.cornerRadius = 10
+        label.clipsToBounds = true
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         return label
     }()
@@ -144,10 +159,13 @@ class ProfileView: UIView {
         return icon
     }()
     
-    let email: UILabel = {
-        let label = UILabel()
+    let email: CustomLabel = {
+        let label = CustomLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .justified
+        label.textAlignment = .right
+        label.backgroundColor = .systemGray5
+        label.layer.cornerRadius = 10
+        label.clipsToBounds = true
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         return label
     }()
@@ -170,7 +188,7 @@ class ProfileView: UIView {
         stackView.distribution = .fill
         stackView.layer.cornerRadius = 10
         stackView.spacing = 10
-        stackView.backgroundColor = .systemGray5
+        stackView.backgroundColor = .backgroundGrey
         return stackView
     }()
     
@@ -179,6 +197,9 @@ class ProfileView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false;
         button.setTitle("Purchase history", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.systemGray, for: .highlighted)
+        button.backgroundColor = .systemGray5
+        button.layer.cornerRadius = 10
         return button
     }()
 
@@ -186,6 +207,9 @@ class ProfileView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false;
         button.setTitle("Coins purchase history", for: .normal)
+        button.setTitleColor(.systemGray, for: .highlighted)
+        button.backgroundColor = .systemGray5
+        button.layer.cornerRadius = 10
         button.setTitleColor(.black, for: .normal)
         return button
     }()
@@ -195,6 +219,9 @@ class ProfileView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false;
         button.setTitle("Sign out", for: .normal)
         button.setTitleColor(.systemRed, for: .normal)
+        button.setTitleColor(.systemGray, for: .highlighted)
+        button.backgroundColor = .systemGray5
+        button.layer.cornerRadius = 10
         return button
     }()
 
@@ -223,14 +250,14 @@ class ProfileView: UIView {
         
         container.addSubview(stackView)
         
+        stackView.addArrangedSubview(profileImageStackView)
         stackView.addArrangedSubview(headerStackView)
         stackView.addArrangedSubview(bodyStackView)
         
-        headerStackView.addArrangedSubview(profileImageStackView)
         headerStackView.addArrangedSubview(coinsStackView)
         headerStackView.addArrangedSubview(usernameStackView)
         headerStackView.addArrangedSubview(emailStackView)
-        
+
         bodyStackView.addArrangedSubview(realPurchasesButton)
         bodyStackView.addArrangedSubview(coinsPurchasesButton)
         bodyStackView.addArrangedSubview(signOutButton)
@@ -269,7 +296,7 @@ class ProfileView: UIView {
             
 //            usernameStackView.leftAnchor.constraint(equalTo: headerStackView.leftAnchor, constant: 10),
 //            coinsStackView.leftAnchor.constraint(equalTo: headerStackView.leftAnchor, constant: 10),
-//            emailStackView.leftAnchor.constraint(equalTo: headerStackView.leftAnchor, constant: 10),
+//            emailIcon.leftAnchor.constraint(equalTo: emailStackView.leftAnchor, constant: 10),
             
             usernameStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
             coinsStackView.heightAnchor.constraint(equalTo: usernameStackView.heightAnchor),
