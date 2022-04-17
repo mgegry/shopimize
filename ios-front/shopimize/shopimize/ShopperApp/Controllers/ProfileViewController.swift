@@ -38,6 +38,7 @@ class ProfileViewController: UIViewController {
             }
         }
        
+        setupNavbar()
         addButtonTargets()
         
         
@@ -48,6 +49,17 @@ class ProfileViewController: UIViewController {
         profileView.realPurchasesButton.addTarget(self, action: #selector(didTapRealPurchases), for: .touchUpInside)
         profileView.coinsPurchasesButton.addTarget(self, action: #selector(didTapCoinsPurchases), for: .touchUpInside)
         profileView.signOutButton.addTarget(self, action: #selector(didTapSignOut), for: .touchUpInside)
+    }
+    
+    private func setupNavbar() {
+        guard let nav = navigationController else { return }
+        
+        let boundsWidth = nav.navigationBar.bounds.width - NavigationConstants.navigationInset
+        let boundsHeight = nav.navigationBar.bounds.height
+        
+        
+        let titleView = ProfileNavigation(frame: CGRect(x: 0, y: 0, width: boundsWidth, height: boundsHeight))
+        self.navigationItem.titleView = titleView
     }
     
     @objc func didTapRealPurchases() {

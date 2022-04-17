@@ -23,6 +23,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     ///
     /// - parameter animated: States if the view will apear animated or not
     override func viewWillAppear(_ animated: Bool) {
+        let ap = UINavigationBarAppearance()
+        ap.backgroundColor = .backgroundGrey
+        navigationController?.navigationBar.standardAppearance = ap
+        
         locationManager.startUpdatingLocation()
 //        handle = Auth.auth().addStateDidChangeListener { [weak self] auth, user in
 //
@@ -49,6 +53,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        setupNavbar()
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -90,6 +96,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
         task.resume()
         
+    }
+    
+    private func setupNavbar() {
+        guard let nav = navigationController else { return }
+        
+        let boundsWidth = nav.navigationBar.bounds.width - NavigationConstants.navigationInset
+        let boundsHeight = nav.navigationBar.bounds.height
+        
+        
+        let titleView = MapNavigation(frame: CGRect(x: 0, y: 0, width: boundsWidth, height: boundsHeight))
+        self.navigationItem.titleView = titleView
     }
 
     /// Do any aditional setup after the view is about to disapear

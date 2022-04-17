@@ -72,6 +72,8 @@
 		2BFDD8D9280B2222006932F5 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8D8280B2222006932F5 /* FriendViewController.swift */; };
 		2BFDD8DB280B31DE006932F5 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8DA280B31DE006932F5 /* FriendView.swift */; };
 		2BFDD8DD280B3F24006932F5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8DC280B3F24006932F5 /* ProfileView.swift */; };
+		2BFDD8DF280C69CF006932F5 /* ProfileNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8DE280C69CF006932F5 /* ProfileNavigation.swift */; };
+		2BFDD8E1280C6AFC006932F5 /* MapNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8E0280C6AFC006932F5 /* MapNavigation.swift */; };
 		B0B13B60D9ABAE188B61280D /* Pods_shopimizeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -161,6 +163,8 @@
 		2BFDD8D8280B2222006932F5 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 		2BFDD8DA280B31DE006932F5 /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
 		2BFDD8DC280B3F24006932F5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		2BFDD8DE280C69CF006932F5 /* ProfileNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavigation.swift; sourceTree = "<group>"; };
+		2BFDD8E0280C6AFC006932F5 /* MapNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigation.swift; sourceTree = "<group>"; };
 		44D376BFFD88285165CAB480 /* Pods_shopimize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B3466F07B6902E7614D5A7 /* Pods-shopimize.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopimize.release.xcconfig"; path = "Target Support Files/Pods-shopimize/Pods-shopimize.release.xcconfig"; sourceTree = "<group>"; };
 		938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimizeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -308,6 +312,8 @@
 			children = (
 				2B94463927E0F72800ED2F1A /* HomeNavigation.swift */,
 				2BFDD8CF280AEA28006932F5 /* FriendsNavigation.swift */,
+				2BFDD8DE280C69CF006932F5 /* ProfileNavigation.swift */,
+				2BFDD8E0280C6AFC006932F5 /* MapNavigation.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -779,6 +785,7 @@
 				2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */,
 				2BBF403027ECE3CF007359EE /* AddMarketView.swift in Sources */,
 				2B2A645227EBD36700BED7E0 /* AddStoreView.swift in Sources */,
+				2BFDD8DF280C69CF006932F5 /* ProfileNavigation.swift in Sources */,
 				2BA1112427D8AE1B00830237 /* User.swift in Sources */,
 				2B22A80F27D2C93D00D94B6B /* RegisterView.swift in Sources */,
 				2B22A82027D3F0A900D94B6B /* ProfileViewController.swift in Sources */,
@@ -801,6 +808,7 @@
 				2BB8C01827F9BBF100FC0E1D /* PlaceResponse.swift in Sources */,
 				2B22A80D27D2C8ED00D94B6B /* RegisterViewController.swift in Sources */,
 				2BF6C27227DE55F500CDC01D /* ColorTheme.swift in Sources */,
+				2BFDD8E1280C6AFC006932F5 /* MapNavigation.swift in Sources */,
 				2B22A80927D2A15200D94B6B /* LoginView.swift in Sources */,
 				2B960ABB27E6105800F52F0D /* ViewConstants.swift in Sources */,
 				2BD4675A27E5013E00782E52 /* MAddItemViewController.swift in Sources */,
