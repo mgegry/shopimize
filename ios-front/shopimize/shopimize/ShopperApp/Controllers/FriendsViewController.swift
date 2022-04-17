@@ -58,7 +58,7 @@ class FriendsViewController: UIViewController {
     }
     
     @objc func didTapAddFriend() {
-        let vc = AddFriendViewController()
+        let vc = UINavigationController(rootViewController: AddFriendViewController())
         if let sheet = vc.sheetPresentationController {
             sheet.detents = [.medium()]
             sheet.largestUndimmedDetentIdentifier = .medium
@@ -68,7 +68,7 @@ class FriendsViewController: UIViewController {
     }
     
     @objc func didTapFriendRequests() {
-        let vc = FriendRequestsViewController()
+        let vc = UINavigationController(rootViewController: FriendRequestsViewController())
         present(vc, animated: true, completion: nil)
     }
 

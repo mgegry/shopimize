@@ -12,7 +12,21 @@ class FriendRequestsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .backgroundGrey
-        // Do any additional setup after loading the view.
+        
+        setupNavigation()
+        
+    }
+    
+    private func setupNavigation() {
+        let closeButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(didTapClose))
+        
+        navigationItem.rightBarButtonItem = closeButton
+        navigationItem.title = "Friend requests"
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    @objc func didTapClose() {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

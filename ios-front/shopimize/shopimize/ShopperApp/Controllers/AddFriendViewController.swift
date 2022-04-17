@@ -9,16 +9,26 @@ import UIKit
 
 class AddFriendViewController: UIViewController {
 
-    let stackView: UIStackView = {
-        let stackView = UIStackView()
-        
-        return stackView
-    }()
+    let addFriendView = AddFriendView()
+    
+    override func loadView() {
+        view = addFriendView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .backgroundGrey
-        
+        setupNavigation()
     }
-
+    
+    private func setupNavigation() {
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(didTapCancel))
+        navigationItem.rightBarButtonItem = cancelButton
+        navigationItem.title = "Add friend"
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    @objc func didTapCancel() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
