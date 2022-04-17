@@ -34,42 +34,44 @@ class ProfileView: UIView {
         return stackView
     }()
     
-    let pageLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Add store"
-        label.textColor = .systemIndigo
-        label.font = UIFont(name: ViewConstants.fontName, size: 30)
-        return label
+    let headerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .systemRed
+        return view
     }()
     
-    // Name
-    
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Store Name:"
-        label.font = UIFont(name: ViewConstants.fontName,
-                            size: ViewConstants.smallFontSize)
-        label.baselineAdjustment = .alignCenters
-        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        return label
+    let headerStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.layer.cornerRadius = 10
+        stackView.spacing = 10
+        stackView.backgroundColor = .systemGray3
+        return stackView
     }()
     
-    let name: CustomTextField = {
-        let textField = CustomTextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.autocorrectionType = .no
-        textField.autocapitalizationType = .none
-        textField.keyboardType = .default
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = .init(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.8)
-        textField.layer.cornerRadius = ViewConstants.formFieldCornerRadius
-        textField.setContentHuggingPriority(.defaultLow, for: .vertical)
-        return textField
+    let profileImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.setContentHuggingPriority(.defaultLow, for: .vertical)
+        return imageView
     }()
     
-    let nameStack: UIStackView = {
+    let changeImageButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false;
+        button.setTitle("Edit", for: .normal)
+        button.setImage(UIImage(systemName: "pencil"), for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        return button
+    }()
+    
+    let profileImageStackView: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
@@ -79,6 +81,32 @@ class ProfileView: UIView {
         return stack
     }()
     
+    let usernameIcon: UIImageView = {
+        let icon = UIImageView()
+        icon.translatesAutoresizingMaskIntoConstraints = false
+        icon.contentMode = .scaleAspectFit
+        icon.image = UIImage(systemName: "person.crop.square.filled.and.at.rectangle")
+        icon.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        return icon
+    }()
+    
+    let username: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .justified
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        return label
+    }()
+    
+    let usernameStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.alignment = .fill
+        stack.spacing = ViewConstants.formFieldStackSpacing
+        return stack
+    }()
     
     // MARK: Initializers
     
@@ -104,11 +132,16 @@ class ProfileView: UIView {
         
         container.addSubview(stackView)
         
-        stackView.addArrangedSubview(pageLabel)
-        stackView.addArrangedSubview(nameStack)
+        stackView.addArrangedSubview(headerStackView)
         
-        nameStack.addArrangedSubview(nameLabel)
-        nameStack.addArrangedSubview(name)
+        headerStackView.addArrangedSubview(profileImageStackView)
+        headerStackView.addArrangedSubview(usernameStackView)
+        
+        
+        profileImageStackView.addArrangedSubview(profileImage)
+        profileImageStackView.addArrangedSubview(changeImageButton)
+        usernameStackView.addArrangedSubview(usernameIcon)
+        usernameStackView.addArrangedSubview(username)
     }
     
     private func setupConstraints() {
@@ -129,8 +162,10 @@ class ProfileView: UIView {
             stackView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -ViewConstants.formBottomPadding),
             stackView.leftAnchor.constraint(equalTo: container.leftAnchor, constant: ViewConstants.formPadding),
             
-            nameStack.heightAnchor.constraint(equalToConstant: ViewConstants.formFieldHeight),
-            
+            headerStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 200),
+//            profileImageStackView.heightAnchor.constraint
+            usernameStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
+            usernameIcon.widthAnchor.constraint(equalToConstant: 50)
             
             
         ])

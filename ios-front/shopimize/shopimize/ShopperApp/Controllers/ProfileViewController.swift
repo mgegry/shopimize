@@ -20,6 +20,8 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        profileView.username.text = "mirceaegry"
+        profileView.profileImage.image = UIImage(systemName: "person")
     }
 
 }

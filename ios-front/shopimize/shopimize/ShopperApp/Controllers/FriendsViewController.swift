@@ -59,6 +59,11 @@ class FriendsViewController: UIViewController {
     
     @objc func didTapAddFriend() {
         let vc = AddFriendViewController()
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.largestUndimmedDetentIdentifier = .medium
+            sheet.preferredCornerRadius = 20
+        }
         present(vc, animated: true, completion: nil)
     }
     
