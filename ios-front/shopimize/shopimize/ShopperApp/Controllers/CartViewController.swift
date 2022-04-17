@@ -11,6 +11,11 @@ import UIKit
 
 class CartViewController: UIViewController {
 
+    let cartView = CartView()
+    
+    override func loadView() {
+        view = cartView
+    }
     
     /// Do any aditional setup after the view loaded
     ///

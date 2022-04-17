@@ -13,6 +13,7 @@ class CartView: UIView {
  
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = .backgroundGrey
     }
     
     /// No use of storyboards so initializer is set to unavailable

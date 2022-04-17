@@ -74,6 +74,7 @@
 		2BFDD8DD280B3F24006932F5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8DC280B3F24006932F5 /* ProfileView.swift */; };
 		2BFDD8DF280C69CF006932F5 /* ProfileNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8DE280C69CF006932F5 /* ProfileNavigation.swift */; };
 		2BFDD8E1280C6AFC006932F5 /* MapNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8E0280C6AFC006932F5 /* MapNavigation.swift */; };
+		2BFDD8E4280C7860006932F5 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8E3280C7860006932F5 /* CustomLabel.swift */; };
 		B0B13B60D9ABAE188B61280D /* Pods_shopimizeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -165,6 +166,7 @@
 		2BFDD8DC280B3F24006932F5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		2BFDD8DE280C69CF006932F5 /* ProfileNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavigation.swift; sourceTree = "<group>"; };
 		2BFDD8E0280C6AFC006932F5 /* MapNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigation.swift; sourceTree = "<group>"; };
+		2BFDD8E3280C7860006932F5 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		44D376BFFD88285165CAB480 /* Pods_shopimize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B3466F07B6902E7614D5A7 /* Pods-shopimize.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopimize.release.xcconfig"; path = "Target Support Files/Pods-shopimize/Pods-shopimize.release.xcconfig"; sourceTree = "<group>"; };
 		938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimizeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,7 +281,6 @@
 		2B2A645027EBD31E00BED7E0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2B2A645327EBD50F00BED7E0 /* CustomTextField.swift */,
 				2B2A645127EBD36700BED7E0 /* AddStoreView.swift */,
 				2B2A645927EBDF6700BED7E0 /* AddAccountView.swift */,
 				2BBF402F27ECE3CF007359EE /* AddMarketView.swift */,
@@ -387,6 +388,7 @@
 				2B22A80527D29AA700D94B6B /* Assets */,
 				2B22A80427D29A6500D94B6B /* Utils */,
 				2BFDD8D1280B0F17006932F5 /* Constants */,
+				2BFDD8E2280C781F006932F5 /* CustomViews */,
 				2B22A81C27D2FD2400D94B6B /* DatabaseManager */,
 				2BA1112227D8ADFC00830237 /* Models */,
 				2BFDD8CA280AE5BD006932F5 /* AuthApp */,
@@ -462,6 +464,15 @@
 				2BFDD8D2280B0F86006932F5 /* NavigationConstants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		2BFDD8E2280C781F006932F5 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				2BFDD8E3280C7860006932F5 /* CustomLabel.swift */,
+				2B2A645327EBD50F00BED7E0 /* CustomTextField.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		98CEBB5EC7E8E7B3B399511F /* Frameworks */ = {
@@ -793,6 +804,7 @@
 				2BFDD8D5280B217F006932F5 /* AddFriendViewController.swift in Sources */,
 				2B960ABD27E6673A00F52F0D /* StorageManager.swift in Sources */,
 				2BBF402E27ECE3A9007359EE /* AddMarketViewController.swift in Sources */,
+				2BFDD8E4280C7860006932F5 /* CustomLabel.swift in Sources */,
 				2BFDD8CE280AE77C006932F5 /* FriendsTableViewCell.swift in Sources */,
 				2B2A645A27EBDF6700BED7E0 /* AddAccountView.swift in Sources */,
 				2B94463A27E0F72800ED2F1A /* HomeNavigation.swift in Sources */,

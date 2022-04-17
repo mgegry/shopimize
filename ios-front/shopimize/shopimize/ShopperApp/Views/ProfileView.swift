@@ -9,20 +9,6 @@ import UIKit
 
 class ProfileView: UIView {
     
-    class CustomLabel: UILabel {
-              
-        override func drawText(in rect: CGRect) {
-            let insets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 8)
-            super.drawText(in: rect.inset(by: insets))
-        }
-        
-        override var intrinsicContentSize: CGSize {
-            let size = super.intrinsicContentSize
-            return CGSize(width: size.width + 0 + 8,
-                          height: size.height + 0 + 0)
-        }
-    }
-    
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
