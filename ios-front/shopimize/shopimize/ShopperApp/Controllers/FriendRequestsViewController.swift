@@ -9,12 +9,36 @@ import UIKit
 
 class FriendRequestsViewController: UIViewController {
 
+    let tableView = UITableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .backgroundGrey
         
         setupNavigation()
+        setupTable()
+        setupConstraints()
+    }
+    
+    private func setupTable() {
+        view.addSubview(tableView)
         
+        tableView.backgroundColor = .backgroundGrey
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(FriendRequestTableViewCell.self, forCellReuseIdentifier: "friendRequestCell")
+    }
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
     
     private func setupNavigation() {
@@ -29,4 +53,29 @@ class FriendRequestsViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
+}
+
+extension FriendRequestsViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "friendRequestCell", for: indexPath) as? FriendRequestTableViewCell else {
+            fatalError("Can not dequeue cell with identifier friendsCell")
+        }
+        
+        cell.userLabel.text = "mirceaegry"
+        cell.emailLabel.text = "mircea.egry@yahoo.com"
+
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(TableConstants.friendsCellHeight)
+    }
 }
