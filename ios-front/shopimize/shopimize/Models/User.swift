@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseFirestoreSwift
+import FirebaseFirestore
 
 /// This struct contains all user properties.
 /// Conforms to Codable so the object can easily be encoded and decoded online
@@ -17,6 +18,7 @@ struct User: Codable  {
     var points: Int?
     var role: String
     var roleStoreID: String?
+    var createdAt: Timestamp
     
     /// Enum containing the coding key for each field
     enum CodingKeys: String, CodingKey {
@@ -25,5 +27,6 @@ struct User: Codable  {
         case points
         case role
         case roleStoreID = "role_store_id"
+        case createdAt = "created_at"
     }
 }

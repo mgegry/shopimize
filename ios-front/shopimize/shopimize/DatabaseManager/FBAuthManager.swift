@@ -21,15 +21,15 @@ class FBAuthManager {
     ///  - parameter email: The email of the user
     ///  - parameter password: The password of the user
     ///  - parameter completion: Escaping closure to be called when operation finishes
-    func createUserFirebase(withEmail email: String, password: String, completion: @escaping (Bool) -> ()) {
+    func createUserFirebase(withEmail email: String, password: String, completion: @escaping (Error?) -> ()) {
         
         FirebaseReferences.auth.createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
-                completion(false)
+                completion(error)
                 print("[error]:: firebase create account -- \(error.localizedDescription)")
                 return
             }
-            completion(true)
+            completion(nil)
         }
     }
     

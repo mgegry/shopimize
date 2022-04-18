@@ -26,7 +26,7 @@ class DBUserManager {
     /// - parameter email: The user email
     /// - parameter user: An user object containing user information
     /// - parameter completion: Escaping closure receiving operation result as boolean
-    func addUserFirestore(with email: String, user: User, completion: @escaping (Bool) -> ()) {
+    func addUserFirestore(withEmail email: String, user: User, completion: @escaping (Bool) -> ()) {
         do {
             try userCollection.document(email).setData(from: user)
             completion(true)
@@ -67,6 +67,22 @@ class DBUserManager {
                     print("[error]:: getting user role firestore -- \(failure.localizedDescription)")
                     completion(.failure(failure))
             }
+        }
+    }
+    
+    func checkUsernameUnique(username: String, completion: @escaping (Bool) -> ()) {
+        userCollection.whereField("username", isEqualTo: username).getDocuments { querySnapshot, error in
+            guard let snapshot = querySnapshot, error ==  nil else {
+                print("[error]:: check user unique -- \(error!.localizedDescription)")
+                completion(false)
+                return
+            }
+            
+            if snapshot.documents.count == 0 {
+                completion(true)
+            }
+            
+            completion(false)
         }
     }
     

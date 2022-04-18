@@ -81,6 +81,9 @@
 		2BFDD8F0280D4D80006932F5 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8EF280D4D80006932F5 /* CartTableViewCell.swift */; };
 		2BFDD8F2280D5153006932F5 /* SMoneyPurchasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8F1280D5153006932F5 /* SMoneyPurchasesViewController.swift */; };
 		2BFDD8F8280D5276006932F5 /* SPointPurchasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8F7280D5276006932F5 /* SPointPurchasesViewController.swift */; };
+		2BFDD8FB280D798C006932F5 /* FriendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8FA280D798C006932F5 /* FriendRequest.swift */; };
+		2BFDD8FD280D799C006932F5 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8FC280D799C006932F5 /* Friend.swift */; };
+		2BFDD8FF280D959F006932F5 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8FE280D959F006932F5 /* TextFieldExtension.swift */; };
 		B0B13B60D9ABAE188B61280D /* Pods_shopimizeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -179,6 +182,9 @@
 		2BFDD8EF280D4D80006932F5 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		2BFDD8F1280D5153006932F5 /* SMoneyPurchasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMoneyPurchasesViewController.swift; sourceTree = "<group>"; };
 		2BFDD8F7280D5276006932F5 /* SPointPurchasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPointPurchasesViewController.swift; sourceTree = "<group>"; };
+		2BFDD8FA280D798C006932F5 /* FriendRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequest.swift; sourceTree = "<group>"; };
+		2BFDD8FC280D799C006932F5 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		2BFDD8FE280D959F006932F5 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 		44D376BFFD88285165CAB480 /* Pods_shopimize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B3466F07B6902E7614D5A7 /* Pods-shopimize.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopimize.release.xcconfig"; path = "Target Support Files/Pods-shopimize/Pods-shopimize.release.xcconfig"; sourceTree = "<group>"; };
 		938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimizeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -338,6 +344,8 @@
 				2B2A645527EBD7F300BED7E0 /* Store.swift */,
 				2BA07F7A27EF700100A82051 /* LocationRequest.swift */,
 				2BB8C01727F9BBF100FC0E1D /* PlaceResponse.swift */,
+				2BFDD8FC280D799C006932F5 /* Friend.swift */,
+				2BFDD8FA280D798C006932F5 /* FriendRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -481,6 +489,7 @@
 			children = (
 				2BFDD8E3280C7860006932F5 /* CustomLabel.swift */,
 				2B2A645327EBD50F00BED7E0 /* CustomTextField.swift */,
+				2BFDD8FE280D959F006932F5 /* TextFieldExtension.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -854,6 +863,7 @@
 				2B22A82027D3F0A900D94B6B /* ProfileViewController.swift in Sources */,
 				2B22A82B27D433A400D94B6B /* MarketTableViewCell.swift in Sources */,
 				2BFDD8D5280B217F006932F5 /* AddFriendViewController.swift in Sources */,
+				2BFDD8FD280D799C006932F5 /* Friend.swift in Sources */,
 				2B960ABD27E6673A00F52F0D /* StorageManager.swift in Sources */,
 				2BBF402E27ECE3A9007359EE /* AddMarketViewController.swift in Sources */,
 				2BFDD8E4280C7860006932F5 /* CustomLabel.swift in Sources */,
@@ -873,8 +883,10 @@
 				2BB8C01827F9BBF100FC0E1D /* PlaceResponse.swift in Sources */,
 				2B22A80D27D2C8ED00D94B6B /* RegisterViewController.swift in Sources */,
 				2BF6C27227DE55F500CDC01D /* ColorTheme.swift in Sources */,
+				2BFDD8FF280D959F006932F5 /* TextFieldExtension.swift in Sources */,
 				2BFDD8E1280C6AFC006932F5 /* MapNavigation.swift in Sources */,
 				2B22A80927D2A15200D94B6B /* LoginView.swift in Sources */,
+				2BFDD8FB280D798C006932F5 /* FriendRequest.swift in Sources */,
 				2B960ABB27E6105800F52F0D /* ViewConstants.swift in Sources */,
 				2BD4675A27E5013E00782E52 /* MAddItemViewController.swift in Sources */,
 				2BFDD8F2280D5153006932F5 /* SMoneyPurchasesViewController.swift in Sources */,

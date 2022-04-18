@@ -13,89 +13,174 @@ class RegisterView: UIView {
     
     // Declare views as computed properties so they are lazy initilised (initialised only when needed)
     
-    /// Stack view holding the register form fields
-    var stackView: UIStackView = {
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.isScrollEnabled = true
+        scrollView.bounces = false
+        scrollView.alwaysBounceVertical = true
+        return scrollView
+    }()
+    
+    let container: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .fill
         stackView.alignment = .fill
-        stackView.spacing = CGFloat(FormConstants.stackSpacing)
+        stackView.distribution = .equalSpacing
+        stackView.spacing = ViewConstants.mainStackSpacing
         return stackView
     }()
     
-    /// Declaration of email text field
-    var emailTextField: UITextField = {
-        let textField = UITextField()
+    let emailLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Email:"
+        label.font = UIFont(name: ViewConstants.fontName,
+                            size: ViewConstants.smallFontSize)
+        label.baselineAdjustment = .alignCenters
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        return label
+    }()
+    
+    let email: CustomTextField = {
+        let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.autocapitalizationType = .none
+        textField.placeholder = "example@example.com"
         textField.autocorrectionType = .no
-        textField.keyboardType = .emailAddress
-        textField.borderStyle = .roundedRect
-        textField.placeholder = "Email address"
+        textField.autocapitalizationType = .none
+        textField.keyboardType = .default
+        textField.layer.borderWidth = 1
+        textField.addDoneButtonOnKeyboard()
+        textField.layer.borderColor = .init(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.8)
+        textField.layer.cornerRadius = ViewConstants.formFieldCornerRadius
+        textField.setContentHuggingPriority(.defaultLow, for: .vertical)
         return textField
     }()
     
-    /// Declaration of password text field
-    var passwordTextField: UITextField = {
-        let textField = UITextField()
+    let emailStack: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.distribution = .fill
+        stack.alignment = .fill
+        stack.spacing = ViewConstants.formFieldStackSpacing
+        return stack
+    }()
+    
+    let usernameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Username:"
+        label.font = UIFont(name: ViewConstants.fontName,
+                            size: ViewConstants.smallFontSize)
+        label.baselineAdjustment = .alignCenters
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        return label
+    }()
+    
+    let username: CustomTextField = {
+        let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.autocapitalizationType = .none
+        textField.placeholder = "example123"
         textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.keyboardType = .default
+        textField.layer.borderWidth = 1
+        textField.addDoneButtonOnKeyboard()
+        textField.layer.borderColor = .init(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.8)
+        textField.layer.cornerRadius = ViewConstants.formFieldCornerRadius
+        textField.setContentHuggingPriority(.defaultLow, for: .vertical)
+        return textField
+    }()
+    
+    let usernameStack: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.distribution = .fill
+        stack.alignment = .fill
+        stack.spacing = ViewConstants.formFieldStackSpacing
+        return stack
+    }()
+    
+    let passwordLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Password:"
+        label.font = UIFont(name: ViewConstants.fontName,
+                            size: ViewConstants.smallFontSize)
+        label.baselineAdjustment = .alignCenters
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        return label
+    }()
+    
+    let password: CustomTextField = {
+        let textField = CustomTextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
         textField.keyboardType = .default
         textField.isSecureTextEntry = true
-        textField.borderStyle = .roundedRect
-        textField.placeholder = "Password"
+        textField.layer.borderWidth = 1
+        textField.addDoneButtonOnKeyboard()
+        textField.layer.borderColor = .init(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.8)
+        textField.layer.cornerRadius = ViewConstants.formFieldCornerRadius
+        textField.setContentHuggingPriority(.defaultLow, for: .vertical)
         return textField
     }()
     
-    /// Declaration of password confirm text field
-    var passwordConfTextField: UITextField = {
-        let textField = UITextField()
+    let passwordStack: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.distribution = .fill
+        stack.alignment = .fill
+        stack.spacing = ViewConstants.formFieldStackSpacing
+        return stack
+    }()
+    
+    let confirmPasswordLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Confirm Password:"
+        label.font = UIFont(name: ViewConstants.fontName,
+                            size: ViewConstants.smallFontSize)
+        label.baselineAdjustment = .alignCenters
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        return label
+    }()
+    
+    let confirmPassword: CustomTextField = {
+        let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.autocapitalizationType = .none
+        textField.placeholder = ""
         textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
         textField.keyboardType = .default
         textField.isSecureTextEntry = true
-        textField.borderStyle = .roundedRect
-        textField.placeholder = "Confirm password"
+        textField.layer.borderWidth = 1
+        textField.addDoneButtonOnKeyboard()
+        textField.layer.borderColor = .init(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.8)
+        textField.layer.cornerRadius = ViewConstants.formFieldCornerRadius
+        textField.setContentHuggingPriority(.defaultLow, for: .vertical)
         return textField
     }()
     
-    /// Declaration of username text field
-    var usernameTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.autocapitalizationType = .none
-        textField.autocorrectionType = .no
-        textField.keyboardType = .default
-        textField.borderStyle = .roundedRect
-        textField.placeholder = "Your username"
-        return textField
-    }()
-    
-    /// Declaration of first name text field
-    var firstNameTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.autocapitalizationType = .none
-        textField.autocorrectionType = .no
-        textField.keyboardType = .default
-        textField.borderStyle = .roundedRect
-        textField.placeholder = "First name"
-        return textField
-    }()
-    
-    /// Declaration of last name text field
-    var lastNameTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.autocapitalizationType = .none
-        textField.autocorrectionType = .no
-        textField.keyboardType = .default
-        textField.borderStyle = .roundedRect
-        textField.placeholder = "Last name"
-        return textField
+    let confirmPasswordStack: UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.distribution = .fill
+        stack.alignment = .fill
+        stack.spacing = ViewConstants.formFieldStackSpacing
+        return stack
     }()
     
     /// Declaration of login button
@@ -104,7 +189,7 @@ class RegisterView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 10
         button.backgroundColor = .gray
         return button
     }()
@@ -124,33 +209,57 @@ class RegisterView: UIView {
     
     /// Add subviews to their main views
     private func addViews() {
-        stackView.addArrangedSubview(firstNameTextField)
-        stackView.addArrangedSubview(lastNameTextField)
-        stackView.addArrangedSubview(usernameTextField)
-        stackView.addArrangedSubview(emailTextField)
-        stackView.addArrangedSubview(passwordTextField)
-        stackView.addArrangedSubview(passwordConfTextField)
+        self.addSubview(scrollView)
+        
+        scrollView.addSubview(container)
+        
+        container.addSubview(stackView)
+
+        stackView.addArrangedSubview(usernameStack)
+        stackView.addArrangedSubview(emailStack)
+        stackView.addArrangedSubview(passwordStack)
+        stackView.addArrangedSubview(confirmPasswordStack)
         stackView.addArrangedSubview(registerButton)
         
-        self.addSubview(stackView)
+        usernameStack.addArrangedSubview(usernameLabel)
+        usernameStack.addArrangedSubview(username)
+        
+        emailStack.addArrangedSubview(emailLabel)
+        emailStack.addArrangedSubview(email)
+        
+        passwordStack.addArrangedSubview(passwordLabel)
+        passwordStack.addArrangedSubview(password)
+        
+        confirmPasswordStack.addArrangedSubview(confirmPasswordLabel)
+        confirmPasswordStack.addArrangedSubview(confirmPassword)
     }
     
     /// Setup views constraints
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,
-                                              constant: CGFloat(FormConstants.bottomMarginInset)),
-            stackView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor,
-                                            constant: CGFloat(FormConstants.horizontalMarginInset)),
-            stackView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor,
-                                             constant: CGFloat(-FormConstants.horizontalMarginInset)),
-            firstNameTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
-            lastNameTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
-            passwordTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
-            passwordConfTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
-            usernameTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
-            emailTextField.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
-            registerButton.heightAnchor.constraint(equalToConstant: CGFloat(FormConstants.textFieldHeight)),
+            scrollView.topAnchor.constraint(equalTo: self.topAnchor),
+            scrollView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            container.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            container.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            container.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            container.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            container.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            stackView.topAnchor.constraint(equalTo: container.topAnchor),
+            stackView.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -ViewConstants.formPadding),
+            stackView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -ViewConstants.formBottomPadding),
+            stackView.leftAnchor.constraint(equalTo: container.leftAnchor, constant: ViewConstants.formPadding),
+            
+            usernameStack.heightAnchor.constraint(equalToConstant: ViewConstants.formFieldHeight),
+            emailStack.heightAnchor.constraint(equalToConstant: ViewConstants.formFieldHeight),
+            passwordStack.heightAnchor.constraint(equalToConstant: ViewConstants.formFieldHeight),
+            confirmPasswordStack.heightAnchor.constraint(equalToConstant: ViewConstants.formFieldHeight),
+            
+            registerButton.heightAnchor.constraint(equalToConstant: 50)
+            
         ])
     }
     

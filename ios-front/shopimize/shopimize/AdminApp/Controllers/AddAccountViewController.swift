@@ -77,17 +77,17 @@ class AddAccountViewController: UIViewController {
             return
         }
         
-        let user = User(role: accountSelection, roleStoreID: store)
+        let user = User(role: accountSelection, roleStoreID: store, createdAt: Timestamp(date: Date.now))
         
-        FBAuthManager.shared.createUserFirebase(withEmail: email, password: password) { [weak self] result in
+        FBAuthManager.shared.createUserFirebase(withEmail: email, password: password) { [weak self] error in
             guard let strongSelf = self else { return }
             
-            guard result == true else {
+            guard error == nil else {
                 print("error") // TODO: ADD ALERT
                 return
             }
             
-            DBUserManager.shared.addUserFirestore(with: email, user: user) { result in
+            DBUserManager.shared.addUserFirestore(withEmail: email, user: user) { result in
                 guard result == true else {
                     print("error") // TODO: ADD ALERT
                     return
