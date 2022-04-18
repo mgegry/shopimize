@@ -7,6 +7,12 @@
 
 import Foundation
 
-struct FriendRequest {
+struct FriendRequest: Codable{
+    var userOne: String
+    var userTwo: String
     
+    enum CodingKeys: String, CodingKey {
+        case userOne = "user_one"
+        case userTwo = "user_two"
+    }
 }

@@ -6,10 +6,50 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class FriendsViewController: UIViewController {
     
     var tableView = UITableView(frame: .zero, style: .plain)
+    
+    var users: [User] = [] {
+        didSet {
+            print("fuata2")
+            self.tableView.reloadData()
+        }
+    }
+    
+    var friends: [String] = [] {
+        didSet {
+            print("fuata")
+            DBUserManager.shared.getAllUsers(withEmails: friends) { [weak self] result in
+                guard let strongSelf = self else { return }
+                switch result {
+                    case .success(let users):
+                        strongSelf.users = users
+                    case .failure(_):
+                        print("Error getting friends")
+                }
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        guard let email = Auth.auth().currentUser?.email else { return }
+        
+        DBFriendManager.shared.getAllFirends(forUser: email) { [weak self] result in
+            guard let strongSelf = self else { return }
+            
+            switch result {
+                case .success(let friends):
+                    print(friends)
+                    strongSelf.friends = friends
+                case .failure(_):
+                    print("failure")
+            }
+        }
+    }
     
     override func viewDidLoad() {
         view.backgroundColor = .backgroundGrey
@@ -83,7 +123,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,7 +131,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError("Can not dequeue cell with identifier friendsCell")
         }
         
-        cell.userLabel.text = "eusunt@celmai.com"
+        cell.userLabel.text = users[indexPath.row].username
         cell.shoppingStatusLabel.text = "Currently shopping"
 
         return cell
