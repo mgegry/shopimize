@@ -86,31 +86,5 @@ class DBUserManager {
         }
     }
     
-    func getAllUsers(withEmails emails: [String], completion: @escaping (Result<[User], Error>) -> ()) {
-        var users: [User] = []
-        
-        userCollection.whereField("username", in: emails).getDocuments { querySnapshot, error in
-            guard let snapshot = querySnapshot, error ==  nil else {
-                print("[error]:: check user unique -- \(error!.localizedDescription)")
-                completion(.failure(error!))
-                return
-            }
-            
-            for document in snapshot.documents {
-                let result = Result {
-                    try document.data(as: User.self)
-                }
-                
-                switch result {
-                    case .success(let success):
-                        users.append(success)
-                    case .failure(let error):
-                        print("[error]:: getting some of the friendships -- \(error.localizedDescription)")
-                }
-            }
-            completion(.success(users))
-        }
-    }
-    
 }
 

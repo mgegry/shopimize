@@ -15,10 +15,12 @@ class FriendsViewController: UIViewController {
     var users: [User] = []
     
     override func viewWillAppear(_ animated: Bool) {
+        
         guard let email = Auth.auth().currentUser?.email else { return }
         let group = DispatchGroup()
         let queue = DispatchQueue(label: "q")
         var friends: [String] = []
+        var users: [User] = []
         
         group.enter()
         queue.async {
@@ -37,19 +39,22 @@ class FriendsViewController: UIViewController {
         
         queue.async {
             group.wait()
-            group.enter()
-            DBUserManager.shared.getAllUsers(withEmails: friends) { [weak self] result in
-                guard let strongSelf = self else { return }
-                switch result {
-                    case .success(let users):
-                        DispatchQueue.main.async {
-                            strongSelf.users = users
-                            strongSelf.tableView.reloadData()
-                        }
-                    case .failure(_):
-                        print("Error getting friends")
+            for friend in friends {
+                group.enter()
+                DBUserManager.shared.getUserFirestore(withEmail: friend) { result in
+                    switch result {
+                        case .success(let user):
+                            users.append(user)
+                        case .failure(_):
+                            print("Error getting friends")
+                    }
+                    group.leave()
                 }
-                group.leave()
+            }
+            
+            group.notify(queue: .main) {
+                self.users = users
+                self.tableView.reloadData()
             }
         }
     }
