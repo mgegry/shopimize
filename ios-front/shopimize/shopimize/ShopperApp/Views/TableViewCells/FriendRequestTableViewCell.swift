@@ -9,6 +9,9 @@ import UIKit
 
 class FriendRequestTableViewCell: UITableViewCell {
 
+//    var acceptFriendRequestAction: (() -> ())?
+//    var declineFriendRequestAction: (() -> ())?
+    
     /// Container holding the card for the cell
     var containerView: UIView = {
         let view = UIView()
@@ -43,15 +46,15 @@ class FriendRequestTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    var buttonStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 1
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.alignment = .fill
-        return stackView
-    }()
+//    var buttonStackView: UIStackView = {
+//        let stackView = UIStackView()
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
+//        stackView.spacing = 1
+//        stackView.axis = .vertical
+//        stackView.distribution = .fillEqually
+//        stackView.alignment = .fill
+//        return stackView
+//    }()
     
     var image: UIImageView = {
         let image = UIImageView()
@@ -78,29 +81,31 @@ class FriendRequestTableViewCell: UITableViewCell {
         return label
     }()
     
-    var acceptFriendRequestButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        let config = UIImage.SymbolConfiguration(pointSize: 20)
-        button.setImage(UIImage(systemName: "person.fill.checkmark", withConfiguration: config), for: .normal)
-        button.tintColor = .systemGreen
-        return button
-    }()
+//    var acceptFriendRequestButton: UIButton = {
+//        let button = UIButton()
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        let config = UIImage.SymbolConfiguration(pointSize: 20)
+//        button.setImage(UIImage(systemName: "person.fill.checkmark", withConfiguration: config), for: .normal)
+//        button.tintColor = .systemGreen
+//        return button
+//    }()
+//
+//    var declineFriendRequestButton: UIButton = {
+//        let button = UIButton()
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        let config = UIImage.SymbolConfiguration(pointSize: 20)
+//        button.setImage(UIImage(systemName: "person.fill.xmark", withConfiguration: config), for: .normal)
+//        button.tintColor = .systemRed
+//        return button
+//    }()
     
-    var declineFriendRequestButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        let config = UIImage.SymbolConfiguration(pointSize: 20)
-        button.setImage(UIImage(systemName: "person.fill.xmark", withConfiguration: config), for: .normal)
-        button.tintColor = .systemRed
-        return button
-    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .backgroundGrey
         setupContainer()
         setupConstraints()
+//        setupButtons()
     }
     
     /// No support for storyboards so the initializer is set to unavailable
@@ -109,19 +114,34 @@ class FriendRequestTableViewCell: UITableViewCell {
         super.init(coder: coder)
     }
     
+//
+//    private func setupButtons() {
+//        acceptFriendRequestButton.addTarget(self, action: #selector(didTapAccept), for: .touchUpInside)
+//        declineFriendRequestButton.addTarget(self, action: #selector(didTapDecline), for: .touchUpInside)
+//    }
+//
+//    @objc func didTapAccept() {
+//
+//        acceptFriendRequestAction?()
+//    }
+//
+//    @objc func didTapDecline() {
+//        declineFriendRequestAction?()
+//    }
+//
     /// Setup the container with all its views
     private func setupContainer() {
         // self.contentView.backgroundColor = .clear
-        addSubview(containerView)
+        self.contentView.addSubview(containerView)
         containerView.addSubview(mainStackView)
         mainStackView.addArrangedSubview(image)
         mainStackView.addArrangedSubview(infoStackView)
-        mainStackView.addArrangedSubview(buttonStackView)
+//        mainStackView.addArrangedSubview(buttonStackView)
         
         infoStackView.addArrangedSubview(userLabel)
         infoStackView.addArrangedSubview(emailLabel)
-        buttonStackView.addArrangedSubview(acceptFriendRequestButton)
-        buttonStackView.addArrangedSubview(declineFriendRequestButton)
+//        buttonStackView.addArrangedSubview(acceptFriendRequestButton)
+//        buttonStackView.addArrangedSubview(declineFriendRequestButton)
     }
     
     /// Setup the views constraints
@@ -130,17 +150,20 @@ class FriendRequestTableViewCell: UITableViewCell {
             
             // Container constraints
             
-            containerView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
+            containerView.topAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.topAnchor,
                                                constant: CGFloat(TableConstants.cellVerticalInset)),
             
-            containerView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor,
+            containerView.rightAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.rightAnchor,
                                                  constant: -CGFloat(TableConstants.cellHorizontalInset)),
             
-            containerView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,
+            containerView.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor,
                                                   constant: -CGFloat(TableConstants.cellVerticalInset)),
             
-            containerView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor,
+            containerView.leftAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leftAnchor,
                                                 constant: CGFloat(TableConstants.cellHorizontalInset)),
+
+            
+//            buttonStackView.widthAnchor.constraint(equalToConstant: 60),
             
             mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor),
             mainStackView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
