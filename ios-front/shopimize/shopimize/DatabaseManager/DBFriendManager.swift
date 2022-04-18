@@ -17,7 +17,7 @@ class DBFriendManager {
     
     private init() {}
     
-    func getAllFirends(forUser email: String, completion: @escaping (Result<[String], Error>) -> ()) {
+    func getAllFriends(forUser email: String, completion: @escaping (Result<[String], Error>) -> ()) {
         
         var friends: [String] = []
         

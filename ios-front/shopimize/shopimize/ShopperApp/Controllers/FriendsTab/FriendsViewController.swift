@@ -12,41 +12,44 @@ class FriendsViewController: UIViewController {
     
     var tableView = UITableView(frame: .zero, style: .plain)
     
-    var users: [User] = [] {
-        didSet {
-            print("fuata2")
-            self.tableView.reloadData()
-        }
-    }
+    var users: [User] = []
     
-    var friends: [String] = [] {
-        didSet {
-            print("fuata")
+    override func viewWillAppear(_ animated: Bool) {
+        guard let email = Auth.auth().currentUser?.email else { return }
+        let group = DispatchGroup()
+        let queue = DispatchQueue(label: "q")
+        var friends: [String] = []
+        
+        group.enter()
+        queue.async {
+            DBFriendManager.shared.getAllFriends(forUser: email) { result in
+                
+                switch result {
+                    case .success(let f):
+                        friends = f
+
+                    case .failure(_):
+                        print("failure")
+                }
+                group.leave()
+            }
+        }
+        
+        queue.async {
+            group.wait()
+            group.enter()
             DBUserManager.shared.getAllUsers(withEmails: friends) { [weak self] result in
                 guard let strongSelf = self else { return }
                 switch result {
                     case .success(let users):
-                        strongSelf.users = users
+                        DispatchQueue.main.async {
+                            strongSelf.users = users
+                            strongSelf.tableView.reloadData()
+                        }
                     case .failure(_):
                         print("Error getting friends")
                 }
-            }
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        guard let email = Auth.auth().currentUser?.email else { return }
-        
-        DBFriendManager.shared.getAllFirends(forUser: email) { [weak self] result in
-            guard let strongSelf = self else { return }
-            
-            switch result {
-                case .success(let friends):
-                    print(friends)
-                    strongSelf.friends = friends
-                case .failure(_):
-                    print("failure")
+                group.leave()
             }
         }
     }
@@ -57,6 +60,7 @@ class FriendsViewController: UIViewController {
         setupTableView()
         setupConstraints()
         setupNavbar()
+        
     }
     
     private func setupTableView() {

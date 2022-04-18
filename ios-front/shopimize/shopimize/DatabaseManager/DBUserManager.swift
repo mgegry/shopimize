@@ -89,7 +89,7 @@ class DBUserManager {
     func getAllUsers(withEmails emails: [String], completion: @escaping (Result<[User], Error>) -> ()) {
         var users: [User] = []
         
-        userCollection.whereField("documentID", in: emails).getDocuments { querySnapshot, error in
+        userCollection.whereField("username", in: emails).getDocuments { querySnapshot, error in
             guard let snapshot = querySnapshot, error ==  nil else {
                 print("[error]:: check user unique -- \(error!.localizedDescription)")
                 completion(.failure(error!))
