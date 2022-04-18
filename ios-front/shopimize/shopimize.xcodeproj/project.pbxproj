@@ -77,6 +77,8 @@
 		2BFDD8E4280C7860006932F5 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8E3280C7860006932F5 /* CustomLabel.swift */; };
 		2BFDD8E8280C7C56006932F5 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8E7280C7C56006932F5 /* AddFriendView.swift */; };
 		2BFDD8EA280C88B3006932F5 /* FriendRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8E9280C88B3006932F5 /* FriendRequestTableViewCell.swift */; };
+		2BFDD8EC280D46A5006932F5 /* MarketFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8EB280D46A5006932F5 /* MarketFilterViewController.swift */; };
+		2BFDD8EE280D4720006932F5 /* MarketFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8ED280D4720006932F5 /* MarketFilterView.swift */; };
 		B0B13B60D9ABAE188B61280D /* Pods_shopimizeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +173,8 @@
 		2BFDD8E3280C7860006932F5 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		2BFDD8E7280C7C56006932F5 /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
 		2BFDD8E9280C88B3006932F5 /* FriendRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestTableViewCell.swift; sourceTree = "<group>"; };
+		2BFDD8EB280D46A5006932F5 /* MarketFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketFilterViewController.swift; sourceTree = "<group>"; };
+		2BFDD8ED280D4720006932F5 /* MarketFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketFilterView.swift; sourceTree = "<group>"; };
 		44D376BFFD88285165CAB480 /* Pods_shopimize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B3466F07B6902E7614D5A7 /* Pods-shopimize.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopimize.release.xcconfig"; path = "Target Support Files/Pods-shopimize/Pods-shopimize.release.xcconfig"; sourceTree = "<group>"; };
 		938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimizeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +225,7 @@
 				2BFDD8D4280B217F006932F5 /* AddFriendViewController.swift */,
 				2BFDD8D6280B21A1006932F5 /* FriendRequestsViewController.swift */,
 				2BFDD8D8280B2222006932F5 /* FriendViewController.swift */,
+				2BFDD8EB280D46A5006932F5 /* MarketFilterViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 				2BFDD8DA280B31DE006932F5 /* FriendView.swift */,
 				2BFDD8DC280B3F24006932F5 /* ProfileView.swift */,
 				2BFDD8E7280C7C56006932F5 /* AddFriendView.swift */,
+				2BFDD8ED280D4720006932F5 /* MarketFilterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -784,6 +790,7 @@
 				2BC9D08627D22D4600D12877 /* MapViewController.swift in Sources */,
 				2B672D7227E2037B00015C4E /* CartView.swift in Sources */,
 				2B7E355A27E4A0E70092ADB0 /* MItemViewController.swift in Sources */,
+				2BFDD8EC280D46A5006932F5 /* MarketFilterViewController.swift in Sources */,
 				2B1A941027D9248500CCA943 /* Market.swift in Sources */,
 				2B5F6E3227DD616600F003DE /* DBItemManager.swift in Sources */,
 				2B22A82927D4320600D94B6B /* MarketTableViewController.swift in Sources */,
@@ -800,6 +807,7 @@
 				2B22A81127D2D58700D94B6B /* FormConstants.swift in Sources */,
 				2B2A644F27EBD2FD00BED7E0 /* AddStoreViewController.swift in Sources */,
 				2BFDD8EA280C88B3006932F5 /* FriendRequestTableViewCell.swift in Sources */,
+				2BFDD8EE280D4720006932F5 /* MarketFilterView.swift in Sources */,
 				2BC9D08227D22D4600D12877 /* AppDelegate.swift in Sources */,
 				2BBF403027ECE3CF007359EE /* AddMarketView.swift in Sources */,
 				2B2A645227EBD36700BED7E0 /* AddStoreView.swift in Sources */,

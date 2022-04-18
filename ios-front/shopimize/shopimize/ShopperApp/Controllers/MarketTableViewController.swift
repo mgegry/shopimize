@@ -43,12 +43,41 @@ class MarketTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupViews()
+        setupNavbar()
+    }
+    
+    private func setupViews() {
         view.backgroundColor = .backgroundGrey
         
         tableView.register(MarketTableViewCell.self, forCellReuseIdentifier: "marketCell")
         tableView.separatorStyle = .none
+    }
+    
+    /// Setup the layout and design of the navigation bar
+    ///
+    private func setupNavbar() {
+        guard let nav = navigationController else { return }
         
-        setupNavbar()
+        let boundsWidth = nav.navigationBar.bounds.width - NavigationConstants.navigationInset
+        let boundsHeight = nav.navigationBar.bounds.height
+        
+        
+        let titleView = HomeNavigation(frame: CGRect(x: 0, y: 0, width: boundsWidth, height: boundsHeight))
+        
+        titleView.cartButton.addTarget(self, action: #selector(didTapCart), for: .touchUpInside)
+        titleView.filterButton.addTarget(self, action: #selector(didTapFilter), for: .touchUpInside)
+        
+        self.navigationItem.titleView = titleView
+    }
+    
+    @objc func didTapFilter() {
+        let vc = UINavigationController(rootViewController: MarketFilterViewController())
+        present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func didTapCart() {
+        navigationController?.pushViewController(CartViewController(), animated: true)
     }
     
     /// Return the number of section in the table
@@ -111,18 +140,5 @@ class MarketTableViewController: UITableViewController {
         
         itemController.marketID = marketID
         navigationController?.pushViewController(itemController, animated: true)
-    }
-    
-    /// Setup the layout and design of the navigation bar
-    ///
-    private func setupNavbar() {
-        guard let nav = navigationController else { return }
-        
-        let boundsWidth = nav.navigationBar.bounds.width - NavigationConstants.navigationInset
-        let boundsHeight = nav.navigationBar.bounds.height
-        
-        
-        let titleView = HomeNavigation(frame: CGRect(x: 0, y: 0, width: boundsWidth, height: boundsHeight))
-        self.navigationItem.titleView = titleView
     }
 }
