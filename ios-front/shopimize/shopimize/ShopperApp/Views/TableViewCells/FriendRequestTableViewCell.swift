@@ -12,8 +12,6 @@ class FriendRequestTableViewCell: UITableViewCell {
     /// Container holding the card for the cell
     var containerView: UIView = {
         let view = UIView()
-        // TODO: Create shadow with beziere path to be more eficient
-        /// https://stackoverflow.com/questions/37645408/uitableviewcell-rounded-corners-and-shadow
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.layer.cornerRadius = 8
@@ -23,6 +21,36 @@ class FriendRequestTableViewCell: UITableViewCell {
         view.layer.shadowColor = UIColor.gray.cgColor
         view.layer.shadowOffset = CGSize(width: 2, height: 5)
         return view
+    }()
+    
+    var mainStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = 1
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        return stackView
+    }()
+    
+    var infoStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = 1
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        return stackView
+    }()
+    
+    var buttonStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = 1
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        return stackView
     }()
     
     var image: UIImageView = {
@@ -50,6 +78,24 @@ class FriendRequestTableViewCell: UITableViewCell {
         return label
     }()
     
+    var acceptFriendRequestButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let config = UIImage.SymbolConfiguration(pointSize: 20)
+        button.setImage(UIImage(systemName: "person.fill.checkmark", withConfiguration: config), for: .normal)
+        button.tintColor = .systemGreen
+        return button
+    }()
+    
+    var declineFriendRequestButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let config = UIImage.SymbolConfiguration(pointSize: 20)
+        button.setImage(UIImage(systemName: "person.fill.xmark", withConfiguration: config), for: .normal)
+        button.tintColor = .systemRed
+        return button
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .backgroundGrey
@@ -67,9 +113,15 @@ class FriendRequestTableViewCell: UITableViewCell {
     private func setupContainer() {
         // self.contentView.backgroundColor = .clear
         addSubview(containerView)
-        addSubview(image)
-        addSubview(userLabel)
-        addSubview(emailLabel)
+        containerView.addSubview(mainStackView)
+        mainStackView.addArrangedSubview(image)
+        mainStackView.addArrangedSubview(infoStackView)
+        mainStackView.addArrangedSubview(buttonStackView)
+        
+        infoStackView.addArrangedSubview(userLabel)
+        infoStackView.addArrangedSubview(emailLabel)
+        buttonStackView.addArrangedSubview(acceptFriendRequestButton)
+        buttonStackView.addArrangedSubview(declineFriendRequestButton)
     }
     
     /// Setup the views constraints
@@ -90,19 +142,11 @@ class FriendRequestTableViewCell: UITableViewCell {
             containerView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor,
                                                 constant: CGFloat(TableConstants.cellHorizontalInset)),
             
+            mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            mainStackView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+            mainStackView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             image.widthAnchor.constraint(equalToConstant: 80),
-            image.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 5),
-            image.leftAnchor.constraint(equalTo: containerView.leftAnchor),
-            image.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            
-            userLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 5),
-            userLabel.leftAnchor.constraint(equalTo: image.rightAnchor, constant: 35),
-            userLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
-            
-            emailLabel.topAnchor.constraint(equalTo: userLabel.bottomAnchor),
-            emailLabel.leftAnchor.constraint(equalTo: image.rightAnchor, constant: 35),
-            emailLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
-            emailLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ])
     }
 
