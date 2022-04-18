@@ -77,7 +77,7 @@ class AddAccountViewController: UIViewController {
             return
         }
         
-        let user = User(role: accountSelection, roleStoreID: store, createdAt: Timestamp(date: Date.now))
+        let user = User(role: accountSelection, roleStoreID: store, createdAt: Timestamp(date: Date.now), isActive: true)
         
         FBAuthManager.shared.createUserFirebase(withEmail: email, password: password) { [weak self] error in
             guard let strongSelf = self else { return }

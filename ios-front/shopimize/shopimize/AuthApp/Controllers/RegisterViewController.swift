@@ -119,7 +119,7 @@ class RegisterViewController: UIViewController {
                 return
             }
             
-            let user = User(username: u, points: 0, role: "shopper", createdAt: Timestamp(date: Date.now))
+            let user = User(username: u, points: 0, role: "shopper", createdAt: Timestamp(date: Date.now), isActive: true)
             
             DBUserManager.shared.addUserFirestore(withEmail: e, user: user) { result in
                 guard result == true else {
