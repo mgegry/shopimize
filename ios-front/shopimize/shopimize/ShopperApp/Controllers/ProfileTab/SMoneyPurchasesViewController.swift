@@ -1,16 +1,14 @@
 //
-//  CartViewController.swift
+//  SMoneyPurchasesViewController.swift
 //  shopimize
 //
-//  Created by Mircea Egry on 16/03/2022.
+//  Created by Mircea Egry on 18/04/2022.
 //
 
 import UIKit
 
-/// Controller for the shopping cart screen of the app
+class SMoneyPurchasesViewController: UIViewController {
 
-class CartViewController: UIViewController {
-    
     let tableView = UITableView()
     
     override func viewDidLoad() {
@@ -44,12 +42,13 @@ class CartViewController: UIViewController {
     }
     
     private func setupNavigation() {
-        navigationItem.title = "Your cart"
+        navigationItem.title = "Purchase history"
         navigationController?.navigationBar.prefersLargeTitles = false
     }
+
 }
 
-extension CartViewController: UITableViewDelegate, UITableViewDataSource {
+extension SMoneyPurchasesViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

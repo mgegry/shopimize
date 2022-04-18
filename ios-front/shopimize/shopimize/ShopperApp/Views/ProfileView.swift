@@ -181,7 +181,7 @@ class ProfileView: UIView {
     let realPurchasesButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false;
-        button.setTitle("Purchase history", for: .normal)
+        button.setTitle("Money purchase history", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.setTitleColor(.systemGray, for: .highlighted)
         button.backgroundColor = .systemGray5

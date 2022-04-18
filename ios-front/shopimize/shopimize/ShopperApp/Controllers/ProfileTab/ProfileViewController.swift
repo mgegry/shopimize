@@ -63,11 +63,11 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func didTapRealPurchases() {
-        
+        navigationController?.pushViewController(SMoneyPurchasesViewController(), animated: true)
     }
     
     @objc func didTapCoinsPurchases() {
-        
+        navigationController?.pushViewController(SPointPurchasesViewController(), animated: true)
     }
     
     @objc func didTapSignOut() {
