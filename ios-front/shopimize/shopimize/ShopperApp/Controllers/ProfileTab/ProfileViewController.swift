@@ -19,12 +19,12 @@ class ProfileViewController: UIViewController {
         view = profileView
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewWillAppear(_ animated: Bool) {
         let group = DispatchGroup()
-        let defaults = UserDefaults.standard
-        guard let emailUser = defaults.object(forKey: "loggedInUser") as? String else { return }
+        let queue = DispatchQueue(label: "getProfileImage")
+
+        guard let emailUser = Auth.auth().currentUser?.email else { return }
+        print(emailUser)
         
         group.enter()
         DBUserManager.shared.getUserFirestore(withEmail: emailUser) { [weak self] result in
@@ -44,18 +44,42 @@ class ProfileViewController: UIViewController {
             group.leave()
         }
         
+        var url: URL?
+        
         group.enter()
-        StorageManager.shared.getUserProfilePicture(withEmail: emailUser) { [weak self] result in
-            switch result {
-                case .success(let success):
-                    DispatchQueue.main.async {
-                        self?.profileView.profileImage.load(url: success)
-                    }
-                case .failure(_):
-                    print("error")
+        queue.async {
+            StorageManager.shared.getUserProfilePicture(withEmail: emailUser) { result in
+                switch result {
+                    case .success(let success):
+                        url = success
+                    case .failure(_):
+                        print("error")
+                }
+                group.leave()
             }
-            group.leave()
         }
+        
+        queue.async {
+            group.wait()
+            group.enter()
+            
+            guard let url = url else { return }
+            StorageManager.shared.fetchImage(from: url) { data in
+                guard let data = data else {
+                    print("error")
+                    return
+                }
+                
+                DispatchQueue.main.async { [weak self] in
+                    self?.profileView.profileImage.image = UIImage(data: data)
+                }
+                group.leave()
+            }
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         setupNavbar()
         addButtonTargets()
@@ -99,12 +123,10 @@ class ProfileViewController: UIViewController {
     @objc func didTapSignOut() {
         do {
             try Auth.auth().signOut()
+            self.tabBarController?.dismiss(animated: true, completion: nil)
         } catch let signOutError as NSError {
             print("Error signing out: \(signOutError)")
         }
-        let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: "loggedInUser")
-        self.tabBarController?.dismiss(animated: true, completion: nil)
     }
 
 }
@@ -117,9 +139,10 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         dismiss(animated: true, completion: nil)
         
         let group = DispatchGroup()
-        let defaults = UserDefaults.standard
+        let queue = DispatchQueue(label: "saveProfileImage")
         
-        guard let userEmail = defaults.object(forKey: "loggedInUser") as? String else { return }
+        guard let userEmail = Auth.auth().currentUser?.email else { return }
+        
         let savePath = "images/" + userEmail + "/profileImage.png"
         
         group.enter()
@@ -134,21 +157,42 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
             group.leave()
         }
         
+        var url: URL?
+        
         group.enter()
-        DBUserManager.shared.saveProfileImageForUser(withEmail: userEmail, toPath: savePath) { [weak self] result in
-            guard let strongSelf = self else { return }
-            
-            if !result {
-                DispatchQueue.main.async {
-                    strongSelf.presentAlert()
-                }
-            } else {
-                DispatchQueue.main.async {
-                    strongSelf.profileView.profileImage.image = image
+        queue.async {
+            guard let userEmail = Auth.auth().currentUser?.email else { return }
+            StorageManager.shared.getUserProfilePicture(withEmail: userEmail) { result in
+                switch result {
+                    case .success(let u):
+                        url = u
+                    case .failure(_):
+                        print("error")
                 }
             }
             group.leave()
         }
+        
+        queue.async {
+            group.wait()
+            guard let safeUrl = url else { return }
+            group.enter()
+            DBUserManager.shared.saveProfileImageForUser(withEmail: userEmail, toPath: safeUrl.absoluteString) { [weak self] result in
+                guard let strongSelf = self else { return }
+                
+                if !result {
+                    DispatchQueue.main.async {
+                        strongSelf.presentAlert()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        strongSelf.profileView.profileImage.image = image
+                    }
+                }
+                group.leave()
+            }
+        }
+
         
     }
     

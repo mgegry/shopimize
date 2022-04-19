@@ -46,4 +46,19 @@ class StorageManager {
             completion(.success(url))
         }
     }
+    
+    func fetchImage(from url: URL, completionHandler: @escaping (Data?) -> ()) {
+        let session = URLSession.shared
+            
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                print("[error]:: getting image -- \(error!.localizedDescription)")
+                completionHandler(nil)
+            } else {
+                completionHandler(data)
+            }
+        }
+            
+        dataTask.resume()
+    }
 }

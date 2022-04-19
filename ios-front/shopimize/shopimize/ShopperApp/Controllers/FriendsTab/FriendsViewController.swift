@@ -11,7 +11,6 @@ import FirebaseAuth
 class FriendsViewController: UIViewController {
     
     var tableView = UITableView(frame: .zero, style: .plain)
-    
     var users: [User] = []
     
     override func viewWillAppear(_ animated: Bool) {
@@ -142,6 +141,17 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.userLabel.text = users[indexPath.row].username
         cell.shoppingStatusLabel.text = "Currently shopping"
+        
+        if let imageUrl = users[indexPath.row].imageUrl {
+            StorageManager.shared.fetchImage(from: URL(string: imageUrl)!) { data in
+                guard let data = data else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    cell.image.image = UIImage(data: data)
+                }
+            }
+        }
 
         return cell
     }
