@@ -13,6 +13,7 @@ class FriendRequestsViewController: UIViewController {
     let tableView = UITableView()
     
     var users: [User] = []
+    var friendRequests: [FriendRequest] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +66,7 @@ class FriendRequestsViewController: UIViewController {
             }
             group.notify(queue: .main) { [weak self] in
                 self?.users = users
+                self?.friendRequests = friendRequests
                 self?.tableView.reloadData()
             }
         }
@@ -121,8 +123,33 @@ extension FriendRequestsViewController: UITableViewDelegate, UITableViewDataSour
         let alert = UIAlertController(title: "Accept friend request from \(users[indexPath.row].username!)?",
                                       message: "",
                                       preferredStyle: UIAlertController.Style.actionSheet)
-        alert.addAction(UIAlertAction(title: "Accept", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Decline", style: .default, handler: nil))
+        guard let id = friendRequests[indexPath.row].id else { return }
+        print(id)
+        
+        alert.addAction(UIAlertAction(title: "Accept", style: .default, handler: { _ in
+            /// Create friendship
+        }))
+        alert.addAction(UIAlertAction(title: "Decline", style: .default, handler: { _ in
+            
+            DBFriendManager.shared.deleteFriendRequest(withId: id) { result in
+                guard result == true else {
+                    let secondAlert = UIAlertController(title: "Unable to respond to request",
+                                                        message: "",
+                                                        preferredStyle: .alert)
+                    secondAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                    DispatchQueue.main.async { [weak self] in
+                        self?.present(alert, animated: true, completion: nil)
+                    }
+                    return
+                }
+                
+                DispatchQueue.main.async { [weak self] in
+                    self?.users.remove(at: indexPath.row)
+                    self?.friendRequests.remove(at: indexPath.row)
+                    self?.tableView.reloadData()
+                }
+            }
+        }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
         

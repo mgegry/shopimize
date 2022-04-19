@@ -96,6 +96,10 @@ class AddFriendViewController: UIViewController {
                         DispatchQueue.main.async { [weak self] in
                             self?.presentAlert(withMessage: "Can not send friend request at this moment")
                         }
+                    } else {
+                        DispatchQueue.main.async { [weak self] in
+                            self?.dismiss(animated: true, completion: nil)
+                        }
                     }
                     group.leave()
                 }

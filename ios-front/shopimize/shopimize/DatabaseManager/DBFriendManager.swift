@@ -105,4 +105,15 @@ class DBFriendManager {
             completion(false)
         }
     }
+    
+    func deleteFriendRequest(withId id: String, completion: @escaping (Bool) -> ()) {
+        friendRequestCollection.document(id).delete { error in
+            if let error = error {
+                print("[error]:: deleting friend request -- \(error.localizedDescription)")
+                completion(false)
+            } else {
+                completion(true)
+            }
+        }
+    }
 }

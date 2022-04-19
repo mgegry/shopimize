@@ -22,7 +22,7 @@ class AddFriendView: UIView {
     let usernameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Friend username:"
+        label.text = "Friend's email:"
         label.font = UIFont(name: ViewConstants.fontName,
                             size: ViewConstants.smallFontSize)
         label.baselineAdjustment = .alignCenters
@@ -36,7 +36,7 @@ class AddFriendView: UIView {
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
         textField.keyboardType = .default
-        textField.placeholder = "example123"
+        textField.placeholder = "example@example.com"
         textField.layer.borderWidth = 1
         textField.layer.borderColor = .init(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.8)
         textField.layer.cornerRadius = ViewConstants.formFieldCornerRadius
