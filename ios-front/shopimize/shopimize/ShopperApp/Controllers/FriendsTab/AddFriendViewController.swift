@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class AddFriendViewController: UIViewController {
 
@@ -34,6 +35,8 @@ class AddFriendViewController: UIViewController {
         let group = DispatchGroup()
         let queue = DispatchQueue(label: "addFriendQueue")
         
+        var failure = false
+        
         guard let userEmail = Auth.auth().currentUser?.email else { return }
         guard let addedUser = addFriendView.username.text, addFriendView.username.text != "" else {
             
@@ -47,13 +50,14 @@ class AddFriendViewController: UIViewController {
                     case .success(let success):
                         for request in success {
                             if request.fromUser == addedUser {
-                                
+                                failure = true
                                 DispatchQueue.main.async { [weak self] in
                                     self?.presentAlert(withMessage: "It looks like you have a friend request from this user")
                                 }
                             }
                         }
                     case .failure(_):
+                        failure = true
                         print("uata")
                 }
                 group.leave()
@@ -68,15 +72,33 @@ class AddFriendViewController: UIViewController {
                     case .success(let success):
                         for request in success {
                             if request.toUser == addedUser {
+                                failure = true
                                 DispatchQueue.main.async { [weak self] in
                                     self?.presentAlert(withMessage: "You already sent a friend request to this user")
                                 }
                             }
                         }
                     case .failure(_):
+                        failure = true
                         print("uata")
                 }
                 group.leave()
+            }
+        }
+        
+        queue.async {
+            group.wait()
+            if (!failure) {
+                group.enter()
+                let request = FriendRequest(fromUser: userEmail, toUser: addedUser, createdAt: Timestamp(date: Date.now))
+                DBFriendManager.shared.addFriendRequest(request: request) { result in
+                    if !result {
+                        DispatchQueue.main.async { [weak self] in
+                            self?.presentAlert(withMessage: "Can not send friend request at this moment")
+                        }
+                    }
+                    group.leave()
+                }
             }
         }
     }

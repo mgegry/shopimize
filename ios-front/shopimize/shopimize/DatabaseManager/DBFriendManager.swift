@@ -95,4 +95,14 @@ class DBFriendManager {
             completion(.success(friendRequests))
         }
     }
+    
+    func addFriendRequest(request: FriendRequest, completion: @escaping (Bool) -> ()) {
+        do {
+            let _ = try friendRequestCollection.addDocument(from: request)
+            completion(true)
+        } catch let error {
+            print("[error]:: sending friend request -- \(error.localizedDescription)")
+            completion(false)
+        }
+    }
 }
