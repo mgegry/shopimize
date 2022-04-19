@@ -14,11 +14,11 @@ class FriendsViewController: UIViewController {
     var users: [User] = []
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        super.viewWillAppear(animated)
         guard let email = Auth.auth().currentUser?.email else { return }
         let group = DispatchGroup()
         let queue = DispatchQueue(label: "q")
-        var friends: [String] = []
+        var friends: [Friend] = []
         var users: [User] = []
         
         group.enter()
@@ -28,7 +28,7 @@ class FriendsViewController: UIViewController {
                 switch result {
                     case .success(let f):
                         friends = f
-
+                        
                     case .failure(_):
                         print("failure")
                 }
@@ -39,21 +39,25 @@ class FriendsViewController: UIViewController {
         queue.async {
             group.wait()
             for friend in friends {
-                group.enter()
-                DBUserManager.shared.getUserFirestore(withEmail: friend) { result in
-                    switch result {
-                        case .success(let user):
-                            users.append(user)
-                        case .failure(_):
-                            print("Error getting friends")
+                for user in friend.friendship {
+                    if (user != email) {
+                        group.enter()
+                        DBUserManager.shared.getUserFirestore(withEmail: user) { result in
+                            switch result {
+                                case .success(let user):
+                                    users.append(user)
+                                case .failure(_):
+                                    print("Error getting friends")
+                            }
+                            group.leave()
+                        }
                     }
-                    group.leave()
                 }
             }
             
-            group.notify(queue: .main) {
-                self.users = users
-                self.tableView.reloadData()
+            group.notify(queue: .main) { [weak self] in
+                self?.users = users
+                self?.tableView.reloadData()
             }
         }
     }
@@ -119,7 +123,7 @@ class FriendsViewController: UIViewController {
         let vc = UINavigationController(rootViewController: FriendRequestsViewController())
         present(vc, animated: true, completion: nil)
     }
-
+    
 }
 
 // MARK: Extensions
@@ -152,7 +156,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             }
         }
-
+        
         return cell
     }
     

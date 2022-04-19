@@ -17,9 +17,9 @@ class DBFriendManager {
     
     private init() {}
     
-    func getAllFriends(forUser email: String, completion: @escaping (Result<[String], Error>) -> ()) {
+    func getAllFriends(forUser email: String, completion: @escaping (Result<[Friend], Error>) -> ()) {
         
-        var friends: [String] = []
+        var friends: [Friend] = []
         
         friendCollection.whereField("friendship", arrayContains: email).getDocuments { querySnapshot, error in
             guard let snapshot = querySnapshot, error == nil else {
@@ -35,16 +35,38 @@ class DBFriendManager {
                 
                 switch result {
                     case .success(let success):
-                        for user in success.friendship {
-                            if user != email {
-                                friends.append(user)
-                            }
-                        }
+                        friends.append(success)
                     case .failure(let error):
                         print("[error]:: getting some of the friendships -- \(error.localizedDescription)")
                 }
             }
             completion(.success(friends))
+        }
+    }
+    
+    func getAllFriendRequests(forUser email: String, completion: @escaping (Result<[FriendRequest], Error>) -> ()) {
+        var friendRequests: [FriendRequest] = []
+        
+        friendRequestCollection.whereField("request", arrayContains: email).getDocuments { querySnapshot, error in
+            guard let snapshot = querySnapshot, error == nil else {
+                print("[error]:: getting all friends -- \(error!.localizedDescription)")
+                completion(.failure(error!))
+                return
+            }
+            
+            for document in snapshot.documents {
+                let result = Result {
+                    try document.data(as: FriendRequest.self)
+                }
+                
+                switch result {
+                    case .success(let success):
+                        friendRequests.append(success)
+                    case .failure(let error):
+                        print("[error]:: getting some of the requests -- \(error.localizedDescription)")
+                }
+            }
+            completion(.success(friendRequests))
         }
     }
 }

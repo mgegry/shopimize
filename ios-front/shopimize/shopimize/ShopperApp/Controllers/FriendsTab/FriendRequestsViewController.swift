@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class FriendRequestsViewController: UIViewController {
-
+    
     let tableView = UITableView()
+    
+    var users: [User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +21,57 @@ class FriendRequestsViewController: UIViewController {
         setupNavigation()
         setupTable()
         setupConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        var friendRequests: [FriendRequest] = []
+        var users: [User] = []
+        
+        let group = DispatchGroup()
+        let queue = DispatchQueue(label: "friendRequestQueue")
+        
+        guard let userEmail = Auth.auth().currentUser?.email else { return }
+        
+        group.enter()
+        queue.async {
+            DBFriendManager.shared.getAllFriendRequests(forUser: userEmail) { result in
+                switch result {
+                    case .success(let requests):
+                        friendRequests = requests
+                    case .failure(_):
+                        print("xd")
+                        
+                }
+                group.leave()
+            }
+        }
+        
+        queue.async {
+            group.wait()
+            for friendRequest in friendRequests {
+                for user in friendRequest.request {
+                    if (user != userEmail) {
+                        group.enter()
+                        DBUserManager.shared.getUserFirestore(withEmail: user) { result in
+                            switch result {
+                                case .success(let user):
+                                    users.append(user)
+                                case .failure(_):
+                                    print("Error getting friend requests")
+                            }
+                            group.leave()
+                        }
+                    }
+                }
+            }
+            group.notify(queue: .main) { [weak self] in
+                self?.users = users
+                self?.tableView.reloadData()
+            }
+        }
+        
     }
     
     private func setupTable() {
@@ -52,8 +106,10 @@ class FriendRequestsViewController: UIViewController {
     @objc func didTapClose() {
         self.dismiss(animated: true, completion: nil)
     }
-
+    
 }
+
+// MARK: EXTENSIONS
 
 extension FriendRequestsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -61,11 +117,13 @@ extension FriendRequestsViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return users.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alert = UIAlertController(title: "Accept friend request from name?", message: "", preferredStyle: UIAlertController.Style.actionSheet)
+        let alert = UIAlertController(title: "Accept friend request from \(users[indexPath.row].username!)?",
+                                      message: "",
+                                      preferredStyle: UIAlertController.Style.actionSheet)
         alert.addAction(UIAlertAction(title: "Accept", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Decline", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -79,9 +137,20 @@ extension FriendRequestsViewController: UITableViewDelegate, UITableViewDataSour
             fatalError("Can not dequeue cell with identifier friendsCell")
         }
         
-        cell.userLabel.text = "mirceaegry"
-        cell.emailLabel.text = "mircea.egry@yahoo.com"
-
+        cell.userLabel.text = users[indexPath.row].username
+        cell.emailLabel.text = users[indexPath.row].id
+        
+        if let imageUrl = users[indexPath.row].imageUrl {
+            StorageManager.shared.fetchImage(from: URL(string: imageUrl)!) { data in
+                guard let data = data else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    cell.image.image = UIImage(data: data)
+                }
+            }
+        }
+        
         return cell
     }
     

@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
-struct FriendRequest: Codable{
-    var userOne: String
-    var userTwo: String
+struct FriendRequest: Codable {
+    var request: [String]
+    var createdAt: Timestamp
     
     enum CodingKeys: String, CodingKey {
-        case userOne = "user_one"
-        case userTwo = "user_two"
+        case request
+        case createdAt = "created_at"
     }
 }
