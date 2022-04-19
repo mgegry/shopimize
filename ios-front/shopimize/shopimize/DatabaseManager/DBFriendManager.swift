@@ -12,7 +12,7 @@ class DBFriendManager {
     
     static let shared = DBFriendManager()
     
-    private let friendCollection = FirebaseReferences.db.collection("Friend")
+    let friendCollection = FirebaseReferences.db.collection("Friend")
     private let friendRequestCollection = FirebaseReferences.db.collection("FriendRequest")
     
     private init() {}
@@ -101,7 +101,17 @@ class DBFriendManager {
             let _ = try friendRequestCollection.addDocument(from: request)
             completion(true)
         } catch let error {
-            print("[error]:: sending friend request -- \(error.localizedDescription)")
+            print("[error]:: adding friend request -- \(error.localizedDescription)")
+            completion(false)
+        }
+    }
+    
+    func addFriend(friend: Friend, completion: @escaping (Bool) -> ()) {
+        do {
+            let _ = try friendCollection.addDocument(from: friend)
+            completion(true)
+        } catch let error {
+            print("[error]:: adding friend -- \(error.localizedDescription)")
             completion(false)
         }
     }

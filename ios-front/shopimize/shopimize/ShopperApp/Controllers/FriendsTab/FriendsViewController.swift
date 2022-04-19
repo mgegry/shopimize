@@ -18,24 +18,25 @@ class FriendsViewController: UIViewController {
         guard let email = Auth.auth().currentUser?.email else { return }
         let group = DispatchGroup()
         let queue = DispatchQueue(label: "q")
-        var friends: [Friend] = []
+        
         var users: [User] = []
+        var friends: [Friend] = []
         
         group.enter()
         queue.async {
             DBFriendManager.shared.getAllFriends(forUser: email) { result in
-                
+
                 switch result {
                     case .success(let f):
                         friends = f
-                        
+
                     case .failure(_):
                         print("failure")
                 }
                 group.leave()
             }
         }
-        
+
         queue.async {
             group.wait()
             for friend in friends {
@@ -54,7 +55,7 @@ class FriendsViewController: UIViewController {
                     }
                 }
             }
-            
+
             group.notify(queue: .main) { [weak self] in
                 self?.users = users
                 self?.tableView.reloadData()
@@ -120,8 +121,8 @@ class FriendsViewController: UIViewController {
     }
     
     @objc func didTapFriendRequests() {
-        let vc = UINavigationController(rootViewController: FriendRequestsViewController())
-        present(vc, animated: true, completion: nil)
+        let vc = FriendRequestsViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

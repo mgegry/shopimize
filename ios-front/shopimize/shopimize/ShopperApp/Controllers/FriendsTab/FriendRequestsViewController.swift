@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class FriendRequestsViewController: UIViewController {
     
@@ -95,15 +96,8 @@ class FriendRequestsViewController: UIViewController {
     }
     
     private func setupNavigation() {
-        let closeButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(didTapClose))
-        
-        navigationItem.rightBarButtonItem = closeButton
         navigationItem.title = "Friend requests"
         navigationController?.navigationBar.prefersLargeTitles = false
-    }
-    
-    @objc func didTapClose() {
-        self.dismiss(animated: true, completion: nil)
     }
     
 }
@@ -124,11 +118,57 @@ extension FriendRequestsViewController: UITableViewDelegate, UITableViewDataSour
                                       message: "",
                                       preferredStyle: UIAlertController.Style.actionSheet)
         guard let id = friendRequests[indexPath.row].id else { return }
-        print(id)
+        let friend = Friend(friendship: [friendRequests[indexPath.row].toUser, friendRequests[indexPath.row].fromUser],
+                            createdAt: Timestamp(date: Date.now))
         
         alert.addAction(UIAlertAction(title: "Accept", style: .default, handler: { _ in
-            /// Create friendship
+            /// Create friendsip
+            
+            let group = DispatchGroup()
+            let queue = DispatchQueue(label: "addFriendQueue")
+            
+            group.enter()
+            queue.async {
+                DBFriendManager.shared.deleteFriendRequest(withId: id) { result in
+                    guard result == true else {
+                        let secondAlert = UIAlertController(title: "Unable to respond to request",
+                                                            message: "",
+                                                            preferredStyle: .alert)
+                        secondAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                        DispatchQueue.main.async { [weak self] in
+                            self?.present(alert, animated: true, completion: nil)
+                        }
+                        return
+                    }
+                    group.leave()
+                }
+            }
+            
+            queue.async {
+                group.wait()
+                group.enter()
+                DBFriendManager.shared.addFriend(friend: friend) { result in
+                    guard result == true else {
+                        let secondAlert = UIAlertController(title: "Unable to respond to request",
+                                                            message: "",
+                                                            preferredStyle: .alert)
+                        secondAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                        DispatchQueue.main.async { [weak self] in
+                            self?.present(alert, animated: true, completion: nil)
+                        }
+                        return
+                    }
+                    
+                    DispatchQueue.main.async { [weak self] in
+                        self?.users.remove(at: indexPath.row)
+                        self?.friendRequests.remove(at: indexPath.row)
+                        self?.tableView.reloadData()
+                    }
+                    group.leave()
+                }
+            }
         }))
+            
         alert.addAction(UIAlertAction(title: "Decline", style: .default, handler: { _ in
             
             DBFriendManager.shared.deleteFriendRequest(withId: id) { result in
