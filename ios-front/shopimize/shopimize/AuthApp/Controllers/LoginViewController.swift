@@ -134,6 +134,8 @@ class LoginViewController: UIViewController {
                     }
                     group.leave()
                 }
+                let defaults = UserDefaults.standard
+                defaults.set(loggedInEmail, forKey: "loggedInUser")
             }
         }
         

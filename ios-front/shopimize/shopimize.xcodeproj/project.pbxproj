@@ -85,6 +85,7 @@
 		2BFDD8FD280D799C006932F5 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8FC280D799C006932F5 /* Friend.swift */; };
 		2BFDD8FF280D959F006932F5 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD8FE280D959F006932F5 /* TextFieldExtension.swift */; };
 		2BFDD901280DB69D006932F5 /* DBFriendManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD900280DB69D006932F5 /* DBFriendManager.swift */; };
+		2BFDD903280F0FAB006932F5 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDD902280F0FAA006932F5 /* UIImageViewExtension.swift */; };
 		B0B13B60D9ABAE188B61280D /* Pods_shopimizeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +188,7 @@
 		2BFDD8FC280D799C006932F5 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		2BFDD8FE280D959F006932F5 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 		2BFDD900280DB69D006932F5 /* DBFriendManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBFriendManager.swift; sourceTree = "<group>"; };
+		2BFDD902280F0FAA006932F5 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		44D376BFFD88285165CAB480 /* Pods_shopimize.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimize.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B3466F07B6902E7614D5A7 /* Pods-shopimize.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopimize.release.xcconfig"; path = "Target Support Files/Pods-shopimize/Pods-shopimize.release.xcconfig"; sourceTree = "<group>"; };
 		938F5C916EA0D63352BC744E /* Pods_shopimizeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shopimizeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -493,6 +495,7 @@
 				2BFDD8E3280C7860006932F5 /* CustomLabel.swift */,
 				2B2A645327EBD50F00BED7E0 /* CustomTextField.swift */,
 				2BFDD8FE280D959F006932F5 /* TextFieldExtension.swift */,
+				2BFDD902280F0FAA006932F5 /* UIImageViewExtension.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -852,6 +855,7 @@
 				2BFDD8DB280B31DE006932F5 /* FriendView.swift in Sources */,
 				2B22A82D27D43BCE00D94B6B /* TableConstants.swift in Sources */,
 				2BFDD8DD280B3F24006932F5 /* ProfileView.swift in Sources */,
+				2BFDD903280F0FAB006932F5 /* UIImageViewExtension.swift in Sources */,
 				2B71A00927DCCE5B008EE339 /* Item.swift in Sources */,
 				2B22A81127D2D58700D94B6B /* FormConstants.swift in Sources */,
 				2B2A644F27EBD2FD00BED7E0 /* AddStoreViewController.swift in Sources */,

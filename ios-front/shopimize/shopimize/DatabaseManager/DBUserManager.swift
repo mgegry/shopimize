@@ -86,5 +86,14 @@ class DBUserManager {
         }
     }
     
+    func saveProfileImageForUser(withEmail email: String, toPath path: String, completion: @escaping (Bool) -> ()) {
+        userCollection.document(email).updateData(["image_url": path]) { error in
+            if let err = error {
+                print("[error]:: saving profile image path to firestore -- \(err.localizedDescription)")
+                completion(false)
+            }
+            completion(true)
+        }
+    }
 }
 

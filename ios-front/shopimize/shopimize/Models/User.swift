@@ -20,6 +20,7 @@ struct User: Codable  {
     var roleStoreID: String?
     var createdAt: Timestamp
     var isActive: Bool
+    var imageUrl: String?
     
     /// Enum containing the coding key for each field
     enum CodingKeys: String, CodingKey {
@@ -30,5 +31,6 @@ struct User: Codable  {
         case roleStoreID = "role_store_id"
         case createdAt = "created_at"
         case isActive = "is_active"
+        case imageUrl = "image_url"
     }
 }
