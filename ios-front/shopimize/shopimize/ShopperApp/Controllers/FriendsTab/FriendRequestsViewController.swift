@@ -40,6 +40,7 @@ class FriendRequestsViewController: UIViewController {
                 switch result {
                     case .success(let requests):
                         friendRequests = requests
+                        
                     case .failure(_):
                         print("xd")
                         
@@ -51,19 +52,15 @@ class FriendRequestsViewController: UIViewController {
         queue.async {
             group.wait()
             for friendRequest in friendRequests {
-                for user in friendRequest.request {
-                    if (user != userEmail) {
-                        group.enter()
-                        DBUserManager.shared.getUserFirestore(withEmail: user) { result in
-                            switch result {
-                                case .success(let user):
-                                    users.append(user)
-                                case .failure(_):
-                                    print("Error getting friend requests")
-                            }
-                            group.leave()
-                        }
+                group.enter()
+                DBUserManager.shared.getUserFirestore(withEmail: friendRequest.fromUser) { result in
+                    switch result {
+                        case .success(let user):
+                            users.append(user)
+                        case .failure(_):
+                            print("Error getting friend requests")
                     }
+                    group.leave()
                 }
             }
             group.notify(queue: .main) { [weak self] in
@@ -71,8 +68,8 @@ class FriendRequestsViewController: UIViewController {
                 self?.tableView.reloadData()
             }
         }
-        
     }
+    
     
     private func setupTable() {
         view.addSubview(tableView)

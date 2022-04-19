@@ -47,7 +47,33 @@ class DBFriendManager {
     func getAllFriendRequests(forUser email: String, completion: @escaping (Result<[FriendRequest], Error>) -> ()) {
         var friendRequests: [FriendRequest] = []
         
-        friendRequestCollection.whereField("request", arrayContains: email).getDocuments { querySnapshot, error in
+        friendRequestCollection.whereField("to_user", isEqualTo: email).getDocuments { querySnapshot, error in
+            guard let snapshot = querySnapshot, error == nil else {
+                print("[error]:: getting all friends -- \(error!.localizedDescription)")
+                completion(.failure(error!))
+                return
+            }
+            
+            for document in snapshot.documents {
+                let result = Result {
+                    try document.data(as: FriendRequest.self)
+                }
+                
+                switch result {
+                    case .success(let success):
+                        friendRequests.append(success)
+                    case .failure(let error):
+                        print("[error]:: getting some of the requests -- \(error.localizedDescription)")
+                }
+            }
+            completion(.success(friendRequests))
+        }
+    }
+    
+    func getAllSentFriendRequests(forUser email: String, completion: @escaping (Result<[FriendRequest], Error>) -> ()) {
+        var friendRequests: [FriendRequest] = []
+        
+        friendRequestCollection.whereField("from_user", isEqualTo: email).getDocuments { querySnapshot, error in
             guard let snapshot = querySnapshot, error == nil else {
                 print("[error]:: getting all friends -- \(error!.localizedDescription)")
                 completion(.failure(error!))
