@@ -68,45 +68,75 @@ class LoginViewController: UIViewController {
     /// Called when the login button is pressed
     @objc func didTapLogin() {
         
-        FBAuthManager.shared.loginUserFirebase(withEmail: loginView.email.text ?? " ", password: loginView.password.text ?? " ") { [weak self] result in
-            guard let strongSelf = self else { return }
-            
-            switch result {
-                case .success(let email):
-                    DBUserManager.shared.getUserRoleFirestore(withEmail: email) { result in
+        let group = DispatchGroup()
+        let queue = DispatchQueue(label: "loginQueue")
+        var loggedInEmail: String = ""
+        var failure: Bool = false
+        
+        guard let email = loginView.email.text, email != "",
+              let password = loginView.password.text, password != "" else {
+                  
+                  return
+              }
+        
+        group.enter()
+        queue.async {
+            FBAuthManager.shared.loginUserFirebase(withEmail: email,
+                                                   password: password) { [weak self] result in
+                
+                guard let strongSelf = self else { return }
+                
+                switch result {
+                    case .success(let success):
+                        loggedInEmail = success
+                    case .failure(_):
+                        failure = true
+                        let alert = UIAlertController(title: "Sign in error",
+                                                      message: "Email or password entered are incorrect",
+                                                      preferredStyle: .alert)
                         
-                        switch result {
-                            case .success(var role):
-                                
-                                if role != "shopper" && role != "market" && role != "superuser" {
-                                    role = "shopper"
-                                }
-                                
-                                DispatchQueue.main.async {
-                                    strongSelf.displayApp(basedOnRole: role)
-                                }
-                                
-                            case .failure(_):
-                                let alert = UIAlertController(title: "Sign in error", message: "Error signing in", preferredStyle: .alert)
-                                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                                
-                                DispatchQueue.main.async {
-                                    strongSelf.present(alert, animated: true, completion: nil)
-                                }
+                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                        
+                        DispatchQueue.main.async {
+                            strongSelf.present(alert, animated: true, completion: nil)
                         }
-                    }
-                case .failure(_):
-                    let alert = UIAlertController(title: "Sign in error",
-                                                  message: "Email or password entered are incorrect",
-                                                  preferredStyle: .alert)
-                    
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                    
-                    DispatchQueue.main.async {
-                        strongSelf.present(alert, animated: true, completion: nil)
-                    }
+                }
+                group.leave()
             }
         }
+        
+        
+        queue.async {
+            group.wait()
+            if !failure {
+                group.enter()
+                DBUserManager.shared.getUserRoleFirestore(withEmail: loggedInEmail) { [weak self] result in
+                    guard let strongSelf = self else { return }
+                    
+                    switch result {
+                        case .success(var role):
+                            
+                            if role != "shopper" && role != "market" && role != "superuser" {
+                                role = "shopper"
+                            }
+                            
+                            DispatchQueue.main.async {
+                                strongSelf.displayApp(basedOnRole: role)
+                            }
+                            
+                        case .failure(_):
+                            let alert = UIAlertController(title: "Sign in error", message: "Error signing in", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                            
+                            DispatchQueue.main.async {
+                                strongSelf.present(alert, animated: true, completion: nil)
+                            }
+                    }
+                    group.leave()
+                }
+            }
+        }
+        
     }
     
     /// Setup the navigation view controllers and bar controller for the user app to be displayed
