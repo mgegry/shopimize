@@ -79,13 +79,23 @@ final class DBItemManager {
         }
     }
     
-    func addItemToFirestore(item: Item, completion: @escaping (Bool) -> ()) {
+    func addItemToFirestore(item: Item, completion: @escaping (String?) -> ()) {
         do {
-            let _ = try itemCollection.addDocument(from: item)
-            completion(true)
+            let fuata = try itemCollection.addDocument(from: item)
+            completion(fuata.documentID)
         } catch let error {
             print("[error]:: adding item to firebase -- \(error.localizedDescription)")
-            completion(false)
+            completion(nil)
+        }
+    }
+    
+    func addImageUrlForItem(withId id: String, imagePath: String, completion: @escaping (Bool) -> ()) {
+        itemCollection.document(id).updateData(["image_url": imagePath]) { error in
+            if let err = error {
+                print("[error]:: saving profile image path to firestore -- \(err.localizedDescription)")
+                completion(false)
+            }
+            completion(true)
         }
     }
     

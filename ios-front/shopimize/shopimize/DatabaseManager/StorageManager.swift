@@ -29,8 +29,20 @@ class StorageManager {
                 completion(false)
                 return
             }
-            
             completion(true)
+        }
+    }
+    
+    func getItemPictureURL(picture_id: String,  completion: @escaping (Result<URL, Error>) -> ()) {
+        let path = "item_images/" + picture_id + "/itemImage.png"
+        let storageRef = FirebaseReferences.storage.reference().child(path)
+        
+        storageRef.downloadURL { url, error in
+            guard let url = url, error == nil else {
+                completion(.failure(error!))
+                return
+            }
+            completion(.success(url))
         }
     }
     

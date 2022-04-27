@@ -31,6 +31,6 @@ struct Item: Codable, Identifiable {
         case description
         case createdAt = "created_at"
         case isActive = "is_active"
-        case imageURL
+        case imageURL = "image_url"
     }
 }

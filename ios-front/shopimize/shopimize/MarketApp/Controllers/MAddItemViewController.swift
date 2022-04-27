@@ -66,13 +66,66 @@ class MAddItemViewController: UIViewController {
                         createdAt: Timestamp(date: Date.now),
                         isActive: addItemView.isActiveSwitch.isOn)
         
-        DBItemManager.shared.addItemToFirestore(item: item) { [weak self] result in
-            guard let strongSelf = self else { return }
-            
-            if result {
-                strongSelf.navigationController?.popViewController(animated: true)
-            } else {
-                // TODO: DISPLAY ALERT
+        var itemID = ""
+        var imageURL = ""
+        
+        let group = DispatchGroup()
+        let queue = DispatchQueue(label: "saveItemQueue")
+        
+        group.enter()
+        queue.async {
+            DBItemManager.shared.addItemToFirestore(item: item) { result in
+                
+                if let item_id = result {
+                    itemID = item_id
+                } else {
+                    // TODO: DISPLAY ALERT
+                }
+                group.leave()
+            }
+        }
+        
+        queue.async { [weak self] in
+            group.wait()
+            if let image = self?.itemImage {
+                let path = "item_images/" + itemID + "/itemImage.png"
+                group.enter()
+                StorageManager.shared.addImageToFirebaseStorage(image, toPath: path) { result in
+                    if result {
+                        DispatchQueue.main.async {
+                            self?.navigationController?.popViewController(animated: true)
+                        }
+                    }
+                    else {
+                        // TODO: DIsplay alert
+                    }
+                    group.leave()
+                }
+            }
+        }
+        
+        queue.async {
+            group.wait()
+            group.enter()
+            StorageManager.shared.getItemPictureURL(picture_id: itemID) { result in
+                switch (result) {
+                    case .success(let url):
+                        imageURL = url.absoluteString
+                    case .failure(_):
+                        print("error1")
+                }
+                group.leave()
+            }
+        }
+        
+        queue.async {
+            group.wait()
+            group.enter()
+            DBItemManager.shared.addImageUrlForItem(withId: itemID, imagePath: imageURL) { result in
+                if (!result) {
+                    print("error")
+                }
+                group.leave()
             }
         }
     }
