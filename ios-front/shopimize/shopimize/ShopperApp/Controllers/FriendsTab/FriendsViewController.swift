@@ -17,7 +17,7 @@ class FriendsViewController: UIViewController {
         super.viewWillAppear(animated)
         guard let email = Auth.auth().currentUser?.email else { return }
         let group = DispatchGroup()
-        let queue = DispatchQueue(label: "q")
+        let queue = DispatchQueue(label: "getAllFriendsQueue")
         
         var users: [User] = []
         var friends: [Friend] = []

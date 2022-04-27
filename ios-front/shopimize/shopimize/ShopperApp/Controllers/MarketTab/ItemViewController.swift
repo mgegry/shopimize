@@ -19,7 +19,7 @@ class ItemViewController: UIViewController {
     private let collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         viewLayout.scrollDirection = .vertical
-        viewLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2 - 10, height: UIScreen.main.bounds.width / 2)
+        viewLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2 - 10, height: UIScreen.main.bounds.height / 3)
         viewLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         // viewLayout.sectionHeadersPinToVisibleBounds = true
         // viewLayout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 20)
@@ -38,6 +38,7 @@ class ItemViewController: UIViewController {
         view.backgroundColor = .backgroundGrey
         view.addSubview(collectionView)
         
+        setupNavigation()
         setupCollectionView()
         setupConstraints()
     }
@@ -71,7 +72,7 @@ class ItemViewController: UIViewController {
         //self.collectionView.alwaysBounceVertical = true
         
         self.collectionView.backgroundColor = .backgroundGrey
-        self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "itemCellC")
+        self.collectionView.register(ItemTableViewCell.self, forCellWithReuseIdentifier: "itemCellC")
         self.collectionView.register(UICollectionViewCell.self,
                                      forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                      withReuseIdentifier: "header")
@@ -87,6 +88,11 @@ class ItemViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
+    private func setupNavigation() {
+        navigationItem.title = "Items"
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
 }
 
 // MARK: Extensions
@@ -96,7 +102,7 @@ class ItemViewController: UIViewController {
 extension ItemViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -104,8 +110,12 @@ extension ItemViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCellC", for: indexPath)
-        cell.backgroundColor = .white
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCellC", for: indexPath) as? ItemTableViewCell else {
+            fatalError("Could not deque cell with identifier itemCellC")
+        }
+        cell.image.image = UIImage(systemName: "person")
+        
+        
         return cell
     }
     

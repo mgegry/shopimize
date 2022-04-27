@@ -30,6 +30,8 @@ class FriendsTableViewCell: UITableViewCell {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(systemName: "person")
         image.contentMode = .scaleAspectFit
+        image.layer.cornerRadius = 10
+        image.clipsToBounds = true
         image.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return image
     }()
@@ -93,7 +95,7 @@ class FriendsTableViewCell: UITableViewCell {
             image.widthAnchor.constraint(equalToConstant: 80),
             image.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 5),
             image.leftAnchor.constraint(equalTo: containerView.leftAnchor),
-            image.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            image.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -5),
             
             userLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 5),
             userLabel.leftAnchor.constraint(equalTo: image.rightAnchor, constant: 35),
