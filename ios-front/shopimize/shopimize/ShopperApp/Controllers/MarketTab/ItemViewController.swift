@@ -114,8 +114,8 @@ extension ItemViewController: UICollectionViewDataSource {
             fatalError("Could not deque cell with identifier itemCellC")
         }
         cell.image.image = UIImage(systemName: "person")
-        cell.nameLabel.text = "Cotton trench coat futfua fuafa"
-        cell.priceLabel.text = "£45"
+        cell.nameLabel.text = items[indexPath.row].itemName
+        cell.priceLabel.text = "£ " + String(items[indexPath.row].price)
         
         return cell
     }
