@@ -27,7 +27,7 @@ struct Item: Codable, Identifiable {
         case id = "documentID"
         case itemName = "item_name"
         case price = "price"
-        case marketID
+        case marketID = "market_id"
         case description
         case createdAt = "created_at"
         case isActive = "is_active"

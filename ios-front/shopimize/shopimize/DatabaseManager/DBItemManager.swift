@@ -56,14 +56,14 @@ final class DBItemManager {
     /// - parameter completion: Escaping closure taking a result as a parameter when the request finishes
     func getItemsForMarketFirestore(marketID: String, completion: @escaping (Result<[Item], Error>) -> ()) {
         var items: [Item] = []
-        
-        itemCollection.whereField("shopID", isEqualTo: marketID).getDocuments { querySnapshot, error in
+        itemCollection.whereField("market_id", isEqualTo: "mOwigJEjoWIO2mn6ribo").getDocuments { querySnapshot, error in
             guard let snapshot = querySnapshot, error == nil  else {
                 print("[error]:: getting all items for market \(marketID) from firestore -- \(error!.localizedDescription)")
                 completion(.failure(error!))
                 return
             }
             
+            print(snapshot.documents.count)
             for document in snapshot.documents {
                 let result = Result {
                     try document.data(as: Item.self)

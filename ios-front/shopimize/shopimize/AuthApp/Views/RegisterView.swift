@@ -248,7 +248,7 @@ class RegisterView: UIView {
             container.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             container.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
-            stackView.topAnchor.constraint(equalTo: container.topAnchor),
+            stackView.topAnchor.constraint(equalTo: container.topAnchor, constant: 40),
             stackView.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -ViewConstants.formPadding),
             stackView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -ViewConstants.formBottomPadding),
             stackView.leftAnchor.constraint(equalTo: container.leftAnchor, constant: ViewConstants.formPadding),

@@ -19,7 +19,7 @@ class ItemViewController: UIViewController {
     private let collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         viewLayout.scrollDirection = .vertical
-        viewLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2 - 10, height: UIScreen.main.bounds.height / 3)
+        viewLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2 - 10, height: 250)
         viewLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         // viewLayout.sectionHeadersPinToVisibleBounds = true
         // viewLayout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 20)
@@ -106,7 +106,7 @@ extension ItemViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count + 5
+        return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -114,7 +114,8 @@ extension ItemViewController: UICollectionViewDataSource {
             fatalError("Could not deque cell with identifier itemCellC")
         }
         cell.image.image = UIImage(systemName: "person")
-        
+        cell.nameLabel.text = "Cotton trench coat futfua fuafa"
+        cell.priceLabel.text = "£45"
         
         return cell
     }

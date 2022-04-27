@@ -27,7 +27,7 @@ class ItemTableViewCell: UICollectionViewCell {
     var mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 10
+        stackView.spacing = 5
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .fill
@@ -37,10 +37,11 @@ class ItemTableViewCell: UICollectionViewCell {
     var infoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 1
+        stackView.spacing = 0
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.alignment = .fill
+//        stackView.setContentHuggingPriority(.defaultLow, for: .vertical)
         return stackView
     }()
     
@@ -49,25 +50,25 @@ class ItemTableViewCell: UICollectionViewCell {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(systemName: "person")
         image.contentMode = .scaleAspectFit
-        image.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+//        image.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return image
     }()
     
-    var userLabel: UILabel = {
+    var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.contentMode = .scaleAspectFit
+        label.textColor = .black
+        label.numberOfLines = 2
+        return label
+    }()
+    
+    var priceLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         return label
     }()
     
-    var emailLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.contentMode = .scaleAspectFit
-        label.textColor = .black
-        return label
-    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -88,8 +89,8 @@ class ItemTableViewCell: UICollectionViewCell {
         mainStackView.addArrangedSubview(image)
         mainStackView.addArrangedSubview(infoStackView)
         
-        infoStackView.addArrangedSubview(userLabel)
-        infoStackView.addArrangedSubview(emailLabel)
+        infoStackView.addArrangedSubview(nameLabel)
+        infoStackView.addArrangedSubview(priceLabel)
     }
     
     /// Setup the views constraints
@@ -112,9 +113,9 @@ class ItemTableViewCell: UICollectionViewCell {
             
             mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor),
             mainStackView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
-            mainStackView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+            mainStackView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 5),
             mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            image.heightAnchor.constraint(equalToConstant: 80),
+            image.heightAnchor.constraint(greaterThanOrEqualToConstant: 150),
         ])
     }
 }
