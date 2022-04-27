@@ -56,6 +56,26 @@ class FriendsViewController: UIViewController {
                 }
             }
 
+        }
+        
+        queue.async {
+            group.wait()
+            for i in users.indices {
+                group.enter()
+                if let imageUrl = users[i].imageUrl {
+                    StorageManager.shared.fetchImage(from: URL(string: imageUrl)!) { data in
+                        guard let data = data else {
+                            return
+                        }
+                        users[i].image = UIImage(data: data)!
+                        
+                        group.leave()
+                    }
+                }
+            }
+        }
+        
+        queue.async {
             group.notify(queue: .main) { [weak self] in
                 self?.users = users
                 self?.tableView.reloadData()
@@ -146,17 +166,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.userLabel.text = users[indexPath.row].username
         cell.shoppingStatusLabel.text = "Currently shopping"
-        
-        if let imageUrl = users[indexPath.row].imageUrl {
-            StorageManager.shared.fetchImage(from: URL(string: imageUrl)!) { data in
-                guard let data = data else {
-                    return
-                }
-                DispatchQueue.main.async {
-                    cell.image.image = UIImage(data: data)
-                }
-            }
-        }
+        cell.image.image = users[indexPath.row].image
         
         return cell
     }
