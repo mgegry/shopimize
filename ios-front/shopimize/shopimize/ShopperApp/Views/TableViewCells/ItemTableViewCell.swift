@@ -50,6 +50,8 @@ class ItemTableViewCell: UICollectionViewCell {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(systemName: "person")
         image.contentMode = .scaleAspectFit
+        image.layer.cornerRadius = 10
+        image.clipsToBounds = true
         image.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return image
     }()

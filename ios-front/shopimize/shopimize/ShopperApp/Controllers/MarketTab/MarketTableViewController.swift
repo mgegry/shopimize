@@ -22,20 +22,45 @@ class MarketTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        DBMarketManager.shared.getAllActiveMarketsFirestore { [weak self] result in
-            guard let strongSelf = self else { return }
-            
-            switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    strongSelf.markets = data
-                    strongSelf.tableView.reloadData()
-                }
+        let group = DispatchGroup()
+        let queue = DispatchQueue(label: "getMarketQueue")
+        
+        var marketsRequest: [Market] = []
+        
+        group.enter()
+        queue.async {
+            DBMarketManager.shared.getAllActiveMarketsFirestore { result in
                 
-            case .failure(_):
-                print("fauta fuata")
+                switch result {
+                case .success(let data):
+                    marketsRequest = data
+
+                case .failure(_):
+                    print("fauta fuata")
+                }
+                group.leave()
             }
         }
+        
+        queue.async {
+            group.wait()
+            for i in marketsRequest.indices {
+                group.enter()
+                DBStoreManager.shared.getStoreForId(store_id: marketsRequest[i].storeID) { result in
+                    guard let store = result else {
+                        return
+                    }
+                    marketsRequest[i].storeName = store.name
+                    group.leave()
+                }
+            }
+            group.notify(queue: .main) { [weak self] in
+                self?.markets = marketsRequest
+                self?.tableView.reloadData()
+            }
+        }
+        
+        
     }
     
     /// Do any aditional setup after the view loaded
@@ -109,15 +134,18 @@ class MarketTableViewController: UITableViewController {
             fatalError("Can not dequeue market table view cell with identifier")
         }
         
-        cell.shopName.text = markets[indexPath.row].street
+        let obj = markets[indexPath.row]
+        
+        if let storeName = markets[indexPath.row].storeName {
+            cell.nameLabel.text = storeName
+        }
+        cell.locationLabel.text = "\(obj.street), \(obj.city), \(obj.postalCode)"
         
         let date = markets[indexPath.row].createdAt.dateValue()
         let formatter = DateFormatter()
         
         formatter.dateFormat = "yyyy--MM--dd HH:mm:ss ZZZ"
         let formattedTime = formatter.string(from: date)
-        
-        cell.createdAt.text = formattedTime
 
         return cell
     }

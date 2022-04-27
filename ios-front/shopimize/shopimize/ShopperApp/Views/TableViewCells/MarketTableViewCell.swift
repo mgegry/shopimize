@@ -11,8 +11,7 @@ import UIKit
 
 class MarketTableViewCell: UITableViewCell {
     
-    /// Container holding the card for the market table view cell
-    private var containerView: UIView = {
+    var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
@@ -25,18 +24,51 @@ class MarketTableViewCell: UITableViewCell {
         return view
     }()
     
-    /// Label holding the shop name
-    var shopName: UILabel = {
+    var mainStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = 10
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        return stackView
+    }()
+    
+    var infoStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = 1
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        return stackView
+    }()
+    
+    var image: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(systemName: "person")
+        image.contentMode = .scaleAspectFit
+        image.layer.cornerRadius = 10
+        image.clipsToBounds = true
+        image.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        return image
+    }()
+    
+    var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.contentMode = .scaleAspectFit
         label.textColor = .black
         return label
     }()
     
-    var createdAt: UILabel = {
+    var locationLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.contentMode = .scaleAspectFit
         label.textColor = .black
+        label.numberOfLines = 2
         return label
     }()
     
@@ -47,53 +79,46 @@ class MarketTableViewCell: UITableViewCell {
         setupConstraints()
     }
     
-    /// No use of storyboards so the init for storyboards is set to unavailable
+    /// No support for storyboards so the initializer is set to unavailable
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+    /// Setup the container with all its views
+    private func setupContainer() {
+        self.contentView.addSubview(containerView)
+        containerView.addSubview(mainStackView)
+        mainStackView.addArrangedSubview(image)
+        mainStackView.addArrangedSubview(infoStackView)
         
+        infoStackView.addArrangedSubview(nameLabel)
+        infoStackView.addArrangedSubview(locationLabel)
     }
     
-    /// Setup the container and its views
-    private func setupContainer () {
-        addSubview(containerView)
-        addSubview(shopName)
-        addSubview(createdAt)
-    }
-    
-    /// Setup the constraints of the views
+    /// Setup the views constraints
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             
             // Container constraints
             
-            containerView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
+            containerView.topAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.topAnchor,
                                                constant: CGFloat(TableConstants.cellVerticalInset)),
             
-            containerView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor,
+            containerView.rightAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.rightAnchor,
                                                  constant: -CGFloat(TableConstants.cellHorizontalInset)),
             
-            containerView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,
+            containerView.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor,
                                                   constant: -CGFloat(TableConstants.cellVerticalInset)),
             
-            containerView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor,
+            containerView.leftAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leftAnchor,
                                                 constant: CGFloat(TableConstants.cellHorizontalInset)),
             
-            // Shop name label constraints
-            
-            shopName.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
-            shopName.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 20),
-            
-            // Date added constraints
-            
-            createdAt.topAnchor.constraint(equalTo: shopName.bottomAnchor, constant: 10),
-            createdAt.leftAnchor.constraint(equalTo: shopName.leftAnchor)
+            mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            mainStackView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+            mainStackView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            image.widthAnchor.constraint(equalToConstant: 120),
         ])
     }
 }

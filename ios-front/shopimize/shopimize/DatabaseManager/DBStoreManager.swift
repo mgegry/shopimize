@@ -53,4 +53,17 @@ class DBStoreManager {
         }
     }
     
+    func getStoreForId(store_id: String, completion: @escaping (Store?) -> ()) {
+        storeCollection.document(store_id).getDocument(as: Store.self, completion: { result in
+            switch result {
+                case .success(let success):
+                    completion(success)
+                case .failure(let failure):
+                    print("[error]:: getting user firestore -- \(failure.localizedDescription)")
+                    completion(nil)
+            }
+            
+        })
+    }
+    
 }
