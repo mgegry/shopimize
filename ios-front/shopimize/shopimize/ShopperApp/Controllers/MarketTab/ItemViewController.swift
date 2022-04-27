@@ -19,7 +19,7 @@ class ItemViewController: UIViewController {
     private let collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         viewLayout.scrollDirection = .vertical
-        viewLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2 - 10, height: 250)
+        viewLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2 - 10, height: 280)
         viewLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         // viewLayout.sectionHeadersPinToVisibleBounds = true
         // viewLayout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 20)
@@ -47,17 +47,45 @@ class ItemViewController: UIViewController {
     ///
     /// - parameter animated: States if the view will appear animated or not
     override func viewWillAppear(_ animated: Bool) {
-        DBItemManager.shared.getItemsForMarketFirestore(marketID: marketID) { [weak self] result in
-            guard let strongSelf = self else { return }
-            
-            switch result {
-            case .success(let items):
-                strongSelf.items = items
-                DispatchQueue.main.async {
-                    strongSelf.collectionView.reloadData()
+        let group = DispatchGroup()
+        let queue = DispatchQueue(label: "getItemsQueue")
+        
+        var items_request: [Item] = []
+        
+        let id = marketID
+        group.enter()
+        queue.async {
+            DBItemManager.shared.getItemsForMarketFirestore(marketID: id) { result in
+                
+                switch result {
+                case .success(let items):
+                    items_request = items
+                    
+                case .failure(_):
+                    print("Unable to get items for market \(id)")
                 }
-            case .failure(_):
-                print("Unable to get items for market \(strongSelf.marketID)")
+                group.leave()
+            }
+            group.notify(queue: .main) { [weak self] in
+                self?.items = items_request
+                self?.collectionView.reloadData()
+            }
+        }
+        
+        queue.async {
+            group.wait()
+            for i in items_request.indices {
+                if let url = items_request[i].imageURL {
+                    group.enter()
+                    StorageManager.shared.fetchImage(from: URL(string: url)!) { data in
+                        items_request[i].image = UIImage(data: data!)
+                        group.leave()
+                    }
+                }
+            }
+            group.notify(queue: .main) { [weak self] in
+                self?.items = items_request
+                self?.collectionView.reloadData()
             }
         }
     }
@@ -116,6 +144,10 @@ extension ItemViewController: UICollectionViewDataSource {
         cell.image.image = UIImage(systemName: "person")
         cell.nameLabel.text = items[indexPath.row].itemName
         cell.priceLabel.text = "£ " + String(items[indexPath.row].price)
+        
+        if let image = items[indexPath.row].image {
+            cell.image.image = image
+        }
         
         return cell
     }

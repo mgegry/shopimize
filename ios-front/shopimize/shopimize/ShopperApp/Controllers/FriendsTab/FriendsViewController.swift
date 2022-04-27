@@ -55,7 +55,10 @@ class FriendsViewController: UIViewController {
                     }
                 }
             }
-
+            group.notify(queue: .main) { [weak self] in
+                self?.users = users
+                self?.tableView.reloadData()
+            }
         }
         
         queue.async {
@@ -73,14 +76,12 @@ class FriendsViewController: UIViewController {
                     }
                 }
             }
-        }
-        
-        queue.async {
             group.notify(queue: .main) { [weak self] in
                 self?.users = users
                 self?.tableView.reloadData()
             }
         }
+        
     }
     
     override func viewDidLoad() {

@@ -27,7 +27,7 @@ class ItemTableViewCell: UICollectionViewCell {
     var mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 5
+        stackView.spacing = 0
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .fill
@@ -37,9 +37,9 @@ class ItemTableViewCell: UICollectionViewCell {
     var infoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 0
+        stackView.spacing = 5
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fill
         stackView.alignment = .fill
 //        stackView.setContentHuggingPriority(.defaultLow, for: .vertical)
         return stackView
@@ -50,7 +50,7 @@ class ItemTableViewCell: UICollectionViewCell {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(systemName: "person")
         image.contentMode = .scaleAspectFit
-//        image.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        image.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return image
     }()
     
@@ -66,6 +66,8 @@ class ItemTableViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return label
     }()
     
@@ -112,10 +114,11 @@ class ItemTableViewCell: UICollectionViewCell {
                                                 constant: 5),
             
             mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            mainStackView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+            mainStackView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -5),
             mainStackView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 5),
-            mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            image.heightAnchor.constraint(greaterThanOrEqualToConstant: 150),
+            mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -5),
+            image.heightAnchor.constraint(greaterThanOrEqualToConstant: 120),
+            infoStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60)
         ])
     }
 }

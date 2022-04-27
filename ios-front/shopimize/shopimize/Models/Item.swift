@@ -21,6 +21,7 @@ struct Item: Codable, Identifiable {
     var createdAt: Timestamp
     var isActive: Bool
     var imageURL: String?
+    var image: UIImage?
     
     /// Enum containing the coding key for each field
     enum CodingKeys: String, CodingKey {
