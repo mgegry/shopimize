@@ -18,7 +18,6 @@ class RegisterViewController: UIViewController {
     /// Load the view
     override func loadView() {
         view = registerView
-        view.backgroundColor = .white
         setupNavigation()
         registerView.registerButton.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
     }

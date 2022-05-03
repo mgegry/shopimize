@@ -30,7 +30,7 @@ class StartView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Sign In", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 10
         button.backgroundColor = .primaryViolet
         return button
     }()
@@ -41,7 +41,7 @@ class StartView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 10
         button.backgroundColor = .gray
         return button
     }()

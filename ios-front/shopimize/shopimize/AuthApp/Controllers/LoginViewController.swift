@@ -31,7 +31,6 @@ class LoginViewController: UIViewController {
     /// Load the view
     override func loadView() {
         view = loginView
-        view.backgroundColor = .white
         navigationItem.title = "Sign in"
     }
     
@@ -155,7 +154,6 @@ class LoginViewController: UIViewController {
         mtabBarController.modalPresentationStyle = .fullScreen
         mtabBarController.tabBar.backgroundColor = .backgroundGrey
         
-        navigationMarketController.toolbar.tintColor = .primaryViolet
         navigationMarketController.title = "Shop"
         navigationMarketController.tabBarItem.image = UIImage(systemName: "bag")
         navigationMarketController.tabBarItem.selectedImage = UIImage(systemName: "bag.fill")

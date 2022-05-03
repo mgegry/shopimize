@@ -188,15 +188,16 @@ class RegisterView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Sign Up", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.backgroundGrey, for: .normal)
+        button.backgroundColor = .primaryViolet
         button.layer.cornerRadius = 10
-        button.backgroundColor = .gray
         return button
     }()
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = .backgroundGrey
         addViews()
         setupConstraints()
     }

@@ -115,9 +115,9 @@ class LoginView: UIView {
         let loginButton = UIButton()
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.setTitle("Sign In", for: .normal)
-        loginButton.setTitleColor(.black, for: .normal)
+        loginButton.setTitleColor(.backgroundGrey, for: .normal)
         loginButton.layer.cornerRadius = 10
-        loginButton.backgroundColor = .gray
+        loginButton.backgroundColor = .primaryViolet
         return loginButton
     }()
     
@@ -125,6 +125,7 @@ class LoginView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = .backgroundGrey
         addViews()
         setupConstraints()
     }
