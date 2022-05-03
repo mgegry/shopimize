@@ -27,6 +27,8 @@ class MarketTableViewController: UITableViewController {
         
         var marketsRequest: [Market] = []
         
+        guard markets.isEmpty else { return }
+        
         group.enter()
         queue.async {
             DBMarketManager.shared.getAllActiveMarketsFirestore { result in
@@ -51,9 +53,34 @@ class MarketTableViewController: UITableViewController {
                         return
                     }
                     marketsRequest[i].storeName = store.name
+                    marketsRequest[i].imageUrl = store.imageUrl
                     group.leave()
                 }
             }
+            group.notify(queue: .main) { [weak self] in
+                self?.markets = marketsRequest
+                self?.tableView.reloadData()
+            }
+        }
+        
+        queue.async {
+            group.wait()
+            for i in marketsRequest.indices {
+                
+                if let url = marketsRequest[i].imageUrl {
+                    group.enter()
+                    StorageManager.shared.fetchImage(from: URL(string: url)!) { data in
+                        guard let imageData = data else {
+                            // PRINT ERROR
+                            return
+                        }
+                        
+                        marketsRequest[i].image = UIImage(data: imageData)!
+                        group.leave()
+                    }
+                }
+            }
+            
             group.notify(queue: .main) { [weak self] in
                 self?.markets = marketsRequest
                 self?.tableView.reloadData()
@@ -140,12 +167,14 @@ class MarketTableViewController: UITableViewController {
             cell.nameLabel.text = storeName
         }
         cell.locationLabel.text = "\(obj.street), \(obj.city), \(obj.postalCode)"
+        if let image = markets[indexPath.row].image {
+            cell.image.image = image
+        }
         
-        let date = markets[indexPath.row].createdAt.dateValue()
-        let formatter = DateFormatter()
-        
-        formatter.dateFormat = "yyyy--MM--dd HH:mm:ss ZZZ"
-        let formattedTime = formatter.string(from: date)
+//        let date = markets[indexPath.row].createdAt.dateValue()
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy--MM--dd HH:mm:ss ZZZ"
+//        let formattedTime = formatter.string(from: date)
 
         return cell
     }

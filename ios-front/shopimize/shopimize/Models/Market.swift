@@ -23,6 +23,8 @@ struct Market: Codable, Identifiable {
     var isActive: Bool
     var storeID: String
     var storeName: String?
+    var imageUrl: String?
+    var image: UIImage?
     
     /// Enum containing the coding key of each field
     enum CodingKeys: String, CodingKey {

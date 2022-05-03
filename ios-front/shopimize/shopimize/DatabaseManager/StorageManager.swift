@@ -46,6 +46,19 @@ class StorageManager {
         }
     }
     
+    func getStorePictureURL(picture_id: String, completion: @escaping (Result<URL, Error>) -> ()) {
+        let path = "store_images/" + picture_id + "/storeImage.png"
+        let storageRef = FirebaseReferences.storage.reference().child(path)
+        
+        storageRef.downloadURL { url, error in
+            guard let url = url, error == nil else {
+                completion(.failure(error!))
+                return
+            }
+            completion(.success(url))
+        }
+    }
+    
     func getUserProfilePicture(withEmail email: String, completion: @escaping (Result<URL, Error>) -> ()) {
         let path = "images/" + email + "/profileImage.png"
         let storageRef = FirebaseReferences.storage.reference().child(path)
