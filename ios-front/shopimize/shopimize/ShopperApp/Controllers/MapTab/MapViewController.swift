@@ -23,9 +23,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     ///
     /// - parameter animated: States if the view will apear animated or not
     override func viewWillAppear(_ animated: Bool) {
-        let ap = UINavigationBarAppearance()
-        ap.backgroundColor = .backgroundGrey
-        navigationController?.navigationBar.standardAppearance = ap
         
         locationManager.startUpdatingLocation()
 //        handle = Auth.auth().addStateDidChangeListener { [weak self] auth, user in
@@ -52,7 +49,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     ///
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundGrey
         
         setupNavbar()
         
@@ -61,8 +58,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         
         let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
+        let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
+        mapView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(mapView)
+        
+        NSLayoutConstraint.activate([
+            mapView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            mapView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+            mapView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor),
+            mapView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor)
+        ])
         
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
@@ -71,30 +76,30 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 
         var location = CLLocationCoordinate2D()
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            
-            if let data = data {
-                do {
-                    let json = try JSONDecoder().decode(LocationRequest.self, from: data)
-                    location.latitude = json.results[0].geometry.location.lat
-                    location.longitude = json.results[0].geometry.location.lng
-                    DispatchQueue.main.async {
-                        marker.position = location
-                        marker.title = "Sydney"
-                        marker.snippet = "Australia"
-                        marker.map = mapView
-                    }
-                    
-                } catch let e {
-                    print (e)
-                }
-                
-            } else if let error = error {
-                print("HTTP Request Failed \(error)")
-            }
-        }
-        task.resume()
+//        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+//
+//
+//            if let data = data {
+//                do {
+//                    let json = try JSONDecoder().decode(LocationRequest.self, from: data)
+//                    location.latitude = json.results[0].geometry.location.lat
+//                    location.longitude = json.results[0].geometry.location.lng
+//                    DispatchQueue.main.async {
+//                        marker.position = location
+//                        marker.title = "Sydney"
+//                        marker.snippet = "Australia"
+//                        marker.map = mapView
+//                    }
+//
+//                } catch let e {
+//                    print (e)
+//                }
+//
+//            } else if let error = error {
+//                print("HTTP Request Failed \(error)")
+//            }
+//        }
+//        task.resume()
         
     }
     

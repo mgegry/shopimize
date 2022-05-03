@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow()
         window?.rootViewController = UINavigationController(rootViewController: StartViewController())
+        UITabBar.appearance().tintColor = .primaryViolet
+        UINavigationBar.appearance().tintColor = .primaryViolet
+        UINavigationBar.appearance().backgroundColor = .backgroundGrey
         window?.makeKeyAndVisible()
         
         return true
