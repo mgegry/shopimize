@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     
     let profileView = ProfileView()
     var profileImage: UIImage?
+    var user: User?
     
     override func loadView() {
         view = profileView
@@ -24,49 +25,51 @@ class ProfileViewController: UIViewController {
         let queue = DispatchQueue(label: "getProfileImage")
 
         guard let emailUser = Auth.auth().currentUser?.email else { return }
-        print(emailUser)
         
-        group.enter()
-        DBUserManager.shared.getUserFirestore(withEmail: emailUser) { [weak self] result in
-            guard let strongSelf = self else { return }
-            
-            switch result {
-                case .success(let user):
-                    DispatchQueue.main.async {
-                        
-                        strongSelf.profileView.username.text = user.username
-                        strongSelf.profileView.coins.text = "\(user.points ?? 0)"
-                        strongSelf.profileView.email.text = user.id
-                    }
-                case .failure(_):
-                    print("Error getting user information")
-            }
-            group.leave()
-        }
-        
-        var url: URL?
+        var user: User?
         
         group.enter()
         queue.async {
-            StorageManager.shared.getUserProfilePicture(withEmail: emailUser) { result in
+            DBUserManager.shared.getUserFirestore(withEmail: emailUser) { result in
+                
                 switch result {
                     case .success(let success):
-                        url = success
+                        user = success
                     case .failure(_):
-                        print("error")
+                        print("Error getting user information")
                 }
                 group.leave()
             }
+            group.notify(queue: .main) {
+                self.user = user
+                self.profileView.coins.text = "\(user?.points ?? 0)"
+                self.profileView.email.text = user?.id
+                self.profileView.username.text = user?.username
+            }
         }
         
+//        var url: URL?
+//
+//        group.enter()
+//        queue.async {
+//            StorageManager.shared.getUserProfilePicture(withEmail: emailUser) { result in
+//                switch result {
+//                    case .success(let success):
+//                        url = success
+//                    case .failure(_):
+//                        print("error1")
+//                }
+//                group.leave()
+//            }
+//        }
+//
         queue.async {
             group.wait()
+            guard let url = user?.imageUrl else { return }
             group.enter()
-            
-            guard let url = url else { return }
-            StorageManager.shared.fetchImage(from: url) { data in
+            StorageManager.shared.fetchImage(from: URL(string: url)!) { data in
                 guard let data = data else {
-                    print("error")
+                    print("error2")
                     return
                 }
                 

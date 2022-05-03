@@ -278,7 +278,7 @@ class ProfileView: UIView {
             
 //            headerStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 200),
             
-            profileImage.heightAnchor.constraint(equalToConstant: 100),
+            profileImage.heightAnchor.constraint(equalToConstant: 200),
             
 //            usernameStackView.leftAnchor.constraint(equalTo: headerStackView.leftAnchor, constant: 10),
 //            coinsStackView.leftAnchor.constraint(equalTo: headerStackView.leftAnchor, constant: 10),

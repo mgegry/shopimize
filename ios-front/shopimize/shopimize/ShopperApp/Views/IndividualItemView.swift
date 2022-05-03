@@ -82,7 +82,7 @@ class IndividualItemView: UIView {
     let itemDescription: CustomLabel = {
         let label = CustomLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .right
+        label.textAlignment = .left
         label.backgroundColor = .systemGray5
         label.layer.cornerRadius = 10
         label.clipsToBounds = true
