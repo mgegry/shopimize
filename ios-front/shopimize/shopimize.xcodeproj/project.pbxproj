@@ -40,6 +40,8 @@
 		2B7E355A27E4A0E70092ADB0 /* MItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E355927E4A0E70092ADB0 /* MItemViewController.swift */; };
 		2B81813D27DBA84800863BFF /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81813C27DBA84800863BFF /* ItemTableViewCell.swift */; };
 		2B848B5D27F08F000091A756 /* GoogleMapsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B848B5C27F08F000091A756 /* GoogleMapsManager.swift */; };
+		2B8F6C992821C1CC0071315B /* IndividualItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8F6C982821C1CC0071315B /* IndividualItemViewController.swift */; };
+		2B8F6C9B2821C1FB0071315B /* IndividualItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8F6C9A2821C1FB0071315B /* IndividualItemView.swift */; };
 		2B94463A27E0F72800ED2F1A /* HomeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94463927E0F72800ED2F1A /* HomeNavigation.swift */; };
 		2B94463C27E0F94400ED2F1A /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94463B27E0F94400ED2F1A /* ItemViewController.swift */; };
 		2B960ABB27E6105800F52F0D /* ViewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B960ABA27E6105800F52F0D /* ViewConstants.swift */; };
@@ -138,6 +140,8 @@
 		2B7E355927E4A0E70092ADB0 /* MItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MItemViewController.swift; sourceTree = "<group>"; };
 		2B81813C27DBA84800863BFF /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		2B848B5C27F08F000091A756 /* GoogleMapsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsManager.swift; sourceTree = "<group>"; };
+		2B8F6C982821C1CC0071315B /* IndividualItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualItemViewController.swift; sourceTree = "<group>"; };
+		2B8F6C9A2821C1FB0071315B /* IndividualItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualItemView.swift; sourceTree = "<group>"; };
 		2B94463927E0F72800ED2F1A /* HomeNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigation.swift; sourceTree = "<group>"; };
 		2B94463B27E0F94400ED2F1A /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		2B960ABA27E6105800F52F0D /* ViewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstants.swift; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 				2BFDD8DC280B3F24006932F5 /* ProfileView.swift */,
 				2BFDD8E7280C7C56006932F5 /* AddFriendView.swift */,
 				2BFDD8ED280D4720006932F5 /* MarketFilterView.swift */,
+				2B8F6C9A2821C1FB0071315B /* IndividualItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -504,6 +509,7 @@
 				2B94463B27E0F94400ED2F1A /* ItemViewController.swift */,
 				2BFDD8EB280D46A5006932F5 /* MarketFilterViewController.swift */,
 				2B672D6F27E2036100015C4E /* CartViewController.swift */,
+				2B8F6C982821C1CC0071315B /* IndividualItemViewController.swift */,
 			);
 			path = MarketTab;
 			sourceTree = "<group>";
@@ -849,6 +855,7 @@
 				2BFDD8D7280B21A1006932F5 /* FriendRequestsViewController.swift in Sources */,
 				2BA07F7B27EF700100A82051 /* LocationRequest.swift in Sources */,
 				2B5F6E3427DD67D600F003DE /* FirebaseReferences.swift in Sources */,
+				2B8F6C9B2821C1FB0071315B /* IndividualItemView.swift in Sources */,
 				2BFDD8DB280B31DE006932F5 /* FriendView.swift in Sources */,
 				2B22A82D27D43BCE00D94B6B /* TableConstants.swift in Sources */,
 				2BFDD8DD280B3F24006932F5 /* ProfileView.swift in Sources */,
@@ -867,6 +874,7 @@
 				2B22A82B27D433A400D94B6B /* MarketTableViewCell.swift in Sources */,
 				2BFDD8D5280B217F006932F5 /* AddFriendViewController.swift in Sources */,
 				2BFDD8FD280D799C006932F5 /* Friend.swift in Sources */,
+				2B8F6C992821C1CC0071315B /* IndividualItemViewController.swift in Sources */,
 				2B960ABD27E6673A00F52F0D /* StorageManager.swift in Sources */,
 				2BBF402E27ECE3A9007359EE /* AddMarketViewController.swift in Sources */,
 				2BFDD8E4280C7860006932F5 /* CustomLabel.swift in Sources */,

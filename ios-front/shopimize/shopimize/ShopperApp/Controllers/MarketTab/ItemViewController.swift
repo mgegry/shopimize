@@ -53,6 +53,9 @@ class ItemViewController: UIViewController {
         var items_request: [Item] = []
         
         let id = marketID
+        
+        guard items.isEmpty else { return }
+        
         group.enter()
         queue.async {
             DBItemManager.shared.getItemsForMarketFirestore(marketID: id) { result in
@@ -177,6 +180,8 @@ extension ItemViewController: UICollectionViewDataSource {
 ///
 extension ItemViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let vc = IndividualItemViewController()
+        vc.item = items[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
