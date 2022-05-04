@@ -32,7 +32,7 @@ class MAddItemViewController: UIViewController {
     
     override func loadView() {
         view = addItemView
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundGrey
         
         addItemView.price.delegate = self
         

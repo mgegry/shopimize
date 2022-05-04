@@ -17,7 +17,7 @@ class AddStoreViewController: UIViewController {
     
     override func loadView() {
         view = mainView
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundGrey
     }
     
     override func viewDidLoad() {

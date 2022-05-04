@@ -20,7 +20,7 @@ class AddMarketViewController: UIViewController {
     
     override func loadView() {
         view = mainView
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundGrey
         
         mainView.storePicker.delegate = self
         mainView.storePicker.dataSource = self

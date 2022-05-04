@@ -45,7 +45,7 @@ class MItemViewController: UIViewController {
     /// Do any aditional setup after the view was loaded
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .backgroundGrey
         view.addSubview(tableView)
         setupTable()
         setupConstraints()

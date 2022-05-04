@@ -22,7 +22,7 @@ class AddAccountViewController: UIViewController {
     
     override func loadView() {
         view = mainView
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundGrey
         
         mainView.accountPicker.delegate = self
         mainView.accountPicker.dataSource = self
