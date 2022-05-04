@@ -58,9 +58,9 @@ class AddFriendView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Send friend request", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.setTitleColor(.systemGray, for: .highlighted)
-        button.backgroundColor = .systemGray5
+        button.backgroundColor = .primaryViolet
         button.layer.cornerRadius = 10
         return button
     }()
@@ -95,7 +95,7 @@ class AddFriendView: UIView {
 //            stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
             
             usernameStack.heightAnchor.constraint(equalToConstant: 100),
-            addFriendButton.heightAnchor.constraint(equalToConstant: 35)
+            addFriendButton.heightAnchor.constraint(equalToConstant: 50)
             
         ])
     }

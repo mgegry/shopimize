@@ -40,11 +40,11 @@ class ProfileViewController: UIViewController {
                 }
                 group.leave()
             }
-            group.notify(queue: .main) {
-                self.user = user
-                self.profileView.coins.text = "\(user?.points ?? 0)"
-                self.profileView.email.text = user?.id
-                self.profileView.username.text = user?.username
+            group.notify(queue: .main) { [weak self] in
+                self?.user = user
+                self?.profileView.coins.text = "\(user?.points ?? 0)"
+                self?.profileView.email.text = user?.id
+                self?.profileView.username.text = user?.username
             }
         }
         

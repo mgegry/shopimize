@@ -192,6 +192,7 @@ class AddItemView: UIView {
         let picker = UIPickerView()
         picker.translatesAutoresizingMaskIntoConstraints = false
         picker.setContentHuggingPriority(.defaultLow, for: .vertical)
+        picker.sizeToFit()
         return picker
     }()
     
