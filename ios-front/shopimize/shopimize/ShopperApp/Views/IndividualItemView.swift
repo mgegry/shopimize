@@ -116,7 +116,7 @@ class IndividualItemView: UIView {
         return stackView
     }()
     
-    let realPurchasesButton: UIButton = {
+    let addToCartButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false;
         button.setTitle("Add to cart", for: .normal)
@@ -160,7 +160,7 @@ class IndividualItemView: UIView {
         headerStackView.addArrangedSubview(itemDescription)
         headerStackView.addArrangedSubview(coins)
 
-        bodyStackView.addArrangedSubview(realPurchasesButton)
+        bodyStackView.addArrangedSubview(addToCartButton)
         
         imageStackView.addArrangedSubview(image)
     }
@@ -195,7 +195,7 @@ class IndividualItemView: UIView {
             itemDescription.heightAnchor.constraint(equalToConstant: 100),
             coins.heightAnchor.constraint(equalToConstant: 50),
             
-            realPurchasesButton.heightAnchor.constraint(equalToConstant: 50),
+            addToCartButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
     

@@ -10,6 +10,7 @@ import UIKit
 class FriendViewController: UIViewController {
 
     let friendView = FriendView()
+    var user: User?
     
     override func loadView() {
         view = friendView
@@ -18,11 +19,12 @@ class FriendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        friendView.profileImage.image = UIImage(systemName: "person")
-        friendView.username.text = "mirciulica123"
-        friendView.email.text = "mircea@eliade.com"
-        friendView.shoppingStatus.text = "Currently shopping"
-        // Do any additional setup after loading the view.
+        navigationItem.title = user?.username
+        
+        friendView.username.text = user?.username
+        friendView.shoppingStatus.text = "Currently Shopping"
+        friendView.image.image = user?.image
+        friendView.email.text = user?.id
     }
 
 }
