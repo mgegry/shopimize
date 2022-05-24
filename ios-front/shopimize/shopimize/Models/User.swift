@@ -13,7 +13,7 @@ import FirebaseFirestore
 /// Conforms to Codable so the object can easily be encoded and decoded online
 
 struct User: Codable  {
-    @DocumentID var id: String? = UUID().uuidString
+    @DocumentID var id: String? = UUID().uuidString 
     var username: String?
     var points: Int?
     var role: String
@@ -22,6 +22,7 @@ struct User: Codable  {
     var isActive: Bool
     var imageUrl: String?
     var image: UIImage?
+    var cart: [String]?
     
     /// Enum containing the coding key for each field
     enum CodingKeys: String, CodingKey {

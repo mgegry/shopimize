@@ -8,6 +8,9 @@
 import Foundation
 import FirebaseFirestore
 
+/// This struct contains all friend properties.
+/// Conforms to Codable so the object can easily be encoded and decoded online
+
 struct Friend: Codable{
     var friendship: [String]
     var createdAt: Timestamp

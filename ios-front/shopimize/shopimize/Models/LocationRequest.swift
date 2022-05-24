@@ -7,6 +7,9 @@
 
 import Foundation
 
+/// Structs used to interpret json object coming from Places API
+/// Used to docde longitude and latitude of given address
+
 struct Location: Codable {
     var lat: Double
     var lng: Double

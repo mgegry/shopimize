@@ -9,6 +9,9 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+/// This struct contains all store properties.
+/// Conforms to Codable so the object can easily be encoded and decoded online
+
 struct Store: Codable {
     @DocumentID var id: String? = UUID().uuidString
     var name: String

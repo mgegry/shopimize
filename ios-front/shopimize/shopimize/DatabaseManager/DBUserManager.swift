@@ -95,5 +95,16 @@ class DBUserManager {
             completion(true)
         }
     }
+    
+    public func addItemToUserCart(user: String, item: String, completion: @escaping (Bool) -> ()) {
+        userCollection.document(user).updateData(["items" : FieldValue.arrayUnion([item])]) { error in
+            guard error == nil else {
+                print("[error]:: adding item to cart -- \(error!.localizedDescription)")
+                completion(false)
+                return
+            }
+            completion(true)
+        }
+    }
 }
 
