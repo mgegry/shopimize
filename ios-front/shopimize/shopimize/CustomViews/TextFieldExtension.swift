@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+/// Extension on UITextField to add done button to display keyboard
+
 extension UITextField {
     func addDoneButtonOnKeyboard(){
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))

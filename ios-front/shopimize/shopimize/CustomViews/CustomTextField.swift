@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// Custom text field with padding
+
 class CustomTextField: UITextField {
     let padding = UIEdgeInsets(top: 0,
                                left: ViewConstants.formFieldHoriztonalPadding,

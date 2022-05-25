@@ -79,6 +79,10 @@ final class DBItemManager {
         }
     }
     
+    /// Add item to firestore
+    ///
+    /// - parameter item: Item to be added to database
+    /// - parameter completion: Escaping closure taking a string as a paramter
     func addItemToFirestore(item: Item, completion: @escaping (String?) -> ()) {
         do {
             let fuata = try itemCollection.addDocument(from: item)
@@ -89,6 +93,11 @@ final class DBItemManager {
         }
     }
     
+    /// Adds the image url to item in database
+    ///
+    /// - parameter id: item id
+    /// - parameter imagePath: path to the image 
+    /// - parameter completion: Escaping closure taking a bool as a parameter when the request finishes
     func addImageUrlForItem(withId id: String, imagePath: String, completion: @escaping (Bool) -> ()) {
         itemCollection.document(id).updateData(["image_url": imagePath]) { error in
             if let err = error {

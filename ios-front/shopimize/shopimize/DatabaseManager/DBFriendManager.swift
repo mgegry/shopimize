@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseFirestoreSwift
 
+/// Singleton class handeling FIrebase Firestore communication related to the friends and friends requests collections
 class DBFriendManager {
     
     static let shared = DBFriendManager()
@@ -17,6 +18,10 @@ class DBFriendManager {
     
     private init() {}
     
+    /// Get all firends for a user
+    ///
+    /// - parameter email: user id
+    /// - parameter completion: Escaping closure taking an array of friends as a parameter when the request finishes
     func getAllFriends(forUser email: String, completion: @escaping (Result<[Friend], Error>) -> ()) {
         
         var friends: [Friend] = []
@@ -44,6 +49,10 @@ class DBFriendManager {
         }
     }
     
+    /// Gets all friend requests for a user
+    ///
+    /// - parameter email: user id
+    /// - parameter completion: Escaping closure taking an array of friend requests as a parameter when the request finishes
     func getAllFriendRequests(forUser email: String, completion: @escaping (Result<[FriendRequest], Error>) -> ()) {
         var friendRequests: [FriendRequest] = []
         
@@ -70,6 +79,10 @@ class DBFriendManager {
         }
     }
     
+    /// Gets all the sent friend requests for a user
+    ///
+    /// - parameter email: user id
+    /// - parameter completion: Escaping closure taking a result as a parameter when the request finishes
     func getAllSentFriendRequests(forUser email: String, completion: @escaping (Result<[FriendRequest], Error>) -> ()) {
         var friendRequests: [FriendRequest] = []
         
@@ -96,6 +109,10 @@ class DBFriendManager {
         }
     }
     
+    /// Adds a friend request to the Firebase database
+    ///
+    /// - parameter request: the friend request object to be added
+    /// - parameter completion: Escaping closure taking a bool as a parameter when the request finishes
     func addFriendRequest(request: FriendRequest, completion: @escaping (Bool) -> ()) {
         do {
             let _ = try friendRequestCollection.addDocument(from: request)
@@ -106,6 +123,10 @@ class DBFriendManager {
         }
     }
     
+    /// Add friend to database
+    ///
+    /// - parameter friend: the firend object to be added
+    /// - parameter completion: Escaping closure taking a bool as a parameter when the request finishes
     func addFriend(friend: Friend, completion: @escaping (Bool) -> ()) {
         do {
             let _ = try friendCollection.addDocument(from: friend)
@@ -116,6 +137,10 @@ class DBFriendManager {
         }
     }
     
+    /// Deletes a friend request
+    ///
+    /// - parameter id: friend request id
+    /// - parameter completion: Escaping closure taking a bool as a parameter when the request finishes
     func deleteFriendRequest(withId id: String, completion: @escaping (Bool) -> ()) {
         friendRequestCollection.document(id).delete { error in
             if let error = error {

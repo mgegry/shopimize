@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// Form constants
+
 struct FormConstants {
     static let horizontalMarginInset = 30
     static let textFieldHeight = 40

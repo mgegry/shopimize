@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// Struct containing view constraint constants
+
 struct ViewConstants {
     static let mainStackSpacing: CGFloat = 20
     static let formFieldStackSpacing: CGFloat = 10

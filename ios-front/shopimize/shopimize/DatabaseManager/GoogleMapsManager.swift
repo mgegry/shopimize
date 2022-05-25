@@ -8,6 +8,8 @@
 import Foundation
 import CoreLocation
 
+
+/// Singleton class to manage Google Maps APIs
 class GoogleMapsManager {
     
     static let shared = GoogleMapsManager()
@@ -18,6 +20,12 @@ class GoogleMapsManager {
     
     private init() {}
     
+    /// Decodes lan and long for a given text address
+    ///
+    /// - parameter address: the address
+    /// - parameter city: the city
+    /// - parameter postalcode: the postal code
+    /// - parameter completion: Escaping closure taking a CLLocationCoordinate2D  as a parameter when the request finishes
     func decodeAddressToLocation(address: String, city: String, postalcode: String,
                                  completion: @escaping (Result<CLLocationCoordinate2D, Error>) -> ()) {
         

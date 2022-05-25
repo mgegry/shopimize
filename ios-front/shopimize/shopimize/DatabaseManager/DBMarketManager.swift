@@ -67,6 +67,9 @@ class DBMarketManager {
         }
     }
     
+    /// Get all active markets in Market collection Firebase Firestore
+    ///
+    /// - parameter completion: Escaping closure receiving as parameter a result object
     func getAllActiveMarketsFirestore(completion: @escaping (Result<[Market], Error>) -> ()) {
         var markets: [Market] = []
         
@@ -93,6 +96,10 @@ class DBMarketManager {
         }
     }
     
+    /// Get all markets for specific store from Firebase Firestore
+    ///
+    /// - parameter store: store id for which to get markets
+    /// - parameter completion: Escaping closure receiving as parameter a result object
     func getAllMarketsForStoreFirestore(store: String, completion: @escaping (Result<[Market], Error>) -> ()) {
         var markets: [Market] = []
         

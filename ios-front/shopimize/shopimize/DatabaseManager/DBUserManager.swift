@@ -70,6 +70,10 @@ class DBUserManager {
         }
     }
     
+    /// Check that the given username is unique in the Firebase database
+    ///
+    /// - parameter username: The username to be checked
+    /// - parameter completion: Escaping closure taking a bool as a parameter
     func checkUsernameUnique(username: String, completion: @escaping (Bool) -> ()) {
         userCollection.whereField("username", isEqualTo: username).getDocuments { querySnapshot, error in
             guard let snapshot = querySnapshot, error ==  nil else {
@@ -86,6 +90,11 @@ class DBUserManager {
         }
     }
     
+    /// Save profile image for user to its Firestore document
+    ///
+    /// - parameter email: User email
+    /// - parameter toPath: Path to the image
+    /// - parameter completion: Escaping closure taking a bool as a parameter when the request finishes
     func saveProfileImageForUser(withEmail email: String, toPath path: String, completion: @escaping (Bool) -> ()) {
         userCollection.document(email).updateData(["image_url": path]) { error in
             if let err = error {
@@ -96,6 +105,10 @@ class DBUserManager {
         }
     }
     
+    /// Adds item to the user's cart
+    ///
+    /// - parameter user: user id
+    /// - parameter completion: Escaping closure taking a bool as a parameter when the request finishes
     public func addItemToUserCart(user: String, item: String, completion: @escaping (Bool) -> ()) {
         userCollection.document(user).updateData(["items" : FieldValue.arrayUnion([item])]) { error in
             guard error == nil else {

@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+/// Navigatio bar constants
+
 struct NavigationConstants {
     static let stackSpacing: CGFloat = 15
     

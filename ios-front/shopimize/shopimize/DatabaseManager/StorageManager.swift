@@ -9,12 +9,19 @@ import Foundation
 import FirebaseStorage
 import UIKit
 
+
+/// Singleton class that handles all communication with Firebase Storage
 class StorageManager {
     
     static let shared = StorageManager()
     
     private init() { }
     
+    /// Adds image to firebase storage
+    ///
+    /// - parameter image: the image to be added
+    /// - parameter toPath: path to which the image should be added
+    /// - parameter completion: Escaping closure taking a bool as a parameter when the request finishes
     func addImageToFirebaseStorage(_ image: UIImage, toPath path: String, completion: @escaping (Bool) -> ()) {
         let storageRef = FirebaseReferences.storage.reference().child(path)
         
@@ -33,6 +40,10 @@ class StorageManager {
         }
     }
     
+    /// Gets the download url for a given item picture
+    ///
+    /// - parameter picture_id: item picture id
+    /// - parameter completion: Escaping closure taking a result as a parameter when the request finishes
     func getItemPictureURL(picture_id: String,  completion: @escaping (Result<URL, Error>) -> ()) {
         let path = "item_images/" + picture_id + "/itemImage.png"
         let storageRef = FirebaseReferences.storage.reference().child(path)
@@ -46,6 +57,10 @@ class StorageManager {
         }
     }
     
+    /// Gets picture URL for  store
+    ///
+    /// - parameter picture_id: friend request id
+    /// - parameter completion: Escaping closure taking a result as a parameter when the request finishes
     func getStorePictureURL(picture_id: String, completion: @escaping (Result<URL, Error>) -> ()) {
         let path = "store_images/" + picture_id + "/storeImage.png"
         let storageRef = FirebaseReferences.storage.reference().child(path)
@@ -59,6 +74,10 @@ class StorageManager {
         }
     }
     
+    /// Gets user profile picture URL
+    ///
+    /// - parameter email: user email
+    /// - parameter completion: Escaping closure taking a result as a parameter when the request finishes
     func getUserProfilePicture(withEmail email: String, completion: @escaping (Result<URL, Error>) -> ()) {
         let path = "images/" + email + "/profileImage.png"
         let storageRef = FirebaseReferences.storage.reference().child(path)
@@ -72,6 +91,10 @@ class StorageManager {
         }
     }
     
+    /// Fetch an image for the given URL
+    ///
+    /// - parameter url: the url from where to download the image
+    /// - parameter completion: Escaping closure taking optional image data as a parameter when the request finishes
     func fetchImage(from url: URL, completionHandler: @escaping (Data?) -> ()) {
         let session = URLSession.shared
             

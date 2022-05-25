@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// Custom label that has padding left and right
+
 class CustomLabel: UILabel {
           
     override func drawText(in rect: CGRect) {

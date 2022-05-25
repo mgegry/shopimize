@@ -9,6 +9,8 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+
+/// Singleton class handeling FIrebase Firestore communication related to the store collection
 class DBStoreManager {
     
     static let shared = DBStoreManager()
@@ -17,6 +19,9 @@ class DBStoreManager {
     
     private init() { }
     
+    /// Get all sotres from database
+    ///
+    /// - parameter completion: Escaping closure taking a result as a parameter when the request finishes
     func getAllStores(completion: @escaping (Result<[Store], Error>) -> ()) {
         var stores: [Store] = []
         
@@ -43,6 +48,10 @@ class DBStoreManager {
         }
     }
     
+    /// Adds store to Firebase database
+    ///
+    /// - parameter store: the store object to be added
+    /// - parameter completion: Escaping closure taking a bool as a parameter when the request finishes
     func addStoreToFirebase(store: Store, completion: @escaping (Bool) -> ()) {
         do {
             let _ = try storeCollection.addDocument(from: store)
@@ -53,6 +62,10 @@ class DBStoreManager {
         }
     }
     
+    /// Gets the store for a given id
+    ///
+    /// - parameter store: the store id
+    /// - parameter completion: Escaping closure taking an optional store as a parameter when the request finishes
     func getStoreForId(store_id: String, completion: @escaping (Store?) -> ()) {
         storeCollection.document(store_id).getDocument(as: Store.self, completion: { result in
             switch result {
