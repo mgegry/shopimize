@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+/// Class containing friend requests table view cell design and definition
 class FriendRequestTableViewCell: UITableViewCell {
     
     /// Container holding the card for the cell

@@ -61,6 +61,11 @@ class RegisterViewController: UIViewController {
 
     }
     
+    /// Present an alert
+    ///
+    /// - parameter title: alert title
+    /// - parameter message: alert message
+    /// - parameter actions: arrays containing all the alert actions
     private func presentAlert(withTitle title: String, message: String, actions: [UIAlertAction]) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         for action in actions {

@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Class containing the friend view of the app design the setup
 class FriendView: UIView {
     
     let scrollView: UIScrollView = {
@@ -146,6 +147,7 @@ class FriendView: UIView {
     
     // MARK: Class methods
     
+    /// Add subiews to the main view
     private func setupViews() {
         self.addSubview(scrollView)
         
@@ -166,6 +168,8 @@ class FriendView: UIView {
         imageStackView.addArrangedSubview(image)
     }
     
+    
+    /// Setup views constraints
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: self.topAnchor),

@@ -188,6 +188,10 @@ class MarketTableViewController: UITableViewController {
         return CGFloat(TableConstants.cellHeight)
     }
     
+    /// Method called when one of the table cells is selected
+    ///
+    /// - parameter tableView: The current table
+    /// - parameter indexPath: The index of the current row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let marketID = markets[indexPath.row].id else {
             return

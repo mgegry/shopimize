@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Navigation Bar for the profile screen
 class ProfileNavigation: UIView {
 
     let stack: UIStackView = {

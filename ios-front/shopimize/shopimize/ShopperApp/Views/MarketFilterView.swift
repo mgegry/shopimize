@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Class containing the start view of the filter screen design the setup
 class MarketFilterView: UIView {
     
     override init(frame: CGRect) {

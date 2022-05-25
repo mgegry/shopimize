@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// Navigation Bar for the map screen
+
 class MapNavigation: UIView {
 
     let stack: UIStackView = {

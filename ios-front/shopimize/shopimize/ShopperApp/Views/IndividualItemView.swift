@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Class containing the start view of an individual item design the setup
 class IndividualItemView: UIView {
     
     let scrollView: UIScrollView = {
@@ -145,6 +146,7 @@ class IndividualItemView: UIView {
     
     // MARK: Class methods
     
+    /// Add subviews to the main view
     private func setupViews() {
         self.addSubview(scrollView)
         
@@ -165,6 +167,7 @@ class IndividualItemView: UIView {
         imageStackView.addArrangedSubview(image)
     }
     
+    /// Setup constraints for the subviews
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: self.topAnchor),

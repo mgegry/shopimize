@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Class containing friends table view cell design and definition
 class FriendsTableViewCell: UITableViewCell {
     
     /// Container holding the card for the cell

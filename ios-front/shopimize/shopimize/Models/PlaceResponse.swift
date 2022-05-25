@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// Respons comming from Google Places API
+
 class Candidate: Codable {
     var formattedAddress: String
     var geometry: Geometry

@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Class containing the start add friend screen of the app design the setup
 class AddFriendView: UIView {
 
     let stackView: UIStackView = {
@@ -78,6 +79,7 @@ class AddFriendView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// Add subviews to the main view
     private func setupSubviews() {
         self.addSubview(stackView)
         stackView.addArrangedSubview(usernameStack)
@@ -87,6 +89,7 @@ class AddFriendView: UIView {
         usernameStack.addArrangedSubview(username)
     }
     
+    /// Setup views constraints
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10),

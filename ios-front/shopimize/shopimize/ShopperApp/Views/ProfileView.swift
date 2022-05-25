@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Class containing the profile view of the app design the setup
 class ProfileView: UIView {
     
     let scrollView: UIScrollView = {
@@ -229,6 +230,7 @@ class ProfileView: UIView {
     
     // MARK: Class methods
     
+    /// Add subviews to the main view
     private func setupViews() {
         self.addSubview(scrollView)
         
@@ -258,6 +260,7 @@ class ProfileView: UIView {
         emailStackView.addArrangedSubview(email)
     }
     
+    /// Setup views constraints
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: self.topAnchor),

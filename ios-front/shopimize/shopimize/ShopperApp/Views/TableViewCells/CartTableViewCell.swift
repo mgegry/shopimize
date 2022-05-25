@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Class containing cart table view cell design and definition
 class CartTableViewCell: UITableViewCell {
 
     /// Container holding the card for the cell

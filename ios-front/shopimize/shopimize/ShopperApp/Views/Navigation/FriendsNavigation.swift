@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Navigation Bar for the friends screen
 class FriendsNavigation: UIView {
 
     let stack: UIStackView = {
